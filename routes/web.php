@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/prueba', function () {
+Route::get('/', function () {
     return view('plantilla.plantilla');
 });
