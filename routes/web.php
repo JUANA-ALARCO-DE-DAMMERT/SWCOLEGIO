@@ -16,5 +16,5 @@
 // });
 
 Route::get('/', function () {
-    return view('plantilla.plantilla');
+    return view('welcome');
 });
