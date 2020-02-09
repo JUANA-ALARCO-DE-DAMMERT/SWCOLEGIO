@@ -1,23 +1,14 @@
 <!DOCTYPE html>
-<!--
-* CoreUI - Free Bootstrap Admin Template
-* @version v2.1.12
-* @link https://coreui.io
-* Copyright (c) 2018 creativeLabs Łukasz Holeczek
-* Licensed under MIT (https://coreui.io/license)
--->
-
-<!---->
 <html lang="en">
   <head>
-    <base href="{{asset('plantilla/./')}}">
+    <base href="./">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>Sistema Web Control Académico</title>
+    <title>CoreUI Free Bootstrap Admin Template</title>
     <!-- Icons-->
     <link href="{{asset('plantilla/node_modules/@coreui/icons/css/coreui-icons.min.css')}}" rel="stylesheet">
     <link href="{{asset('plantilla/node_modules/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet">
@@ -28,41 +19,62 @@
     <link href="{{asset('plantilla/vendors/pace-progress/css/pace.min.css')}}" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-  </head>
+    <script>
+      window.dataLayer = window.dataLayer || [];
 
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      // Shared ID
+      gtag('config', 'UA-118965717-3');
+      // Bootstrap ID
+      gtag('config', 'UA-118965717-5');
+    </script>
+  </head>
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
-
+      <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full" src="{{asset('plantilla/img/brand/logo.svg')}}" width="89" height="25" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized" src="{{asset('plantilla/img/brand/sygnet.svg')}}" width="30" height="30" alt="CoreUI Logo">
       </a>
       <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
       </button>
-<!--CABECERA-->
       <ul class="nav navbar-nav ml-auto">
-
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <img class="img-avatar" src="{{asset('plantilla/img/avatars/6.jpg')}}" alt="admin@bootstrapmaster.com">
+          </a>  
+          <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-header text-center">
+              <strong>Account</strong>
+            </div>
+            <a class="dropdown-item" href="#">
+              <i class="fa fa-user"></i> Profile</a>
+            <a class="dropdown-item" href="#">
+              <i class="fa fa-wrench"></i> Settings</a>
+            <a class="dropdown-item" href="#">
+              <i class="fa fa-lock"></i> Logout</a>
+            </a>
+          </div>
+        </li>
       </ul>
-      <!-- <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-      <!-- <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
     </header>
-<!--AQUI COMIENZA LA OTRA PARTE DE LA PLANTILLA-->    
     <div class="app-body">
       <div class="sidebar">
         <nav class="sidebar-nav">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="nav-icon icon-speedometer"></i> INCIO
+              <a class="nav-link" href="index.html">
+                <i class="nav-icon icon-speedometer"></i> Dashboard
                 <span class="badge badge-primary">NEW</span>
               </a>
-<!--             </li>
-            <li class="nav-title">Themess</li>
+            </li>
+            <li class="nav-title">Theme</li>
             <li class="nav-item">
               <a class="nav-link" href="colors.html">
                 <i class="nav-icon icon-drop"></i> Colors</a>
@@ -70,11 +82,11 @@
             <li class="nav-item">
               <a class="nav-link" href="typography.html">
                 <i class="nav-icon icon-pencil"></i> Typography</a>
-            </li> -->
-            <li class="nav-title">Registro de Usuarios</li>
+            </li>
+            <li class="nav-title">Components</li>
             <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-puzzle"></i> Prueba1</a>
+                <i class="nav-icon icon-puzzle"></i> Base</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
                   <a class="nav-link" href="base/breadcrumb.html">
@@ -144,7 +156,7 @@
             </li>
             <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-cursor"></i> Prueba2</a>
+                <i class="nav-icon icon-cursor"></i> Buttons</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
                   <a class="nav-link" href="buttons/buttons.html">
@@ -164,13 +176,13 @@
                 </li>
               </ul>
             </li>
-<!--             <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="charts.html">
                 <i class="nav-icon icon-pie-chart"></i> Charts</a>
-            </li> -->
+            </li>
             <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-star"></i> Prueba3</a>
+                <i class="nav-icon icon-star"></i> Icons</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
                   <a class="nav-link" href="icons/coreui-icons.html">
@@ -194,7 +206,7 @@
                 </li>
               </ul>
             </li>
-            <!-- <li class="nav-item nav-dropdown">
+            <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-bell"></i> Notifications</a>
               <ul class="nav-dropdown-items">
@@ -211,11 +223,10 @@
                     <i class="nav-icon icon-bell"></i> Modals</a>
                 </li>
               </ul>
-            </li> -->
-
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="widgets.html">
-                <i class="nav-icon icon-calculator"></i> prueba 4
+                <i class="nav-icon icon-calculator"></i> Widgets
                 <span class="badge badge-primary">NEW</span>
               </a>
             </li>
@@ -226,24 +237,24 @@
                 <i class="nav-icon icon-star"></i> Pages</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                  <a class="nav-link" href="#" target="_top">
+                  <a class="nav-link" href="login.html" target="_top">
                     <i class="nav-icon icon-star"></i> Login</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" target="_top">
+                  <a class="nav-link" href="register.html" target="_top">
                     <i class="nav-icon icon-star"></i> Register</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" target="_top">
+                  <a class="nav-link" href="404.html" target="_top">
                     <i class="nav-icon icon-star"></i> Error 404</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" target="_top">
+                  <a class="nav-link" href="500.html" target="_top">
                     <i class="nav-icon icon-star"></i> Error 500</a>
                 </li>
               </ul>
             </li>
-<!--             <li class="nav-item mt-auto">
+            <li class="nav-item mt-auto">
               <a class="nav-link nav-link-success" href="https://coreui.io" target="_top">
                 <i class="nav-icon icon-cloud-download"></i> Download CoreUI</a>
             </li>
@@ -252,20 +263,22 @@
                 <i class="nav-icon icon-layers"></i> Try CoreUI
                 <strong>PRO</strong>
               </a>
-            </li> -->
+            </li>
           </ul>
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
       </div>
+      <main class="main">
+        <div class="container-fluid">
+          <div class="animated fadeIn">
+          <!-- Contenido dinámico-->
+          </div>
+        </div>
+      </main>
     </div>
     <footer class="app-footer">
-      <div>
-        <a href="#">Copyright</a>
-        <span>&copy; I.E.P JUANA ALARCO DE DAMMERT</span>
-      </div>
       <div class="ml-auto">
-        <span>2019-2020</span>
-        <a href="#">JUANA ALARCO DE DAMMERT</a>
+        <span>Copyright &copy; 2020.</span>
       </div>
     </footer>
     <!-- CoreUI and necessary plugins-->
@@ -275,9 +288,5 @@
     <script src="{{asset('plantilla/node_modules/pace-progress/pace.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/@coreui/coreui/dist/js/coreui.min.js')}}"></script>
-    <!-- Plugins and scripts required by this view-->
-    <script src="{{asset('plantilla/node_modules/chart.js/dist/Chart.min.js')}}"></script>
-    <script src="{{asset('plantilla/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')}}"></script>
-    <script src="{{asset('plantilla/js/main.js')}}"></script>
   </body>
 </html>
