@@ -269,6 +269,7 @@
         <div class="container-fluid">
           <div class="animated fadeIn">
           <!-- Contenido dinámico-->
+          @yield('contenido')
           </div>
         </div>
       </main>
