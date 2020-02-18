@@ -23,14 +23,11 @@
                             <td>2</td>
                             <td>3</td>
                             <td>4</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
+                            <td>
+                               <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a>         
+                               <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>         
+                               <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>         
+                            </td>
                         </tr>
                     </tbody>
                 </table>
