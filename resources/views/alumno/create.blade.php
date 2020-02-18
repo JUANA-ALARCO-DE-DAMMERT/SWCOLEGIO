@@ -3,11 +3,16 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="card">
-            <div class="card-header">
-                <i class="fa fa-edit"></i> Registro de alumnos
-            </div>
-            <div class="card-body">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#estudiante" role="tab" aria-controls="estudiante">Estudiante</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#apoderado" role="tab" aria-controls="apoderado">Apoderado</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="estudiante" role="tabpanel">
                 <form action="" method="" class="form-horizontal">
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">DNI</label>
@@ -54,7 +59,9 @@
                     </div>
                 </form>
             </div>
-        </div>
+            <div class="tab-pane active" id="apoderado" role="tabpanel">
+            
+            </div>
     </div>
 </div>
 
