@@ -23,6 +23,31 @@
                             <input class="form-control" id="" type="text" name="" placeholder="">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-md-1 col-form-label">Sexo</label>
+                        <div class="col-md-3">
+                            <select class="form-control" id="">
+                                <option value="" hidden>--- Seleccione ---</option>
+                                <option value="1">Masculino</option>
+                                <option value="0">Femenino</option>
+                            </select>
+                        </div>
+                        <label class="col-md-2 col-form-label">Fecha de Nacimiento</label>
+                        <div class="col-md-2">
+                            <input type="date" class="form-control">
+                        </div>
+                        <label class="col-md-1 col-form-label">Grado</label>
+                        <div class="col-md-3">
+                            <select class="form-control" id="">
+                                <option value="" hidden>--- Seleccione ---</option>
+                                <option value="">1° de secundaria</option>
+                                <option value="">2° de secundaria</option>
+                                <option value="">3° de secundaria</option>
+                                <option value="">4° de secundaria</option>
+                                <option value="">5° de secundaria</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-actions">
                         <input type="submit" value="Registrar" class="btn btn-primary">
                         <a href="" class="btn btn-danger">Cancelar</a>
