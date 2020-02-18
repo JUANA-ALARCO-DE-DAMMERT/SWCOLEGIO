@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('alumno.index');
+    return view('alumno.create');
 });
 
 Auth::routes();
