@@ -7,22 +7,26 @@
                 <i class=""> Alumnos</i>
             </div>
             <div class="card-body">
-                <table class="table table-responsive-sm table-hover table-sm">
+                <table class="table table-responsive-sm table-hover table-sm" id="dataTable">
                     <thead>
                         <tr>
                             <th>DNI</th>
                             <th>Apellidos</th>
                             <th>Nombres</th>
+                            <th>Sexo</th>
                             <th>Grado</th>
+                            <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
+                            <td>75200120</td>
+                            <td>RAMIREZ RODRIGUEZ</td>
+                            <td>JORGE LUIS</td>
+                            <td>Masculino</td>
+                            <td>4° de Secundaria</td>
+                            <td><span class="badge badge-success">Activo</span></td>
                             <td>
                                <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a>         
                                <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>         

@@ -1,7 +1,12 @@
 @extends('plantilla.plantilla')
 @section('contenido')
 
-<div class="row mt-4">
+<div class="container">
+    <div class="row mt-4">
+        <h4>Registro de estudiante</h4>
+    </div>
+</div>
+<div class="row mt-2">
     <div class="col-lg-12">
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
@@ -53,8 +58,6 @@
                             </select>
                         </div>
                     </div>
-                    
-                </form>    
             </div>
             <div class="tab-pane" id="apoderado" role="tabpanel">
                     <div class="form-group row">
@@ -71,11 +74,22 @@
                             <input class="form-control" id="" type="text" name="" placeholder="">
                         </div>
                     </div>  
+                    <div class="form-group row">
+                        <label class="col-md-1 col-form-label">E-mail</label>
+                        <div class="col-md-3">
+                            <input class="form-control" id="" type="mail" name="" placeholder="">
+                        </div>
+                        <label class="col-md-1 col-form-label">Teléfono</label>
+                        <div class="col-md-2">
+                            <input class="form-control" id="" type="text" name="" placeholder="">
+                        </div>
+                    </div>  
                     <div class="form-actions">
                         <input type="submit" value="Registrar" class="btn btn-primary">
                         <a href="" class="btn btn-danger">Cancelar</a>
                     </div> 
             </div>
+                </form>
     </div>
 </div>
 
