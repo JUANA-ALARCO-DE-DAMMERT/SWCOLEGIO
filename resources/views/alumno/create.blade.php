@@ -1,7 +1,7 @@
 @extends('plantilla.plantilla')
 @section('contenido')
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-lg-12">
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Sexo</label>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <select class="form-control" id="">
                                 <option value="" hidden>--- Seleccione ---</option>
                                 <option value="1">Masculino</option>
@@ -38,7 +38,7 @@
                             </select>
                         </div>
                         <label class="col-md-2 col-form-label">Fecha de Nacimiento</label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input type="date" class="form-control">
                         </div>
                         <label class="col-md-1 col-form-label">Grado</label>
@@ -53,14 +53,28 @@
                             </select>
                         </div>
                     </div>
+                    
+                </form>    
+            </div>
+            <div class="tab-pane" id="apoderado" role="tabpanel">
+                    <div class="form-group row">
+                        <label class="col-md-1 col-form-label">DNI</label>
+                        <div class="col-md-2">
+                            <input class="form-control" id="" type="text" name="" placeholder="">
+                        </div>
+                        <label class="col-md-1 col-form-label">Apellidos</label>
+                        <div class="col-md-4">
+                            <input class="form-control" id="" type="text" name="" placeholder="">
+                        </div>
+                        <label class="col-md-1 col-form-label">Nombres</label>
+                        <div class="col-md-3">
+                            <input class="form-control" id="" type="text" name="" placeholder="">
+                        </div>
+                    </div>  
                     <div class="form-actions">
                         <input type="submit" value="Registrar" class="btn btn-primary">
                         <a href="" class="btn btn-danger">Cancelar</a>
-                    </div>
-                </form>
-            </div>
-            <div class="tab-pane active" id="apoderado" role="tabpanel">
-            
+                    </div> 
             </div>
     </div>
 </div>
