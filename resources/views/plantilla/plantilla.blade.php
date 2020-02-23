@@ -74,7 +74,11 @@
             <li class="nav-title">Components</li>
             <li class="nav-item">
               <a class="nav-link" href="">
-                <i class="nav-icon icon-user"></i> Alumno</a>
+                <i class="nav-icon icon-user"></i> Alumnos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('apoderado')}}">
+                <i class="nav-icon icon-user"></i> Apoderados</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="">
