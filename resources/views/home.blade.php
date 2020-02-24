@@ -1,7 +1,6 @@
 @extends('plantilla.plantilla')
-
 @section('contenido')
-
-<h1>Bienvenido: </h1>
-
+<div class="container mt-4">
+    <h1>Bienvenido: </h1>
+</div>
 @endsection

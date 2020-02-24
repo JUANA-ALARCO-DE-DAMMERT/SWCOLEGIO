@@ -37,7 +37,17 @@ class ApoderadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'apod_dni' => 'required|unique:apoderado,apod_dni|numeric|digits:8',
+            'apod_ape' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
+            'apod_nom' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
+            'apod_sexo' => 'required',
+            'apod_email' => 'nullable',
+            'apod_tel' => 'nullable|min:7|max:13'
+        ]);
+        $data = $request->all();
+        $apod = Apoderado::create($data);
+        return redirect()->route('apoderado.index')->with('status', 'Apoderado agregado correctamente!');
     }
 
     /**

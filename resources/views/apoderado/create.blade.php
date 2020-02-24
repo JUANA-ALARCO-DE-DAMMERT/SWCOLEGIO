@@ -7,26 +7,38 @@
                 <strong>Registro de apoderado</strong>
             </div>
             <div class="card-body">
-                <form action="" class="form-horizontal"> 
+                <form action="{{url('apoderado')}}" method="POST" class="form-horizontal"> 
+                @method('POST')
+                {{ csrf_field() }}
+                    @if (count($errors)>0)
+                    <div class="alert alert-danger">
+                        <p>Corregir los siguientes campos:</p>
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">DNI</label>
                         <div class="col-md-2">
-                            <input class="form-control" id="" type="text" name="apod_dni" placeholder="">
+                            <input class="form-control" id="" type="text" name="apod_dni" placeholder="" required>
                         </div>
                         <label class="col-md-1 col-form-label">Apellidos</label>
                         <div class="col-md-4">
-                            <input class="form-control" id="" type="text" name="apod_ape" placeholder="">
+                            <input class="form-control" id="" type="text" name="apod_ape" placeholder="" required>
                         </div>
                         <label class="col-md-1 col-form-label">Nombres</label>
                         <div class="col-md-3">
-                            <input class="form-control" id="" type="text" name="apod_nom" placeholder="">
+                            <input class="form-control" id="" type="text" name="apod_nom" placeholder="" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Sexo</label>
                             <div class="col-md-2">
-                                <select class="form-control" id="" name="apod_sexo">
-                                    <option hidden>-- Seleccione --</option>
+                                <select class="form-control" id="" name="apod_sexo" required>
+                                    <option value="" hidden>-- Seleccione --</option>
                                     <option value="1">Masculino</option>
                                     <option value="0">Femenino</option>
                                 </select>

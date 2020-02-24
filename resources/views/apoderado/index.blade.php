@@ -1,8 +1,15 @@
 @extends('plantilla.plantilla')
 @section('contenido')
 <div class="row mt-4">
-    <div class="container">
+    <div class="col-md-6">
         <a href="{{url('apoderado/create')}}" class="btn btn-primary">Registrar apoderado</a>
+    </div>
+    <div class="col-md-6">
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif
     </div>
 </div>
 <div class="row mt-4">

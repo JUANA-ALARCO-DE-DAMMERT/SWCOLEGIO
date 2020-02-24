@@ -73,6 +73,10 @@
           <ul class="nav">
             <li class="nav-title">Components</li>
             <li class="nav-item">
+              <a class="nav-link" href="{{route('home')}}">
+                <i class="nav-icon icon-home"></i> Inicio</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="">
                 <i class="nav-icon icon-user"></i> Alumnos</a>
             </li>
