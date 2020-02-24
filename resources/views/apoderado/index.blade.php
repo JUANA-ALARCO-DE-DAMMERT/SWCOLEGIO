@@ -1,10 +1,15 @@
 @extends('plantilla.plantilla')
 @section('contenido')
-<div class="row">
+<div class="row mt-4">
+    <div class="container">
+        <a href="{{url('apoderado/create')}}" class="btn btn-primary">Registrar apoderado</a>
+    </div>
+</div>
+<div class="row mt-4">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <i class=""> Apoderados</i>
+                <strong>Apoderados</strong>
             </div>
             <div class="card-body">
                 <table class="table table-responsive-sm table-hover table-sm" id="dataTable">

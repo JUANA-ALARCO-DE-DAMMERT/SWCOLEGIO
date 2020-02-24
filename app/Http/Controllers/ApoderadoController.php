@@ -26,7 +26,7 @@ class ApoderadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('apoderado.create');
     }
 
     /**

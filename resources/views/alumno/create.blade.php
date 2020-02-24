@@ -77,7 +77,7 @@
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">E-mail</label>
                         <div class="col-md-3">
-                            <input class="form-control" id="" type="mail" name="" placeholder="">
+                            <input class="form-control" id="" type="email" name="" placeholder="">
                         </div>
                         <label class="col-md-1 col-form-label">Teléfono</label>
                         <div class="col-md-2">
