@@ -7,7 +7,7 @@
                 <i class=""> Apoderados</i>
             </div>
             <div class="card-body">
-                <table class="table table-responsive-sm table-hover table-sm" id="dataTable">
+                <table class="table table-responsive table-hover table-sm" id="dataTable">
                     <thead>
                         <tr>
                             <th>DNI</th>
@@ -34,10 +34,8 @@
                             </td>
                             <td>{{$apod->apod_tel}}</td>
                             <td>{{$apod->apod_email}}</td>
-                            <td>
-                               <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a>         
-                               <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>         
-                               <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>         
+                            <td>   
+                               <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>       
                             </td>
                         </tr>
                         @endforeach

@@ -7,7 +7,7 @@
                 <i class=""> Alumnos</i>
             </div>
             <div class="card-body">
-                <table class="table table-responsive-sm table-hover table-sm" id="dataTable">
+                <table class="table table-responsive table-hover table-sm" id="dataTable">
                     <thead>
                         <tr>
                             <th>DNI</th>
