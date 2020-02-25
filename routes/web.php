@@ -20,3 +20,5 @@ Auth::routes(['reset'=>false,'register'=>false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('apoderado','ApoderadoController');
+///////NUEVAS RUTAS
+Route::resource('alumno','ControllerAlumno');
