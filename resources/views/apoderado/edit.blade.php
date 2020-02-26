@@ -37,12 +37,12 @@
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Sexo</label>
                             <div class="col-md-2" >
-                                <select class="form-control" id="" name="apod_sexo" required >
+                                <select class="form-control" id="" name="apod_sexo" required readonly >
                                     <option value="" hidden>-- Seleccione --</option>
                                         @if ($apod->apod_sexo == 1)
-                                    <option value="1" >Masculino</option>
+                                    <option selected="" value="1" >Masculino</option>
                                         @else
-                                    <option value="0">Femenino</option>
+                                    <option selected="" value="0">Femenino</option>
                                         @endif
                                 </select >                       
                             </div>
