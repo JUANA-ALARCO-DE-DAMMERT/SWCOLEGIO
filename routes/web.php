@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 // Rutas del login
-Auth::routes(['reset'=>false,'register'=>false]);
+Auth::routes(['reset'=>false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('apoderado','ApoderadoController');

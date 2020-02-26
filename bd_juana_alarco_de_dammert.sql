@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-02-2020 a las 05:35:34
+-- Tiempo de generación: 26-02-2020 a las 05:43:45
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -194,6 +194,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(70327395, '70327395', '$2y$10$YEuqCO2W1HEi3jbBievKpOnHpNmusnElegx8a2zMite2mbpt/X3tS', NULL, '2020-02-26 09:43:08', '2020-02-26 09:43:08'),
 (75200120, '75200120', '$2y$10$t1HJcrYGUNkOUwGALG2.SuCXnS7aQvIv4cW7N7iiBwXnmNAM90/f2', NULL, '2020-02-14 08:06:24', '2020-02-14 08:06:24');
 
 --
