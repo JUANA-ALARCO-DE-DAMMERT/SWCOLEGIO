@@ -67,11 +67,14 @@ class ApoderadoController extends Controller
      * @param  \App\Apoderado  $apoderado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Apoderado $apoderado)
+    public function edit($id)
     {
-        //
+        $apoderado = Apoderado::find($id);
+        return view ('apoderado.edit',['apod'=>$apoderado]);
     }
-
+        // $posicion = Posicion::find($id);
+        // $ep = DB::table('estado_posicion')->get();
+        // return view('posicion.edit',['pos'=>$posicion,'estado'=>$ep]);
     /**
      * Update the specified resource in storage.
      *
@@ -79,9 +82,12 @@ class ApoderadoController extends Controller
      * @param  \App\Apoderado  $apoderado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Apoderado $apoderado)
+    public function update(Request $request, $id)
     {
-        //
+        $apoderado = Apoderado::find($id);
+        $request->all();
+        $apoderado->update($request->all());
+        return redirect()->route('apoderado.index')->with('status', 'Apoderado editado correctamente!');
     }
 
     /**

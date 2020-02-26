@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apoderado </title>
+    <meta http-equiv="refresh" content="5">
+</head>
+<body>
+
+</body>
+</html>
 @extends('plantilla.plantilla')
 @section('contenido')
 <div class="row mt-4">
@@ -47,7 +57,7 @@
                             <td>{{$apod->apod_tel}}</td>
                             <td>{{$apod->apod_email}}</td>
                             <td>   
-                               <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>       
+                               <a href="{{url('apoderado/'.$apod->apod_id.'/edit')}}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>       
                             </td>
                         </tr>
                         @endforeach
