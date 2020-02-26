@@ -23,15 +23,15 @@
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">DNI</label>
                         <div class="col-md-2">
-                            <input class="form-control" id="" type="text" name="apod_dni" placeholder="" required>
+                            <input class="form-control" id="" type="text" name="apod_dni" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                         </div>
                         <label class="col-md-1 col-form-label">Apellidos</label>
                         <div class="col-md-4">
-                            <input class="form-control" id="" type="text" name="apod_ape" placeholder="" required>
+                            <input class="form-control" id="" type="text" name="apod_ape" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                         </div>
                         <label class="col-md-1 col-form-label">Nombres</label>
                         <div class="col-md-3">
-                            <input class="form-control" id="" type="text" name="apod_nom" placeholder="" required>
+                            <input class="form-control" id="" type="text" name="apod_nom" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                         </div>
                     </div>
                     <div class="form-group row">
