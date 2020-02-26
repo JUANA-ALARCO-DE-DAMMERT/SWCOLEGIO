@@ -1,37 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Alumno </title>
-    <meta http-equiv="refresh" content="5">
-</head>
-<body>
-
-</body>
-</html>
 @extends('plantilla.plantilla')
 @section('contenido')
-<div class="mb-4">
-    <div class="row">
-        <div class="col-xl-6">
-            <a href="{{url('alumno/create')}}" class="btn btn-primary">Registrar Alumnos</a>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <a href="{{url('alumno/create')}}" class="btn btn-primary">Registrar alumno</a>
+    </div>
+    <div class="col-md-6">
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
         </div>
-        <div class="col-xl-6">
-            @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-            @endif
-        </div>
+        @endif
     </div>
 </div>
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Alumnos Registrados</h6>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-responsive-sm table-bordered table-striped table-sm" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+<div class="row mt-4">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Apoderados</strong>
+            </div>
+            <div class="card-body">
+                <table class="table table-responsive-sm table-hover table-sm" id="dataTable">
+                    <thead>
+                        <tr>
                             <th>DNI</th>
                             <th>Apellidos</th>
                             <th>Nombres</th>
@@ -39,25 +29,30 @@
                             <th>Grado</th>
                             <th>Estado</th>
                             <th>Opciones</th>
-                </thead>
-                <tbody>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td><span class="badge badge-success"></span></td>
-                            <td>
-                               <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a>         
-                               <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>         
-                               <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                               <a class="btn btn-sm "><i class="fa fa-file-pdf-o"></i></a>         
+                            <td></td>
+                            <td>   
+                                <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a> 
+                                <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a> 
+                                <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>      
                             </td>
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
+
+
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Total de alumnos por Año</h6>
     </div>

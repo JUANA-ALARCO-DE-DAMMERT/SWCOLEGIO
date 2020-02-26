@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Posicion;
+use App\Alumno;
 use Illuminate\Http\Request;
-use DB;
 
-class ControllerAlumno extends Controller
+class AlumnoController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-      return view('alumno.index');
+        return view('alumno.index');
     }
 
     /**
@@ -37,10 +41,10 @@ class ControllerAlumno extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Role  $role
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show(Alumno $alumno)
     {
         //
     }
@@ -48,10 +52,10 @@ class ControllerAlumno extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Role  $role
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit(Alumno $alumno)
     {
         //
     }
@@ -60,10 +64,10 @@ class ControllerAlumno extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Role  $role
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, Alumno $alumno)
     {
         //
     }
@@ -71,10 +75,10 @@ class ControllerAlumno extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Role  $role
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy(Alumno $alumno)
     {
         //
     }
