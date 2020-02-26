@@ -87,7 +87,7 @@ class ApoderadoController extends Controller
         $apoderado = Apoderado::find($id);
         $request->all();
         $apoderado->update($request->all());
-        return redirect()->route('apoderado.index')->with('status', 'Apoderado editado correctamente!');
+        return redirect()->route('apoderado.index')->with('status2', 'Apoderado editado correctamente!');
     }
 
     /**
@@ -96,8 +96,9 @@ class ApoderadoController extends Controller
      * @param  \App\Apoderado  $apoderado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Apoderado $apoderado)
+    public function destroy(Request $request, $id)
     {
-        //
+        $apoderado = Apoderado::destroy($id);
+        return redirect()->route('apoderado.index')->with('status3', 'Apoderado eliminado correctamente!');
     }
 }
