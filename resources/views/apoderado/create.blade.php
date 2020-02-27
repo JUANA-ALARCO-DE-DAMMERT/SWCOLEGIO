@@ -14,6 +14,9 @@
                     <div class="col-md-2">
                         <button id="btnbuscar" class="btn btn-success form-control"><i class="fa fa-search"></i> Buscar</button>
                     </div>
+                    <div class="col-md-8">
+                        <label id="mensaje" style="color: red;display: none;font-size: 12pt;">El número de DNI no es válido</label>
+                    </div>
                 </div>
                 <form action="{{url('apoderado')}}" method="POST" class="form-horizontal"> 
                 @method('POST')
@@ -81,9 +84,17 @@
                 //AJAX
                 $.get('../api/dni/'+numdni, function (data) {
                     var apoderado = JSON.parse(data);
-                    $('#apod_dni').val(apoderado.dni);            
-                    $('#apod_ape').val(apoderado.paterno + ' ' + apoderado.materno);            
-                    $('#apod_nom').val(apoderado.nombres);            
+                    if (apoderado.exito==true){
+                        $('#apod_dni').val(apoderado.dni);            
+                        $('#apod_ape').val(apoderado.paterno + ' ' + apoderado.materno);            
+                        $('#apod_nom').val(apoderado.nombres);    
+                    } else {
+                        $('#apod_dni').val('');            
+                        $('#apod_ape').val('');            
+                        $('#apod_nom').val('');  
+                        $('#mensaje').show();
+                        $('#mensaje').delay(2000).hide(2500);  
+                    }    
                 });
             } else{
                 alert('Escribir el DNI');
