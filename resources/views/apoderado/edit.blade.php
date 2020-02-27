@@ -4,7 +4,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <strong>Registro de apoderado</strong>
+                <strong>Modificar apoderado</strong>
             </div>
             <div class="card-body">
                 <form action="{{url('apoderado/'.$apod->apod_id)}}" method="POST" class="form-horizontal"> 
@@ -23,15 +23,15 @@
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">DNI</label>
                         <div class="col-md-2">
-                            <input class="form-control" id="" type="text" name="apod_dni" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{$apod->apod_dni}}" required readonly>
+                            <input class="form-control" id="" type="text" name="apod_dni" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{$apod->apod_dni}}" required readonly>
                         </div>
                         <label class="col-md-1 col-form-label">Apellidos</label>
                         <div class="col-md-4">
-                            <input class="form-control" id="" type="text" name="apod_ape" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{$apod->apod_ape}}" required readonly>
+                            <input class="form-control" id="" type="text" name="apod_ape" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{$apod->apod_ape}}" required readonly>
                         </div>
                         <label class="col-md-1 col-form-label">Nombres</label>
                         <div class="col-md-3">
-                            <input class="form-control" id="" type="text" name="apod_nom" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{$apod->apod_nom}}" required readonly>
+                            <input class="form-control" id="" type="text" name="apod_nom" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{$apod->apod_nom}}" required readonly>
                         </div>
                     </div>
                     <div class="form-group row">
