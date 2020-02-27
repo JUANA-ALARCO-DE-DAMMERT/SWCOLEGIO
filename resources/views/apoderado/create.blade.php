@@ -7,6 +7,14 @@
                 <strong>Registro de apoderado</strong>
             </div>
             <div class="card-body">
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <input class="form-control" id="dni" type="text" placeholder="Escriba el DNI" maxlength="8" minlength="8" autofocus>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="btnbuscar" class="btn btn-success form-control"><i class="fa fa-search"></i> Buscar</button>
+                    </div>
+                </div>
                 <form action="{{url('apoderado')}}" method="POST" class="form-horizontal"> 
                 @method('POST')
                 {{ csrf_field() }}
@@ -20,18 +28,19 @@
                         </ul>
                     </div>
                     @endif
+                    
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">DNI</label>
                         <div class="col-md-2">
-                            <input class="form-control" id="" type="text" name="apod_dni" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+                            <input class="form-control" id="apod_dni" type="text" name="apod_dni" readonly required>
                         </div>
                         <label class="col-md-1 col-form-label">Apellidos</label>
                         <div class="col-md-4">
-                            <input class="form-control" id="" type="text" name="apod_ape" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+                            <input class="form-control" id="apod_ape" type="text" name="apod_ape" readonly required>
                         </div>
                         <label class="col-md-1 col-form-label">Nombres</label>
                         <div class="col-md-3">
-                            <input class="form-control" id="" type="text" name="apod_nom" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+                            <input class="form-control" id="apod_nom" type="text" name="apod_nom" readonly required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -61,4 +70,29 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function(){
+        $('#btnbuscar').click(function(){
+            var numdni=$('#dni').val();
+            if (numdni!='') {
+                //AJAX
+                $.get('../api/dni/'+numdni, function (data) {
+                    var apoderado = JSON.parse(data);
+                    $('#apod_dni').val(apoderado.dni);            
+                    $('#apod_ape').val(apoderado.paterno + ' ' + apoderado.materno);            
+                    $('#apod_nom').val(apoderado.nombres);            
+                });
+            } else{
+                alert('Escribir el DNI');
+                $('#dni').focus();
+            }
+        })
+    });
+
+    
+
+</script>
 @endsection

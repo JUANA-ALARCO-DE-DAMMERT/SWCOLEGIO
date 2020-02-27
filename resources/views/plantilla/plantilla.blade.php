@@ -139,6 +139,7 @@
     <script src="{{asset('plantilla/node_modules/pace-progress/pace.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/@coreui/coreui/dist/js/coreui.min.js')}}"></script>
+    
     <!-- DataTable-->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
     <script>
@@ -168,5 +169,8 @@
         }
       });
     </script>
+
+    @yield('scripts')
+
   </body>
 </html>
