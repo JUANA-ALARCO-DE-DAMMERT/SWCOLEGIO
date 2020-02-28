@@ -102,8 +102,5 @@
             }
         })
     });
-
-    
-
 </script>
 @endsection

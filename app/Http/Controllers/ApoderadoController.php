@@ -99,4 +99,12 @@ class ApoderadoController extends Controller
         $apoderado = Apoderado::destroy($id);
         return redirect()->route('apoderado.index')->with('status', 'Apoderado eliminado correctamente!');
     }
+
+    public function consultarApod($dni){
+        $apoderado = DB::table('apoderado')
+                        ->where('apoderado.apod_dni','=',$dni)
+                        ->get();
+        return $apoderado;
+    }
+
 }

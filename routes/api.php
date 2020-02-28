@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/dni/{dni}','ReniecController@consultarDNI');
+Route::get('/apoderado/{dni}','ApoderadoController@consultarApod');
