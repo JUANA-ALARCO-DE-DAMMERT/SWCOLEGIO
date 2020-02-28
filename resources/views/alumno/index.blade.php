@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Alumno </title>
-    <meta http-equiv="refresh" content="20">
-</head>
-<body>
-
-</body>
-</html>
 @extends('plantilla.plantilla')
 @section('contenido')
 <div class="row mt-4">

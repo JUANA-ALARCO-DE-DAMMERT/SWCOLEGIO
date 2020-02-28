@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-02-2020 a las 05:43:45
+-- Tiempo de generación: 28-02-2020 a las 01:39:09
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -62,12 +62,13 @@ CREATE TABLE `apoderado` (
 --
 
 INSERT INTO `apoderado` (`apod_id`, `apod_dni`, `apod_ape`, `apod_nom`, `apod_sexo`, `apod_email`, `apod_tel`) VALUES
-(1, '06540979', 'CAVERO FALLA', 'ALBERTO NEMESIO', 1, 'alberton@gmail.com', '952741863'),
+(1, '06540979', 'CAVERO FALLA', 'ALBERTO NEMESIO', 1, 'alberto_cavero@gmail.com', '952741863'),
 (2, '25406456', 'ALVAREZ PERALTA', 'LUIS', 1, 'lalvarezp@hotmail.com', '998741036'),
 (3, '48509790', 'AVILA BRAVO', 'VIOLETA', 0, 'v.avila@hotmail.com', ''),
 (4, '41529163', 'LACHI AGÜERO', 'NANCY ELIZABETH', 0, 'nancy_lachi@hotmail.com', '974855240'),
 (5, '40456077', 'TACSA ORELLANA', 'MABEL ROCIO', 0, 'mtacsa@gmail.com', '985744128'),
-(6, '74078065', 'ARROYO PAREDES', 'ALDAIR YOE', 1, 'aldair.arroyo5@gmail.com', '957411237');
+(6, '74078065', 'ARROYO PAREDES', 'ALDAIR YOE', 1, 'aldair.arroyo5@gmail.com', '957411237'),
+(7, '75200158', 'BRICEÑO VASQUEZ', 'BRIDGITH PRISCILA', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -171,8 +172,8 @@ CREATE TABLE `trabajador` (
 --
 
 INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_ape`, `trab_nom`, `trab_sexo`, `trab_fnac`, `trab_est`, `trab_user`) VALUES
-(100001, '25418596', 'DUARTE CHUMPITAZ', 'CARLOS EDUARDO', 1, '1984-02-12', 1, 25418596),
-(100002, '24418549', 'ESPINOZA MORALES', 'BRENDA ', 0, '1982-07-23', 1, 24418549);
+(100001, '25418596', 'CHAVEZ REYNOSO', 'ELIAS', 1, '1984-02-12', 1, 25418596),
+(100002, '25748542', 'GRANDE MANRIQUE', 'RAUL SAMUEL', 1, '1982-07-23', 1, 25748542);
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,9 @@ INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`
 --
 ALTER TABLE `alumno`
   ADD PRIMARY KEY (`alum_id`),
-  ADD UNIQUE KEY `alum_dni` (`alum_dni`);
+  ADD UNIQUE KEY `alum_dni` (`alum_dni`),
+  ADD KEY `alum_user` (`alum_user`),
+  ADD KEY `alum_apod` (`alum_apod`);
 
 --
 -- Indices de la tabla `apoderado`
@@ -268,7 +271,7 @@ ALTER TABLE `alumno`
 -- AUTO_INCREMENT de la tabla `apoderado`
 --
 ALTER TABLE `apoderado`
-  MODIFY `apod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `apod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `asignatura`
@@ -309,6 +312,12 @@ ALTER TABLE `users`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `alumno`
+--
+ALTER TABLE `alumno`
+  ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`alum_apod`) REFERENCES `apoderado` (`apod_id`);
 
 --
 -- Filtros para la tabla `curso`
