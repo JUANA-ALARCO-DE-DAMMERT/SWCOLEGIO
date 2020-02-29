@@ -120,44 +120,78 @@
 
 @section('scripts')
 <script>
-function handleClick(myRadio) {
-    if(myRadio.value == 1){
-        document.getElementById('apod_email').readOnly = true;
-        document.getElementById('apod_tel').readOnly = true;
-    } else {
-        document.getElementById('apod_email').readOnly = false;
-        document.getElementById('apod_tel').readOnly = false;
+    function handleClick(myRadio) {
+        if(myRadio.value == 1){
+            $('#apod_dni').val('');            
+            $('#apod_ape').val('');            
+            $('#apod_nom').val('');  
+            $('#apod_tel').val('');  
+            $('#apod_nom').val('');  
+            document.getElementById('apod_email').readOnly = true;
+            document.getElementById('apod_tel').readOnly = true;
+        } else {
+            $('#apod_dni').val('');            
+            $('#apod_ape').val('');            
+            $('#apod_nom').val('');  
+            $('#apod_tel').val('');  
+            $('#apod_email').val('');  
+            document.getElementById('apod_email').readOnly = false;
+            document.getElementById('apod_tel').readOnly = false;
+        }
     }
-}
 
-$(document).ready(function(){
-    $('#btnbuscar').click(function(){
-        if($("#rb1").is(':checked')) {  
-            console.log('rb1'); 
-        } else {  
-            var numdni=$('#dni').val();
-            if (numdni!='') {
-                //AJAX
-                $.get('../api/dni/'+numdni, function (data) {
-                    var apoderado = JSON.parse(data);
-                    if (apoderado.exito==true){
-                        $('#apod_dni').val(apoderado.dni);            
-                        $('#apod_ape').val(apoderado.paterno + ' ' + apoderado.materno);            
-                        $('#apod_nom').val(apoderado.nombres);    
-                    } else {
-                        $('#apod_dni').val('');            
-                        $('#apod_ape').val('');            
-                        $('#apod_nom').val('');  
-                        $('#mensaje').show();
-                        $('#mensaje').delay(2000).hide(2500);  
-                    }    
-                });
-            } else{
-                alert('Escribir el DNI');
-                $('#dni').focus();
+    $(document).ready(function(){
+        $('#btnbuscar').click(function(){
+            if($("#rb1").is(':checked')) {  
+                //console.log('rb1'); 
+                var numdni=$('#dni').val();
+                if (numdni!='') {
+                    //AJAX
+                    $.get('../api/apoderado/'+numdni, function (data) {
+                        var apoderado = JSON.stringify(data);
+                        var apod = JSON.parse(apoderado);
+                        if (apod[0].apod_ape !== 0){
+                            $('#apod_dni').val(apod[0].apod_dni);            
+                            $('#apod_ape').val(apod[0].apod_ape);            
+                            $('#apod_nom').val(apod[0].apod_nom);    
+                            $('#apod_tel').val(apod[0].apod_tel);    
+                            $('#apod_email').val(apod[0].apod_email);    
+                        } else {
+                            $('#apod_dni').val('');            
+                            $('#apod_ape').val('');            
+                            $('#apod_nom').val('');  
+                            $('#mensaje').show();
+                            $('#mensaje').delay(2000).hide(2500);  
+                        }    
+                    });
+                } else {
+                    alert('Escribir el DNI');
+                    $('#dni').focus();
+                }
+            } else {  
+                var numdni=$('#dni').val();
+                if (numdni!='') {
+                    //AJAX
+                    $.get('../api/dni/'+numdni, function (data) {
+                        var apoderado = JSON.parse(data);
+                        if (apoderado.exito==true){
+                            $('#apod_dni').val(apoderado.dni);            
+                            $('#apod_ape').val(apoderado.paterno + ' ' + apoderado.materno);            
+                            $('#apod_nom').val(apoderado.nombres);    
+                        } else {
+                            $('#apod_dni').val('');            
+                            $('#apod_ape').val('');            
+                            $('#apod_nom').val('');  
+                            $('#mensaje').show();
+                            $('#mensaje').delay(2000).hide(2500);  
+                        }    
+                    });
+                } else{
+                    alert('Escribir el DNI');
+                    $('#dni').focus();
+                } 
             } 
-        } 
+        });
     });
-});
 </script>
 @endsection
