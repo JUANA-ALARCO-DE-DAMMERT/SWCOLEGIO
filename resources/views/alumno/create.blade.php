@@ -18,25 +18,27 @@
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="estudiante" role="tabpanel">
-                <form action="" method="" class="form-horizontal">
+                <form action="{{url('alumno')}}" method="POST" class="form-horizontal">
+                @method('POST')
+                {{ csrf_field() }}
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">DNI</label>
                         <div class="col-md-2">
-                            <input class="form-control" id="" type="text" name="" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="">
+                            <input class="form-control" id="" type="text" name="alum_dni" onkeyup="javascript:this.value=this.value.toUpperCase();" maxlength="8" minlength="8" autofocus>
                         </div>
                         <label class="col-md-1 col-form-label">Apellidos</label>
                         <div class="col-md-4">
-                            <input class="form-control" id="" type="text" name="" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="">
+                            <input class="form-control" id="" type="text" name="alum_ape" onkeyup="javascript:this.value=this.value.toUpperCase();" >
                         </div>
                         <label class="col-md-1 col-form-label">Nombres</label>
                         <div class="col-md-3">
-                            <input class="form-control" id="" type="text" name="" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="">
+                            <input class="form-control" id="" type="text" name="alum_nom" onkeyup="javascript:this.value=this.value.toUpperCase();" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Sexo</label>
                         <div class="col-md-2">
-                            <select class="form-control" id="">
+                            <select class="form-control" id="" name="alum_sexo">
                                 <option value="" hidden>--- Seleccione ---</option>
                                 <option value="1">Masculino</option>
                                 <option value="0">Femenino</option>
@@ -44,17 +46,17 @@
                         </div>
                         <label class="col-md-2 col-form-label">Fecha de Nacimiento</label>
                         <div class="col-md-3">
-                            <input type="date" class="form-control">
+                            <input type="date" name="alum_fnac" class="form-control">
                         </div>
                         <label class="col-md-1 col-form-label">Grado</label>
                         <div class="col-md-3">
-                            <select class="form-control" id="">
+                            <select class="form-control" id="" name="alum_grad">
                                 <option value="" hidden>--- Seleccione ---</option>
-                                <option value="">1° de secundaria</option>
-                                <option value="">2° de secundaria</option>
-                                <option value="">3° de secundaria</option>
-                                <option value="">4° de secundaria</option>
-                                <option value="">5° de secundaria</option>
+                                <option value="1">1° de secundaria</option>
+                                <option value="2">2° de secundaria</option>
+                                <option value="3">3° de secundaria</option>
+                                <option value="4">4° de secundaria</option>
+                                <option value="5">5° de secundaria</option>
                             </select>
                         </div>
                     </div>

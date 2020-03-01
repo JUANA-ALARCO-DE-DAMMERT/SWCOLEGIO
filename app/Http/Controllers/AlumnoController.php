@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Alumno;
+use App\Apoderado;
+use App\RoleUser;
+use App\User;
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AlumnoController extends Controller
 {
@@ -35,7 +40,69 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'alum_dni' => 'required|unique:alumno,alum_dni|numeric|digits:8',
+            'alum_ape' => 'required',
+            'alum_nom' => 'required',
+            'alum_sexo' => 'required',
+            'alum_grad' => 'required',
+            'alum_fnac' => 'required',
+            'apod_dni' => 'required',
+            'apod_ape' => 'nullable',
+            'apod_nom' => 'nullable',
+            'apod_tel' => 'nullable',
+            'apod_email' => 'nullable'
+        ]);
+        $data = $request->all();
+        /*
+        User::create([
+            'id' => $data['alum_dni'],
+            'usuario' => $data['alum_dni'],
+            'password' => Hash::make($data['alum_dni']),
+        ]);
+        $rol = RoleUser::create([
+            'user_id' => $data['alum_dni'],
+            'role_id' => '4'
+        ]);
+        $alumno = Alumno::create([
+            'alum_dni' => $data['alum_dni'],
+            'alum_ape' => $data['alum_ape'],
+            'alum_nom' => $data['alum_nom'],
+            'alum_sexo' => $data['alum_sexo'],
+            'alum_grad' => $data['alum_grad'],
+            'alum_fnac' => $data['alum_fnac'],
+            'alum_apod' => $apoderado->apod_id,
+            'alum_user' => $data['alum_dni']
+        ]);
+        */
+        if($data['rb'] == 1){
+            User::create([
+            'id' => $data['alum_dni'],
+            'usuario' => $data['alum_dni'],
+            'password' => Hash::make($data['alum_dni']),
+            ]);
+            $rol = RoleUser::create([
+                'user_id' => $data['alum_dni'],
+                'role_id' => '4'
+            ]);
+            $apoderado = DB::table('apoderado')
+                            ->where('apoderado.apod_dni','=',$data['apod_dni'])
+                            ->first();
+            $alumno = Alumno::create([
+                'alum_dni' => $data['alum_dni'],
+                'alum_ape' => $data['alum_ape'],
+                'alum_nom' => $data['alum_nom'],
+                'alum_sexo' => $data['alum_sexo'],
+                'alum_grad' => $data['alum_grad'],
+                'alum_fnac' => $data['alum_fnac'],
+                'alum_apod' => $apoderado->apod_id,
+                'alum_user' => $data['alum_dni']
+            ]);
+            return redirect()->route('alumno.index')->with('status', 'Alumno agregado correctamente!');
+        } else{
+            return redirect()->route('alumno.index')->with('status', 'Alumno agregado correctamente!');
+        }
+
     }
 
     /**
