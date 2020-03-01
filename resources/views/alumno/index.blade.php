@@ -32,19 +32,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($alumnos as $alum)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$alum->alum_dni}}</td>
+                            <td>{{$alum->alum_ape}}</td>
+                            <td>{{$alum->alum_nom}}</td>
+                            <td>{{$alum->alum_dni}}</td>
+                            <td>{{$alum->alum_grad}}° de secundaria</td>
+                            <td>{{$alum->alum_dni}}</td>
                             <td>   
                                 <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a> 
                                 <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a> 
                                 <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>      
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

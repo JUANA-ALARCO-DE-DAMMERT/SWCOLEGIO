@@ -19,7 +19,8 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        return view('alumno.index');
+        $data = DB::table('alumno')->get();
+        return view('alumno.index',['alumnos'=>$data]);
     }
 
     /**

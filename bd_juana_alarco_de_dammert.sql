@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-02-2020 a las 01:39:09
+-- Tiempo de generación: 01-03-2020 a las 21:09:02
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -38,8 +38,15 @@ CREATE TABLE `alumno` (
   `alum_grad` int(11) NOT NULL,
   `alum_est` int(2) NOT NULL DEFAULT '1',
   `alum_apod` int(11) NOT NULL,
-  `alum_user` int(11) NOT NULL
+  `alum_user` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `alumno`
+--
+
+INSERT INTO `alumno` (`alum_id`, `alum_dni`, `alum_ape`, `alum_nom`, `alum_sexo`, `alum_fnac`, `alum_grad`, `alum_est`, `alum_apod`, `alum_user`) VALUES
+(1, '75406456', 'PRADO AVILA', 'MARIA', 0, '2005-02-05', 4, 1, 3, 75406456);
 
 -- --------------------------------------------------------
 
@@ -150,6 +157,13 @@ CREATE TABLE `role_user` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `role_user`
+--
+
+INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`) VALUES
+(4, 75406456, 4, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -195,8 +209,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(70327395, '70327395', '$2y$10$YEuqCO2W1HEi3jbBievKpOnHpNmusnElegx8a2zMite2mbpt/X3tS', NULL, '2020-02-26 09:43:08', '2020-02-26 09:43:08'),
-(75200120, '75200120', '$2y$10$t1HJcrYGUNkOUwGALG2.SuCXnS7aQvIv4cW7N7iiBwXnmNAM90/f2', NULL, '2020-02-14 08:06:24', '2020-02-14 08:06:24');
+(70327395, '70327395', '$2y$10$f8Kb1wMgIKMbLj5INDuhie0HYWPJYpIMuCmT83wg9j6etu/Pzhmz2', NULL, '2020-03-01 22:40:17', '2020-03-01 22:40:17'),
+(75200120, '75200120', '$2y$10$5.jkgqLutEYda6JHA19DteDLCPewHVmHAoLOrav0lwmq3jxghxYOW', NULL, '2020-03-01 22:39:25', '2020-03-01 22:39:25'),
+(75406456, '75406456', '$2y$10$QLMUZ5fbHtgx3tA0OQmKIO3mDnJyIviWw3fTIEotWqITscOXA1O96', NULL, '2020-03-02 00:45:53', '2020-03-02 00:45:53');
 
 --
 -- Índices para tablas volcadas
@@ -208,8 +223,8 @@ INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`
 ALTER TABLE `alumno`
   ADD PRIMARY KEY (`alum_id`),
   ADD UNIQUE KEY `alum_dni` (`alum_dni`),
-  ADD KEY `alum_user` (`alum_user`),
-  ADD KEY `alum_apod` (`alum_apod`);
+  ADD KEY `alum_apod` (`alum_apod`),
+  ADD KEY `alum_user` (`alum_user`);
 
 --
 -- Indices de la tabla `apoderado`
@@ -242,7 +257,9 @@ ALTER TABLE `roles`
 -- Indices de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- Indices de la tabla `trabajador`
@@ -265,7 +282,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `alum_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `alum_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `apoderado`
@@ -295,7 +312,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajador`
@@ -307,7 +324,7 @@ ALTER TABLE `trabajador`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75200121;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75406457;
 
 --
 -- Restricciones para tablas volcadas
@@ -317,7 +334,8 @@ ALTER TABLE `users`
 -- Filtros para la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`alum_apod`) REFERENCES `apoderado` (`apod_id`);
+  ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`alum_apod`) REFERENCES `apoderado` (`apod_id`),
+  ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`alum_user`) REFERENCES `users` (`id`);
 
 --
 -- Filtros para la tabla `curso`
@@ -325,6 +343,13 @@ ALTER TABLE `alumno`
 ALTER TABLE `curso`
   ADD CONSTRAINT `curso_ibfk_1` FOREIGN KEY (`curs_idasig`) REFERENCES `asignatura` (`asig_id`),
   ADD CONSTRAINT `curso_ibfk_2` FOREIGN KEY (`curs_iddocen`) REFERENCES `trabajador` (`trab_id`);
+
+--
+-- Filtros para la tabla `role_user`
+--
+ALTER TABLE `role_user`
+  ADD CONSTRAINT `role_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
+  ADD CONSTRAINT `role_user_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
