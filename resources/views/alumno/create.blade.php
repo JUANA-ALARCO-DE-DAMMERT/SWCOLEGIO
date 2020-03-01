@@ -136,7 +136,7 @@
             $('#apod_nom').val('');  
             $('#apod_tel').val('');  
             $('#apod_email').val('');  
-            $('#dni').val('');  
+            $('#dni ').val('');  
             document.getElementById('apod_email').readOnly = false;
             document.getElementById('apod_tel').readOnly = false;
         }
