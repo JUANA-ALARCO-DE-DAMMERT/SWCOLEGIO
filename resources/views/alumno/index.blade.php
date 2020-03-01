@@ -39,7 +39,13 @@
                             <td>{{$alum->alum_nom}}</td>
                             <td>{{$alum->alum_dni}}</td>
                             <td>{{$alum->alum_grad}}° de secundaria</td>
-                            <td>{{$alum->alum_dni}}</td>
+                            <td>
+                              @if ($alum->alum_est === 1)
+                                <span class="badge badge-success">Activo</span>
+                              @else
+                              <span class="badge badge-danger">Inactivo</span>
+                              @endif
+                            </td>
                             <td>   
                                 <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a> 
                                 <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a> 
