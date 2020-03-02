@@ -76,6 +76,7 @@
               <a class="nav-link" href="{{route('home')}}">
                 <i class="nav-icon icon-home"></i> Inicio</a>
             </li>
+            @if(Auth::user()->hasrole('admin'))
             <li class="nav-item">
               <a class="nav-link" href="{{url('alumno')}}">
                 <i class="nav-icon icon-user"></i> Alumnos</a>
@@ -114,6 +115,13 @@
                 </li>
               </ul>
             </li>
+            @endif
+            @if(Auth::user()->hasrole('alum'))
+            <li class="nav-item">
+              <a class="nav-link" href="">
+                <i class="nav-icon icon-notebook"></i> Mis Cursos</a>
+            </li>
+            @endif
           </ul>
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
