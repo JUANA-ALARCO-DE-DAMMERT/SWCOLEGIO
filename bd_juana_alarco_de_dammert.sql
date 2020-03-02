@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-03-2020 a las 04:10:36
+-- Tiempo de generación: 02-03-2020 a las 04:38:57
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -46,8 +46,8 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`alum_id`, `alum_dni`, `alum_ape`, `alum_nom`, `alum_sexo`, `alum_fnac`, `alum_grad`, `alum_est`, `alum_apod`, `alum_user`) VALUES
-(1, '75406456', 'PRADO AVILA', 'MARIA', 0, '2005-02-05', 4, 1, 3, 75406456),
-(3, '75200134', 'QUINTO AGUILAR', 'JUAN', 1, '2004-08-20', 5, 1, 9, 75200134),
+(1, '75406456', 'PRADO AVILA', 'MARIA CARMEN', 0, '2005-02-05', 4, 1, 3, 75406456),
+(3, '75200134', 'QUINTO AGUILAR', 'JUAN DIEGO', 1, '2004-08-20', 5, 1, 9, 75200134),
 (4, '75246604', 'SALAZAR BRICEÑO', 'ALBERTO', 1, '2005-07-09', 4, 1, 7, 75246604),
 (5, '75650012', 'ROBLES MEDINA', 'DIANA', 0, '2005-09-16', 4, 1, 10, 75650012);
 
@@ -171,7 +171,9 @@ INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
 (4, 75406456, 4, NULL, NULL),
 (5, 75200134, 4, NULL, NULL),
 (6, 75246604, 4, NULL, NULL),
-(7, 75650012, 4, NULL, NULL);
+(7, 75650012, 4, NULL, NULL),
+(8, 75200120, 1, NULL, NULL),
+(9, 70327395, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -324,7 +326,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajador`
