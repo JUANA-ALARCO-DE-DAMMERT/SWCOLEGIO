@@ -1,10 +1,19 @@
+<?php 
+  // $mydatos = DB::table('empleados')
+  //             ->join('role_user','role_user.user_id','empleados.emp_dni')
+  //             ->join('roles','roles.id','role_user.role_id')
+  //             ->where('empleados.emp_dni','=',Auth::user()->usuario)->first();
+
+  $alumnodatos = DB::table('alumno')
+                  ->where('alumno.alum_dni','=',Auth::user()->usuario)->first();
+?>
 @extends('plantilla.plantilla')
 @section('contenido')
-<div class="container mt-4">
-    <h1>Bienvenido: </h1>
+@if(Auth::user()->hasrole('admin'))
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Bienvenido:  </h1>
+    <h2 class="h3 mb-0 text-gray-800">Cargo:  </h2>
 </div>
-
-
 <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Total de alumnos por Año</h6>
 </div>
@@ -89,6 +98,13 @@
                   </div>
                 </div>
               </div>
+              @endif
 <!-- Fin -->
+              @if(Auth::user()->hasrole('alum'))
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h4 mb-0 text-gray-800">Bienvenido Alumno(a): {{$alumnodatos->alum_ape.', '.$alumnodatos->alum_nom}}  </h1> 
+  <h1 class="h4 mb-0 text-gray-800">Grado: {{$alumnodatos->alum_grad.' Secundaria'}} </h1>  
+</div>
+              @endif
 </div>
 @endsection
