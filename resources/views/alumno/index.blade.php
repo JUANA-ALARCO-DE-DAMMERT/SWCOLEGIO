@@ -37,7 +37,13 @@
                             <td>{{$alum->alum_dni}}</td>
                             <td>{{$alum->alum_ape}}</td>
                             <td>{{$alum->alum_nom}}</td>
-                            <td>{{$alum->alum_dni}}</td>
+                            <td>
+                              @if ($alum->alum_sexo == 1)
+                                    Masculino
+                                @else
+                                    Femenino
+                                @endif
+                            </td>
                             <td>{{$alum->alum_grad}}° de secundaria</td>
                             <td>
                               @if ($alum->alum_est === 1)

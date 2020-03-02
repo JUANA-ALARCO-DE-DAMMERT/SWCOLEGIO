@@ -21,6 +21,16 @@
                 <form action="{{url('alumno')}}" method="POST" class="form-horizontal">
                 @method('POST')
                 {{ csrf_field() }}
+                    @if (count($errors)>0)
+                        <div class="alert alert-danger">
+                            <p>Corregir los siguientes campos:</p>
+                            <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">DNI</label>
                         <div class="col-md-2">
@@ -89,18 +99,26 @@
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">DNI</label>
                         <div class="col-md-2">
-                            <input class="form-control" id="apod_dni" type="text" name="apod_dni" readonly>
+                            <input class="form-control" id="apod_dni" type="text" name="apod_dni" readonly required>
                         </div>
                         <label class="col-md-1 col-form-label">Apellidos</label>
                         <div class="col-md-4">
-                            <input class="form-control" id="apod_ape" type="text" name="apod_ape" readonly>
+                            <input class="form-control" id="apod_ape" type="text" name="apod_ape" readonly required>
                         </div>
                         <label class="col-md-1 col-form-label">Nombres</label>
                         <div class="col-md-3">
-                            <input class="form-control" id="apod_nom" type="text" name="apod_nom" readonly>
+                            <input class="form-control" id="apod_nom" type="text" name="apod_nom" readonly required>
                         </div>
                     </div>  
                     <div class="form-group row">
+                        <label class="col-md-1 col-form-label">Sexo</label>
+                        <div class="col-md-2">
+                            <select class="form-control" id="apod_sexo" name="apod_sexo" readonly required>
+                                <option value="" hidden>--- Seleccione ---</option>
+                                <option value="1">Masculino</option>
+                                <option value="0">Femenino</option>
+                            </select>
+                        </div>
                         <label class="col-md-1 col-form-label">E-mail</label>
                         <div class="col-md-3">
                             <input class="form-control" id="apod_email" type="email" name="apod_email" readonly>
@@ -132,6 +150,8 @@
             $('#dni').val('');  
             document.getElementById('apod_email').readOnly = true;
             document.getElementById('apod_tel').readOnly = true;
+            document.getElementById('apod_sexo').selectedIndex = "0";
+            $('#apod_sexo').attr("readonly", true);
         } else {
             $('#apod_dni').val('');            
             $('#apod_ape').val('');            
@@ -141,13 +161,14 @@
             $('#dni ').val('');  
             document.getElementById('apod_email').readOnly = false;
             document.getElementById('apod_tel').readOnly = false;
+            document.getElementById('apod_sexo').selectedIndex = "0";
+            $('#apod_sexo').attr("readonly", false);
         }
     }
 
     $(document).ready(function(){
         $('#btnbuscar').click(function(){
             if($("#rb1").is(':checked')) {  
-                //console.log('rb1'); 
                 var numdni=$('#dni').val();
                 if (numdni!='') {
                     //AJAX
@@ -159,7 +180,12 @@
                             $('#apod_ape').val(apod[0].apod_ape);            
                             $('#apod_nom').val(apod[0].apod_nom);    
                             $('#apod_tel').val(apod[0].apod_tel);    
-                            $('#apod_email').val(apod[0].apod_email);    
+                            $('#apod_email').val(apod[0].apod_email);
+                            if (apod[0].apod_sexo == 1) {
+                                document.getElementById('apod_sexo').selectedIndex = 1;
+                            } else {
+                                document.getElementById('apod_sexo').selectedIndex = 2;
+                            } 
                         } else {
                             $('#apod_dni').val('');            
                             $('#apod_ape').val('');            

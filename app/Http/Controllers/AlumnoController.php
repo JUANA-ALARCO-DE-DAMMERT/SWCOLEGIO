@@ -49,23 +49,23 @@ class AlumnoController extends Controller
             'alum_grad' => 'required',
             'alum_fnac' => 'required',
             'apod_dni' => 'required',
-            'apod_ape' => 'nullable',
-            'apod_nom' => 'nullable',
+            'apod_ape' => 'required',
+            'apod_nom' => 'required',
+            'apod_sexo' => 'nullable',
             'apod_tel' => 'nullable',
             'apod_email' => 'nullable'
         ]);
         $data = $request->all();
-        if($data['rb'] == 1){
-            /*
-            User::create([
+        User::create([
             'id' => $data['alum_dni'],
             'usuario' => $data['alum_dni'],
             'password' => Hash::make($data['alum_dni']),
-            ]);
-            $rol = RoleUser::create([
-                'user_id' => $data['alum_dni'],
-                'role_id' => '4'
-            ]);
+        ]);
+        $rol = RoleUser::create([
+            'user_id' => $data['alum_dni'],
+            'role_id' => '4'
+        ]);
+        if($data['rb'] == 1){
             $apoderado = DB::table('apoderado')
                             ->where('apoderado.apod_dni','=',$data['apod_dni'])
                             ->first();
@@ -78,28 +78,16 @@ class AlumnoController extends Controller
                 'alum_fnac' => $data['alum_fnac'],
                 'alum_apod' => $apoderado->apod_id,
                 'alum_user' => $data['alum_dni']
-            ]);
-            return redirect()->route('alumno.index')->with('status', 'Alumno agregado correctamente!');
-            */
+            ]); 
         } else{
-            /*
             $apod = Apoderado::create([
                 'apod_dni' => $data['apod_dni'],
                 'apod_ape' => $data['apod_ape'],
                 'apod_nom' => $data['apod_nom'],
-                'apod_sexo' => 1,
+                'apod_sexo' => $data['apod_sexo'],
                 'apod_email' => $data['apod_email'],
                 'apod_tel' => $data['apod_tel']
             ]);
-            User::create([
-                'id' => $data['alum_dni'],
-                'usuario' => $data['alum_dni'],
-                'password' => Hash::make($data['alum_dni']),
-                ]);
-                $rol = RoleUser::create([
-                    'user_id' => $data['alum_dni'],
-                    'role_id' => '4'
-                ]);
             $alumno = Alumno::create([
                 'alum_dni' => $data['alum_dni'],
                 'alum_ape' => $data['alum_ape'],
@@ -109,11 +97,9 @@ class AlumnoController extends Controller
                 'alum_fnac' => $data['alum_fnac'],
                 'alum_apod' => $apod->apod_id,
                 'alum_user' => $data['alum_dni']
-            ]);
-            return redirect()->route('alumno.index')->with('status', 'Alumno agregado correctamente!');
-            */
+            ]); 
         }
-
+        return redirect()->route('alumno.index')->with('status', 'Alumno agregado correctamente!');
     }
 
     /**
