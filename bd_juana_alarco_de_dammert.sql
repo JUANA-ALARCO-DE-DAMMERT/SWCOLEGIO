@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-03-2020 a las 21:09:02
+-- Tiempo de generación: 02-03-2020 a las 04:10:36
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -46,7 +46,10 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`alum_id`, `alum_dni`, `alum_ape`, `alum_nom`, `alum_sexo`, `alum_fnac`, `alum_grad`, `alum_est`, `alum_apod`, `alum_user`) VALUES
-(1, '75406456', 'PRADO AVILA', 'MARIA', 0, '2005-02-05', 4, 1, 3, 75406456);
+(1, '75406456', 'PRADO AVILA', 'MARIA', 0, '2005-02-05', 4, 1, 3, 75406456),
+(3, '75200134', 'QUINTO AGUILAR', 'JUAN', 1, '2004-08-20', 5, 1, 9, 75200134),
+(4, '75246604', 'SALAZAR BRICEÑO', 'ALBERTO', 1, '2005-07-09', 4, 1, 7, 75246604),
+(5, '75650012', 'ROBLES MEDINA', 'DIANA', 0, '2005-09-16', 4, 1, 10, 75650012);
 
 -- --------------------------------------------------------
 
@@ -75,7 +78,10 @@ INSERT INTO `apoderado` (`apod_id`, `apod_dni`, `apod_ape`, `apod_nom`, `apod_se
 (4, '41529163', 'LACHI AGÜERO', 'NANCY ELIZABETH', 0, 'nancy_lachi@hotmail.com', '974855240'),
 (5, '40456077', 'TACSA ORELLANA', 'MABEL ROCIO', 0, 'mtacsa@gmail.com', '985744128'),
 (6, '74078065', 'ARROYO PAREDES', 'ALDAIR YOE', 1, 'aldair.arroyo5@gmail.com', '957411237'),
-(7, '75200158', 'BRICEÑO VASQUEZ', 'BRIDGITH PRISCILA', 0, NULL, NULL);
+(7, '75200158', 'BRICEÑO VASQUEZ', 'BRIDGITH PRISCILA', 0, NULL, NULL),
+(8, '74850405', 'AGUILAR AGUILA', 'CELIA', 0, 'celia16.aa@gmail.com', NULL),
+(9, '76204070', 'QUINTO ACUÑA', 'RODRIGO JAVIER', 1, 'rodrigo.quinto@hotmail.com', NULL),
+(10, '75265129', 'ROBLES FLOREANO', 'HUGO PABLO', 1, 'hugo.robles.fl@hotmail.com', '952741632');
 
 -- --------------------------------------------------------
 
@@ -162,7 +168,10 @@ CREATE TABLE `role_user` (
 --
 
 INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`) VALUES
-(4, 75406456, 4, NULL, NULL);
+(4, 75406456, 4, NULL, NULL),
+(5, 75200134, 4, NULL, NULL),
+(6, 75246604, 4, NULL, NULL),
+(7, 75650012, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -211,7 +220,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (70327395, '70327395', '$2y$10$f8Kb1wMgIKMbLj5INDuhie0HYWPJYpIMuCmT83wg9j6etu/Pzhmz2', NULL, '2020-03-01 22:40:17', '2020-03-01 22:40:17'),
 (75200120, '75200120', '$2y$10$5.jkgqLutEYda6JHA19DteDLCPewHVmHAoLOrav0lwmq3jxghxYOW', NULL, '2020-03-01 22:39:25', '2020-03-01 22:39:25'),
-(75406456, '75406456', '$2y$10$QLMUZ5fbHtgx3tA0OQmKIO3mDnJyIviWw3fTIEotWqITscOXA1O96', NULL, '2020-03-02 00:45:53', '2020-03-02 00:45:53');
+(75200134, '75200134', '$2y$10$fnab.LDrfaNd0f4QB6CNwuEWzyTJ/suWx/WhQxieXj22kQGI1V9dK', NULL, '2020-03-02 04:26:27', '2020-03-02 04:26:27'),
+(75246604, '75246604', '$2y$10$snps3sKLO2IqS8PyUT2ncuInYGM4atsH0VXyoOsTQh6igSBOv6y0q', NULL, '2020-03-02 07:28:26', '2020-03-02 07:28:26'),
+(75406456, '75406456', '$2y$10$QLMUZ5fbHtgx3tA0OQmKIO3mDnJyIviWw3fTIEotWqITscOXA1O96', NULL, '2020-03-02 00:45:53', '2020-03-02 00:45:53'),
+(75650012, '75650012', '$2y$10$pmMtfvf5tPyrpwp6lQz9LeXOzjPt0t4ewvB2kliVQr.QN9H54/JYe', NULL, '2020-03-02 07:30:36', '2020-03-02 07:30:36');
 
 --
 -- Índices para tablas volcadas
@@ -282,13 +294,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `alum_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `alum_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `apoderado`
 --
 ALTER TABLE `apoderado`
-  MODIFY `apod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `apod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `asignatura`
@@ -312,7 +324,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajador`
@@ -324,7 +336,7 @@ ALTER TABLE `trabajador`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75406457;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75650013;
 
 --
 -- Restricciones para tablas volcadas
