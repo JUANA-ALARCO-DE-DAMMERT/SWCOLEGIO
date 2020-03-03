@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-03-2020 a las 04:38:57
+-- Tiempo de generación: 03-03-2020 a las 04:53:43
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -117,14 +117,6 @@ CREATE TABLE `curso` (
   `año` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `curso`
---
-
-INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `año`) VALUES
-(1001, 100001, 4, 2020),
-(1002, 100002, 1, 2020);
-
 -- --------------------------------------------------------
 
 --
@@ -189,7 +181,7 @@ CREATE TABLE `trabajador` (
   `trab_sexo` int(2) NOT NULL,
   `trab_fnac` date NOT NULL,
   `trab_est` int(2) NOT NULL DEFAULT '1',
-  `trab_user` int(8) NOT NULL
+  `trab_user` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -197,8 +189,8 @@ CREATE TABLE `trabajador` (
 --
 
 INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_ape`, `trab_nom`, `trab_sexo`, `trab_fnac`, `trab_est`, `trab_user`) VALUES
-(100001, '25418596', 'CHAVEZ REYNOSO', 'ELIAS', 1, '1984-02-12', 1, 25418596),
-(100002, '25748542', 'GRANDE MANRIQUE', 'RAUL SAMUEL', 1, '1982-07-23', 1, 25748542);
+(1, '75200120', 'RAMIREZ RODRIGUEZ', 'JORGE LUIS', 1, '1999-10-14', 1, 75200120),
+(2, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 1, '1999-03-20', 1, 70327395);
 
 -- --------------------------------------------------------
 
@@ -280,7 +272,8 @@ ALTER TABLE `role_user`
 --
 ALTER TABLE `trabajador`
   ADD PRIMARY KEY (`trab_id`),
-  ADD UNIQUE KEY `trab_dni` (`trab_dni`);
+  ADD UNIQUE KEY `trab_dni` (`trab_dni`),
+  ADD KEY `trab_user` (`trab_user`);
 
 --
 -- Indices de la tabla `users`
@@ -314,7 +307,7 @@ ALTER TABLE `asignatura`
 -- AUTO_INCREMENT de la tabla `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `curs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
+  MODIFY `curs_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -332,7 +325,7 @@ ALTER TABLE `role_user`
 -- AUTO_INCREMENT de la tabla `trabajador`
 --
 ALTER TABLE `trabajador`
-  MODIFY `trab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100003;
+  MODIFY `trab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -364,6 +357,12 @@ ALTER TABLE `curso`
 ALTER TABLE `role_user`
   ADD CONSTRAINT `role_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
   ADD CONSTRAINT `role_user_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `trabajador`
+--
+ALTER TABLE `trabajador`
+  ADD CONSTRAINT `trabajador_ibfk_1` FOREIGN KEY (`trab_user`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
