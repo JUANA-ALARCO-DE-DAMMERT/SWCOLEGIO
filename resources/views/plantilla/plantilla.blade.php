@@ -49,6 +49,7 @@
             <img class="img-avatar" src="{{asset('plantilla/img/avatars/6.jpg')}}" alt="admin@bootstrapmaster.com">
           </a>  
           <div class="dropdown-menu dropdown-menu-right">
+            
             <div class="dropdown-header text-center">
               <strong>Account</strong>
             </div>
@@ -67,6 +68,7 @@
         </li>
       </ul>
     </header>
+
     <div class="app-body">
       <div class="sidebar">
         <nav class="sidebar-nav">
@@ -127,7 +129,25 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="buttons/button-group.html">
+                    <i class="nav-icon icon-cursor"></i> </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-chart"></i> Asignaturas</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="buttons/buttons.html">
                     <i class="nav-icon icon-cursor"></i> Mis Cursos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="buttons/button-group.html">
+                    <i class="nav-icon icon-cursor"></i> Boleta de Notas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="buttons/button-group.html">
+                    <i class="nav-icon icon-cursor"></i> Ficha de Matricula</a>
                 </li>
               </ul>
             </li>
