@@ -15,6 +15,15 @@
     <div class="d-sm-flex align-items-center justify-content-between my-4">
       <h1 class="h4 mb-0 text-gray-800">Bienvenido(a) : {{$trab_data->trab_ape.', '.$trab_data->trab_nom}} </h1> 
       <h2 class="h4 mb-0 text-gray-800">Cargo: {{$trab_data->description}} </h2>
+        <!-- inicio reloj -->
+          <td>
+        <body onload="mueveReloj()">
+        <form name="form_reloj">
+        <input type="text" name="reloj" size="10">
+        </form>
+        </body>
+          </td>
+        <!-- fin reloj -->      
     </div>
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Total de alumnos por Año</h6>
@@ -137,7 +146,17 @@
   <div class="d-sm-flex align-items-center justify-content-between my-4">
     <h1 class="h4 mb-0 text-gray-800">Bienvenido Alumno(a): {{$alumnodatos->alum_ape.', '.$alumnodatos->alum_nom}}  </h1> 
     <h1 class="h4 mb-0 text-gray-800">Grado: {{$alumnodatos->alum_grad.' ° de Secundaria'}} </h1>  
+  <!-- inicio reloj -->
+  <td>
+<body onload="mueveReloj()">
+<form name="form_reloj">
+<input type="text" name="reloj" size="10">
+</form>
+</body>
+  </td>
+<!-- fin reloj -->
   </div>
+
   @else
   <div class="d-sm-flex align-items-center justify-content-between my-4">
     <h1 class="h4 mb-0 text-gray-800">No tienes acceso</h1> 
@@ -145,6 +164,27 @@
   @endif
 @endif
 
+<html>
+<head>
+<title>Reloj con Javascript</title>
+<script language="JavaScript">
+function mueveReloj(){
+    momentoActual = new Date()
+    hora = momentoActual.getHours()
+    minuto = momentoActual.getMinutes()
+    segundo = momentoActual.getSeconds()
+
+    horaImprimible = hora + " : " + minuto + " : " + segundo
+
+    document.form_reloj.reloj.value = horaImprimible
+
+    setTimeout("mueveReloj()",1000)
+}
+</script>
+</head>
+
+
+</html>
 
 
 @endsection
