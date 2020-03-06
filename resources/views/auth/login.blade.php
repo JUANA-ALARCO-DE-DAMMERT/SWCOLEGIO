@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,8 +37,11 @@
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
+                <a class="navbar-brand" href="">
+                    <img src="{{asset('img/login2logo.png')}}" height="40px">
+                </a>                
                 <h1>Login</h1>
-                <p class="text-muted">Sign In to your account</p>
+                <p class="text-muted">Iniciar Sesion</p>
                 <form method="POST" action="{{ route('login') }}">
                 @csrf
                     <div class="input-group mb-3">
@@ -90,3 +94,4 @@
     <script src="{{asset('plantilla/node_modules/@coreui/coreui/dist/js/coreui.min.js')}}"></script>
   </body>
 </html>
+
