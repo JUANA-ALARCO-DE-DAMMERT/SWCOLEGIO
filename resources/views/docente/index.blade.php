@@ -52,9 +52,7 @@
                               <span class="badge badge-danger">Inactivo</span>
                               @endif
                             </td>
-                            <td>
-                               <a href="{{url('')}}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>                                
-                            </td>
+                            <td></td>
                         </tr>
                         @endforeach
                     </tbody>
