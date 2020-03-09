@@ -35,31 +35,42 @@
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">DNI</label>
                         <div class="col-md-2">
-                            <input class="form-control" id="trab_dni" type="text" name="trab_dni" readonly required>
+                            <input class="form-control" id="trab_dni" type="text" name="trab_dni" value="{{old('trab_dni')}}" readonly required>
                         </div>
                         <label class="col-md-1 col-form-label">Apellidos</label>
                         <div class="col-md-4">
-                            <input class="form-control" id="trab_ape" type="text" name="trab_ape" readonly required>
+                            <input class="form-control" id="trab_ape" type="text" name="trab_ape" value="{{old('trab_ape')}}" readonly required>
                         </div>
                         <label class="col-md-1 col-form-label">Nombres</label>
                         <div class="col-md-3">
-                            <input class="form-control" id="trab_nom" type="text" name="trab_nom" readonly required>
+                            <input class="form-control" id="trab_nom" type="text" name="trab_nom" value="{{old('trab_nom')}}" readonly required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Sexo</label>
-                            <div class="col-md-2">
-                                <select class="form-control" id="" name="trab_sexo" required>
-                                    <option value="" hidden>-- Seleccione --</option>
-                                    <option value="1">Masculino</option>
-                                    <option value="0">Femenino</option>
-                                </select>
-                            </div>
+                        <div class="col-md-2">
+                            <select class="form-control" id="" name="trab_sexo" required>
+                                <option value="" hidden>-- Seleccione --</option>
+                                <option value="1" @if (old('trab_sexo') == "1") {{ 'selected' }} @endif>Masculino</option>
+                                <option value="0" @if (old('trab_sexo') == "0") {{ 'selected' }} @endif>Femenino</option>
+                            </select>
+                        </div>
                         <label class="col-md-2 col-form-label">F. Nacimiento</label>
                         <div class="col-md-3">
-                            <input class="form-control" type="date" name="trab_fnac" placeholder="">
+                            <input class="form-control" type="date" name="trab_fnac" value="{{old('trab_fnac')}}">
                         </div>
-                    </div>  
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Asignaturas</label>
+                        <div class="col-md-9 col-form-label">
+                            @foreach($asignaturas as $asig)
+                            <div class="form-check form-check-inline mr-1">
+                                <input class="form-check-input" type="checkbox" name="asignaturas[]" value="{{$asig->asig_id}}">
+                                <label class="form-check-label" for="inline-checkbox1">{{$asig->asig_nom}}</label>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
                     <div class="form-actions">
                         <input type="submit" value="Registrar" class="btn btn-primary">
                         <a href="{{url('docente')}}" class="btn btn-danger">Cancelar</a>

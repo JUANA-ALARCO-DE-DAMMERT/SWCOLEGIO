@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-03-2020 a las 04:53:43
+-- Tiempo de generación: 09-03-2020 a las 04:54:10
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -107,6 +107,28 @@ INSERT INTO `asignatura` (`asig_id`, `asig_nom`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `asignatura_docente`
+--
+
+CREATE TABLE `asignatura_docente` (
+  `id` int(11) NOT NULL,
+  `trab_id` int(11) NOT NULL,
+  `asig_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `asignatura_docente`
+--
+
+INSERT INTO `asignatura_docente` (`id`, `trab_id`, `asig_id`) VALUES
+(1, 3, 1),
+(2, 3, 3),
+(3, 5, 3),
+(4, 5, 4);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `curso`
 --
 
@@ -165,7 +187,10 @@ INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
 (6, 75246604, 4, NULL, NULL),
 (7, 75650012, 4, NULL, NULL),
 (8, 75200120, 1, NULL, NULL),
-(9, 70327395, 1, NULL, NULL);
+(9, 70327395, 1, NULL, NULL),
+(10, 25745094, 3, NULL, NULL),
+(12, 25428530, 3, NULL, NULL),
+(13, 75200163, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -190,7 +215,10 @@ CREATE TABLE `trabajador` (
 
 INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_ape`, `trab_nom`, `trab_sexo`, `trab_fnac`, `trab_est`, `trab_user`) VALUES
 (1, '75200120', 'RAMIREZ RODRIGUEZ', 'JORGE LUIS', 1, '1999-10-14', 1, 75200120),
-(2, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 1, '1999-03-20', 1, 70327395);
+(2, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 1, '1999-03-20', 1, 70327395),
+(3, '25745094', 'FERREYRA COVEÑAS', 'JUAN MANUEL', 1, '1985-03-20', 1, 25745094),
+(4, '25428530', 'MURILLO LOPEZ', 'FRANCISCA DE PAULA', 0, '1992-07-22', 1, 25428530),
+(5, '75200163', 'ATAPOMA ACUÑA', 'BRUCE ANTHONY', 1, '1989-11-12', 1, 75200163);
 
 -- --------------------------------------------------------
 
@@ -212,9 +240,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(25428530, '25428530', '$2y$10$8XCnkVVYe9ui9qxbdK5dA.5vmmxh5Rz2y11lZSBtSDqKlWTw3fRsm', NULL, '2020-03-09 08:44:11', '2020-03-09 08:44:11'),
+(25745094, '25745094', '$2y$10$cxheRsBl/6qzGT3krv3ECug6D1/nYeDSg4PkGy9FK.7SjvhsrmVIy', NULL, '2020-03-08 08:32:04', '2020-03-08 08:32:04'),
 (70327395, '70327395', '$2y$10$f8Kb1wMgIKMbLj5INDuhie0HYWPJYpIMuCmT83wg9j6etu/Pzhmz2', NULL, '2020-03-01 22:40:17', '2020-03-01 22:40:17'),
 (75200120, '75200120', '$2y$10$5.jkgqLutEYda6JHA19DteDLCPewHVmHAoLOrav0lwmq3jxghxYOW', NULL, '2020-03-01 22:39:25', '2020-03-01 22:39:25'),
 (75200134, '75200134', '$2y$10$fnab.LDrfaNd0f4QB6CNwuEWzyTJ/suWx/WhQxieXj22kQGI1V9dK', NULL, '2020-03-02 04:26:27', '2020-03-02 04:26:27'),
+(75200163, '75200163', '$2y$10$QcH.BGSdvo77oFJvZ4y.puuZRTPgqajgyWMkB7xdbFWa8nccp1yAC', NULL, '2020-03-09 08:53:17', '2020-03-09 08:53:17'),
 (75246604, '75246604', '$2y$10$snps3sKLO2IqS8PyUT2ncuInYGM4atsH0VXyoOsTQh6igSBOv6y0q', NULL, '2020-03-02 07:28:26', '2020-03-02 07:28:26'),
 (75406456, '75406456', '$2y$10$QLMUZ5fbHtgx3tA0OQmKIO3mDnJyIviWw3fTIEotWqITscOXA1O96', NULL, '2020-03-02 00:45:53', '2020-03-02 00:45:53'),
 (75650012, '75650012', '$2y$10$pmMtfvf5tPyrpwp6lQz9LeXOzjPt0t4ewvB2kliVQr.QN9H54/JYe', NULL, '2020-03-02 07:30:36', '2020-03-02 07:30:36');
@@ -244,6 +275,14 @@ ALTER TABLE `apoderado`
 --
 ALTER TABLE `asignatura`
   ADD PRIMARY KEY (`asig_id`);
+
+--
+-- Indices de la tabla `asignatura_docente`
+--
+ALTER TABLE `asignatura_docente`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `trab_id` (`trab_id`),
+  ADD KEY `asig_id` (`asig_id`);
 
 --
 -- Indices de la tabla `curso`
@@ -304,6 +343,12 @@ ALTER TABLE `asignatura`
   MODIFY `asig_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de la tabla `asignatura_docente`
+--
+ALTER TABLE `asignatura_docente`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `curso`
 --
 ALTER TABLE `curso`
@@ -319,13 +364,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajador`
 --
 ALTER TABLE `trabajador`
-  MODIFY `trab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `trab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -343,6 +388,13 @@ ALTER TABLE `users`
 ALTER TABLE `alumno`
   ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`alum_apod`) REFERENCES `apoderado` (`apod_id`),
   ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`alum_user`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `asignatura_docente`
+--
+ALTER TABLE `asignatura_docente`
+  ADD CONSTRAINT `asignatura_docente_ibfk_1` FOREIGN KEY (`trab_id`) REFERENCES `trabajador` (`trab_id`),
+  ADD CONSTRAINT `asignatura_docente_ibfk_2` FOREIGN KEY (`asig_id`) REFERENCES `asignatura` (`asig_id`);
 
 --
 -- Filtros para la tabla `curso`

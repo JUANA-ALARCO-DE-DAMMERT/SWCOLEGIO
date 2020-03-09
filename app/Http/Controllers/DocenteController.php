@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Trabajador;
+use App\AsignaturaDocente;
 use App\RoleUser;
 use App\User;
 use DB;
@@ -20,7 +21,43 @@ class DocenteController extends Controller
     }
 
     public function create(){
-        return view ('docente.create');
+        $data = DB::table('asignatura')->get();
+        return view ('docente.create',['asignaturas'=>$data]);
+    }
+
+    public function store(Request $request){
+        $this->validate($request,[
+            'trab_dni' => 'required|unique:trabajador,trab_dni|numeric|digits:8',
+            'trab_ape' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
+            'trab_nom' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
+            'trab_sexo' => 'required',
+            'trab_fnac' => 'required'
+        ]);
+        $data = $request->all();
+        User::create([
+            'id' => $data['trab_dni'],
+            'usuario' => $data['trab_dni'],
+            'password' => Hash::make($data['trab_dni']),
+        ]);
+        $rol = RoleUser::create([
+            'user_id' => $data['trab_dni'],
+            'role_id' => '3'
+        ]); 
+        $trab = Trabajador::create([
+            'trab_dni' => $data['trab_dni'],
+            'trab_ape' => $data['trab_ape'],
+            'trab_nom' => $data['trab_nom'],
+            'trab_sexo' => $data['trab_sexo'],
+            'trab_fnac' => $data['trab_fnac'],
+            'trab_user' => $data['trab_dni']
+        ]); 
+        foreach ($data['asignaturas'] as $key => $value) {
+            $asigDoc = AsignaturaDocente::create([
+                'trab_id' => $trab->trab_id,
+                'asig_id' => $value
+            ]);
+        }
+        return redirect()->route('docente.index')->with('status', 'Docente agregado correctamente!');
     }
 
 }
