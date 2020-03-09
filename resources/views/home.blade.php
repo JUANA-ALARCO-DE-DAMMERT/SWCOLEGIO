@@ -122,6 +122,50 @@
         </div>
       </div>
     </div>
+<div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Datos Basicos del Alumno</h6>
+</div>
+<table border="1" class="table table-responsive-sm table-hover table-sm" id="dataTable">
+  <tr>
+    <th class="tg-cly1" colspan="3">Apellidos</th >
+    <td class="tg-cly1" colspan="8">{{$alumnodatos->alum_ape}}</td>
+  </tr>
+  <tr>
+    <th class="tg-cly1" colspan="3">Nombres</th>
+    <td class="tg-0lax" colspan="8">{{$alumnodatos->alum_nom}}</td>
+  </tr>
+  <tr>
+    <th class="tg-cly1" colspan="3">Sexo</th>
+    <td class="tg-0lax" colspan="8">
+                              @if ($alumnodatos->alum_sexo == 1)
+                                    Masculino
+                                @else
+                                    Femenino
+                                @endif      
+    </td>
+  </tr>
+  <tr>
+    <th class="tg-cly1" colspan="3">Grado</th>
+    <td class="tg-0lax" colspan="8">{{$alumnodatos->alum_grad}}° de secundaria</td>
+  </tr>
+  <tr>
+    <th class="tg-cly1" colspan="3">Fecha de Nacimiento</th>
+    <td class="tg-0lax" colspan="8">{{$alumnodatos->alum_fnac}}</td>
+  </tr>
+  <tr>
+
+    <th class="tg-cly1" colspan="3">EMAIL DE BOLETA</th>
+    <td class="tg-0lax" colspan="8"></td>
+  </tr>
+  <tr>
+    <th class="tg-cly1" colspan="3">APODERADO</th>
+    <td class="tg-0lax" colspan="8"></td>
+  </tr>
+
+
+</table>
+
+
   @else
   <div class="d-sm-flex align-items-center justify-content-between my-4">
     <h1 class="h4 mb-0 text-gray-800">No tienes acceso</h1> 
@@ -131,6 +175,7 @@
 
 @endsection
 
+<!--inicio Script para el reloj -->
 @section('scripts')
 <script>
   function mueveReloj(){
@@ -144,3 +189,4 @@
   }
 </script>
 @endsection
+<!-- Fin Script para el reloj -->
