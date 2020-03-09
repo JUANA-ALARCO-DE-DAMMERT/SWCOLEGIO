@@ -22,4 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Rutas de los controladores
 Route::resource('apoderado','ApoderadoController');
 Route::resource('alumno','AlumnoController');
-
+Route::resource('docente','DocenteController');

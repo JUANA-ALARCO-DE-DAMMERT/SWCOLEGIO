@@ -74,9 +74,6 @@
                         <div class="col-6">
                             <input type="submit" value="Login" class="btn btn-primary px-4">
                         </div>
-                        <div class="col-6 text-right">
-                            <button class="btn btn-link px-0" type="button">Forgot password?</button>
-                        </div>
                     </div>
                 </form>
               </div>
