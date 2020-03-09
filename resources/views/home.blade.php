@@ -104,7 +104,8 @@
 
 <?php 
   $alumnodatos = DB::table('alumno')
-                  ->where('alumno.alum_dni','=',Auth::user()->usuario)->first();
+                  ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
+                  ->where('alumno.alum_dni','=',Auth::user()->usuario)->first();                          
 ?>
 <!-- Home - Alumno -->
 @if(Auth::user()->hasrole('alum'))
@@ -122,20 +123,22 @@
         </div>
       </div>
     </div>
-<div class="card-header py-3">
+<div class="card-header py-3" >
     <h6 class="m-0 font-weight-bold text-primary">Datos Basicos del Alumno</h6>
 </div>
+
+<!-- Inicio de tabla de datos --> 
 <table border="1" class="table table-responsive-sm table-hover table-sm" id="dataTable">
   <tr>
-    <th class="tg-cly1" colspan="3">Apellidos</th >
+    <th class="tg-cly1" colspan="3">APELLIDOS</th >
     <td class="tg-cly1" colspan="8">{{$alumnodatos->alum_ape}}</td>
   </tr>
   <tr>
-    <th class="tg-cly1" colspan="3">Nombres</th>
+    <th class="tg-cly1" colspan="3">NOMBRES</th>
     <td class="tg-0lax" colspan="8">{{$alumnodatos->alum_nom}}</td>
   </tr>
   <tr>
-    <th class="tg-cly1" colspan="3">Sexo</th>
+    <th class="tg-cly1" colspan="3">SEXO</th>
     <td class="tg-0lax" colspan="8">
                               @if ($alumnodatos->alum_sexo == 1)
                                     Masculino
@@ -145,25 +148,35 @@
     </td>
   </tr>
   <tr>
-    <th class="tg-cly1" colspan="3">Grado</th>
+    <th class="tg-cly1" colspan="3">GRADO</th>
     <td class="tg-0lax" colspan="8">{{$alumnodatos->alum_grad}}° de secundaria</td>
   </tr>
   <tr>
-    <th class="tg-cly1" colspan="3">Fecha de Nacimiento</th>
+    <th class="tg-cly1" colspan="3">FECHA DE NACIMIENTO</th>
     <td class="tg-0lax" colspan="8">{{$alumnodatos->alum_fnac}}</td>
   </tr>
   <tr>
 
     <th class="tg-cly1" colspan="3">EMAIL DE BOLETA</th>
-    <td class="tg-0lax" colspan="8"></td>
+    <td class="tg-0lax" colspan="8">{{$alumnodatos->apod_email}}</td>
   </tr>
   <tr>
     <th class="tg-cly1" colspan="3">APODERADO</th>
-    <td class="tg-0lax" colspan="8"></td>
+    <td class="tg-0lax" colspan="8">{{$alumnodatos->apod_nom.' '.$alumnodatos->apod_ape}}</td>
   </tr>
-
-
 </table>
+<br>
+<!-- FIN de tabla de datos -->
+
+
+
+<!-- Inicio de imagen del 2020 -->
+<div align="center"><br><br><br>
+                <a class="navbar-brand"  href="">
+                    <img  src="{{asset('img/anonuevo.png')}}" height="70px">
+                </a>     
+</div> 
+<!-- fin de imagen 2020 -->
 
 
   @else
@@ -172,6 +185,8 @@
   </div>
   @endif
 @endif
+
+
 
 @endsection
 
@@ -188,5 +203,7 @@
       setTimeout("mueveReloj()",1000)
   }
 </script>
+<!--FIN Script para el reloj -->
+
+
 @endsection
-<!-- Fin Script para el reloj -->
