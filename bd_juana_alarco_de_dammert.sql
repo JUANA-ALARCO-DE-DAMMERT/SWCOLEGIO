@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-03-2020 a las 04:54:10
+-- Tiempo de generación: 10-03-2020 a las 04:28:34
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -124,7 +124,9 @@ INSERT INTO `asignatura_docente` (`id`, `trab_id`, `asig_id`) VALUES
 (1, 3, 1),
 (2, 3, 3),
 (3, 5, 3),
-(4, 5, 4);
+(4, 5, 4),
+(5, 6, 1),
+(6, 6, 2);
 
 -- --------------------------------------------------------
 
@@ -136,8 +138,15 @@ CREATE TABLE `curso` (
   `curs_id` int(11) NOT NULL,
   `curs_iddocen` int(11) NOT NULL,
   `curs_idasig` int(11) NOT NULL,
-  `año` int(4) NOT NULL
+  `curs_año` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `curso`
+--
+
+INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `curs_año`) VALUES
+(1001, 6, 1, 2020);
 
 -- --------------------------------------------------------
 
@@ -190,7 +199,8 @@ INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
 (9, 70327395, 1, NULL, NULL),
 (10, 25745094, 3, NULL, NULL),
 (12, 25428530, 3, NULL, NULL),
-(13, 75200163, 3, NULL, NULL);
+(13, 75200163, 3, NULL, NULL),
+(14, 7779398, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -218,7 +228,8 @@ INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_ape`, `trab_nom`, `trab_s
 (2, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 1, '1999-03-20', 1, 70327395),
 (3, '25745094', 'FERREYRA COVEÑAS', 'JUAN MANUEL', 1, '1985-03-20', 1, 25745094),
 (4, '25428530', 'MURILLO LOPEZ', 'FRANCISCA DE PAULA', 0, '1992-07-22', 1, 25428530),
-(5, '75200163', 'ATAPOMA ACUÑA', 'BRUCE ANTHONY', 1, '1989-11-12', 1, 75200163);
+(5, '75200163', 'ATAPOMA ACUÑA', 'BRUCE ANTHONY', 1, '1989-11-12', 1, 75200163),
+(6, '07779398', 'PICASSO SALINAS', 'RAFAEL BERNARDO LUIS', 1, '1984-12-22', 1, 7779398);
 
 -- --------------------------------------------------------
 
@@ -240,6 +251,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(7779398, '07779398', '$2y$10$6UrRWu33MAWkHWhgC3VutelNsbKlSSIUsALqXKHln8YR.yefVzXuW', NULL, '2020-03-10 05:41:32', '2020-03-10 05:41:32'),
 (25428530, '25428530', '$2y$10$8XCnkVVYe9ui9qxbdK5dA.5vmmxh5Rz2y11lZSBtSDqKlWTw3fRsm', NULL, '2020-03-09 08:44:11', '2020-03-09 08:44:11'),
 (25745094, '25745094', '$2y$10$cxheRsBl/6qzGT3krv3ECug6D1/nYeDSg4PkGy9FK.7SjvhsrmVIy', NULL, '2020-03-08 08:32:04', '2020-03-08 08:32:04'),
 (70327395, '70327395', '$2y$10$f8Kb1wMgIKMbLj5INDuhie0HYWPJYpIMuCmT83wg9j6etu/Pzhmz2', NULL, '2020-03-01 22:40:17', '2020-03-01 22:40:17'),
@@ -346,13 +358,13 @@ ALTER TABLE `asignatura`
 -- AUTO_INCREMENT de la tabla `asignatura_docente`
 --
 ALTER TABLE `asignatura_docente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `curs_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `curs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -364,13 +376,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajador`
 --
 ALTER TABLE `trabajador`
-  MODIFY `trab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `trab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
