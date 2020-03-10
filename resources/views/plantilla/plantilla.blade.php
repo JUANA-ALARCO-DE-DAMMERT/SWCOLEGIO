@@ -92,7 +92,7 @@
                 <i class="nav-icon icon-user"></i> Docentes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">
+              <a class="nav-link" href="{{url('curso')}}">
                 <i class="nav-icon icon-notebook"></i> Cursos</a>
             </li>
             <li class="nav-item nav-dropdown">
