@@ -123,60 +123,60 @@
         </div>
       </div>
     </div>
-<div class="card-header py-3" >
-    <h6 class="m-0 font-weight-bold text-primary">Datos Basicos del Alumno</h6>
-</div>
+    
+    <!-- tabla detalle alumno -->
+    <div class="card-header py-3" >
+      <h6 class="m-0 font-weight-bold">Datos básicos del alumno(a)</h6>
+    </div>
+    <table  class="table table-sm table-bordered" id="dataTable">
+      <tr>
+        <td>DNI</td>
+        <td>{{$alumnodatos->alum_dni}}</td>
+      </tr>
+      <tr>
+        <td>Apellidos</td>
+        <td>{{$alumnodatos->alum_ape}}</td>
+      </tr>
+      <tr>
+        <td>Nombres</td>
+        <td>{{$alumnodatos->alum_nom}}</td>
+      </tr>
+      <tr>
+        <td>Sexo</td>
+        <td>
+          @if ($alumnodatos->alum_sexo == 1)
+              Masculino
+          @else
+              Femenino
+          @endif
+        </td>
+      </tr>
+      <tr>
+        <td>Grado</td>
+        <td>{{$alumnodatos->alum_grad}}° de secundaria</td>
+      </tr>
+      <tr>
+        <td>Fecha de nacimiento</td>
+        <td>{{date("d/m/Y", strtotime($alumnodatos->alum_fnac))}}</td>
+      </tr>
+      <tr>
+        <td>E-mail de boleta</td>
+        <td>{{$alumnodatos->apod_email}}</td>
+      </tr>
+      <tr>
+        <td>Apoderado(a)</td>
+        <td>{{$alumnodatos->apod_nom.' '.$alumnodatos->apod_ape}}</td>
+      </tr>
+    </table>
+    <!-- fin tabla detalle alumno -->
 
-<!-- Inicio de tabla de datos --> 
-<table border="1" class="table table-responsive-sm table-hover table-sm" id="dataTable">
-  <tr>
-    <th class="tg-cly1" colspan="3">APELLIDOS</th >
-    <td class="tg-cly1" colspan="8">{{$alumnodatos->alum_ape}}</td>
-  </tr>
-  <tr>
-    <th class="tg-cly1" colspan="3">NOMBRES</th>
-    <td class="tg-0lax" colspan="8">{{$alumnodatos->alum_nom}}</td>
-  </tr>
-  <tr>
-    <th class="tg-cly1" colspan="3">SEXO</th>
-    <td class="tg-0lax" colspan="8">
-                              @if ($alumnodatos->alum_sexo == 1)
-                                    Masculino
-                                @else
-                                    Femenino
-                                @endif      
-    </td>
-  </tr>
-  <tr>
-    <th class="tg-cly1" colspan="3">GRADO</th>
-    <td class="tg-0lax" colspan="8">{{$alumnodatos->alum_grad}}° de secundaria</td>
-  </tr>
-  <tr>
-    <th class="tg-cly1" colspan="3">FECHA DE NACIMIENTO</th>
-    <td class="tg-0lax" colspan="8">{{$alumnodatos->alum_fnac}}</td>
-  </tr>
-  <tr>
-
-    <th class="tg-cly1" colspan="3">EMAIL DE BOLETA</th>
-    <td class="tg-0lax" colspan="8">{{$alumnodatos->apod_email}}</td>
-  </tr>
-  <tr>
-    <th class="tg-cly1" colspan="3">APODERADO</th>
-    <td class="tg-0lax" colspan="8">{{$alumnodatos->apod_nom.' '.$alumnodatos->apod_ape}}</td>
-  </tr>
-</table>
-<br>
-<!-- FIN de tabla de datos -->
-
-
-
-<!-- Inicio de imagen del 2020 -->
-<div align="center"><br><br><br>
-                <a class="navbar-brand"  href="">
-                    <img  src="{{asset('img/anonuevo.png')}}" height="70px">
-                </a>     
-</div> 
-<!-- fin de imagen 2020 -->
+    <!-- Inicio de imagen del 2020 -->
+    <div align="center"><br>
+      <a class="navbar-brand"  href="">
+          <img  src="{{asset('img/anonuevo.png')}}" height="70px">
+      </a>     
+    </div> 
+    <!-- fin de imagen 2020 -->
 
 
   @else
@@ -190,7 +190,6 @@
 
 @endsection
 
-<!--inicio Script para el reloj -->
 @section('scripts')
 <script>
   function mueveReloj(){
@@ -203,7 +202,4 @@
       setTimeout("mueveReloj()",1000)
   }
 </script>
-<!--FIN Script para el reloj -->
-
-
 @endsection
