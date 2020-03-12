@@ -118,6 +118,12 @@
               </ul>
             </li>
             @endif
+            @if(Auth::user()->hasrole('docen'))
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('')}}">
+                <i class="nav-icon icon-notebook"></i> Mis cursos</a>
+            </li>
+            @endif
             @if(Auth::user()->hasrole('alum'))
             <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="#">
