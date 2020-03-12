@@ -4,6 +4,53 @@
   $nro_alumnotercero = DB::table('alumno')->where('alum_grad','=','3')->count();
   $nro_alumnocuarto = DB::table('alumno')->where('alum_grad','=','4')->count(); 
   $nro_alumnoquinto = DB::table('alumno')->where('alum_grad','=','5')->count();
+// alumno sexo por año
+// 1er Año  
+  $nro_alumnoprimerosexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','1')
+                    ->count();  
+  $nro_alumnoprimerosexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','1')
+                    ->count();
+// 2do Año 
+  $nro_alumnosegundosexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','2')
+                    ->count();  
+  $nro_alumnosegundosexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','2')
+                    ->count();
+// 3er Año
+  $nro_alumnotercerosexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','3')
+                    ->count();  
+  $nro_alumnotercerosexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','3')
+                    ->count();
+// 4to Año
+  $nro_alumnocuartosexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','4')
+                    ->count();  
+  $nro_alumnocuartosexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','4')
+                    ->count();
+// 5to Año
+  $nro_alumnoquintosexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','5')
+                    ->count();  
+  $nro_alumnoquintosexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','5')
+                    ->count();
+// Fin 
 
   $trab_data = DB::table('trabajador')
                   ->join('role_user','role_user.user_id','trabajador.trab_dni')
@@ -40,10 +87,9 @@
             <i class="icon-people"></i>
           </div>
           <div class="text-value">{{$nro_alumnoprimero}}</div>
-          <small class="text-muted text-uppercase font-weight-bold">1° de secundaria</small>
-          <div class="progress progress-xs mt-3 mb-0">
-            <div class="progress-bar bg-success" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$nro_alumnoprimero}}</div>
-          </div>
+          <small class="text-muted text-uppercase font-weight-bold">1° de secundaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnoprimerosexoH}} |</small>        
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnoprimerosexoM}}</small>          
         </div>
       </div>
       <!-- 2° de secundaria -->
@@ -53,10 +99,9 @@
             <i class="icon-people"></i>
           </div>
           <div class="text-value">{{$nro_alumnosegundo}}</div>
-          <small class="text-muted text-uppercase font-weight-bold">2° de secundaria</small>
-          <div class="progress progress-xs mt-3 mb-0">
-            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$nro_alumnosegundo}}</div>
-          </div>
+          <small class="text-muted text-uppercase font-weight-bold">2° de secundaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnosegundosexoH}} |</small>        
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnosegundosexoM}}</small>          
         </div>
       </div>
       <!-- 3° de secundaria -->
@@ -66,10 +111,9 @@
             <i class="icon-people"></i>
           </div>
           <div class="text-value">{{$nro_alumnotercero}}</div>
-          <small class="text-muted text-uppercase font-weight-bold">3° de secundaria</small>
-          <div class="progress progress-xs mt-3 mb-0">
-            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$nro_alumnotercero}}.''. %</div>
-          </div>
+          <small class="text-muted text-uppercase font-weight-bold">3° de secundaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnotercerosexoH}} |</small>
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnotercerosexoM}}</small>          
         </div>
       </div>
       <!-- 4° de secundaria -->
@@ -79,10 +123,9 @@
             <i class="icon-people"></i>
           </div>
           <div class="text-value">{{$nro_alumnocuarto}}</div>
-          <small class="text-muted text-uppercase font-weight-bold">4° de secundaria</small>
-          <div class="progress progress-xs mt-3 mb-0">
-            <div class="progress-bar bg-success" role="progressbar" style="width:{{$nro_alumnocuarto}}.''.%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
+          <small class="text-muted text-uppercase font-weight-bold">4° de secundaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnocuartosexoH}} |</small>
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnocuartosexoM}}</small>  
         </div>
       </div>
       <!-- 5° de secundaria -->
@@ -92,10 +135,9 @@
             <i class="icon-people"></i>
           </div>
           <div class="text-value">{{$nro_alumnoquinto}}</div>
-          <small class="text-muted text-uppercase font-weight-bold">5° de secundaria</small>
-          <div class="progress progress-xs mt-3 mb-0">
-            <div class="progress-bar bg-success" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$nro_alumnoquinto}}.''. %</div>
-          </div>
+          <small class="text-muted text-uppercase font-weight-bold">5° de secundaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnoquintosexoH}} |</small>         
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnoquintosexoM}}</small>  
         </div>
       </div>
     </div>
@@ -227,4 +269,40 @@
       setTimeout("mueveReloj()",1000)
   }
 </script>
+
+<script>
+    // Set new default font family and font color to mimic Bootstrap's default styling
+    Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+    Chart.defaults.global.defaultFontColor = '#858796';
+
+    // Pie Chart Example
+    var ctx = document.getElementById("myPieChart");
+    var myPieChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ["nrocuatro"],
+        datasets: [{
+          data: [<?php echo $nro_alumnocuarto; ?>],
+          backgroundColor: ['#1cc88a']
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        tooltips: {
+          backgroundColor: "rgb(255,255,255)",
+          bodyFontColor: "#858796",
+          borderColor: '#dddfeb',
+          borderWidth: 1,
+          xPadding: 15,
+          yPadding: 15,
+          displayColors: false,
+          caretPadding: 10,
+        },
+        legend: {
+          display: false
+        },
+        cutoutPercentage: 80,
+      },
+    });
+  </script>
 @endsection
