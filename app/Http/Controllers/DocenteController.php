@@ -60,4 +60,12 @@ class DocenteController extends Controller
         return redirect()->route('docente.index')->with('status', 'Docente agregado correctamente!');
     }
 
+    public function docentePorAsignatura($id){
+        $data = DB::table('asignatura_docente')
+                    ->join('trabajador','trabajador.trab_id','asignatura_docente.trab_id')
+                    ->where('asignatura_docente.asig_id','=',$id)
+                    ->get();
+        return $data;
+    }
+
 }

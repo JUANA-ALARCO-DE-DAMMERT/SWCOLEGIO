@@ -29,7 +29,8 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        $data = DB::table('asignatura')->get();
+        return view('curso.create',['asignaturas'=>$data]);
     }
 
     /**
