@@ -41,7 +41,9 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $curs = Curso::create($data);
+        return redirect()->route('curso.index')->with('status', 'Apoderado agregado correctamente!');        
     }
 
     /**

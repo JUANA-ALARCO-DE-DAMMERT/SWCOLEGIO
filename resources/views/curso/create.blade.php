@@ -39,6 +39,20 @@
                             </select>
                         </div>
                     </div>
+<!--                     <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Año</label>
+                        <div class="col-md-2">
+                            <select class="form-control"  name="curs_año" size="1" required>
+                                <option  >-- Seleccione --</option>
+                                <option  >2018</option>
+                                <option  >2019</option>
+                                <option  >2020</option>
+                                <option  >2021</option>
+                                <option  >2022</option>
+                            </select>
+                        </div>
+
+                    </div> -->
                     <div class="form-actions">
                         <input type="submit" value="Registrar" class="btn btn-primary">
                         <a href="{{url('curso')}}" class="btn btn-danger">Cancelar</a>
