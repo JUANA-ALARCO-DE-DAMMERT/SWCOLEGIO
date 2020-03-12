@@ -1,4 +1,10 @@
-<?php 
+<?php
+  $nro_alumnoprimero = DB::table('alumno')->where('alum_grad','=','1')->count();
+  $nro_alumnosegundo = DB::table('alumno')->where('alum_grad','=','2')->count();
+  $nro_alumnotercero = DB::table('alumno')->where('alum_grad','=','3')->count();
+  $nro_alumnocuarto = DB::table('alumno')->where('alum_grad','=','4')->count(); 
+  $nro_alumnoquinto = DB::table('alumno')->where('alum_grad','=','5')->count();
+
   $trab_data = DB::table('trabajador')
                   ->join('role_user','role_user.user_id','trabajador.trab_dni')
                   ->join('roles','roles.id','role_user.role_id')
@@ -33,10 +39,10 @@
           <div class="h1 text-muted text-right mb-4">
             <i class="icon-people"></i>
           </div>
-          <div class="text-value">385</div>
+          <div class="text-value">{{$nro_alumnoprimero}}</div>
           <small class="text-muted text-uppercase font-weight-bold">1° de secundaria</small>
           <div class="progress progress-xs mt-3 mb-0">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-success" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$nro_alumnoprimero}}</div>
           </div>
         </div>
       </div>
@@ -46,10 +52,10 @@
           <div class="h1 text-muted text-right mb-4">
             <i class="icon-people"></i>
           </div>
-          <div class="text-value">385</div>
+          <div class="text-value">{{$nro_alumnosegundo}}</div>
           <small class="text-muted text-uppercase font-weight-bold">2° de secundaria</small>
           <div class="progress progress-xs mt-3 mb-0">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$nro_alumnosegundo}}</div>
           </div>
         </div>
       </div>
@@ -59,10 +65,10 @@
           <div class="h1 text-muted text-right mb-4">
             <i class="icon-people"></i>
           </div>
-          <div class="text-value">385</div>
+          <div class="text-value">{{$nro_alumnotercero}}</div>
           <small class="text-muted text-uppercase font-weight-bold">3° de secundaria</small>
           <div class="progress progress-xs mt-3 mb-0">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$nro_alumnotercero}}.''. %</div>
           </div>
         </div>
       </div>
@@ -72,10 +78,10 @@
           <div class="h1 text-muted text-right mb-4">
             <i class="icon-people"></i>
           </div>
-          <div class="text-value">385</div>
+          <div class="text-value">{{$nro_alumnocuarto}}</div>
           <small class="text-muted text-uppercase font-weight-bold">4° de secundaria</small>
           <div class="progress progress-xs mt-3 mb-0">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-success" role="progressbar" style="width:{{$nro_alumnocuarto}}.''.%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </div>
       </div>
@@ -85,10 +91,10 @@
           <div class="h1 text-muted text-right mb-4">
             <i class="icon-people"></i>
           </div>
-          <div class="text-value">385</div>
+          <div class="text-value">{{$nro_alumnoquinto}}</div>
           <small class="text-muted text-uppercase font-weight-bold">5° de secundaria</small>
           <div class="progress progress-xs mt-3 mb-0">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-success" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$nro_alumnoquinto}}.''. %</div>
           </div>
         </div>
       </div>
