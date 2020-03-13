@@ -97,6 +97,26 @@
             </li>
             <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-chart"></i> Matriculas</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="buttons/buttons.html">
+                    <i class="nav-icon icon-note"></i> Matricula-Alumnado</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-chart"></i> Asistencias</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="buttons/buttons.html">
+                    <i class="nav-icon icon-calendar"></i> Asistencia-Alumnado</a>
+                </li>
+              </ul>
+            </li> 
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-chart"></i> Reportes</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
@@ -116,7 +136,7 @@
                     <i class="nav-icon icon-cursor"></i> Brand Buttons</a>
                 </li>
               </ul>
-            </li>
+            </li>            
             @endif
             @if(Auth::user()->hasrole('docen'))
             <li class="nav-item">

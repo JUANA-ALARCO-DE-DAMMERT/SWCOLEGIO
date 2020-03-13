@@ -52,7 +52,9 @@
                               <span class="badge badge-danger">Inactivo</span>
                               @endif
                             </td>
-                            <td></td>
+                            <td>
+                               <a href="{{url('docente/'.$doc->trab_id.'/edit')}}" class="btn btn-sm btn-warning" title="Editar Datos del Docente"><i class="fa fa-pencil"></i></a>                                
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

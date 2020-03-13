@@ -68,4 +68,10 @@ class DocenteController extends Controller
         return $data;
     }
 
+    public function edit($id)
+    {
+        $trab = Trabajador::find($id);
+        return view ('docente.edit',['docentes'=>$trab]);
+    }    
+
 }
