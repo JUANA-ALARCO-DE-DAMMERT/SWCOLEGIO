@@ -41,9 +41,14 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'curs_idasig' => 'required',
+            'curs_iddocen' => 'required',
+            'curs_año' => 'required'
+        ]);
         $data = $request->all();
-        $curs = Curso::create($data);
-        return redirect()->route('curso.index')->with('status', 'Apoderado agregado correctamente!');        
+        $curso = Curso::create($data);
+        return redirect()->route('curso.index')->with('status', 'Curso agregado correctamente!');        
     }
 
     /**

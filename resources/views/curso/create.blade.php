@@ -39,20 +39,20 @@
                             </select>
                         </div>
                     </div>
-<!--                     <div class="form-group row">
+
+                    <div class="form-group row">
                         <label class="col-md-2 col-form-label">Año</label>
                         <div class="col-md-2">
                             <select class="form-control"  name="curs_año" size="1" required>
-                                <option  >-- Seleccione --</option>
-                                <option  >2018</option>
-                                <option  >2019</option>
-                                <option  >2020</option>
-                                <option  >2021</option>
-                                <option  >2022</option>
+                                <option value="2020" selected>2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
                             </select>
                         </div>
+                    </div> 
 
-                    </div> -->
                     <div class="form-actions">
                         <input type="submit" value="Registrar" class="btn btn-primary">
                         <a href="{{url('curso')}}" class="btn btn-danger">Cancelar</a>

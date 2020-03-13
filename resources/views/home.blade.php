@@ -4,8 +4,8 @@
   $nro_alumnotercero = DB::table('alumno')->where('alum_grad','=','3')->count();
   $nro_alumnocuarto = DB::table('alumno')->where('alum_grad','=','4')->count(); 
   $nro_alumnoquinto = DB::table('alumno')->where('alum_grad','=','5')->count();
-// alumno sexo por año
-// 1er Año  
+  // alumno sexo por año
+  // 1er Año  
   $nro_alumnoprimerosexoH = DB::table('alumno')
                     ->where('alum_sexo','=','1')
                     ->where('alum_grad','=','1')
@@ -14,7 +14,7 @@
                     ->where('alum_sexo','=','0')
                     ->where('alum_grad','=','1')
                     ->count();
-// 2do Año 
+  // 2do Año 
   $nro_alumnosegundosexoH = DB::table('alumno')
                     ->where('alum_sexo','=','1')
                     ->where('alum_grad','=','2')
@@ -23,7 +23,7 @@
                     ->where('alum_sexo','=','0')
                     ->where('alum_grad','=','2')
                     ->count();
-// 3er Año
+  // 3er Año
   $nro_alumnotercerosexoH = DB::table('alumno')
                     ->where('alum_sexo','=','1')
                     ->where('alum_grad','=','3')
@@ -32,7 +32,7 @@
                     ->where('alum_sexo','=','0')
                     ->where('alum_grad','=','3')
                     ->count();
-// 4to Año
+  // 4to Año
   $nro_alumnocuartosexoH = DB::table('alumno')
                     ->where('alum_sexo','=','1')
                     ->where('alum_grad','=','4')
@@ -41,7 +41,7 @@
                     ->where('alum_sexo','=','0')
                     ->where('alum_grad','=','4')
                     ->count();
-// 5to Año
+  // 5to Año
   $nro_alumnoquintosexoH = DB::table('alumno')
                     ->where('alum_sexo','=','1')
                     ->where('alum_grad','=','5')
@@ -50,8 +50,7 @@
                     ->where('alum_sexo','=','0')
                     ->where('alum_grad','=','5')
                     ->count();
-// Fin 
-
+  // Fin 
   $trab_data = DB::table('trabajador')
                   ->join('role_user','role_user.user_id','trabajador.trab_dni')
                   ->join('roles','roles.id','role_user.role_id')
