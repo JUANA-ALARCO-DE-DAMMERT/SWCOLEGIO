@@ -74,4 +74,13 @@ class DocenteController extends Controller
         return view ('docente.edit',['docentes'=>$trab]);
     }    
 
+    public function misCursos($id){
+        $data = DB::table('trabajador')
+                    ->join('curso','curso.curs_iddocen','trabajador.trab_id')
+                    ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
+                    ->where('trabajador.trab_dni','=',$id)
+                    ->get();
+        return view ('docente.miscursos',['mis_cursos'=>$data]);
+    }    
+
 }

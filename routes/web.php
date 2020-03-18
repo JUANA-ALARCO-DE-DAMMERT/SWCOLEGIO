@@ -24,3 +24,6 @@ Route::resource('apoderado','ApoderadoController');
 Route::resource('alumno','AlumnoController');
 Route::resource('docente','DocenteController');
 Route::resource('curso','CursoController');
+
+// Rutas del docente
+Route::get('cursos/{id}','DocenteController@misCursos');

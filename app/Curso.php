@@ -12,6 +12,7 @@ class Curso extends Model
     protected $fillable = [
         'curs_iddocen',
         'curs_idasig',
+        'curs_grado',
         'curs_año'
     ];
     protected $guarded = [];
