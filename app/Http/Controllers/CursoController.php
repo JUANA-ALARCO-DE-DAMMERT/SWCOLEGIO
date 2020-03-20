@@ -44,6 +44,7 @@ class CursoController extends Controller
         $this->validate($request,[
             'curs_idasig' => 'required',
             'curs_iddocen' => 'required',
+            'curs_grado' => 'required',
             'curs_año' => 'required'
         ]);
         $data = $request->all();

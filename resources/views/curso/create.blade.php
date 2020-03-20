@@ -41,6 +41,17 @@
                     </div>
 
                     <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Grado</label>
+                        <div class="col-md-2">
+                            <select name="curs_grado" class="form-control" required>
+                                <option hidden>--- Seleccione ---</option>
+                                <option value="1">1° de secundaria</option>
+                                <option value="2">2° de secundaria</option>
+                                <option value="3">3° de secundaria</option>
+                                <option value="4">4° de secundaria</option>
+                                <option value="5">5° de secundaria</option>
+                            </select>
+                        </div>
                         <label class="col-md-2 col-form-label">Año</label>
                         <div class="col-md-2">
                             <select class="form-control"  name="curs_año" size="1" readonly>

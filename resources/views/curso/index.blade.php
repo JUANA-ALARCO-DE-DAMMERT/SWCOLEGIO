@@ -25,6 +25,7 @@
                             <th>Código</th>
                             <th>Docente</th>
                             <th>Asignatura</th>
+                            <th>Grado</th>
                             <th>Año</th>
                             <th>Opciones</th>
                         </tr>
@@ -35,6 +36,7 @@
                             <td>{{$cur->curs_id}}</td>
                             <td>{{$cur->trab_ape . ', '. $cur->trab_nom}}</td>
                             <td>{{$cur->asig_nom}}</td>
+                            <td>{{$cur->curs_grado . '° de secundaria'}}</td>
                             <td>{{$cur->curs_año}}</td>
                             <td>   
                                 <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a> 
