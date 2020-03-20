@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-03-2020 a las 04:28:34
+-- Tiempo de generación: 20-03-2020 a las 02:13:56
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -81,7 +81,8 @@ INSERT INTO `apoderado` (`apod_id`, `apod_dni`, `apod_ape`, `apod_nom`, `apod_se
 (7, '75200158', 'BRICEÑO VASQUEZ', 'BRIDGITH PRISCILA', 0, NULL, NULL),
 (8, '74850405', 'AGUILAR AGUILA', 'CELIA', 0, 'celia16.aa@gmail.com', NULL),
 (9, '76204070', 'QUINTO ACUÑA', 'RODRIGO JAVIER', 1, 'rodrigo.quinto@hotmail.com', NULL),
-(10, '75265129', 'ROBLES FLOREANO', 'HUGO PABLO', 1, 'hugo.robles.fl@hotmail.com', '952741632');
+(10, '75265129', 'ROBLES FLOREANO', 'HUGO PABLO', 1, 'hugo.robles.fl@hotmail.com', '952741632'),
+(11, '07514045', 'HINOSTROZA FLORES', 'DINA', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,9 @@ INSERT INTO `asignatura` (`asig_id`, `asig_nom`) VALUES
 (1, 'Matemáticas'),
 (2, 'Comunicación'),
 (3, 'Inglés'),
-(4, 'Historia');
+(4, 'Historia'),
+(5, 'C.T.A.'),
+(6, 'Arte');
 
 -- --------------------------------------------------------
 
@@ -138,6 +141,7 @@ CREATE TABLE `curso` (
   `curs_id` int(11) NOT NULL,
   `curs_iddocen` int(11) NOT NULL,
   `curs_idasig` int(11) NOT NULL,
+  `curs_grado` int(11) NOT NULL,
   `curs_año` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -145,8 +149,11 @@ CREATE TABLE `curso` (
 -- Volcado de datos para la tabla `curso`
 --
 
-INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `curs_año`) VALUES
-(1001, 6, 1, 2020);
+INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `curs_grado`, `curs_año`) VALUES
+(1001, 6, 1, 3, 2020),
+(1002, 5, 4, 4, 2020),
+(1003, 6, 2, 2, 2020),
+(1004, 5, 4, 3, 2020);
 
 -- --------------------------------------------------------
 
@@ -346,13 +353,13 @@ ALTER TABLE `alumno`
 -- AUTO_INCREMENT de la tabla `apoderado`
 --
 ALTER TABLE `apoderado`
-  MODIFY `apod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `apod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `asignatura`
 --
 ALTER TABLE `asignatura`
-  MODIFY `asig_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `asig_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `asignatura_docente`
@@ -364,7 +371,7 @@ ALTER TABLE `asignatura_docente`
 -- AUTO_INCREMENT de la tabla `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `curs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
+  MODIFY `curs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1005;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`

@@ -13,6 +13,7 @@
                             <th>Grado</th>
                             <th>Curso</th>
                             <th>Año</th>
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,6 +22,9 @@
                             <td>{{$mc->curs_grado}} ° de secundaria</td>
                             <td>{{$mc->asig_nom}}</td>
                             <td>{{$mc->curs_año}}</td>
+                            <td>
+                                <a class="btn btn-sm btn-light"><i class="fa fa-folder-open-o"></i></a>  
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -161,7 +161,41 @@
               <!-- fin reloj -->            
           </div>
         </div>
-      </div>
+    </div>
+
+    <!-- tabla detalle alumno -->
+    <div class="card-header py-3" >
+      <h6 class="m-0 font-weight-bold">Datos básicos del docente</h6>
+    </div>
+    <table  class="table table-sm table-bordered" id="dataTable">
+      <tr>
+        <td>DNI</td>
+        <td>{{$trab_data->trab_dni}}</td>
+      </tr>
+      <tr>
+        <td>Apellidos</td>
+        <td>{{$trab_data->trab_ape}}</td>
+      </tr>
+      <tr>
+        <td>Nombres</td>
+        <td>{{$trab_data->trab_nom}}</td>
+      </tr>
+      <tr>
+        <td>Sexo</td>
+        <td>
+          @if ($trab_data->trab_sexo == 1)
+              Masculino
+          @else
+              Femenino
+          @endif
+        </td>
+      </tr>
+      <tr>
+        <td>Fecha de nacimiento</td>
+        <td>{{date("d/m/Y", strtotime($trab_data->trab_fnac))}}</td>
+      </tr>
+    </table>
+    <!-- fin tabla detalle alumno -->
   @else
     <div class="d-sm-flex align-items-center justify-content-between my-4">
       <h1 class="h4 mb-0 text-gray-800">No tienes acceso </h1>
@@ -240,7 +274,7 @@
 
     <!-- Inicio de imagen del 2020 -->
     <div align="center"><br>
-      <a class="navbar-brand"  href="">
+      <a class="navbar-brand">
           <img  src="{{asset('img/anonuevo.png')}}" height="70px">
       </a>     
     </div> 
@@ -268,40 +302,4 @@
       setTimeout("mueveReloj()",1000)
   }
 </script>
-
-<script>
-    // Set new default font family and font color to mimic Bootstrap's default styling
-    Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-    Chart.defaults.global.defaultFontColor = '#858796';
-
-    // Pie Chart Example
-    var ctx = document.getElementById("myPieChart");
-    var myPieChart = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ["nrocuatro"],
-        datasets: [{
-          data: [<?php echo $nro_alumnocuarto; ?>],
-          backgroundColor: ['#1cc88a']
-        }],
-      },
-      options: {
-        maintainAspectRatio: false,
-        tooltips: {
-          backgroundColor: "rgb(255,255,255)",
-          bodyFontColor: "#858796",
-          borderColor: '#dddfeb',
-          borderWidth: 1,
-          xPadding: 15,
-          yPadding: 15,
-          displayColors: false,
-          caretPadding: 10,
-        },
-        legend: {
-          display: false
-        },
-        cutoutPercentage: 80,
-      },
-    });
-  </script>
 @endsection
