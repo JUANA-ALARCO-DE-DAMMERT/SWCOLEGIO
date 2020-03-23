@@ -13,7 +13,8 @@ class Curso extends Model
         'curs_iddocen',
         'curs_idasig',
         'curs_grado',
-        'curs_año'
+        'curs_año',
+        'curs_est'
     ];
     protected $guarded = [];
 }

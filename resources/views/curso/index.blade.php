@@ -27,6 +27,7 @@
                             <th>Asignatura</th>
                             <th>Grado</th>
                             <th>Año</th>
+                            <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
@@ -38,6 +39,7 @@
                             <td>{{$cur->asig_nom}}</td>
                             <td>{{$cur->curs_grado . '° de secundaria'}}</td>
                             <td>{{$cur->curs_año}}</td>
+                            <td>{{$cur->curs_est}}</td>
                             <td>   
                                 <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a> 
                                 <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a> 
