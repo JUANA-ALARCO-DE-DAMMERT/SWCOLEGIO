@@ -146,4 +146,9 @@ class AlumnoController extends Controller
     {
         //
     }
+
+    public function misCursos($id){
+        return view ('alumno.miscursos');
+    }
+
 }

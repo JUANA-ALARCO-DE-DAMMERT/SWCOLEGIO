@@ -125,48 +125,10 @@
             </li>
             @endif
             @if(Auth::user()->hasrole('alum'))
-            <li class="nav-item nav-dropdown">
-              <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-chart"></i> Datos Personales</a>
-              <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <a class="nav-link" href="buttons/buttons.html">
-                    <i class="nav-icon icon-cursor"></i> Mis Asistencias</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item nav-dropdown">
-              <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-chart"></i> Asignaturas</a>
-              <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <a class="nav-link" href="buttons/buttons.html">
-                    <i class="nav-icon icon-cursor"></i> Mis Cursos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="buttons/button-group.html">
-                    <i class="nav-icon icon-cursor"></i> Boleta de Notas</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="buttons/button-group.html">
-                    <i class="nav-icon icon-cursor"></i> Ficha de Matricula</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item nav-dropdown">
-              <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-chart"></i> Noticias</a>
-              <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <a class="nav-link" href="buttons/buttons.html">
-                    <i class="nav-icon icon-cursor"></i> Noticias Escolares</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="buttons/button-group.html">
-                    <i class="nav-icon icon-cursor"></i> Comunicados</a>
-                </li>
-              </ul>
-            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('miscursos/'.Auth::user()->usuario)}}">
+                <i class="nav-icon icon-notebook"></i> Mis cursos</a>
+            </li>         
             @endif
           </ul>
         </nav>

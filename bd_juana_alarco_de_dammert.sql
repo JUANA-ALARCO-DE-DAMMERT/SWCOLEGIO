@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-03-2020 a las 02:13:56
+-- Tiempo de generación: 23-03-2020 a las 01:55:43
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -48,7 +48,7 @@ CREATE TABLE `alumno` (
 INSERT INTO `alumno` (`alum_id`, `alum_dni`, `alum_ape`, `alum_nom`, `alum_sexo`, `alum_fnac`, `alum_grad`, `alum_est`, `alum_apod`, `alum_user`) VALUES
 (1, '75406456', 'PRADO AVILA', 'MARIA CARMEN', 0, '2005-02-05', 4, 1, 3, 75406456),
 (3, '75200134', 'QUINTO AGUILAR', 'JUAN DIEGO', 1, '2004-08-20', 5, 1, 9, 75200134),
-(4, '75246604', 'SALAZAR BRICEÑO', 'ALBERTO', 1, '2005-07-09', 4, 1, 7, 75246604),
+(4, '75246604', 'SALAZAR BRICEÑO', 'ALBERTO', 1, '2004-07-09', 3, 1, 7, 75246604),
 (5, '75650012', 'ROBLES MEDINA', 'DIANA', 0, '2005-09-16', 4, 1, 10, 75650012);
 
 -- --------------------------------------------------------
@@ -142,18 +142,19 @@ CREATE TABLE `curso` (
   `curs_iddocen` int(11) NOT NULL,
   `curs_idasig` int(11) NOT NULL,
   `curs_grado` int(11) NOT NULL,
-  `curs_año` int(4) NOT NULL
+  `curs_año` int(4) NOT NULL,
+  `curs_est` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `curso`
 --
 
-INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `curs_grado`, `curs_año`) VALUES
-(1001, 6, 1, 3, 2020),
-(1002, 5, 4, 4, 2020),
-(1003, 6, 2, 2, 2020),
-(1004, 5, 4, 3, 2020);
+INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `curs_grado`, `curs_año`, `curs_est`) VALUES
+(1001, 6, 1, 3, 2020, 1),
+(1002, 5, 4, 4, 2020, 1),
+(1003, 6, 2, 2, 2020, 1),
+(1004, 5, 4, 3, 2020, 1);
 
 -- --------------------------------------------------------
 
