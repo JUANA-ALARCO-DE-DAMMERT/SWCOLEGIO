@@ -44,6 +44,7 @@
                                 <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a> 
                                 <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a> 
                                 <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>      
+                                <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>      
                             </td>
                         </tr>
                         @endforeach
