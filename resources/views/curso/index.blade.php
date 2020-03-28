@@ -22,7 +22,6 @@
                 <table class="table table-responsive-sm table-hover table-sm" id="dataTable">
                     <thead>
                         <tr>
-                            <th>Código</th>
                             <th>Docente</th>
                             <th>Asignatura</th>
                             <th>Grado</th>
@@ -34,16 +33,21 @@
                     <tbody>
                         @foreach($cursos as $cur)
                         <tr>
-                            <td>{{$cur->curs_id}}</td>
                             <td>{{$cur->trab_ape . ', '. $cur->trab_nom}}</td>
                             <td>{{$cur->asig_nom}}</td>
                             <td>{{$cur->curs_grado . '° de secundaria'}}</td>
                             <td>{{$cur->curs_año}}</td>
-                            <td>{{$cur->curs_est}}</td>
+                            <td>
+                              @if ($cur->curs_est === 1)
+                                <span class="badge badge-success">Activo</span>
+                              @else
+                              <span class="badge badge-danger">Inactivo</span>
+                              @endif
+                            </td>
                             <td>   
-                                <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a> 
+                                <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a>  
                                 <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a> 
-                                <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>      
+                                <a class="btn btn-sm btn-danger" href="{{url('matricula/'.$cur->curs_id)}}"><i class="fa fa-trash"></i></a>      
                             </td>
                         </tr>
                         @endforeach

@@ -15,16 +15,19 @@
                             <th>Año</th>
                             <th>Opciones</th>
                         </tr>
+                        
                     </thead>
                     <tbody>
+                        @foreach($cursos as $c)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$c->asig_nom}}</td>
+                            <td>{{$c->curs_grado}}° de secundaria</td>
+                            <td>{{$c->curs_año}}</td>
                             <td>
                                 <a class="btn btn-sm btn-light"><i class="fa fa-folder-open-o"></i></a>  
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

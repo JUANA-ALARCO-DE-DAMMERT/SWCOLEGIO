@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-03-2020 a las 01:55:43
+-- Tiempo de generación: 28-03-2020 a las 03:20:51
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bd_juana_alarco_de_dammert`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `matricularAlumnos` (`codcurso` INT, `grado` INT)  BEGIN
+	SELECT * 
+    FROM alumno al 
+    WHERE al.alum_grad=grado AND al.alum_est=1 AND NOT (al.alum_id in (
+        SELECT ac.alumno_id FROM alumno_curso ac WHERE ac.curso_id=codcurso)) 
+    order by al.alum_ape asc;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -49,7 +63,37 @@ INSERT INTO `alumno` (`alum_id`, `alum_dni`, `alum_ape`, `alum_nom`, `alum_sexo`
 (1, '75406456', 'PRADO AVILA', 'MARIA CARMEN', 0, '2005-02-05', 4, 1, 3, 75406456),
 (3, '75200134', 'QUINTO AGUILAR', 'JUAN DIEGO', 1, '2004-08-20', 5, 1, 9, 75200134),
 (4, '75246604', 'SALAZAR BRICEÑO', 'ALBERTO', 1, '2004-07-09', 3, 1, 7, 75246604),
-(5, '75650012', 'ROBLES MEDINA', 'DIANA', 0, '2005-09-16', 4, 1, 10, 75650012);
+(5, '75650012', 'ROBLES MEDINA', 'DIANA', 0, '2005-09-16', 4, 1, 10, 75650012),
+(6, '79520105', 'CHUMPITAZ AGUILAR', 'ELSA', 0, '2005-08-19', 4, 1, 8, 79520105),
+(7, '78415200', 'HUAMAN TACSA', 'DAVID', 1, '2004-11-29', 4, 1, 5, 78415200),
+(8, '76900080', 'ZEVALLOS HINOSTROZA', 'JOEL', 1, '2005-08-24', 4, 1, 11, 76900080),
+(9, '78540496', 'SUAREZ AGUILAR', 'CESAR', 1, '2005-04-14', 4, 1, 8, 78540496);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `alumno_curso`
+--
+
+CREATE TABLE `alumno_curso` (
+  `id` int(11) NOT NULL,
+  `curso_id` int(11) NOT NULL,
+  `alumno_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `alumno_curso`
+--
+
+INSERT INTO `alumno_curso` (`id`, `curso_id`, `alumno_id`) VALUES
+(1, 1002, 6),
+(2, 1004, 4),
+(3, 1001, 4),
+(4, 1002, 7),
+(5, 1002, 1),
+(6, 1002, 9),
+(7, 1002, 8),
+(8, 1002, 5);
 
 -- --------------------------------------------------------
 
@@ -208,7 +252,11 @@ INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
 (10, 25745094, 3, NULL, NULL),
 (12, 25428530, 3, NULL, NULL),
 (13, 75200163, 3, NULL, NULL),
-(14, 7779398, 3, NULL, NULL);
+(14, 7779398, 3, NULL, NULL),
+(15, 79520105, 4, NULL, NULL),
+(16, 78415200, 4, NULL, NULL),
+(17, 76900080, 4, NULL, NULL),
+(18, 78540496, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -268,7 +316,11 @@ INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`
 (75200163, '75200163', '$2y$10$QcH.BGSdvo77oFJvZ4y.puuZRTPgqajgyWMkB7xdbFWa8nccp1yAC', NULL, '2020-03-09 08:53:17', '2020-03-09 08:53:17'),
 (75246604, '75246604', '$2y$10$snps3sKLO2IqS8PyUT2ncuInYGM4atsH0VXyoOsTQh6igSBOv6y0q', NULL, '2020-03-02 07:28:26', '2020-03-02 07:28:26'),
 (75406456, '75406456', '$2y$10$QLMUZ5fbHtgx3tA0OQmKIO3mDnJyIviWw3fTIEotWqITscOXA1O96', NULL, '2020-03-02 00:45:53', '2020-03-02 00:45:53'),
-(75650012, '75650012', '$2y$10$pmMtfvf5tPyrpwp6lQz9LeXOzjPt0t4ewvB2kliVQr.QN9H54/JYe', NULL, '2020-03-02 07:30:36', '2020-03-02 07:30:36');
+(75650012, '75650012', '$2y$10$pmMtfvf5tPyrpwp6lQz9LeXOzjPt0t4ewvB2kliVQr.QN9H54/JYe', NULL, '2020-03-02 07:30:36', '2020-03-02 07:30:36'),
+(76900080, '76900080', '$2y$10$rzUQKVruYtUy.maiolrI4OzBqQTu2Upa1Qr/g8hBICV1DHj/EuDV6', NULL, '2020-03-26 07:22:08', '2020-03-26 07:22:08'),
+(78415200, '78415200', '$2y$10$i41nsGlgBXV9XDF13UKEtuE3Yfyr6v9e0CnWd3ph.cK43.Ymz3JCK', NULL, '2020-03-25 07:58:03', '2020-03-25 07:58:03'),
+(78540496, '78540496', '$2y$10$aqe5EygHhqaItVXl.dGwj.74429cwJo/08GYtwF57mcwpDsRGRn7y', NULL, '2020-03-26 07:23:53', '2020-03-26 07:23:53'),
+(79520105, '79520105', '$2y$10$gEbeIteYMHfjbBH6nnk26ee7hPhu9vXlemai1ByHcILf6jjZNd/8W', NULL, '2020-03-24 06:42:00', '2020-03-24 06:42:00');
 
 --
 -- Índices para tablas volcadas
@@ -282,6 +334,14 @@ ALTER TABLE `alumno`
   ADD UNIQUE KEY `alum_dni` (`alum_dni`),
   ADD KEY `alum_apod` (`alum_apod`),
   ADD KEY `alum_user` (`alum_user`);
+
+--
+-- Indices de la tabla `alumno_curso`
+--
+ALTER TABLE `alumno_curso`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `curso_id` (`curso_id`),
+  ADD KEY `alumno_id` (`alumno_id`);
 
 --
 -- Indices de la tabla `apoderado`
@@ -348,7 +408,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `alum_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `alum_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `alumno_curso`
+--
+ALTER TABLE `alumno_curso`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `apoderado`
@@ -384,7 +450,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajador`
@@ -396,7 +462,7 @@ ALTER TABLE `trabajador`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75650013;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79520106;
 
 --
 -- Restricciones para tablas volcadas
@@ -408,6 +474,13 @@ ALTER TABLE `users`
 ALTER TABLE `alumno`
   ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`alum_apod`) REFERENCES `apoderado` (`apod_id`),
   ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`alum_user`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `alumno_curso`
+--
+ALTER TABLE `alumno_curso`
+  ADD CONSTRAINT `alumno_curso_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`curs_id`),
+  ADD CONSTRAINT `alumno_curso_ibfk_2` FOREIGN KEY (`alumno_id`) REFERENCES `alumno` (`alum_id`);
 
 --
 -- Filtros para la tabla `asignatura_docente`

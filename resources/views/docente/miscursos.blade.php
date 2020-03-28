@@ -23,7 +23,7 @@
                             <td>{{$mc->asig_nom}}</td>
                             <td>{{$mc->curs_año}}</td>
                             <td>
-                                <a class="btn btn-sm btn-light"><i class="fa fa-folder-open-o"></i></a>  
+                                <a class="btn btn-sm btn-light" href="{{url('curso/'.$mc->curs_id)}}"><i class="fa fa-folder-open-o"></i></a>  
                             </td>
                         </tr>
                         @endforeach

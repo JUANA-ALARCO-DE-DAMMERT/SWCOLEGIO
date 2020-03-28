@@ -58,9 +58,13 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function show(Curso $curso)
+    public function show($id)
     {
-        //
+        // View para docentes
+        $curso = DB::table('curso')
+                    ->where('curso.curs_id','=',$id)
+                    ->first();
+        return view('curso.show',['curso'=>$curso]);
     }
 
     /**
@@ -96,4 +100,11 @@ class CursoController extends Controller
     {
         //
     }
+
+    public function matricula($id){
+        $curso = Curso::find($id);
+        $data = DB::select('call matricularAlumnos(?, ?)',array($id, $curso->curs_grado));
+        return view ('curso.matricula',['alumnos'=>$data,'curso'=>$curso]);
+    }
+
 }
