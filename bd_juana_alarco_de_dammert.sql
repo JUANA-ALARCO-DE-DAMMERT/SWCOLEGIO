@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-03-2020 a las 03:20:51
+-- Tiempo de generación: 01-04-2020 a las 04:30:57
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -61,13 +61,17 @@ CREATE TABLE `alumno` (
 
 INSERT INTO `alumno` (`alum_id`, `alum_dni`, `alum_ape`, `alum_nom`, `alum_sexo`, `alum_fnac`, `alum_grad`, `alum_est`, `alum_apod`, `alum_user`) VALUES
 (1, '75406456', 'PRADO AVILA', 'MARIA CARMEN', 0, '2005-02-05', 4, 1, 3, 75406456),
-(3, '75200134', 'QUINTO AGUILAR', 'JUAN DIEGO', 1, '2004-08-20', 5, 1, 9, 75200134),
+(3, '75200134', 'QUINTO AGUILAR', 'JUAN DIEGO', 1, '2004-08-20', 3, 1, 9, 75200134),
 (4, '75246604', 'SALAZAR BRICEÑO', 'ALBERTO', 1, '2004-07-09', 3, 1, 7, 75246604),
 (5, '75650012', 'ROBLES MEDINA', 'DIANA', 0, '2005-09-16', 4, 1, 10, 75650012),
 (6, '79520105', 'CHUMPITAZ AGUILAR', 'ELSA', 0, '2005-08-19', 4, 1, 8, 79520105),
 (7, '78415200', 'HUAMAN TACSA', 'DAVID', 1, '2004-11-29', 4, 1, 5, 78415200),
 (8, '76900080', 'ZEVALLOS HINOSTROZA', 'JOEL', 1, '2005-08-24', 4, 1, 11, 76900080),
-(9, '78540496', 'SUAREZ AGUILAR', 'CESAR', 1, '2005-04-14', 4, 1, 8, 78540496);
+(9, '78540496', 'SUAREZ AGUILAR', 'CESAR', 1, '2005-04-14', 4, 1, 8, 78540496),
+(10, '78464060', 'QUINTO AGUILAR', 'SHEYLA', 0, '2006-11-11', 3, 1, 9, 78464060),
+(11, '78850490', 'CHAVEZ CARMONA', 'MONICA', 0, '2006-09-09', 3, 1, 12, 78850490),
+(12, '78603026', 'MARQUEZ ZEGARRA', 'FELIPE', 1, '2006-03-13', 3, 1, 13, 78603026),
+(13, '79606046', 'MADRID SALAZAR', 'LIZ', 0, '2006-06-02', 3, 1, 14, 79606046);
 
 -- --------------------------------------------------------
 
@@ -93,7 +97,17 @@ INSERT INTO `alumno_curso` (`id`, `curso_id`, `alumno_id`) VALUES
 (5, 1002, 1),
 (6, 1002, 9),
 (7, 1002, 8),
-(8, 1002, 5);
+(8, 1002, 5),
+(9, 1004, 11),
+(10, 1004, 13),
+(11, 1004, 12),
+(12, 1004, 3),
+(13, 1004, 10),
+(14, 1001, 11),
+(15, 1001, 13),
+(16, 1001, 12),
+(17, 1001, 3),
+(18, 1001, 10);
 
 -- --------------------------------------------------------
 
@@ -126,7 +140,10 @@ INSERT INTO `apoderado` (`apod_id`, `apod_dni`, `apod_ape`, `apod_nom`, `apod_se
 (8, '74850405', 'AGUILAR AGUILA', 'CELIA', 0, 'celia16.aa@gmail.com', NULL),
 (9, '76204070', 'QUINTO ACUÑA', 'RODRIGO JAVIER', 1, 'rodrigo.quinto@hotmail.com', NULL),
 (10, '75265129', 'ROBLES FLOREANO', 'HUGO PABLO', 1, 'hugo.robles.fl@hotmail.com', '952741632'),
-(11, '07514045', 'HINOSTROZA FLORES', 'DINA', 0, NULL, NULL);
+(11, '07514045', 'HINOSTROZA FLORES', 'DINA', 0, NULL, NULL),
+(12, '27040570', 'CHAVEZ VALDIVIA', 'TOMAS', 1, 'tchavez@hotmail.com', NULL),
+(13, '70384996', 'MARQUEZ AMARAL', 'MARIO KEVIN', 1, 'mariomarquez@hotmail.com', '952412630'),
+(14, '70384930', 'MADRID REMUZGO', 'GIANCARLOS JESUS', 1, 'gian.madrid.r@gmail.com', '985741304');
 
 -- --------------------------------------------------------
 
@@ -174,6 +191,62 @@ INSERT INTO `asignatura_docente` (`id`, `trab_id`, `asig_id`) VALUES
 (4, 5, 4),
 (5, 6, 1),
 (6, 6, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `asistencia`
+--
+
+CREATE TABLE `asistencia` (
+  `asis_id` int(11) NOT NULL,
+  `asis_idcurso` int(11) NOT NULL,
+  `asis_idalumno` int(11) NOT NULL,
+  `asis_fecha` date NOT NULL,
+  `asis_est` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `asistencia`
+--
+
+INSERT INTO `asistencia` (`asis_id`, `asis_idcurso`, `asis_idalumno`, `asis_fecha`, `asis_est`) VALUES
+(1, 1002, 1, '2020-03-27', 0),
+(2, 1002, 5, '2020-03-27', 0),
+(3, 1002, 6, '2020-03-27', 0),
+(4, 1002, 7, '2020-03-27', 1),
+(5, 1002, 8, '2020-03-27', 0),
+(6, 1002, 9, '2020-03-27', 2),
+(7, 1002, 1, '2020-03-30', 0),
+(8, 1002, 5, '2020-03-30', 0),
+(9, 1002, 6, '2020-03-30', 1),
+(10, 1002, 7, '2020-03-30', 2),
+(11, 1002, 8, '2020-03-30', 0),
+(12, 1002, 9, '2020-03-30', 1),
+(13, 1002, 1, '2020-03-31', 2),
+(14, 1002, 5, '2020-03-31', 0),
+(15, 1002, 6, '2020-03-31', 0),
+(16, 1002, 7, '2020-03-31', 1),
+(17, 1002, 8, '2020-03-31', 0),
+(18, 1002, 9, '2020-03-31', 0),
+(19, 1002, 6, '2020-04-01', 0),
+(20, 1002, 7, '2020-04-01', 1),
+(21, 1002, 1, '2020-04-01', 0),
+(22, 1002, 5, '2020-04-01', 0),
+(23, 1002, 9, '2020-04-01', 1),
+(24, 1002, 8, '2020-04-01', 0),
+(25, 1004, 11, '2020-03-27', 0),
+(26, 1004, 13, '2020-03-27', 1),
+(27, 1004, 12, '2020-03-27', 0),
+(28, 1004, 10, '2020-03-27', 0),
+(29, 1004, 3, '2020-03-27', 2),
+(30, 1004, 4, '2020-03-27', 0),
+(31, 1004, 11, '2020-03-30', 1),
+(32, 1004, 13, '2020-03-30', 0),
+(33, 1004, 12, '2020-03-30', 0),
+(34, 1004, 10, '2020-03-30', 1),
+(35, 1004, 3, '2020-03-30', 0),
+(36, 1004, 4, '2020-03-30', 0);
 
 -- --------------------------------------------------------
 
@@ -256,7 +329,11 @@ INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
 (15, 79520105, 4, NULL, NULL),
 (16, 78415200, 4, NULL, NULL),
 (17, 76900080, 4, NULL, NULL),
-(18, 78540496, 4, NULL, NULL);
+(18, 78540496, 4, NULL, NULL),
+(19, 78464060, 4, NULL, NULL),
+(20, 78850490, 4, NULL, NULL),
+(21, 78603026, 4, NULL, NULL),
+(22, 79606046, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -319,8 +396,12 @@ INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`
 (75650012, '75650012', '$2y$10$pmMtfvf5tPyrpwp6lQz9LeXOzjPt0t4ewvB2kliVQr.QN9H54/JYe', NULL, '2020-03-02 07:30:36', '2020-03-02 07:30:36'),
 (76900080, '76900080', '$2y$10$rzUQKVruYtUy.maiolrI4OzBqQTu2Upa1Qr/g8hBICV1DHj/EuDV6', NULL, '2020-03-26 07:22:08', '2020-03-26 07:22:08'),
 (78415200, '78415200', '$2y$10$i41nsGlgBXV9XDF13UKEtuE3Yfyr6v9e0CnWd3ph.cK43.Ymz3JCK', NULL, '2020-03-25 07:58:03', '2020-03-25 07:58:03'),
+(78464060, '78464060', '$2y$10$abEIsBTfDtloNvmQLyy2JuD6lybF8BPFOasBD2C8W9hJRZr82t12y', NULL, '2020-03-29 07:19:25', '2020-03-29 07:19:25'),
 (78540496, '78540496', '$2y$10$aqe5EygHhqaItVXl.dGwj.74429cwJo/08GYtwF57mcwpDsRGRn7y', NULL, '2020-03-26 07:23:53', '2020-03-26 07:23:53'),
-(79520105, '79520105', '$2y$10$gEbeIteYMHfjbBH6nnk26ee7hPhu9vXlemai1ByHcILf6jjZNd/8W', NULL, '2020-03-24 06:42:00', '2020-03-24 06:42:00');
+(78603026, '78603026', '$2y$10$usmKmKRtulGQmcH5UJFPWu1BNe0oGvgIfKvMKGrz.JsjYzSEgrKxi', NULL, '2020-03-29 07:32:05', '2020-03-29 07:32:05'),
+(78850490, '78850490', '$2y$10$iGF2E2D6tpCNRhBXeX9PzOlM.RHkafViJfZE5Cu9KiwZdiqBong06', NULL, '2020-03-29 07:27:46', '2020-03-29 07:27:46'),
+(79520105, '79520105', '$2y$10$gEbeIteYMHfjbBH6nnk26ee7hPhu9vXlemai1ByHcILf6jjZNd/8W', NULL, '2020-03-24 06:42:00', '2020-03-24 06:42:00'),
+(79606046, '79606046', '$2y$10$QR4fLwLIhcyh.l16ePXuN.ijXQqWuxfceSXOUh77I9Q1heUCX033u', NULL, '2020-03-29 07:33:51', '2020-03-29 07:33:51');
 
 --
 -- Índices para tablas volcadas
@@ -363,6 +444,14 @@ ALTER TABLE `asignatura_docente`
   ADD PRIMARY KEY (`id`),
   ADD KEY `trab_id` (`trab_id`),
   ADD KEY `asig_id` (`asig_id`);
+
+--
+-- Indices de la tabla `asistencia`
+--
+ALTER TABLE `asistencia`
+  ADD PRIMARY KEY (`asis_id`),
+  ADD KEY `asis_idcurso` (`asis_idcurso`),
+  ADD KEY `asis_idalumno` (`asis_idalumno`);
 
 --
 -- Indices de la tabla `curso`
@@ -408,19 +497,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `alum_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `alum_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `alumno_curso`
 --
 ALTER TABLE `alumno_curso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `apoderado`
 --
 ALTER TABLE `apoderado`
-  MODIFY `apod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `apod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `asignatura`
@@ -433,6 +522,12 @@ ALTER TABLE `asignatura`
 --
 ALTER TABLE `asignatura_docente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `asistencia`
+--
+ALTER TABLE `asistencia`
+  MODIFY `asis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `curso`
@@ -450,7 +545,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajador`
@@ -462,7 +557,7 @@ ALTER TABLE `trabajador`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79520106;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79606047;
 
 --
 -- Restricciones para tablas volcadas
@@ -488,6 +583,13 @@ ALTER TABLE `alumno_curso`
 ALTER TABLE `asignatura_docente`
   ADD CONSTRAINT `asignatura_docente_ibfk_1` FOREIGN KEY (`trab_id`) REFERENCES `trabajador` (`trab_id`),
   ADD CONSTRAINT `asignatura_docente_ibfk_2` FOREIGN KEY (`asig_id`) REFERENCES `asignatura` (`asig_id`);
+
+--
+-- Filtros para la tabla `asistencia`
+--
+ALTER TABLE `asistencia`
+  ADD CONSTRAINT `asistencia_ibfk_1` FOREIGN KEY (`asis_idcurso`) REFERENCES `curso` (`curs_id`),
+  ADD CONSTRAINT `asistencia_ibfk_2` FOREIGN KEY (`asis_idalumno`) REFERENCES `alumno` (`alum_id`);
 
 --
 -- Filtros para la tabla `curso`
