@@ -12,6 +12,7 @@
                         <tr class="table-info">
                             <th>Curso</th>
                             <th>Grado</th>
+                            <th>Docente</th>
                             <th>Año</th>
                             <th>Opciones</th>
                         </tr>
@@ -22,9 +23,10 @@
                         <tr>
                             <td>{{$c->asig_nom}}</td>
                             <td>{{$c->curs_grado}}° de secundaria</td>
+                            <td>{{$c->trab_ape.', '.$c->trab_nom}}</td>
                             <td>{{$c->curs_año}}</td>
                             <td>
-                                <a class="btn btn-sm btn-light"><i class="fa fa-folder-open-o"></i></a>  
+                                <a class="btn btn-sm btn-light" href="{{url('curso/'.$c->curs_id)}}"><i class="fa fa-folder-open-o"></i></a>  
                             </td>
                         </tr>
                         @endforeach

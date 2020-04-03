@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+
+use DB;
 use App\Asistencia;
 use Illuminate\Http\Request;
 
@@ -42,7 +45,20 @@ class AsistenciaController extends Controller
 
     public function show($id)
     {
-        return view('asistencia.show',['idcurso'=>$id]);
+        if(Auth::user()->hasrole('docen'))
+        {
+
+            return view('asistencia.show',['idcurso'=>$id]);
+
+        } elseif (Auth::user()->hasrole('alum')) {
+            $trab_data = DB::table('alumno')
+                            ->where('alumno.alum_user','=',Auth::user()->usuario)->first();
+            $asis = DB::table('asistencia')
+                    ->where([['asistencia.asis_idcurso','=',$id],['asistencia.asis_idalumno','=',$trab_data->alum_id]])
+                    ->get();
+            return view('asistencia.alumno.show',['asis'=>$asis]);
+
+        }
     }
 
     public function edit(Asistencia $asistencia)

@@ -150,6 +150,7 @@ class AlumnoController extends Controller
     public function misCursos($id){
         $data = DB::table('alumno_curso')
                     ->join('curso','curso.curs_id','alumno_curso.curso_id')
+                    ->join('trabajador','trabajador.trab_id','curso.curs_iddocen')
                     ->join('alumno','alumno.alum_id','alumno_curso.alumno_id')
                     ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
                     ->where('alumno.alum_dni','=',$id)
