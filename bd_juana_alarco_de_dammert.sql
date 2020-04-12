@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-04-2020 a las 04:30:57
+-- Tiempo de generación: 12-04-2020 a las 05:18:34
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -246,7 +246,13 @@ INSERT INTO `asistencia` (`asis_id`, `asis_idcurso`, `asis_idalumno`, `asis_fech
 (33, 1004, 12, '2020-03-30', 0),
 (34, 1004, 10, '2020-03-30', 1),
 (35, 1004, 3, '2020-03-30', 0),
-(36, 1004, 4, '2020-03-30', 0);
+(36, 1004, 4, '2020-03-30', 0),
+(37, 1004, 11, '2020-04-01', 0),
+(38, 1004, 13, '2020-04-01', 1),
+(39, 1004, 12, '2020-04-01', 0),
+(40, 1004, 10, '2020-04-01', 0),
+(41, 1004, 3, '2020-04-01', 2),
+(42, 1004, 4, '2020-04-01', 1);
 
 -- --------------------------------------------------------
 
@@ -272,6 +278,30 @@ INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `curs_grado`, `cu
 (1002, 5, 4, 4, 2020, 1),
 (1003, 6, 2, 2, 2020, 1),
 (1004, 5, 4, 3, 2020, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `recurso`
+--
+
+CREATE TABLE `recurso` (
+  `rec_id` int(11) NOT NULL,
+  `rec_curso` int(11) NOT NULL,
+  `rec_bimestre` int(11) NOT NULL,
+  `rec_archivo` varchar(180) NOT NULL,
+  `rec_dni` varchar(8) NOT NULL,
+  `rec_rol` int(11) NOT NULL,
+  `rec_fechahora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `recurso`
+--
+
+INSERT INTO `recurso` (`rec_id`, `rec_curso`, `rec_bimestre`, `rec_archivo`, `rec_dni`, `rec_rol`, `rec_fechahora`) VALUES
+(3, 1004, 1, '1586658320_Excel de prueba N° 1.xlsx', '75200163', 3, '2020-04-12 02:25:20'),
+(4, 1004, 1, '1586658722_Word de prueba N° 1.docx', '78850490', 4, '2020-04-12 02:32:02');
 
 -- --------------------------------------------------------
 
@@ -462,6 +492,13 @@ ALTER TABLE `curso`
   ADD KEY `curs_idasig` (`curs_idasig`);
 
 --
+-- Indices de la tabla `recurso`
+--
+ALTER TABLE `recurso`
+  ADD PRIMARY KEY (`rec_id`),
+  ADD KEY `rec_curso` (`rec_curso`);
+
+--
 -- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
@@ -527,13 +564,19 @@ ALTER TABLE `asignatura_docente`
 -- AUTO_INCREMENT de la tabla `asistencia`
 --
 ALTER TABLE `asistencia`
-  MODIFY `asis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `asis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `curso`
 --
 ALTER TABLE `curso`
   MODIFY `curs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1005;
+
+--
+-- AUTO_INCREMENT de la tabla `recurso`
+--
+ALTER TABLE `recurso`
+  MODIFY `rec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -546,70 +589,6 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `role_user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- AUTO_INCREMENT de la tabla `trabajador`
---
-ALTER TABLE `trabajador`
-  MODIFY `trab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79606047;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `alumno`
---
-ALTER TABLE `alumno`
-  ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`alum_apod`) REFERENCES `apoderado` (`apod_id`),
-  ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`alum_user`) REFERENCES `users` (`id`);
-
---
--- Filtros para la tabla `alumno_curso`
---
-ALTER TABLE `alumno_curso`
-  ADD CONSTRAINT `alumno_curso_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`curs_id`),
-  ADD CONSTRAINT `alumno_curso_ibfk_2` FOREIGN KEY (`alumno_id`) REFERENCES `alumno` (`alum_id`);
-
---
--- Filtros para la tabla `asignatura_docente`
---
-ALTER TABLE `asignatura_docente`
-  ADD CONSTRAINT `asignatura_docente_ibfk_1` FOREIGN KEY (`trab_id`) REFERENCES `trabajador` (`trab_id`),
-  ADD CONSTRAINT `asignatura_docente_ibfk_2` FOREIGN KEY (`asig_id`) REFERENCES `asignatura` (`asig_id`);
-
---
--- Filtros para la tabla `asistencia`
---
-ALTER TABLE `asistencia`
-  ADD CONSTRAINT `asistencia_ibfk_1` FOREIGN KEY (`asis_idcurso`) REFERENCES `curso` (`curs_id`),
-  ADD CONSTRAINT `asistencia_ibfk_2` FOREIGN KEY (`asis_idalumno`) REFERENCES `alumno` (`alum_id`);
-
---
--- Filtros para la tabla `curso`
---
-ALTER TABLE `curso`
-  ADD CONSTRAINT `curso_ibfk_1` FOREIGN KEY (`curs_idasig`) REFERENCES `asignatura` (`asig_id`),
-  ADD CONSTRAINT `curso_ibfk_2` FOREIGN KEY (`curs_iddocen`) REFERENCES `trabajador` (`trab_id`);
-
---
--- Filtros para la tabla `role_user`
---
-ALTER TABLE `role_user`
-  ADD CONSTRAINT `role_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
-  ADD CONSTRAINT `role_user_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Filtros para la tabla `trabajador`
---
-ALTER TABLE `trabajador`
-  ADD CONSTRAINT `trabajador_ibfk_1` FOREIGN KEY (`trab_user`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

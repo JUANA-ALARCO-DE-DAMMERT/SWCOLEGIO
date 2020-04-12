@@ -28,6 +28,9 @@
     <div class="col-md-12">
         <div class="card my-3">
             <div class="card-header">
+                <div class="card-header-actions">
+                    <a href="{{url('curso/'.$idcurso)}}" class="btn btn-block btn-outline-dark btn-sm"><i class="fa fa-mail-reply"></i></a>
+                </div>
             </div>
             <div class="card-body">
                 <table class="table table-responsive" id="">

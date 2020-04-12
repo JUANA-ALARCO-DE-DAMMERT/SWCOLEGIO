@@ -16,7 +16,6 @@ Route::resource('curso','CursoController');
 Route::resource('ac','AlumnoCursoController');
 Route::resource('asistencia','AsistenciaController');
 
-
 // Rutas del docente
 Route::get('cursos/{id}','DocenteController@misCursos');
 
@@ -28,3 +27,10 @@ Route::get('matricula/{id}','CursoController@matricula');
 
 // Rutas de asistencias
 Route::get('asistencia/registrar/{id}','AsistenciaController@registrar');
+
+// Rutas de recursos
+Route::get('{idcurso}/recursos','RecursoController@listarBimestres');
+Route::get('recursos/{idcurso}/{nbim}','RecursoController@showBimestre')->name('recursos.show');
+Route::post('/upload', 'RecursoController@upload'); //Upload files
+Route::post('/download','RecursoController@download'); //Download files
+

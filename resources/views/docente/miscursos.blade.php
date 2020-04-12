@@ -5,6 +5,9 @@
         <div class="card">
             <div class="card-header">
                 Mis cursos a cargo
+                <div class="card-header-actions">
+                    <a href="{{route('home')}}" class="btn btn-block btn-outline-dark btn-sm"><i class="fa fa-mail-reply"></i></a>
+                </div>
             </div>
             <div class="card-body">
                 <table class="table table-bordered" id="dataTable">
