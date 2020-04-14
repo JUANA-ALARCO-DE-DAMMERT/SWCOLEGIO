@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-04-2020 a las 07:45:52
+-- Tiempo de generación: 14-04-2020 a las 23:55:28
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -190,7 +190,10 @@ INSERT INTO `asignatura_docente` (`id`, `trab_id`, `asig_id`) VALUES
 (3, 5, 3),
 (4, 5, 4),
 (5, 6, 1),
-(6, 6, 2);
+(6, 6, 2),
+(7, 7, 3),
+(8, 7, 4),
+(9, 7, 5);
 
 -- --------------------------------------------------------
 
@@ -398,7 +401,8 @@ INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
 (19, 78464060, 4, NULL, NULL),
 (20, 78850490, 4, NULL, NULL),
 (21, 78603026, 4, NULL, NULL),
-(22, 79606046, 4, NULL, NULL);
+(22, 79606046, 4, NULL, NULL),
+(24, 25840870, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -427,7 +431,8 @@ INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_ape`, `trab_nom`, `trab_s
 (3, '25745094', 'FERREYRA COVEÑAS', 'JUAN MANUEL', 1, '1985-03-20', 1, 25745094),
 (4, '25428530', 'MURILLO LOPEZ', 'FRANCISCA DE PAULA', 0, '1992-07-22', 1, 25428530),
 (5, '75200163', 'ATAPOMA ACUÑA', 'BRUCE ANTHONY', 1, '1989-11-12', 1, 75200163),
-(6, '07779398', 'PICASSO SALINAS', 'RAFAEL BERNARDO LUIS', 1, '1984-12-22', 1, 7779398);
+(6, '07779398', 'PICASSO SALINAS', 'RAFAEL BERNARDO LUIS', 1, '1984-12-22', 1, 7779398),
+(7, '25840870', 'AZAÑERO JESUS', 'LIDIA MARILUZ', 0, '1985-04-23', 1, 25840870);
 
 -- --------------------------------------------------------
 
@@ -452,6 +457,7 @@ INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`
 (7779398, '07779398', '$2y$10$6UrRWu33MAWkHWhgC3VutelNsbKlSSIUsALqXKHln8YR.yefVzXuW', NULL, '2020-03-10 05:41:32', '2020-03-10 05:41:32'),
 (25428530, '25428530', '$2y$10$8XCnkVVYe9ui9qxbdK5dA.5vmmxh5Rz2y11lZSBtSDqKlWTw3fRsm', NULL, '2020-03-09 08:44:11', '2020-03-09 08:44:11'),
 (25745094, '25745094', '$2y$10$cxheRsBl/6qzGT3krv3ECug6D1/nYeDSg4PkGy9FK.7SjvhsrmVIy', NULL, '2020-03-08 08:32:04', '2020-03-08 08:32:04'),
+(25840870, '25840870', '$2y$10$oT3OTJV3rk8PCeYi1SKf2.bsRjd9Edmun5NXabItuyy2/ASEQVg92', NULL, '2020-04-14 21:49:58', '2020-04-14 21:49:58'),
 (70327395, '70327395', '$2y$10$f8Kb1wMgIKMbLj5INDuhie0HYWPJYpIMuCmT83wg9j6etu/Pzhmz2', NULL, '2020-03-01 22:40:17', '2020-03-01 22:40:17'),
 (75200120, '75200120', '$2y$10$5.jkgqLutEYda6JHA19DteDLCPewHVmHAoLOrav0lwmq3jxghxYOW', NULL, '2020-03-01 22:39:25', '2020-03-01 22:39:25'),
 (75200134, '75200134', '$2y$10$fnab.LDrfaNd0f4QB6CNwuEWzyTJ/suWx/WhQxieXj22kQGI1V9dK', NULL, '2020-03-02 04:26:27', '2020-03-02 04:26:27'),
@@ -601,7 +607,7 @@ ALTER TABLE `asignatura`
 -- AUTO_INCREMENT de la tabla `asignatura_docente`
 --
 ALTER TABLE `asignatura_docente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `asistencia`
@@ -637,7 +643,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT de la tabla `trabajador`
+--
+ALTER TABLE `trabajador`
+  MODIFY `trab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
