@@ -29,7 +29,16 @@ class NotasController extends Controller
             return view ('notas.index',['idcurso'=>$idcurso, 'nbim'=>$nbim, 'alumnos'=>$alumnos]);
         }
         elseif (Auth::user()->hasrole('alum')) {
-            
+            $alumno = DB::table('alumno')
+                        ->where('alum_dni','=',Auth::user()->usuario)->first();
+
+            $data = DB::table('notas')
+                ->join('alumno','alumno.alum_id','notas.not_idalumno')
+                ->where('notas.not_idcurso','=',$idcurso)
+                ->where('notas.not_bimestre','=',$nbim)
+                ->where('notas.not_idalumno','=',$alumno->alum_id)
+                ->first();
+            return view ('notas.alumno.index',['idcurso'=>$idcurso, 'nbim'=>$nbim, 'a'=>$data]);
         }
         
     }
