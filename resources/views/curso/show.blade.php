@@ -9,7 +9,7 @@
         <div class="card-body">
             
             <a href="{{url('asistencia/'.$curso->curs_id)}}" class="btn btn-light">Asistencias</a>
-            <a href="#" class="btn btn-light">Notas</a>
+            <a href="{{url($curso->curs_id.'/notas')}}" class="btn btn-light">Notas</a>
             <a href="{{url($curso->curs_id.'/recursos')}}" class="btn btn-light">Recursos</a>
         </div>
     </div>

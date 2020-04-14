@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-04-2020 a las 05:18:34
+-- Tiempo de generación: 14-04-2020 a las 07:45:52
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -282,6 +282,41 @@ INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `curs_grado`, `cu
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `notas`
+--
+
+CREATE TABLE `notas` (
+  `not_id` int(11) NOT NULL,
+  `not_idcurso` int(11) NOT NULL,
+  `not_idalumno` int(11) NOT NULL,
+  `not_n1` int(11) NOT NULL,
+  `not_n2` int(11) NOT NULL,
+  `not_n3` int(11) NOT NULL,
+  `not_promedio` int(11) NOT NULL,
+  `not_bimestre` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `notas`
+--
+
+INSERT INTO `notas` (`not_id`, `not_idcurso`, `not_idalumno`, `not_n1`, `not_n2`, `not_n3`, `not_promedio`, `not_bimestre`) VALUES
+(1, 1002, 6, 12, 14, 13, 13, 1),
+(2, 1002, 7, 15, 16, 12, 14, 1),
+(3, 1002, 1, 13, 17, 15, 15, 1),
+(4, 1002, 5, 11, 10, 16, 12, 1),
+(5, 1002, 9, 7, 15, 12, 11, 1),
+(6, 1002, 8, 12, 10, 17, 13, 1),
+(7, 1002, 6, 12, 14, 16, 14, 2),
+(8, 1002, 7, 18, 10, 14, 14, 2),
+(9, 1002, 1, 11, 13, 17, 14, 2),
+(10, 1002, 5, 9, 12, 12, 11, 2),
+(11, 1002, 9, 8, 11, 14, 11, 2),
+(12, 1002, 8, 12, 17, 16, 15, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `recurso`
 --
 
@@ -492,6 +527,14 @@ ALTER TABLE `curso`
   ADD KEY `curs_idasig` (`curs_idasig`);
 
 --
+-- Indices de la tabla `notas`
+--
+ALTER TABLE `notas`
+  ADD PRIMARY KEY (`not_id`),
+  ADD KEY `not_idcurso` (`not_idcurso`),
+  ADD KEY `not_idalumno` (`not_idalumno`);
+
+--
 -- Indices de la tabla `recurso`
 --
 ALTER TABLE `recurso`
@@ -571,6 +614,12 @@ ALTER TABLE `asistencia`
 --
 ALTER TABLE `curso`
   MODIFY `curs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1005;
+
+--
+-- AUTO_INCREMENT de la tabla `notas`
+--
+ALTER TABLE `notas`
+  MODIFY `not_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `recurso`

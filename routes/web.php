@@ -15,6 +15,7 @@ Route::resource('docente','DocenteController');
 Route::resource('curso','CursoController');
 Route::resource('ac','AlumnoCursoController');
 Route::resource('asistencia','AsistenciaController');
+Route::resource('notas','NotasController');
 
 // Rutas del docente
 Route::get('cursos/{id}','DocenteController@misCursos');
@@ -34,3 +35,7 @@ Route::get('recursos/{idcurso}/{nbim}','RecursoController@showBimestre')->name('
 Route::post('/upload', 'RecursoController@upload'); //Upload files
 Route::post('/download','RecursoController@download'); //Download files
 
+// Rutas para notas
+Route::get('{idcurso}/notas','NotasController@listarBimestres');
+Route::get('notas/{idcurso}/{nbim}','NotasController@consultaNotas')->name('notas.show');
+Route::get('registronotas/{idcurso}/{nbim}','NotasController@formNotas');
