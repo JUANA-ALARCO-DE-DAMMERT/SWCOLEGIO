@@ -24,22 +24,53 @@ class AsistenciaController extends Controller
     {
         $arreglo = $request->all();
         foreach ($arreglo['data'] as $key => $value) {
-            /*echo "Alumno: ";
-            print_r($value['asis_idalumno']);
-            echo " Estado: ";
-            print_r($value['asis_est']);
-            echo " Fecha: ";
-            echo $arreglo['asis_fecha'];
-            echo " Curso: ";
-            echo $arreglo['asis_idcurso'];
-            echo "<br>";*/
             Asistencia::create([
                 'asis_idcurso' => $arreglo['asis_idcurso'],
                 'asis_idalumno' => $value['asis_idalumno'],
                 'asis_fecha' => $arreglo['asis_fecha'],
                 'asis_est' => $value['asis_est']
             ]);
+            
+            $datos = DB::table('alumno')
+                    ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
+                    ->where('alumno.alum_id','=',$value['asis_idalumno'])->first();
+            
+            if($value['asis_est'] == 1){
+
+                $alumno = $datos->alum_ape . ', ' . $datos->alum_nom;
+                $apoderado = $datos->apod_ape . ', ' . $datos->apod_nom;
+                $fecha = date("d/m/Y", strtotime($arreglo['asis_fecha']));
+                $asunto = "". $datos->alum_ape . ' ' . $datos->alum_nom . ': TARDANZA ' . $fecha;
+                $msg = "Se comunica que el estudiante: " . $alumno .  " tiene tardanza el día " . $fecha;
+
+                $to_name="jad";
+                $to_mail= $datos->apod_email;
+                $data = array("name"=>$apoderado,"body"=>$msg);
+                \Mail::send('mail',$data,function($message) use ($to_name,$to_mail,$asunto){
+                    $message->to($to_mail)
+                    ->subject($asunto);
+                });
+
+            } elseif($value['asis_est'] == 2){
+
+                $alumno = $datos->alum_ape . ', ' . $datos->alum_nom;
+                $apoderado = $datos->apod_ape . ', ' . $datos->apod_nom;
+                $fecha = date("d/m/Y", strtotime($arreglo['asis_fecha']));
+                $asunto = "". $datos->alum_ape . ' ' . $datos->alum_nom . ': FALTA ' . $fecha;
+                $msg = "Se comunica que el estudiante: " . $alumno .  " tiene falta el día " . $fecha;
+
+                $to_name="jad";
+                $to_mail= $datos->apod_email;
+                $data = array("name"=>$apoderado,"body"=>$msg);
+                \Mail::send('mail',$data,function($message) use ($to_name,$to_mail,$asunto){
+                    $message->to($to_mail)
+                    ->subject($asunto);
+                });
+
+            }
+
         }
+
         return redirect()->route('asistencia.show',[$arreglo['asis_idcurso']])->with('status', 'Registro correctamente!');
     }
 
