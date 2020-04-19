@@ -26,7 +26,6 @@
                             <th>Apellidos</th>
                             <th>Nombres</th>
                             <th>Sexo</th>
-                            <th>F. Nacimiento</th>
                             <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
@@ -44,7 +43,6 @@
                                     Femenino
                                 @endif
                             </td>
-                            <td>{{date("d/m/Y", strtotime($doc->trab_fnac))}}</td>
                             <td>
                               @if ($doc->trab_est === 1)
                                 <span class="badge badge-success">Activo</span>
@@ -53,7 +51,14 @@
                               @endif
                             </td>
                             <td>
-                               <a href="{{url('docente/'.$doc->trab_id.'/edit')}}" class="btn btn-sm btn-warning" title="Editar Datos del Docente"><i class="fa fa-pencil"></i></a>                                
+                                <a data-toggle="modal" data-target="#modal-info-{{$doc->trab_id}}" class="btn btn-sm btn-info"><i class="fa fa-search"></i></a>      
+                                @include('docente.info')
+                                @if ($doc->trab_est === 1)
+                                    <a data-toggle="modal" data-target="#modal-est-{{$doc->trab_id}}" title="Inactivar docente" class="btn btn-sm btn-danger"><i class="fa fa-minus-square"></i></a> 
+                                @else
+                                    <a data-toggle="modal" data-target="#modal-est-{{$doc->trab_id}}" title="Activar docente" class="btn btn-sm btn-success"><i class="fa fa-plus-square"></i></a> 
+                                @endif     
+                                @include('docente.estado')
                             </td>
                         </tr>
                         @endforeach

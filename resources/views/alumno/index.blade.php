@@ -25,7 +25,6 @@
                             <th>DNI</th>
                             <th>Apellidos</th>
                             <th>Nombres</th>
-                            <th>Sexo</th>
                             <th>Grado</th>
                             <th>Estado</th>
                             <th>Opciones</th>
@@ -37,13 +36,6 @@
                             <td>{{$alum->alum_dni}}</td>
                             <td>{{$alum->alum_ape}}</td>
                             <td>{{$alum->alum_nom}}</td>
-                            <td>
-                              @if ($alum->alum_sexo == 1)
-                                    Masculino
-                                @else
-                                    Femenino
-                                @endif
-                            </td>
                             <td>{{$alum->alum_grad}}° de secundaria</td>
                             <td>
                               @if ($alum->alum_est === 1)
@@ -53,9 +45,14 @@
                               @endif
                             </td>
                             <td>   
-                                <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a> 
-                                <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a> 
-                                <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>      
+                                <a data-toggle="modal" data-target="#modal-info-{{$alum->alum_id}}" class="btn btn-sm btn-info"><i class="fa fa-search"></i></a> 
+                                @include('alumno.info') 
+                                @if ($alum->alum_est === 1)
+                                    <a data-toggle="modal" data-target="#modal-est-{{$alum->alum_id}}" title="Inactivar alumno" class="btn btn-sm btn-danger"><i class="fa fa-minus-square"></i></a> 
+                                @else
+                                    <a data-toggle="modal" data-target="#modal-est-{{$alum->alum_id}}" title="Activar alumno" class="btn btn-sm btn-success"><i class="fa fa-plus-square"></i></a> 
+                                @endif     
+                                @include('alumno.estado') 
                             </td>
                         </tr>
                         @endforeach

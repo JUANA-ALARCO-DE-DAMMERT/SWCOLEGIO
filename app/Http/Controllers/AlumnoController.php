@@ -19,7 +19,9 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $data = DB::table('alumno')->get();
+        $data = DB::table('alumno')
+                    ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
+                    ->get();
         return view('alumno.index',['alumnos'=>$data]);
     }
 
@@ -142,9 +144,17 @@ class AlumnoController extends Controller
      * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno)
+    public function destroy($id)
     {
-        //
+        $alumno = Alumno::find($id);
+        if($alumno->alum_est == 1){
+            $alumno->alum_est = 0;
+            $alumno->save();
+        } else {
+            $alumno->alum_est = 1;
+            $alumno->save();
+        }
+        return redirect()->route('alumno.index')->with('status', 'Alumno editado correctamente!');
     }
 
     public function misCursos($id){

@@ -37,8 +37,8 @@ class NotasController extends Controller
                 ->where('notas.not_idcurso','=',$idcurso)
                 ->where('notas.not_bimestre','=',$nbim)
                 ->where('notas.not_idalumno','=',$alumno->alum_id)
-                ->first();
-            return view ('notas.alumno.index',['idcurso'=>$idcurso, 'nbim'=>$nbim, 'a'=>$data]);
+                ->get();
+            return view ('notas.alumno.index',['idcurso'=>$idcurso, 'nbim'=>$nbim, 'data'=>$data]);
         }
         
     }

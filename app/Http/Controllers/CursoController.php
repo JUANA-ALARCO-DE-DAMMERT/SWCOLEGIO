@@ -73,9 +73,16 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function edit(Curso $curso)
+    public function edit($id)
     {
-        //
+        $curso = DB::table('curso')
+                    ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
+                    ->where('curs_id','=',$id)
+                    ->first();
+        $docentes = DB::table('asignatura_docente')
+                    ->join('trabajador','trabajador.trab_id','asignatura_docente.trab_id')
+                    ->where('asignatura_docente.asig_id','=',$curso->asig_id)->get();
+        return view('curso.edit',['curso'=>$curso,'docentes'=>$docentes]);
     }
 
     /**
@@ -85,9 +92,13 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, $id)
     {
-        //
+        $request->all();
+        $curso = Curso::find($id);
+        $curso->curs_iddocen = $request['curs_iddocen'];
+        $curso->save();
+        return redirect()->route('curso.index')->with('status', 'Curso editado correctamente!');
     }
 
     /**

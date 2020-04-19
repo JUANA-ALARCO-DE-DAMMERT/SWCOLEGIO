@@ -22,9 +22,10 @@
                 <table class="table table-responsive-sm table-hover table-sm" id="dataTable">
                     <thead>
                         <tr>
-                            <th>Docente</th>
                             <th>Asignatura</th>
                             <th>Grado</th>
+                            <th>Docente</th>
+                            <th>N° Alumnos</th>
                             <th>Año</th>
                             <th>Estado</th>
                             <th>Opciones</th>
@@ -33,9 +34,13 @@
                     <tbody>
                         @foreach($cursos as $cur)
                         <tr>
-                            <td>{{$cur->trab_ape . ', '. $cur->trab_nom}}</td>
                             <td>{{$cur->asig_nom}}</td>
                             <td>{{$cur->curs_grado . '° de secundaria'}}</td>
+                            <td>{{$cur->trab_ape . ', '. $cur->trab_nom}}</td>
+                            <td class="text-center">
+                                <?php $nalum = DB::table('alumno_curso')->where('curso_id','=',$cur->curs_id)->count(); ?>
+                                {{$nalum}}
+                            </td>
                             <td>{{$cur->curs_año}}</td>
                             <td>
                               @if ($cur->curs_est === 1)
@@ -45,9 +50,10 @@
                               @endif
                             </td>
                             <td>   
-                                <a class="btn btn-sm btn-info"><i class="fa fa-search"></i></a>  
-                                <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a> 
-                                <a class="btn btn-sm btn-danger" href="{{url('matricula/'.$cur->curs_id)}}"><i class="fa fa-trash"></i></a>      
+                                <a data-toggle="modal" data-target="#modal-info-{{$cur->curs_id}}"  class="btn btn-sm btn-info"><i class="fa fa-search"></i></a>  
+                                @include('curso.info')
+                                <a href="{{url('curso/'.$cur->curs_id.'/edit')}}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a> 
+                                <a class="btn btn-sm btn-secondary" title="Matricular alumnos" href="{{url('matricula/'.$cur->curs_id)}}"><i class="fa fa-group"></i></a>      
                             </td>
                         </tr>
                         @endforeach

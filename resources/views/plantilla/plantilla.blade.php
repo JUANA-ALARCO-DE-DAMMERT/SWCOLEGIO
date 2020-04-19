@@ -36,7 +36,7 @@
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="{{url('home')}}">
         <img class="navbar-brand-full" src="{{asset('img/login2logo.png')}}" width="89" height="25" alt="CoreUI Logo">
         <img class="navbar-brand-minimized" src="{{asset('img/logocorto.png')}}" width="30" height="30" alt="CoreUI Logo">
       </a>
@@ -85,11 +85,11 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('apoderado')}}">
-                <i class="nav-icon icon-user"></i> Apoderados</a>
+                <i class="nav-icon cui-people"></i> Apoderados</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('docente')}}">
-                <i class="nav-icon icon-user"></i> Docentes</a>
+                <i class="nav-icon cui-monitor"></i> Docentes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('curso')}}">

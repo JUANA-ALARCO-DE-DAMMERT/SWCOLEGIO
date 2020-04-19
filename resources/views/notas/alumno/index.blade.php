@@ -34,6 +34,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                            @foreach($data as $a)
                             <tr>
                                 <td>{{$a->alum_ape .', '.$a->alum_nom}}</td>
                                 <td class="text-center">{{$a->not_n1}}</td>
@@ -41,6 +42,7 @@
                                 <td class="text-center">{{$a->not_n3}}</td>
                                 <td class="text-center">{{$a->not_promedio}}</td>
                             </tr>
+                            @endforeach
                     </tbody>
                 </table>
             </div>
