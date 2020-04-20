@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-04-2020 a las 23:55:28
+-- Tiempo de generación: 20-04-2020 a las 03:32:17
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -136,14 +136,14 @@ INSERT INTO `apoderado` (`apod_id`, `apod_dni`, `apod_ape`, `apod_nom`, `apod_se
 (4, '41529163', 'LACHI AGÜERO', 'NANCY ELIZABETH', 0, 'nancy_lachi@hotmail.com', '974855240'),
 (5, '40456077', 'TACSA ORELLANA', 'MABEL ROCIO', 0, 'mtacsa@gmail.com', '985744128'),
 (6, '74078065', 'ARROYO PAREDES', 'ALDAIR YOE', 1, 'aldair.arroyo5@gmail.com', '957411237'),
-(7, '75200158', 'BRICEÑO VASQUEZ', 'BRIDGITH PRISCILA', 0, NULL, NULL),
+(7, '75200158', 'BRICEÑO VASQUEZ', 'BRIDGITH PRISCILA', 0, 'b-priscila@gmail.com', NULL),
 (8, '74850405', 'AGUILAR AGUILA', 'CELIA', 0, 'celia16.aa@gmail.com', NULL),
 (9, '76204070', 'QUINTO ACUÑA', 'RODRIGO JAVIER', 1, 'rodrigo.quinto@hotmail.com', NULL),
 (10, '75265129', 'ROBLES FLOREANO', 'HUGO PABLO', 1, 'hugo.robles.fl@hotmail.com', '952741632'),
-(11, '07514045', 'HINOSTROZA FLORES', 'DINA', 0, NULL, NULL),
-(12, '27040570', 'CHAVEZ VALDIVIA', 'TOMAS', 1, 'tchavez@hotmail.com', NULL),
+(11, '07514045', 'HINOSTROZA FLORES', 'DINA', 0, 'd.hinostroza@hotmail.com', '963521412'),
+(12, '27040570', 'CHAVEZ VALDIVIA', 'TOMAS', 1, 'jlramirezr@ucvvirtual.edu.pe', NULL),
 (13, '70384996', 'MARQUEZ AMARAL', 'MARIO KEVIN', 1, 'mariomarquez@hotmail.com', '952412630'),
-(14, '70384930', 'MADRID REMUZGO', 'GIANCARLOS JESUS', 1, 'gian.madrid.r@gmail.com', '985741304');
+(14, '70384930', 'MADRID REMUZGO', 'GIANCARLOS JESUS', 1, 'jlramirezr@ucvvirtual.edu.pe', '985741304');
 
 -- --------------------------------------------------------
 
@@ -193,7 +193,10 @@ INSERT INTO `asignatura_docente` (`id`, `trab_id`, `asig_id`) VALUES
 (6, 6, 2),
 (7, 7, 3),
 (8, 7, 4),
-(9, 7, 5);
+(9, 7, 5),
+(10, 4, 1),
+(11, 8, 2),
+(12, 8, 5);
 
 -- --------------------------------------------------------
 
@@ -255,7 +258,13 @@ INSERT INTO `asistencia` (`asis_id`, `asis_idcurso`, `asis_idalumno`, `asis_fech
 (39, 1004, 12, '2020-04-01', 0),
 (40, 1004, 10, '2020-04-01', 0),
 (41, 1004, 3, '2020-04-01', 2),
-(42, 1004, 4, '2020-04-01', 1);
+(42, 1004, 4, '2020-04-01', 1),
+(45, 1004, 11, '2020-04-13', 1),
+(46, 1004, 13, '2020-04-13', 1),
+(47, 1004, 12, '2020-04-13', 0),
+(48, 1004, 10, '2020-04-13', 0),
+(49, 1004, 3, '2020-04-13', 0),
+(50, 1004, 4, '2020-04-13', 0);
 
 -- --------------------------------------------------------
 
@@ -279,7 +288,7 @@ CREATE TABLE `curso` (
 INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `curs_grado`, `curs_año`, `curs_est`) VALUES
 (1001, 6, 1, 3, 2020, 1),
 (1002, 5, 4, 4, 2020, 1),
-(1003, 6, 2, 2, 2020, 1),
+(1003, 8, 2, 2, 2020, 1),
 (1004, 5, 4, 3, 2020, 1);
 
 -- --------------------------------------------------------
@@ -339,7 +348,8 @@ CREATE TABLE `recurso` (
 
 INSERT INTO `recurso` (`rec_id`, `rec_curso`, `rec_bimestre`, `rec_archivo`, `rec_dni`, `rec_rol`, `rec_fechahora`) VALUES
 (3, 1004, 1, '1586658320_Excel de prueba N° 1.xlsx', '75200163', 3, '2020-04-12 02:25:20'),
-(4, 1004, 1, '1586658722_Word de prueba N° 1.docx', '78850490', 4, '2020-04-12 02:32:02');
+(4, 1004, 1, '1586658722_Word de prueba N° 1.docx', '78850490', 4, '2020-04-12 02:32:02'),
+(6, 1004, 1, '1587346231_PPT Prueba.pptx', '75200163', 3, '2020-04-20 01:30:31');
 
 -- --------------------------------------------------------
 
@@ -402,7 +412,9 @@ INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
 (20, 78850490, 4, NULL, NULL),
 (21, 78603026, 4, NULL, NULL),
 (22, 79606046, 4, NULL, NULL),
-(24, 25840870, 3, NULL, NULL);
+(24, 25840870, 3, NULL, NULL),
+(25, 45102775, 3, NULL, NULL),
+(26, 25406106, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -432,7 +444,9 @@ INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_ape`, `trab_nom`, `trab_s
 (4, '25428530', 'MURILLO LOPEZ', 'FRANCISCA DE PAULA', 0, '1992-07-22', 1, 25428530),
 (5, '75200163', 'ATAPOMA ACUÑA', 'BRUCE ANTHONY', 1, '1989-11-12', 1, 75200163),
 (6, '07779398', 'PICASSO SALINAS', 'RAFAEL BERNARDO LUIS', 1, '1984-12-22', 1, 7779398),
-(7, '25840870', 'AZAÑERO JESUS', 'LIDIA MARILUZ', 0, '1985-04-23', 1, 25840870);
+(7, '25840870', 'AZAÑERO JESUS', 'LIDIA MARILUZ', 0, '1985-04-23', 1, 25840870),
+(8, '45102775', 'RODRIGUEZ MUÑOZ', 'ELIAS SAMUEL', 1, '1992-01-01', 1, 45102775),
+(9, '25406106', 'OLARTE ARROYO', 'SONIA ISABEL', 0, '1991-02-01', 1, 25406106);
 
 -- --------------------------------------------------------
 
@@ -455,9 +469,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (7779398, '07779398', '$2y$10$6UrRWu33MAWkHWhgC3VutelNsbKlSSIUsALqXKHln8YR.yefVzXuW', NULL, '2020-03-10 05:41:32', '2020-03-10 05:41:32'),
+(25406106, '25406106', '$2y$10$4ZGNQVPQLzdPVcmzNR6lSeoq8N68FWSLrk7EIFiwPqlnN7i0rll4K', NULL, '2020-04-19 05:12:29', '2020-04-19 05:12:29'),
 (25428530, '25428530', '$2y$10$8XCnkVVYe9ui9qxbdK5dA.5vmmxh5Rz2y11lZSBtSDqKlWTw3fRsm', NULL, '2020-03-09 08:44:11', '2020-03-09 08:44:11'),
 (25745094, '25745094', '$2y$10$cxheRsBl/6qzGT3krv3ECug6D1/nYeDSg4PkGy9FK.7SjvhsrmVIy', NULL, '2020-03-08 08:32:04', '2020-03-08 08:32:04'),
 (25840870, '25840870', '$2y$10$oT3OTJV3rk8PCeYi1SKf2.bsRjd9Edmun5NXabItuyy2/ASEQVg92', NULL, '2020-04-14 21:49:58', '2020-04-14 21:49:58'),
+(45102775, '45102775', '$2y$10$gGRHihsbJt0fypTAl8RsJuGHxF2sD5GT7WCAbt1PiQvm1tSoHhXWu', NULL, '2020-04-18 23:39:02', '2020-04-18 23:39:02'),
 (70327395, '70327395', '$2y$10$f8Kb1wMgIKMbLj5INDuhie0HYWPJYpIMuCmT83wg9j6etu/Pzhmz2', NULL, '2020-03-01 22:40:17', '2020-03-01 22:40:17'),
 (75200120, '75200120', '$2y$10$5.jkgqLutEYda6JHA19DteDLCPewHVmHAoLOrav0lwmq3jxghxYOW', NULL, '2020-03-01 22:39:25', '2020-03-01 22:39:25'),
 (75200134, '75200134', '$2y$10$fnab.LDrfaNd0f4QB6CNwuEWzyTJ/suWx/WhQxieXj22kQGI1V9dK', NULL, '2020-03-02 04:26:27', '2020-03-02 04:26:27'),
@@ -607,13 +623,13 @@ ALTER TABLE `asignatura`
 -- AUTO_INCREMENT de la tabla `asignatura_docente`
 --
 ALTER TABLE `asignatura_docente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `asistencia`
 --
 ALTER TABLE `asistencia`
-  MODIFY `asis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `asis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `curso`
@@ -631,7 +647,7 @@ ALTER TABLE `notas`
 -- AUTO_INCREMENT de la tabla `recurso`
 --
 ALTER TABLE `recurso`
-  MODIFY `rec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `rec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -643,13 +659,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajador`
 --
 ALTER TABLE `trabajador`
-  MODIFY `trab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `trab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

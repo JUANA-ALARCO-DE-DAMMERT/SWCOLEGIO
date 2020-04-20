@@ -74,7 +74,7 @@ class DocenteController extends Controller
         return view ('docente.edit',['doc'=>$trab]);
     }    
 
-        public function destroy($id)
+    public function destroy($id)
     {
         $trab = Trabajador::find($id);
         if($trab->trab_est == 1){

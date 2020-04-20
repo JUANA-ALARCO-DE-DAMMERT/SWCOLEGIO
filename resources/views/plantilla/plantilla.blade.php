@@ -92,6 +92,10 @@
                 <i class="nav-icon cui-monitor"></i> Docentes</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{url('secretaria')}}">
+                <i class="nav-icon fa fa-fax"></i> Secretarias</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{{url('curso')}}">
                 <i class="nav-icon icon-notebook"></i> Cursos</a>
             </li>

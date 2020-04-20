@@ -59,6 +59,29 @@ class RecursoController extends Controller
             'rec_rol' => $rec_rol
         ]);
 
+        if(Auth::user()->hasrole('docen'))
+        {
+            $query = DB::table('alumno_curso')
+                        ->join('alumno','alumno.alum_id','alumno_curso.alumno_id')
+                        ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
+                        ->where('alumno_curso.curso_id','=',$data['rec_curso'])->get();
+            foreach($query as $datos){
+                $alumno = $datos->alum_ape . ', ' . $datos->alum_nom;
+                $apoderado = $datos->apod_ape . ', ' . $datos->apod_nom;
+                $asunto = "". $datos->alum_ape . ' ' . $datos->alum_nom . ': RECURSOS ';
+                $msg = "Se comunica que se subió un recurso a la plataforma del estudiante: " . $alumno;
+
+                $to_name="jad";
+                $to_mail= $datos->apod_email;
+                $data = array("name"=>$apoderado,"body"=>$msg);
+                \Mail::send('mail',$data,function($message) use ($to_name,$to_mail,$asunto){
+                    $message->to($to_mail)
+                    ->subject($asunto);
+                });
+            }
+        }
+
+
         // Redireccionamos
         return redirect()->route('recursos.show', ['idcurso' => $req->rec_curso, 'nbim' => $req->rec_bimestre])->with('status', 'Recurso subido correctamente!');
         
