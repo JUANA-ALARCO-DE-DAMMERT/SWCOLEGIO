@@ -78,7 +78,7 @@
               <a class="nav-link" href="{{route('home')}}">
                 <i class="nav-icon icon-home"></i> Inicio</a>
             </li>
-            @if(Auth::user()->hasrole('admin'))
+            @if(Auth::user()->hasAnyRole(['admin','secre']))
             <li class="nav-item">
               <a class="nav-link" href="{{url('alumno')}}">
                 <i class="nav-icon icon-user"></i> Alumnos</a>
