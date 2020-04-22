@@ -17,6 +17,7 @@ Route::resource('curso','CursoController');
 Route::resource('ac','AlumnoCursoController');
 Route::resource('asistencia','AsistenciaController');
 Route::resource('notas','NotasController');
+Route::resource('examen','ExamenLineaController');
 
 // Rutas del docente
 Route::get('cursos/{id}','DocenteController@misCursos');
@@ -45,3 +46,6 @@ Route::get('registronotas/{idcurso}/{nbim}','NotasController@formNotas');
 Route::get('pdfalumnos','AlumnoController@descargarAlumnos');
 Route::get('pdfapoderados','ApoderadoController@descargarApoderados');
 
+// Rutas de exámenes
+Route::get('newexamen/{idcurso}','ExamenLineaController@crear');
+Route::get('exavirtual/{idcurso}','ExamenLineaController@listarExamenesPorCurso');

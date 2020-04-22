@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2020 a las 03:32:17
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.3
+-- Tiempo de generación: 22-04-2020 a las 05:25:46
+-- Versión del servidor: 10.1.35-MariaDB
+-- Versión de PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -294,6 +294,28 @@ INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `curs_grado`, `cu
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `examen_linea`
+--
+
+CREATE TABLE `examen_linea` (
+  `exa_id` int(11) NOT NULL,
+  `exa_idcurso` int(11) NOT NULL,
+  `exa_titulo` varchar(100) NOT NULL,
+  `exa_link` text NOT NULL,
+  `exa_iddocen` int(11) NOT NULL,
+  `exa_fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `examen_linea`
+--
+
+INSERT INTO `examen_linea` (`exa_id`, `exa_idcurso`, `exa_titulo`, `exa_link`, `exa_iddocen`, `exa_fecha`) VALUES
+(1, 1004, 'Prueba 1', 'https://docs.google.com/forms/d/e/1FAIpQLSdCzKLReC9jruRDjMHLZPAGr4QZuIAc5Idw1ChV87GChtYc0w/viewform?embedded=true', 75200163, '2020-04-22 03:04:23');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `notas`
 --
 
@@ -549,6 +571,13 @@ ALTER TABLE `curso`
   ADD KEY `curs_idasig` (`curs_idasig`);
 
 --
+-- Indices de la tabla `examen_linea`
+--
+ALTER TABLE `examen_linea`
+  ADD PRIMARY KEY (`exa_id`),
+  ADD KEY `exa_idcurso` (`exa_idcurso`);
+
+--
 -- Indices de la tabla `notas`
 --
 ALTER TABLE `notas`
@@ -636,6 +665,12 @@ ALTER TABLE `asistencia`
 --
 ALTER TABLE `curso`
   MODIFY `curs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1005;
+
+--
+-- AUTO_INCREMENT de la tabla `examen_linea`
+--
+ALTER TABLE `examen_linea`
+  MODIFY `exa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `notas`
