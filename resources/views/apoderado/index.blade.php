@@ -3,6 +3,7 @@
 <div class="row mt-4">
     <div class="col-md-6">
         <a href="{{url('apoderado/create')}}" class="btn btn-primary">Registrar apoderado</a>
+        <a href="{{url('pdfapoderados')}}" class="btn btn-danger"><i class="fa fa-print"></i></a>
     </div>
     <div class="col-md-6">
         @if (session('status'))

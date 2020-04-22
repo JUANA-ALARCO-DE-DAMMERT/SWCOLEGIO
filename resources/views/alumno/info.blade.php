@@ -17,7 +17,8 @@
                 @elseif($alum->alum_sexo == 0)
                     <label for="" class="form-control">Sexo: Femenino</label>
                 @endif
-                <label class="form-control">Nombres: {{$alum->alum_grad}}° de secundaria</label>
+                <label class="form-control">F. Nacimiento: {{date("d/m/Y", strtotime($alum->alum_fnac))}}</label>
+                <label class="form-control">Grado: {{$alum->alum_grad}}° de secundaria</label>
                 @if($alum->alum_est == 1)
                     <label class="form-control">Estado: <span class="badge badge-success">Activo</span></label>
                 @elseif($alum->alum_est == 0)

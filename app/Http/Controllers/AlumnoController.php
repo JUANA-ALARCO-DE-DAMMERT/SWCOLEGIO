@@ -9,6 +9,7 @@ use App\User;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use PDF;
 
 class AlumnoController extends Controller
 {
@@ -166,6 +167,31 @@ class AlumnoController extends Controller
                     ->where('alumno.alum_dni','=',$id)
                     ->get();
         return view ('alumno.miscursos',['cursos'=>$data]);
+    }
+
+    public function descargarAlumnos(){
+        $data = DB::table('alumno')
+                    ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
+                    ->orderBy('alum_grad','asc')
+                    ->orderBy('alum_ape','asc')
+                    ->get();
+        $totalalum = DB::table('alumno')->where('alum_est','=','1')->count();
+        $nro_alumnoprimero = DB::table('alumno')->where([['alum_grad','=','1'],['alum_est','=','1']])->count();
+        $nro_alumnosegundo = DB::table('alumno')->where([['alum_grad','=','2'],['alum_est','=','1']])->count();
+        $nro_alumnotercero = DB::table('alumno')->where([['alum_grad','=','3'],['alum_est','=','1']])->count();
+        $nro_alumnocuarto = DB::table('alumno')->where([['alum_grad','=','4'],['alum_est','=','1']])->count(); 
+        $nro_alumnoquinto = DB::table('alumno')->where([['alum_grad','=','5'],['alum_est','=','1']])->count();
+        $pdf = PDF::loadView('pdf.alumnos',[
+                                    'data'=>$data,
+                                    'n1alumnos'=>$nro_alumnoprimero,
+                                    'n2alumnos'=>$nro_alumnosegundo,
+                                    'n3alumnos'=>$nro_alumnotercero,
+                                    'n4alumnos'=>$nro_alumnocuarto,
+                                    'n5alumnos'=>$nro_alumnoquinto,
+                                    'totalalum'=>$totalalum
+                                ]);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('Alumnos - JuanaAlarcoDeDammert.pdf');
     }
 
 }

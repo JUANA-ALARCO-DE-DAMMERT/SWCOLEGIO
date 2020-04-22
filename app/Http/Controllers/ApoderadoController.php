@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Apoderado;
 use Illuminate\Http\Request;
 use DB;
+use PDF;
 
 class ApoderadoController extends Controller
 {
@@ -105,6 +106,15 @@ class ApoderadoController extends Controller
                         ->where('apoderado.apod_dni','=',$dni)
                         ->get();
         return $apoderado;
+    }
+
+    public function descargarApoderados(){
+        $data = DB::table('apoderado')
+                    ->orderBy('apoderado.apod_ape','asc')
+                    ->get();
+        $pdf = PDF::loadView('pdf.apoderados',['data'=>$data]);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('Apoderados - JuanaAlarcoDeDammert.pdf');
     }
 
 }

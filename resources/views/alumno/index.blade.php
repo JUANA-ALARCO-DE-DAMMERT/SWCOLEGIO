@@ -3,6 +3,7 @@
 <div class="row mt-4">
     <div class="col-md-6">
         <a href="{{url('alumno/create')}}" class="btn btn-primary">Registrar alumno</a>
+        <a href="{{url('pdfalumnos')}}" class="btn btn-danger"><i class="fa fa-print"></i></a>
     </div>
     <div class="col-md-6">
         @if (session('status'))
