@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-04-2020 a las 05:25:46
+-- Tiempo de generación: 23-04-2020 a las 22:05:32
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -371,7 +371,8 @@ CREATE TABLE `recurso` (
 INSERT INTO `recurso` (`rec_id`, `rec_curso`, `rec_bimestre`, `rec_archivo`, `rec_dni`, `rec_rol`, `rec_fechahora`) VALUES
 (3, 1004, 1, '1586658320_Excel de prueba N° 1.xlsx', '75200163', 3, '2020-04-12 02:25:20'),
 (4, 1004, 1, '1586658722_Word de prueba N° 1.docx', '78850490', 4, '2020-04-12 02:32:02'),
-(6, 1004, 1, '1587346231_PPT Prueba.pptx', '75200163', 3, '2020-04-20 01:30:31');
+(6, 1004, 1, '1587346231_PPT Prueba.pptx', '75200163', 3, '2020-04-20 01:30:31'),
+(7, 1002, 1, '1587613835_Nuevo documento de texto.txt', '75200163', 3, '2020-04-23 03:50:35');
 
 -- --------------------------------------------------------
 
@@ -670,7 +671,7 @@ ALTER TABLE `curso`
 -- AUTO_INCREMENT de la tabla `examen_linea`
 --
 ALTER TABLE `examen_linea`
-  MODIFY `exa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `exa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `notas`
@@ -682,7 +683,7 @@ ALTER TABLE `notas`
 -- AUTO_INCREMENT de la tabla `recurso`
 --
 ALTER TABLE `recurso`
-  MODIFY `rec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `rec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
