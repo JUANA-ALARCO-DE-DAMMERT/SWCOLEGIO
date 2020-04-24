@@ -39,13 +39,13 @@
                             @csrf
                                 <td>{{$file->rec_archivo}}</td>
                                 <td>
-                                    @if ($file->rec_rol === 3)
+                                    @if ($file->rec_rol == 3)
                                         <?php 
                                             $doc = DB::table('trabajador')
                                                     ->where('trab_dni','=',$file->rec_dni)->first();
                                         ?>
                                         {{$doc->trab_ape . ', ' . $doc->trab_nom}} 
-                                    @elseif ($file->rec_rol === 4)
+                                    @elseif ($file->rec_rol == 4)
                                         <?php 
                                             $alum = DB::table('alumno')
                                                     ->where('alum_dni','=',$file->rec_dni)->first();

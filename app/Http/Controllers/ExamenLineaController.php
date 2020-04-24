@@ -42,14 +42,34 @@ class ExamenLineaController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $obj = $request->all();
         ExamenLinea::create([
-            'exa_idcurso' => $data['exa_idcurso'],
-            'exa_titulo' => $data['exa_titulo'],
-            'exa_link' => $data['exa_link'],
+            'exa_idcurso' => $obj['exa_idcurso'],
+            'exa_titulo' => $obj['exa_titulo'],
+            'exa_link' => $obj['exa_link'],
             'exa_iddocen' => Auth::user()->usuario
         ]);
-        return redirect()->route('curso.show',array('curso' => $data['exa_idcurso']))->with('status', 'Exámen agregado correctamente!');
+
+        $query = DB::table('alumno_curso')
+                        ->join('alumno','alumno.alum_id','alumno_curso.alumno_id')
+                        ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
+                        ->where('alumno_curso.curso_id','=', $obj['exa_idcurso'])->get();
+            foreach($query as $datos){
+                $alumno = $datos->alum_ape . ', ' . $datos->alum_nom;
+                $apoderado = $datos->apod_ape . ', ' . $datos->apod_nom;
+                $asunto = "". $datos->alum_ape . ' ' . $datos->alum_nom . ': EXAMEN VIRTUAL ';
+                $msg = "Se comunica que se subió un exámen virtual a la plataforma del estudiante: " . $alumno;
+
+                $to_name="jad";
+                $to_mail= $datos->apod_email;
+                $data = array("name"=>$apoderado,"body"=>$msg);
+                \Mail::send('mail',$data,function($message) use ($to_name,$to_mail,$asunto){
+                    $message->to($to_mail)
+                    ->subject($asunto);
+                });
+            }
+
+        return redirect()->route('curso.show',array('curso' => $obj['exa_idcurso']))->with('status', 'Exámen agregado correctamente!');
     }
 
     /**

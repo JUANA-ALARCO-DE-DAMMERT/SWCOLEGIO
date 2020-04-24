@@ -44,7 +44,7 @@
                                 @endif
                             </td>
                             <td>
-                              @if ($doc->trab_est === 1)
+                              @if ($doc->trab_est == 1)
                                 <span class="badge badge-success">Activo</span>
                               @else
                               <span class="badge badge-danger">Inactivo</span>

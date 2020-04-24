@@ -114,7 +114,16 @@ class CursoController extends Controller
 
     public function matricula($id){
         $curso = Curso::find($id);
-        $data = DB::select('call matricularAlumnos(?, ?)',array($id, $curso->curs_grado));
+
+        //$data = DB::select('call matricularAlumnos(?, ?)',array($id, $curso->curs_grado));
+        
+        $data = DB::table('alumno')
+                    ->where('alumno.alum_grad','=',$curso->curs_grado)
+                    ->where('alumno.alum_est','=','1')
+                    ->whereNotIn('alumno.alum_id', DB::table('alumno_curso')->select('alumno_id')->where('alumno_curso.curso_id','=',$id))
+                    ->orderBy('alumno.alum_ape','asc')
+                    ->get();
+
         return view ('curso.matricula',['alumnos'=>$data,'curso'=>$curso]);
     }
 
