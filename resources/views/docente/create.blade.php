@@ -59,6 +59,16 @@
                         <div class="col-md-3">
                             <input class="form-control" type="date" name="trab_fnac" value="{{old('trab_fnac')}}">
                         </div>
+                        <label class="col-md-1 col-form-label">E-mail</label>
+                        <div class="col-md-3">
+                            <input class="form-control" type="email" name="trab_email" value="{{old('trab_email')}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-1 col-form-label">Teléfono</label>
+                        <div class="col-md-2">
+                            <input class="form-control" type="text" name="trab_tel" value="{{old('trab_tel')}}">
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Asignaturas</label>

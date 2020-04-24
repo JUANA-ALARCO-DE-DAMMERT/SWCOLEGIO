@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Sistema Web - Control Académico</title>
+    <link rel="icon" type="image/png" href="{{asset('img/logo-jad.jpeg')}}" >
     <!-- Icons-->
     <link href="{{asset('plantilla/node_modules/@coreui/icons/css/coreui-icons.min.css')}}" rel="stylesheet">
     <link href="{{asset('plantilla/node_modules/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet">
@@ -37,11 +38,13 @@
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
-                <a class="navbar-brand" href="">
-                    <img src="{{asset('img/login2logo.png')}}" height="40px">
-                </a>                
-                <h1>Login</h1>
-                <p class="text-muted">Iniciar Sesion</p>
+                <div class="text-center">
+                  <a class="navbar-brand" href="">
+                    <img src="{{asset('img/logo-jad.jpeg')}}" height="100px">
+                  </a>
+                  <h1>Login</h1>  
+                  <p class="text-muted">Iniciar Sesion</p>
+                </div>              
                 <form method="POST" action="{{ route('login') }}">
                 @csrf
                     <div class="input-group mb-3">
@@ -50,7 +53,7 @@
                             <i class="icon-user"></i>
                             </span>
                         </div>
-                        <input id="usuario" type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario" value="{{ old('usuario') }}" placeholder="Username" required autocomplete="usuario" autofocus>                  
+                        <input id="usuario" type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario" value="{{ old('usuario') }}" placeholder="Username" required autocomplete="usuario" maxlength="8" autofocus>                  
                         @error('usuario')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

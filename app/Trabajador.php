@@ -15,6 +15,8 @@ class Trabajador extends Model
         'trab_nom',
         'trab_sexo',
         'trab_fnac',
+        'trab_email',
+        'trab_tel',
         'trab_est',
         'trab_user'
     ];

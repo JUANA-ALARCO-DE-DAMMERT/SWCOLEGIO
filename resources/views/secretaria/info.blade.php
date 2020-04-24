@@ -18,6 +18,8 @@
                     <label for="" class="form-control">Sexo: Femenino</label>
                 @endif
                 <label class="form-control">Fecha de Nacimiento: {{date("d/m/Y", strtotime($trab->trab_fnac))}}</label>
+                <label class="form-control">E-mail: {{$trab->trab_email}}</label>
+                <label class="form-control">Teléfono: {{$trab->trab_tel}}</label>
                 @if($trab->trab_est == 1)
                     <label class="form-control">Estado: <span class="badge badge-success">Activo</span></label>
                 @elseif($trab->trab_est == 0)

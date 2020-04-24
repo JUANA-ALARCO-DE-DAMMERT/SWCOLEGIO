@@ -81,6 +81,30 @@ class RecursoController extends Controller
             }
         }
 
+        if(Auth::user()->hasrole('alum'))
+        {
+            $queryDocente = DB::table('curso')
+                        ->join('trabajador','trabajador.trab_id','curso.curs_iddocen')
+                        ->where('curso.curs_id','=',$data['rec_curso'])->first();
+                
+            $datos = DB::table('alumno')
+                  ->where('alumno.alum_dni','=',Auth::user()->usuario)->first();
+
+                $alumno = $datos->alum_ape . ', ' . $datos->alum_nom;
+                $docente = $queryDocente->trab_ape . ', ' . $queryDocente->trab_nom;
+                $asunto = "". $alumno. ': SUBIÓ RECURSO(S) ';
+                $msg = "Se comunica que el estudiante: " . $alumno . " subió un recurso(s)";
+
+                $to_name="jad";
+                $to_mail= $queryDocente->trab_email;
+                $data = array("name"=>$docente,"body"=>$msg);
+                \Mail::send('mail',$data,function($message) use ($to_name,$to_mail,$asunto){
+                    $message->to($to_mail)
+                    ->subject($asunto);
+                });
+            
+        }
+
 
         // Redireccionamos
         return redirect()->route('recursos.show', ['idcurso' => $req->rec_curso, 'nbim' => $req->rec_bimestre])->with('status', 'Recurso subido correctamente!');

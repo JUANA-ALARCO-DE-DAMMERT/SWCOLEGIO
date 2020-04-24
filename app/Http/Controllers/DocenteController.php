@@ -49,6 +49,8 @@ class DocenteController extends Controller
             'trab_nom' => $data['trab_nom'],
             'trab_sexo' => $data['trab_sexo'],
             'trab_fnac' => $data['trab_fnac'],
+            'trab_email' => $data['trab_email'],
+            'trab_tel' => $data['trab_tel'],
             'trab_user' => $data['trab_dni']
         ]); 
         foreach ($data['asignaturas'] as $key => $value) {
