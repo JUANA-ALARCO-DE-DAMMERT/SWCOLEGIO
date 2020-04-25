@@ -48,7 +48,7 @@
                             <td>   
                                 <a data-toggle="modal" data-target="#modal-info-{{$alum->alum_id}}" class="btn btn-sm btn-info"><i class="fa fa-search"></i></a> 
                                 @include('alumno.info') 
-                                @if ($alum->alum_est === 1)
+                                @if ($alum->alum_est == 1)
                                     <a data-toggle="modal" data-target="#modal-est-{{$alum->alum_id}}" title="Inactivar alumno" class="btn btn-sm btn-danger"><i class="fa fa-minus-square"></i></a> 
                                 @else
                                     <a data-toggle="modal" data-target="#modal-est-{{$alum->alum_id}}" title="Activar alumno" class="btn btn-sm btn-success"><i class="fa fa-plus-square"></i></a> 

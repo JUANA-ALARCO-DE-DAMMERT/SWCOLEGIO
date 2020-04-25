@@ -44,7 +44,7 @@
                                 @endif
                             </td>
                             <td>
-                              @if ($trab->trab_est === 1)
+                              @if ($trab->trab_est == 1)
                                 <span class="badge badge-success">Activo</span>
                               @else
                               <span class="badge badge-danger">Inactivo</span>
@@ -53,7 +53,7 @@
                             <td>
                                 <a data-toggle="modal" data-target="#modal-info-{{$trab->trab_id}}" class="btn btn-sm btn-info"><i class="fa fa-search"></i></a>      
                                 @include('secretaria.info')
-                                @if ($trab->trab_est === 1)
+                                @if ($trab->trab_est == 1)
                                     <a data-toggle="modal" data-target="#modal-est-{{$trab->trab_id}}" title="Inactivar usuario" class="btn btn-sm btn-danger"><i class="fa fa-minus-square"></i></a> 
                                 @else
                                     <a data-toggle="modal" data-target="#modal-est-{{$trab->trab_id}}" title="Activar usuario" class="btn btn-sm btn-success"><i class="fa fa-plus-square"></i></a> 

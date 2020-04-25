@@ -43,7 +43,7 @@
                             </td>
                             <td>{{$cur->curs_año}}</td>
                             <td>
-                              @if ($cur->curs_est === 1)
+                              @if ($cur->curs_est == 1)
                                 <span class="badge badge-success">Activo</span>
                               @else
                               <span class="badge badge-danger">Inactivo</span>
