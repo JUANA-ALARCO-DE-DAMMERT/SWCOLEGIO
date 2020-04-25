@@ -1,6 +1,6 @@
 <p align="center"><strong>Reporte: Última Conexión</strong></p> <br>
-<div text-align="center">
-	<table border="1" text-align="center">
+<div >
+	<table align="center" border="1">
 		<thead>
 			<tr>
 				<th>DNI</th>
