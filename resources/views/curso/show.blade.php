@@ -23,6 +23,7 @@
                 <a href="{{url($curso->curs_id.'/recursos')}}" class="btn btn-light">Recursos</a>
                 @if(Auth::user()->hasRole('docen'))
                     <a href="{{url('newexamen',['idcurso'=>$curso->curs_id])}}" class="btn btn-light">Subir Exámen en línea</a>
+                    <a href="{{url('reportes/'.$curso->curs_id)}}" class="btn btn-light">Reportes</a>
                 @endif
                 @if(Auth::user()->hasRole('alum'))
                     <a href="{{url('exavirtual',['idcurso'=>$curso->curs_id])}}" class="btn btn-light">Ver exámen en línea</a>

@@ -21,6 +21,7 @@ class CreateTrabajadorTable extends Migration
             $table->integer('trab_sexo');
             $table->date('trab_fnac');
             $table->string('trab_email',100)->nullable();
+            $table->string('trab_tel',11)->nullable();
             $table->integer('trab_est')->default(1);
             $table->integer('trab_user')->unsigned();
 

@@ -49,3 +49,7 @@ Route::get('pdfapoderados','ApoderadoController@descargarApoderados');
 // Rutas de exámenes
 Route::get('newexamen/{idcurso}','ExamenLineaController@crear');
 Route::get('exavirtual/{idcurso}','ExamenLineaController@listarExamenesPorCurso');
+
+// Rutas de reportes
+Route::get('reportes/{idcurso}','ReportesController@listarReportes');
+Route::get('reportes/{idcurso}/lastconection','ReportesController@ultimaConexion');
