@@ -17,7 +17,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <strong>Apoderados</strong>
+                <strong>Alumnos</strong>
             </div>
             <div class="card-body">
                 <table class="table table-responsive-sm table-hover table-sm" id="dataTable">
@@ -80,3 +80,4 @@
     </div>
 </div>
 @endsection
+
