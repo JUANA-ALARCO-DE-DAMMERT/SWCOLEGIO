@@ -1,9 +1,9 @@
 <?php
-  $nro_alumnoprimero = DB::table('alumno')->where('alum_grad','=','1')->count();
-  $nro_alumnosegundo = DB::table('alumno')->where('alum_grad','=','2')->count();
-  $nro_alumnotercero = DB::table('alumno')->where('alum_grad','=','3')->count();
-  $nro_alumnocuarto = DB::table('alumno')->where('alum_grad','=','4')->count(); 
-  $nro_alumnoquinto = DB::table('alumno')->where('alum_grad','=','5')->count();
+  $nro_alumnoprimero = DB::table('alumno')->where('alum_grad','=','7')->count();
+  $nro_alumnosegundo = DB::table('alumno')->where('alum_grad','=','8')->count();
+  $nro_alumnotercero = DB::table('alumno')->where('alum_grad','=','9')->count();
+  $nro_alumnocuarto = DB::table('alumno')->where('alum_grad','=','10')->count(); 
+  $nro_alumnoquinto = DB::table('alumno')->where('alum_grad','=','11')->count();
   // alumno sexo por año
   // 1er Año  
   $nro_alumnoprimerosexoH = DB::table('alumno')
