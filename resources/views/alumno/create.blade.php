@@ -62,11 +62,17 @@
                         <div class="col-md-3">
                             <select class="form-control" id="" name="alum_grad">
                                 <option value="" hidden>--- Seleccione ---</option>
-                                <option value="1">1° de secundaria</option>
-                                <option value="2">2° de secundaria</option>
-                                <option value="3">3° de secundaria</option>
-                                <option value="4">4° de secundaria</option>
-                                <option value="5">5° de secundaria</option>
+                                <option value="1">1° de primaria</option>
+                                <option value="2">2° de primaria</option>
+                                <option value="3">3° de primaria</option>
+                                <option value="4">4° de primaria</option>
+                                <option value="5">5° de primaria</option>
+                                <option value="6">6° de primaria</option>
+                                <option value="7">1° de secundaria</option>
+                                <option value="8">2° de secundaria</option>
+                                <option value="9">3° de secundaria</option>
+                                <option value="10">4° de secundaria</option>
+                                <option value="11">5° de secundaria</option>
                             </select>
                         </div>
                     </div>

@@ -15,7 +15,7 @@ class CreateTrabajadorTable extends Migration
     {
         Schema::create('trabajador', function (Blueprint $table) {
             $table->increments('trab_id');
-            $table->string('trab_dni',8);
+            $table->string('trab_dni',9);
             $table->string('trab_ape',70);
             $table->string('trab_nom',50);
             $table->integer('trab_sexo');

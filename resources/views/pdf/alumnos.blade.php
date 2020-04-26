@@ -21,15 +21,31 @@
                    <td>Femenino</td>
                @endif
                <td>{{date("d/m/Y", strtotime($a->alum_fnac))}}</td>
-			<td>{{$a->alum_grad}}° de secundaria</td>
+			<td>
+				@if ($a->alum_grad <= 6)
+                                    {{$a->alum_grad . '° de primaria'}}
+                                @elseif($a->alum_grad == 7)
+                                    {{'1° de secundaria'}}
+                                @elseif($a->alum_grad == 8)
+                                    {{'2° de secundaria'}}          
+                                @elseif($a->alum_grad == 9)
+                                    {{'3° de secundaria'}}  
+                                @elseif($a->alum_grad == 10)
+                                    {{'4° de secundaria'}}  
+                                @elseif($a->alum_grad == 11)
+                                    {{'5° de secundaria'}}  
+                                @else
+                                    {{'Egresado'}}  
+                                @endif
+			</td>
 			<td>{{$a->apod_ape . ', ' . $a->apod_nom}}</td>
 		</tr>
 		@endforeach
 	</tbody>
 </table>
-<p>1° de secunnaria: {{$n1alumnos}}<br> 
- 	   2° de secundaria: {{$n2alumnos}}<br>
- 	   3° de secundaria: {{$n3alumnos}}<br>
- 	   4° de secundaria: {{$n4alumnos}}<br>
- 	   5° de secundaria: {{$n5alumnos}}</p>
+<p>1° de primaria: {{$n1alumnos}}<br> 
+ 	   2° de primaria: {{$n2alumnos}}<br>
+ 	   3° de primaria: {{$n3alumnos}}<br>
+ 	   4° de primaria: {{$n4alumnos}}<br>
+ 	   5° de primaria: {{$n5alumnos}}</p>
 <p>Total: {{$totalalum}}</p>

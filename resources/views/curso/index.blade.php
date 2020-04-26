@@ -35,7 +35,23 @@
                         @foreach($cursos as $cur)
                         <tr>
                             <td>{{$cur->asig_nom}}</td>
-                            <td>{{$cur->curs_grado . '° de secundaria'}}</td>
+                            <td>
+                                @if ($cur->curs_grado <= 6)
+                                    {{$cur->curs_grado . '° de primaria'}}
+                                @elseif($cur->curs_grado == 7)
+                                    {{'1° de secundaria'}}
+                                @elseif($cur->curs_grado == 8)
+                                    {{'2° de secundaria'}}          
+                                @elseif($cur->curs_grado == 9)
+                                    {{'3° de secundaria'}}  
+                                @elseif($cur->curs_grado == 10)
+                                    {{'4° de secundaria'}}  
+                                @elseif($cur->curs_grado == 11)
+                                    {{'5° de secundaria'}}  
+                                @else
+                                    {{'Egresado'}}  
+                                @endif
+                            </td>
                             <td>{{$cur->trab_ape . ', '. $cur->trab_nom}}</td>
                             <td class="text-center">
                                 <?php $nalum = DB::table('alumno_curso')->where('curso_id','=',$cur->curs_id)->count(); ?>

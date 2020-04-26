@@ -45,16 +45,22 @@
                         <div class="col-md-2">
                             <select name="curs_grado" class="form-control" required>
                                 <option hidden>--- Seleccione ---</option>
-                                <option value="1">1° de secundaria</option>
-                                <option value="2">2° de secundaria</option>
-                                <option value="3">3° de secundaria</option>
-                                <option value="4">4° de secundaria</option>
-                                <option value="5">5° de secundaria</option>
+                                <option value="1">1° de primaria</option>
+                                <option value="2">2° de primaria</option>
+                                <option value="3">3° de primaria</option>
+                                <option value="4">4° de primaria</option>
+                                <option value="5">5° de primaria</option>
+                                <option value="6">6° de primaria</option>
+                                <option value="7">1° de secundaria</option>
+                                <option value="8">2° de secundaria</option>
+                                <option value="9">3° de secundaria</option>
+                                <option value="10">4° de secundaria</option>
+                                <option value="11">5° de secundaria</option>
                             </select>
                         </div>
                         <label class="col-md-2 col-form-label">Año</label>
                         <div class="col-md-2">
-                            <select class="form-control"  name="curs_año" size="1" readonly>
+                            <select class="form-control"  name="curs_año" size="1">
                                 <option value="2020" selected>2020</option>
                                 <option value="2021">2021</option>
                                 <option value="2022">2022</option>

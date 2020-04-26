@@ -22,7 +22,23 @@
                         @foreach($cursos as $c)
                         <tr>
                             <td>{{$c->asig_nom}}</td>
-                            <td>{{$c->curs_grado}}° de secundaria</td>
+                            <td>
+                                @if ($c->curs_grado <= 6)
+                                    {{$c->curs_grado . '° de primaria'}}
+                                @elseif($c->curs_grado == 7)
+                                    {{'1° de secundaria'}}
+                                @elseif($c->curs_grado == 8)
+                                    {{'2° de secundaria'}}          
+                                @elseif($c->curs_grado == 9)
+                                    {{'3° de secundaria'}}  
+                                @elseif($c->curs_grado == 10)
+                                    {{'4° de secundaria'}}  
+                                @elseif($c->curs_grado == 11)
+                                    {{'5° de secundaria'}}  
+                                @else
+                                    {{'Egresado'}}  
+                                @endif
+                            </td>
                             <td>{{$c->trab_ape.', '.$c->trab_nom}}</td>
                             <td>{{$c->curs_año}}</td>
                             <td>

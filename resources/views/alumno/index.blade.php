@@ -37,7 +37,23 @@
                             <td>{{$alum->alum_dni}}</td>
                             <td>{{$alum->alum_ape}}</td>
                             <td>{{$alum->alum_nom}}</td>
-                            <td>{{$alum->alum_grad}}° de secundaria</td>
+                            <td>
+                                @if ($alum->alum_grad <= 6)
+                                    {{$alum->alum_grad . '° de primaria'}}
+                                @elseif($alum->alum_grad == 7)
+                                    {{'1° de secundaria'}}
+                                @elseif($alum->alum_grad == 8)
+                                    {{'2° de secundaria'}}          
+                                @elseif($alum->alum_grad == 9)
+                                    {{'3° de secundaria'}}  
+                                @elseif($alum->alum_grad == 10)
+                                    {{'4° de secundaria'}}  
+                                @elseif($alum->alum_grad == 11)
+                                    {{'5° de secundaria'}}  
+                                @else
+                                    {{'Egresado'}}  
+                                @endif
+                            </td>
                             <td>
                               @if ($alum->alum_est == 1)
                                 <span class="badge badge-success">Activo</span>

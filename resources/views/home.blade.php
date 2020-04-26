@@ -272,7 +272,6 @@
       <div class="card-header py-2">
         <div class="d-sm-flex align-items-center justify-content-between my-1">
           <h1 class="h4 mb-0 text-gray-800">Bienvenido(a): {{$alumnodatos->alum_ape.', '.$alumnodatos->alum_nom}} </h1>
-          <h2 class="h4 mb-0 text-gray-800">Grado: {{$alumnodatos->alum_grad.' ° de Secundaria'}}</h2>  
             <!-- inicio reloj -->
             <form name="form_reloj">
               <input type="text" name="reloj" size="10">
@@ -311,7 +310,23 @@
       </tr>
       <tr>
         <td>Grado</td>
-        <td>{{$alumnodatos->alum_grad}}° de secundaria</td>
+        <td>
+          @if ($alumnodatos->alum_grad <= 6)
+                                    {{$alumnodatos->alum_grad . '° de primaria'}}
+                                @elseif($alumnodatos->alum_grad == 7)
+                                    {{'1° de secundaria'}}
+                                @elseif($alumnodatos->alum_grad == 8)
+                                    {{'2° de secundaria'}}          
+                                @elseif($alumnodatos->alum_grad == 9)
+                                    {{'3° de secundaria'}}  
+                                @elseif($alumnodatos->alum_grad == 10)
+                                    {{'4° de secundaria'}}  
+                                @elseif($alumnodatos->alum_grad == 11)
+                                    {{'5° de secundaria'}}  
+                                @else
+                                    {{'Egresado'}}  
+                                @endif
+        </td>
       </tr>
       <tr>
         <td>Fecha de nacimiento</td>

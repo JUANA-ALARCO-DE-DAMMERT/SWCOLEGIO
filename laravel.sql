@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-04-2020 a las 04:25:31
+-- Tiempo de generación: 26-04-2020 a las 04:28:20
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -41,6 +41,18 @@ CREATE TABLE `alumno` (
   `alum_user` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `alumno`
+--
+
+INSERT INTO `alumno` (`alum_id`, `alum_dni`, `alum_ape`, `alum_nom`, `alum_sexo`, `alum_fnac`, `alum_grad`, `alum_est`, `alum_apod`, `alum_user`) VALUES
+(1, '75406456', 'CAVERO AVILA', 'MARIA CARMEN', 0, '2006-02-05', 3, 1, 1, 75406456),
+(2, '75200134', 'ALVAREZ AGUILAR', 'JUAN DIEGO', 1, '2006-08-20', 3, 1, 2, 75200134),
+(3, '75246604', 'SALAZAR AVILA', 'CARLA', 0, '2006-07-11', 3, 1, 3, 75246604),
+(4, '75650012', 'ROBLES LACHI', 'DIANA', 0, '2005-01-06', 4, 1, 4, 75650012),
+(5, '79520105', 'CHUMPITAZ TACSA', 'ELSA', 0, '2005-10-12', 4, 1, 5, 79520105),
+(6, '78415200', 'ARROYO HUAMAN', 'DAVID', 1, '2005-08-28', 4, 1, 6, 78415200);
+
 -- --------------------------------------------------------
 
 --
@@ -52,6 +64,18 @@ CREATE TABLE `alumno_curso` (
   `curso_id` int(11) NOT NULL,
   `alumno_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `alumno_curso`
+--
+
+INSERT INTO `alumno_curso` (`id`, `curso_id`, `alumno_id`) VALUES
+(1, 1, 4),
+(2, 1, 5),
+(3, 1, 6),
+(4, 3, 1),
+(5, 3, 2),
+(6, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -68,6 +92,18 @@ CREATE TABLE `apoderado` (
   `apod_email` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `apod_tel` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `apoderado`
+--
+
+INSERT INTO `apoderado` (`apod_id`, `apod_dni`, `apod_ape`, `apod_nom`, `apod_sexo`, `apod_email`, `apod_tel`) VALUES
+(1, '06540979', 'CAVERO FALLA', 'ALBERTO NEMESIO', 1, 'alberto_cavero@gmail.com', '952632102'),
+(2, '25406456', 'ALVAREZ PERALTA', 'LUIS', 1, 'lalvarezp@hotmail.com', '998741036'),
+(3, '48509790', 'AVILA BRAVO', 'VIOLETA', 0, 'v.avila@hotmail.com', NULL),
+(4, '41529163', 'LACHI AGÜERO', 'NANCY ELIZABETH', 0, 'nancy_lachi@hotmail.com', '974855240'),
+(5, '40456077', 'TACSA ORELLANA', 'MABEL ROCIO', 0, 'mtacsa@gmail.com', '985744128'),
+(6, '74078065', 'ARROYO PAREDES', 'ALDAIR YOE', 1, 'aldair.arroyo5@gmail.com', '957411237');
 
 -- --------------------------------------------------------
 
@@ -106,6 +142,18 @@ CREATE TABLE `asignatura_docente` (
   `asig_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `asignatura_docente`
+--
+
+INSERT INTO `asignatura_docente` (`id`, `trab_id`, `asig_id`) VALUES
+(1, 4, 1),
+(2, 4, 2),
+(3, 5, 3),
+(4, 5, 4),
+(5, 6, 5),
+(6, 6, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -134,6 +182,15 @@ CREATE TABLE `curso` (
   `curs_año` int(11) NOT NULL,
   `curs_est` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `curso`
+--
+
+INSERT INTO `curso` (`curs_id`, `curs_iddocen`, `curs_idasig`, `curs_grado`, `curs_año`, `curs_est`) VALUES
+(1, 6, 5, 4, 2020, 1),
+(2, 5, 4, 4, 2020, 1),
+(3, 4, 1, 3, 2020, 1);
 
 -- --------------------------------------------------------
 
@@ -210,10 +267,18 @@ CREATE TABLE `recurso` (
   `rec_curso` int(11) NOT NULL,
   `rec_bimestre` int(11) NOT NULL,
   `rec_archivo` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `rec_dni` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rec_dni` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
   `rec_rol` int(11) NOT NULL,
   `rec_fechahora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `recurso`
+--
+
+INSERT INTO `recurso` (`rec_id`, `rec_curso`, `rec_bimestre`, `rec_archivo`, `rec_dni`, `rec_rol`, `rec_fechahora`) VALUES
+(1, 1, 1, '1587691288_Excel Prueba 1.xlsx', '75200163', 3, '2020-04-24 01:21:28'),
+(2, 1, 1, '1587691431_Word Prueba 1.docx', '79520105', 4, '2020-04-24 01:23:51');
 
 -- --------------------------------------------------------
 
@@ -259,7 +324,17 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`) VALUES
 (1, 75200120, 1, NULL, NULL),
-(2, 70327395, 1, NULL, NULL);
+(2, 70327395, 1, NULL, NULL),
+(3, 25406106, 2, NULL, NULL),
+(4, 25745094, 3, NULL, NULL),
+(5, 25428530, 3, NULL, NULL),
+(6, 75200163, 3, NULL, NULL),
+(7, 75200134, 4, NULL, NULL),
+(8, 75246604, 4, NULL, NULL),
+(9, 75406456, 4, NULL, NULL),
+(10, 75650012, 4, NULL, NULL),
+(11, 78415200, 4, NULL, NULL),
+(12, 79520105, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -269,7 +344,7 @@ INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
 
 CREATE TABLE `trabajador` (
   `trab_id` int(10) UNSIGNED NOT NULL,
-  `trab_dni` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `trab_dni` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
   `trab_ape` varchar(70) COLLATE utf8mb4_unicode_ci NOT NULL,
   `trab_nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `trab_sexo` int(11) NOT NULL,
@@ -286,7 +361,11 @@ CREATE TABLE `trabajador` (
 
 INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_ape`, `trab_nom`, `trab_sexo`, `trab_fnac`, `trab_email`, `trab_tel`, `trab_est`, `trab_user`) VALUES
 (1, '75200120', 'RAMIREZ RODRIGUEZ', 'JORGE LUIS', 1, '1999-10-14', NULL, NULL, 1, 75200120),
-(2, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 1, '1999-03-20', NULL, NULL, 1, 70327395);
+(2, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 1, '1999-03-20', NULL, NULL, 1, 70327395),
+(3, '25406106', 'OLARTE ARROYO', 'SONIA ISABEL', 0, '1991-02-01', NULL, NULL, 1, 25406106),
+(4, '25745094', 'FERREYRA COVEÑAS', 'JUAN MANUEL', 1, '1985-02-06', NULL, NULL, 1, 25745094),
+(5, '25428530', 'MURILLO LOPEZ', 'FRANCISCA DE PAULA', 0, '1992-07-12', NULL, NULL, 1, 25428530),
+(6, '75200163', 'ATAPOMA ACUÑA', 'BRUCE ANTHONY', 1, '1989-02-05', NULL, NULL, 1, 75200163);
 
 -- --------------------------------------------------------
 
@@ -309,8 +388,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `password`, `last_login`, `remember_token`, `created_at`, `updated_at`) VALUES
-(70327395, '70327395', '$2y$10$/o1SjWUMe56Cr/IfCkmP6ekV4VUoOykbKJk0p6BEvu3h9YvAJkJT2', NULL, NULL, NULL, NULL),
-(75200120, '75200120', '$2y$10$lEDXk5MnlYFKRmmJPfWYm.x/ni32QiNz5lILHws1MpuFaNlJ1aT92', '2020-04-24 21:07:53', NULL, NULL, '2020-04-25 02:07:53');
+(25406106, '25406106', '$2y$10$cLcykxZOn5OHx7VG4sF7JusoppEF47HY8w5COZMERgM9BO5TEE.rW', NULL, NULL, NULL, NULL),
+(25428530, '25428530', '$2y$10$ONaNF4qOHdjQD73qDg9.3.o0S0XjeocpgptV7pQQWHRykZ2D5VRKe', NULL, NULL, NULL, NULL),
+(25745094, '25745094', '$2y$10$0XCzFfvZWcOTwGyUSjsMMedZC1tr.8/muQS.pwjv/Zi8gFLdPJAh2', NULL, NULL, NULL, NULL),
+(70327395, '70327395', '$2y$10$TisiifygSP9Y3UXSwyD71.oHivIOI1eajxaA0V3EQED2FqO9ktV8S', NULL, NULL, NULL, NULL),
+(75200120, '75200120', '$2y$10$bxCP8hVynHjmJOVF7FshZOdzUpdhlW6u5LGSA6s1l1M2SuBwbqRI6', NULL, NULL, NULL, NULL),
+(75200134, '75200134', '$2y$10$J/eIRXHEp9wBTBf4NaKW2eYvUe28QZCBtnw/m2vBIKpn1XwlxBz9G', NULL, NULL, NULL, NULL),
+(75200163, '75200163', '$2y$10$piECPF5QmamxAeZqj6c.1.EOPY8qNazjFTkVm5ycT9DQRE7LTi8Ha', NULL, NULL, NULL, NULL),
+(75246604, '75246604', '$2y$10$zTlub6nzH2Znf2.LvKaX8OnNuKRKou8eO1ALu2j6xMbPuOJghqyJa', NULL, NULL, NULL, NULL),
+(75406456, '75406456', '$2y$10$QrnauBCkK0bCY5Ny4BIO5.q5GJepG2EwiaE80F.scR/srGK40aXYu', NULL, NULL, NULL, NULL),
+(75650012, '75650012', '$2y$10$dd/Ql3DfGkJa1K775fAYM.JbXp8.yF.TkGmhMo8VslJvtczyqgUEe', NULL, NULL, NULL, NULL),
+(78415200, '78415200', '$2y$10$SwOMrwX6eGPTmoK/RQ058.ZL2J9bOWEhIDsq7JZvZMt4uXpDqwufO', NULL, NULL, NULL, NULL),
+(79520105, '79520105', '$2y$10$OzHrkg4kGnihkeZiYY4cgeS7C5NHJztrOWgSAgse6vDMCx/YJTQNu', NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -441,7 +530,7 @@ ALTER TABLE `asignatura`
 -- AUTO_INCREMENT de la tabla `asignatura_docente`
 --
 ALTER TABLE `asignatura_docente`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `asistencia`
@@ -489,13 +578,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajador`
 --
 ALTER TABLE `trabajador`
-  MODIFY `trab_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `trab_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

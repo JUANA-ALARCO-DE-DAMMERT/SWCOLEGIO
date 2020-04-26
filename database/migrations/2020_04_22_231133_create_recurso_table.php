@@ -18,7 +18,7 @@ class CreateRecursoTable extends Migration
             $table->integer('rec_curso');
             $table->integer('rec_bimestre');
             $table->string('rec_archivo',180);
-            $table->string('rec_dni',8);
+            $table->string('rec_dni',9);
             $table->integer('rec_rol');
             $table->timestamp('rec_fechahora');
         });

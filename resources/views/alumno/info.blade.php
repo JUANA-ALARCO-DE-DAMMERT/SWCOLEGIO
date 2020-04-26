@@ -18,7 +18,24 @@
                     <label for="" class="form-control">Sexo: Femenino</label>
                 @endif
                 <label class="form-control">F. Nacimiento: {{date("d/m/Y", strtotime($alum->alum_fnac))}}</label>
-                <label class="form-control">Grado: {{$alum->alum_grad}}° de secundaria</label>
+                <label class="form-control">Grado: 
+
+                @if ($alum->alum_grad <= 6)
+                                    {{$alum->alum_grad . '° de primaria'}}
+                                @elseif($alum->alum_grad == 7)
+                                    {{'1° de secundaria'}}
+                                @elseif($alum->alum_grad == 8)
+                                    {{'2° de secundaria'}}          
+                                @elseif($alum->alum_grad == 9)
+                                    {{'3° de secundaria'}}  
+                                @elseif($alum->alum_grad == 10)
+                                    {{'4° de secundaria'}}  
+                                @elseif($alum->alum_grad == 11)
+                                    {{'5° de secundaria'}}  
+                                @else
+                                    {{'Egresado'}}  
+                                @endif
+                </label>
                 @if($alum->alum_est == 1)
                     <label class="form-control">Estado: <span class="badge badge-success">Activo</span></label>
                 @elseif($alum->alum_est == 0)
