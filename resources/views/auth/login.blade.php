@@ -53,7 +53,7 @@
                             <i class="icon-user"></i>
                             </span>
                         </div>
-                        <input id="usuario" type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario" value="{{ old('usuario') }}" placeholder="Username" required autocomplete="usuario" maxlength="8" autofocus>                  
+                        <input id="usuario" type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario" value="{{ old('usuario') }}" placeholder="Username" required autocomplete="usuario" maxlength="9" autofocus>                  
                         @error('usuario')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
