@@ -18,9 +18,9 @@
                         <tr>
                             <td>{{date("d/m/Y", strtotime($a->asis_fecha))}}</td>
                             <td>
-                                @if ($a->asis_est === 0)
+                                @if ($a->asis_est == 0)
                                     A
-                                @elseif ($a->asis_est === 1)
+                                @elseif ($a->asis_est == 1)
                                     T
                                 @else
                                     F

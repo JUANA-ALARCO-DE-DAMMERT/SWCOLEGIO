@@ -55,9 +55,9 @@
                                                     ->first();
                                 ?>
                                     <td>
-                                        @if ($data->asis_est === 0)
+                                        @if ($data->asis_est == 0)
                                             A
-                                        @elseif ($data->asis_est === 1)
+                                        @elseif ($data->asis_est == 1)
                                             T
                                         @else
                                             F
