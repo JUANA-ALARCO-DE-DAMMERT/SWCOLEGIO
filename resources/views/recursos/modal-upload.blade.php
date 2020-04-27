@@ -16,7 +16,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <button class="btn btn-primary" type="submit">Enviar</button>
+                <button class="btn btn-primary" id="btn-only1click" type="submit">Enviar</button>
             </div>
         </form>
     </div>
@@ -24,3 +24,31 @@
   </div>
   <!-- /.modal-dialog-->
 </div>
+
+@section('scripts')
+<script type="text/javascript">
+    // Variable global que nos dirá si hemos dado un click al botón
+var clicando= false;
+
+// Evento de click del primer botón
+$("#btn-dobleclick").click(function() {
+  // Mostramos el Alert
+  alert( "Handler for dobleclick.click() called." );
+});
+
+// Evento del segundo boton
+$("#btn-only1click").click(function() {
+  // Si ha sido clicado
+  if (clicando){
+    // Mostramos que ya se ha clicado, y no puede clicarse de nuevo
+    alert( "Que ya he realizado un click." );
+  // Si no ha sido clicado
+  } else {
+    // Le decimos que ha sido clicado
+    clicando= true;
+    // Mostramos el mensaje de que ha sido clicado
+    alert( "Acaba de Subir un Recurso Academico al Sistema Web, porfavor espere a que termine de cargar el recurso correctamente y le aparesca el mensaje de confirmacion: <Recurso subido correctamente>" );
+  }
+});
+</script>
+@endsection

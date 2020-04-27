@@ -1,0 +1,4 @@
+/usr/bin/mysqldump -u jad -p '12345' -h localhost laravel2 | gzip > respaldos/respaldo_db.sql.gz
+
+
+/usr/bin/mysqldump -u jad -p '12345' laravel2 > /path/backup.sql

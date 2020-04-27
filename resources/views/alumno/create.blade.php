@@ -251,7 +251,7 @@ $("#btn-only1click").click(function() {
     // Le decimos que ha sido clicado
     clicando= true;
     // Mostramos el mensaje de que ha sido clicado
-    alert( "Alumnos Registrados correctamente" );
+    alert( "Se acaba de Registrar Correctamente Un alumno con su respectivo Apoderado." );
   }
 });
 </script>

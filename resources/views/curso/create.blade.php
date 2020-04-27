@@ -71,7 +71,7 @@
                     </div> 
 
                     <div class="form-actions">
-                        <input type="submit" value="Registrar" class="btn btn-primary">
+                        <input type="submit" value="Registrar" id="btn-only1click" class="btn btn-primary">
                         <a href="{{url('curso')}}" class="btn btn-danger">Cancelar</a>
                     </div> 
                 </form>
@@ -101,5 +101,30 @@
             $('#select-docente').html(html_select);
         });
     }
+</script>
+<script type="text/javascript">
+    // Variable global que nos dirá si hemos dado un click al botón
+var clicando= false;
+
+// Evento de click del primer botón
+$("#btn-dobleclick").click(function() {
+  // Mostramos el Alert
+  alert( "Handler for dobleclick.click() called." );
+});
+
+// Evento del segundo boton
+$("#btn-only1click").click(function() {
+  // Si ha sido clicado
+  if (clicando){
+    // Mostramos que ya se ha clicado, y no puede clicarse de nuevo
+    alert( "Que ya he realizado un click." );
+  // Si no ha sido clicado
+  } else {
+    // Le decimos que ha sido clicado
+    clicando= true;
+    // Mostramos el mensaje de que ha sido clicado
+    alert( "Se acaba de crear un curso con un Docente Correctamente." );
+  }
+});
 </script>
 @endsection
