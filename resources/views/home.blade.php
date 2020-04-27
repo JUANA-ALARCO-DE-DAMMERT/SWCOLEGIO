@@ -139,74 +139,18 @@
       </div>
     </div>
 
-    <!-- Cards N° de alumnos -->
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Total de Alumnos por Año (Nivel Secundaria)</h6>
-    </div>
-    <div class="card-group">
-      <!-- 1° de secundaria -->
-      <div class="card">
-        <div class="card-body">
-          <div class="h1 text-muted text-right mb-4">
-            <i class="icon-people"></i>
-          </div>
-          <div class="text-value">{{$nro_alumnoprimero}}</div>
-          <small class="text-muted text-uppercase font-weight-bold">1° de secundaria</small><br>
-          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnoprimerosexoH}} |</small>        
-          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnoprimerosexoM}}</small>          
-        </div>
-      </div>
-      <!-- 2° de secundaria -->
-      <div class="card">
-        <div class="card-body">
-          <div class="h1 text-muted text-right mb-4">
-            <i class="icon-people"></i>
-          </div>
-          <div class="text-value">{{$nro_alumnosegundo}}</div>
-          <small class="text-muted text-uppercase font-weight-bold">2° de secundaria</small><br>
-          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnosegundosexoH}} |</small>        
-          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnosegundosexoM}}</small>          
-        </div>
-      </div>
-      <!-- 3° de secundaria -->
-      <div class="card">
-        <div class="card-body">
-          <div class="h1 text-muted text-right mb-4">
-            <i class="icon-people"></i>
-          </div>
-          <div class="text-value">{{$nro_alumnotercero}}</div>
-          <small class="text-muted text-uppercase font-weight-bold">3° de secundaria</small><br>
-          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnotercerosexoH}} |</small>
-          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnotercerosexoM}}</small>          
-        </div>
-      </div>
-      <!-- 4° de secundaria -->
-      <div class="card">
-        <div class="card-body">
-          <div class="h1 text-muted text-right mb-4">
-            <i class="icon-people"></i>
-          </div>
-          <div class="text-value">{{$nro_alumnocuarto}}</div>
-          <small class="text-muted text-uppercase font-weight-bold">4° de secundaria</small><br>
-          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnocuartosexoH}} |</small>
-          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnocuartosexoM}}</small>  
-        </div>
-      </div>
-      <!-- 5° de secundaria -->
-      <div class="card">
-        <div class="card-body">
-          <div class="h1 text-muted text-right mb-4">
-            <i class="icon-people"></i>
-          </div>
-          <div class="text-value">{{$nro_alumnoquinto}}</div>
-          <small class="text-muted text-uppercase font-weight-bold">5° de secundaria</small><br>
-          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnoquintosexoH}} |</small>         
-          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnoquintosexoM}}</small>  
-        </div>
-      </div>      
-    </div>
-    <br>
-
+<div class="row mt-2">
+    <div class="col-lg-12">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#primaria" role="tab" aria-controls="primaria">Nivel Primaria</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#secundaria" role="tab" aria-controls="secundaria">Nivel Secundaria</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="primaria" role="tabpanel">
                                         <!-- Nivel Primaria -->
     <!-- Cards N° de alumnos -->
     <div class="card-header py-3">
@@ -288,6 +232,85 @@
         </div>
       </div>
     </div>
+
+            </div>
+            <div class="tab-pane" id="secundaria" role="tabpanel">
+<!-- Cards N° de alumnos -->
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Total de Alumnos por Año (Nivel Secundaria)</h6>
+    </div>
+    <div class="card-group">
+      <!-- 1° de secundaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnoprimero}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">1° de secundaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnoprimerosexoH}} |</small>        
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnoprimerosexoM}}</small>          
+        </div>
+      </div>
+      <!-- 2° de secundaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnosegundo}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">2° de secundaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnosegundosexoH}} |</small>        
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnosegundosexoM}}</small>          
+        </div>
+      </div>
+      <!-- 3° de secundaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnotercero}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">3° de secundaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnotercerosexoH}} |</small>
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnotercerosexoM}}</small>          
+        </div>
+      </div>
+      <!-- 4° de secundaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnocuarto}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">4° de secundaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnocuartosexoH}} |</small>
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnocuartosexoM}}</small>  
+        </div>
+      </div>
+      <!-- 5° de secundaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnoquinto}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">5° de secundaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnoquintosexoH}} |</small>         
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnoquintosexoM}}</small>  
+        </div>
+      </div>      
+    </div>
+            </div>
+                
+    </div>
+</div>
+
+
+    
+
+
+
   @else
     <div class="d-sm-flex align-items-center justify-content-between my-4">
       <h1 class="h4 mb-0 text-gray-800">No tienes acceso </h1>
