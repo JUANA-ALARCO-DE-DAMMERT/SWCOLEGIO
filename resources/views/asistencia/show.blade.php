@@ -14,7 +14,7 @@
 ?>
 <div class="row mt-4">
     <div class="col-md-6">
-        <a href="{{url('asistencia/registrar/'.$idcurso)}}" class="btn btn-primary">Registrar asistencia</a>
+        <a href="{{url('asistencia/registrar/'.$idcurso)}}" id="btn-only1click" class="btn btn-primary">Registrar asistencia</a>
     </div>
     <div class="col-md-6">
         @if (session('status'))
@@ -72,4 +72,32 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+    // Variable global que nos dirá si hemos dado un click al botón
+var clicando= false;
+
+// Evento de click del primer botón
+$("#btn-dobleclick").click(function() {
+  // Mostramos el Alert
+  alert( "Handler for dobleclick.click() called." );
+});
+
+// Evento del segundo boton
+$("#btn-only1click").click(function() {
+  // Si ha sido clicado
+  if (clicando){
+    // Mostramos que ya se ha clicado, y no puede clicarse de nuevo
+    alert( "Que ya he realizado un click." );
+  // Si no ha sido clicado
+  } else {
+    // Le decimos que ha sido clicado
+    clicando= true;
+    // Mostramos el mensaje de que ha sido clicado
+    alert( "Bienvenido al registro de Asistencias " );
+  }
+});
+</script>
 @endsection

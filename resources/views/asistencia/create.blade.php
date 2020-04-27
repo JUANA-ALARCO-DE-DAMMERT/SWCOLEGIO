@@ -43,10 +43,37 @@
                             @endforeach
                     </tbody>
                 </table>
-                <input type="submit" class="btn btn-primary" value="Registrar">
+                <input type="submit" class="btn btn-primary" id="btn-only1click" value="Registrar">
                 </form>
             </div>
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    // Variable global que nos dirá si hemos dado un click al botón
+var clicando= false;
+
+// Evento de click del primer botón
+$("#btn-dobleclick").click(function() {
+  // Mostramos el Alert
+  alert( "Handler for dobleclick.click() called." );
+});
+
+// Evento del segundo boton
+$("#btn-only1click").click(function() {
+  // Si ha sido clicado
+  if (clicando){
+    // Mostramos que ya se ha clicado, y no puede clicarse de nuevo
+    alert( "Que ya he realizado un click." );
+  // Si no ha sido clicado
+  } else {
+    // Le decimos que ha sido clicado
+    clicando= true;
+    // Mostramos el mensaje de que ha sido clicado
+    alert( "Asistencia Registrada Correctamente, espere a que se actualize el registro de la asistencia porfavor." );
+  }
+});
+</script>
 @endsection
