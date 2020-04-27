@@ -5,52 +5,117 @@
   $nro_alumnocuarto = DB::table('alumno')->where('alum_grad','=','10')->count(); 
   $nro_alumnoquinto = DB::table('alumno')->where('alum_grad','=','11')->count();
   // alumno sexo por año
-  // 1er Año  
+  // 1er Año  Secundaria
   $nro_alumnoprimerosexoH = DB::table('alumno')
                     ->where('alum_sexo','=','1')
-                    ->where('alum_grad','=','1')
+                    ->where('alum_grad','=','7')
                     ->count();  
   $nro_alumnoprimerosexoM = DB::table('alumno')
                     ->where('alum_sexo','=','0')
-                    ->where('alum_grad','=','1')
+                    ->where('alum_grad','=','7')
                     ->count();
-  // 2do Año 
+  // 2do Año  Secundaria
   $nro_alumnosegundosexoH = DB::table('alumno')
                     ->where('alum_sexo','=','1')
-                    ->where('alum_grad','=','2')
+                    ->where('alum_grad','=','8')
                     ->count();  
   $nro_alumnosegundosexoM = DB::table('alumno')
                     ->where('alum_sexo','=','0')
-                    ->where('alum_grad','=','2')
+                    ->where('alum_grad','=','8')
                     ->count();
-  // 3er Año
+  // 3er Año Secundaria
   $nro_alumnotercerosexoH = DB::table('alumno')
                     ->where('alum_sexo','=','1')
-                    ->where('alum_grad','=','3')
+                    ->where('alum_grad','=','9')
                     ->count();  
   $nro_alumnotercerosexoM = DB::table('alumno')
                     ->where('alum_sexo','=','0')
-                    ->where('alum_grad','=','3')
+                    ->where('alum_grad','=','9')
                     ->count();
-  // 4to Año
+  // 4to Año Secundaria
   $nro_alumnocuartosexoH = DB::table('alumno')
                     ->where('alum_sexo','=','1')
-                    ->where('alum_grad','=','4')
+                    ->where('alum_grad','=','10')
                     ->count();  
   $nro_alumnocuartosexoM = DB::table('alumno')
                     ->where('alum_sexo','=','0')
-                    ->where('alum_grad','=','4')
+                    ->where('alum_grad','=','10')
                     ->count();
-  // 5to Año
+  // 5to Año Secundaria
   $nro_alumnoquintosexoH = DB::table('alumno')
                     ->where('alum_sexo','=','1')
-                    ->where('alum_grad','=','5')
+                    ->where('alum_grad','=','11')
                     ->count();  
   $nro_alumnoquintosexoM = DB::table('alumno')
                     ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','11')
+                    ->count();
+  // Fin Secundaria
+
+                //Inicio del nivel Primaria
+  $nro_alumnoprimerop = DB::table('alumno')->where('alum_grad','=','1')->count();
+  $nro_alumnosegundop = DB::table('alumno')->where('alum_grad','=','2')->count();
+  $nro_alumnotercerop = DB::table('alumno')->where('alum_grad','=','3')->count();
+  $nro_alumnocuartop = DB::table('alumno')->where('alum_grad','=','4')->count(); 
+  $nro_alumnoquintop = DB::table('alumno')->where('alum_grad','=','5')->count();
+  $nro_alumnosextop = DB::table('alumno')->where('alum_grad','=','6')->count();  
+  // alumno sexo por año
+  // 1er Año  Secundaria
+  $nro_alumnoprimeropsexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','1')
+                    ->count();  
+  $nro_alumnoprimeropsexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','1')
+                    ->count();
+  // 2do Año  Secundaria
+  $nro_alumnosegundopsexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','2')
+                    ->count();  
+  $nro_alumnosegundopsexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','2')
+                    ->count();
+  // 3er Año Secundaria
+  $nro_alumnoterceropsexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','3')
+                    ->count();  
+  $nro_alumnoterceropsexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','3')
+                    ->count();
+  // 4to Año Secundaria
+  $nro_alumnocuartopsexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','4')
+                    ->count();  
+  $nro_alumnocuartopsexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','4')
+                    ->count();
+  // 5to Año Secundaria
+  $nro_alumnoquintopsexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','5')
+                    ->count();  
+  $nro_alumnoquintopsexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
                     ->where('alum_grad','=','5')
                     ->count();
+  // 6to Año Secundaria
+  $nro_alumnosextopsexoH = DB::table('alumno')
+                    ->where('alum_sexo','=','1')
+                    ->where('alum_grad','=','6')
+                    ->count();  
+  $nro_alumnosextopsexoM = DB::table('alumno')
+                    ->where('alum_sexo','=','0')
+                    ->where('alum_grad','=','6')
+                    ->count();
   // Fin 
+
   $trab_data = DB::table('trabajador')
                   ->join('role_user','role_user.user_id','trabajador.trab_dni')
                   ->join('roles','roles.id','role_user.role_id')
@@ -76,7 +141,7 @@
 
     <!-- Cards N° de alumnos -->
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Total de Alumnos por Año</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Total de Alumnos por Año (Nivel Secundaria)</h6>
     </div>
     <div class="card-group">
       <!-- 1° de secundaria -->
@@ -137,6 +202,89 @@
           <small class="text-muted text-uppercase font-weight-bold">5° de secundaria</small><br>
           <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnoquintosexoH}} |</small>         
           <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnoquintosexoM}}</small>  
+        </div>
+      </div>      
+    </div>
+    <br>
+
+                                        <!-- Nivel Primaria -->
+    <!-- Cards N° de alumnos -->
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Total de Alumnos por Año (Nivel Primaria)</h6>
+    </div>
+    <div class="card-group">
+      <!-- 1° de primaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnoprimerop}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">1° de Primaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnoprimeropsexoH}} |</small>        
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnoprimeropsexoM}}</small>          
+        </div>
+      </div>
+      <!-- 2° de primaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnosegundop}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">2° de Primaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnosegundopsexoH}} |</small>        
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnosegundopsexoM}}</small>          
+        </div>
+      </div>
+      <!-- 3° de primaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnotercerop}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">3° de Primaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnoterceropsexoH}} |</small>
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnoterceropsexoM}}</small>          
+        </div>
+      </div>
+      <!-- 4° de primaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnocuartop}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">4° de Primaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnocuartopsexoH}} |</small>
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres :
+           {{$nro_alumnocuartopsexoM}}</small>  
+        </div>
+      </div>
+      <!-- 5° de primaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnoquintop}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">5° de Primaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnoquintopsexoH}} |</small>         
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : 
+          {{$nro_alumnoquintopsexoM}}</small>  
+        </div>
+      </div>
+      <!-- 6° de primaria -->
+      <div class="card">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-people"></i>
+          </div>
+          <div class="text-value">{{$nro_alumnosextop}}</div>
+          <small class="text-muted text-uppercase font-weight-bold">6° de Primaria</small><br>
+          <small class="text-muted text-uppercase font-weight-bold">Hombres : {{$nro_alumnosextopsexoH}} |</small>         
+          <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnosextopsexoM}}</small>  
         </div>
       </div>
     </div>
