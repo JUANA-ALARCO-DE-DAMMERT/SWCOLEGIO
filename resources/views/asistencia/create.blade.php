@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card my-3">
-            <form action="{{url('asistencia')}}" method="POST">
+            <form action="{{url('asistencia')}}" method="POST" onsubmit="return checkSubmit();">
             @method('POST')
             {{ csrf_field() }}
             <div class="card-header">
@@ -44,7 +44,7 @@
                             @endforeach
                     </tbody>
                 </table>
-                <input type="submit" class="btn btn-primary" id="btn-only1click" value="Registrar">
+                <input type="submit" class="btn btn-primary" value="Registrar">
                 </form>
             </div>
         </div>
@@ -53,28 +53,23 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
-    // Variable global que nos dirá si hemos dado un click al botón
-var clicando= false;
+        enviando = false; //Obligaremos a entrar el if en el primer submit
+    
+    function checkSubmit() {
+        if (!enviando) {
+            enviando= true;
+            return true;
+        } else {
+            //Si llega hasta aca significa que pulsaron 2 veces el boton submit
+            alert("Solo se Hace un click en el boton Registrar"+" "+"Porfavor espere a que se suba la Asistencia que acaba de Registrar");
+            return false;
+        }
+    }
+</script>
+<script type="text/javascript">
 
-// Evento de click del primer botón
-$("#btn-dobleclick").click(function() {
-  // Mostramos el Alert
-  alert( "Handler for dobleclick.click() called." );
-});
-
-// Evento del segundo boton
-$("#btn-only1click").click(function() {
-  // Si ha sido clicado
-  if (clicando){
-    // Mostramos que ya se ha clicado, y no puede clicarse de nuevo
-    alert( "Que ya he realizado un click." );
-  // Si no ha sido clicado
-  } else {
-    // Le decimos que ha sido clicado
-    clicando= true;
-    // Mostramos el mensaje de que ha sido clicado
-    alert( "Asistencia Registrada Correctamente, espere a que se actualize el registro de la asistencia porfavor." );
-  }
-});
+function desactivaBoton(id) {
+   document.getElementById(id).disabled=true;
+}
 </script>
 @endsection
