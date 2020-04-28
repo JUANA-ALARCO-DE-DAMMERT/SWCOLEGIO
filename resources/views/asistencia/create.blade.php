@@ -15,7 +15,8 @@
             {{ csrf_field() }}
             <div class="card-header">
                 <div class="col-md-3">
-                    <input type="date" class="form-control" name="asis_fecha">
+                    <b>Elija La fecha de Asistencia :</b>
+                    <input type="date" class="form-control" name="asis_fecha" min="2020-03-01" max="2020-12-31" required>
                     <input type="hidden" class="form-control" name="asis_idcurso" value="{{$idcurso}}">
                 </div>
             </div>
