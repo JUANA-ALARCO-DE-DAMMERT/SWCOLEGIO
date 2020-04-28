@@ -7,7 +7,7 @@
                 <strong>Examen Virtual</strong>
             </div>
             <div class="card-body">
-                <form action="{{url('examen')}}" method="POST" class="form-horizontal"> 
+                <form action="{{url('examen')}}" method="POST" class="form-horizontal" onsubmit="return checkSubmit();"> 
                 @method('POST')
                 {{ csrf_field() }}
                     @if (count($errors)>0)
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="form-actions">
-                        <input type="submit" value="Subir" id="btn-only1click" class="btn btn-primary">
+                        <input type="submit" value="Subir" class="btn btn-primary">
                         <a href="{{url('curso/'.$idcurso)}}" class="btn btn-danger">Cancelar</a>
                     </div> 
                 </form>
@@ -45,6 +45,27 @@
 @endsection
 
 @section('scripts')
+<script type="text/javascript">
+        enviando = false; //Obligaremos a entrar el if en el primer submit
+    
+    function checkSubmit() {
+        if (!enviando) {
+            enviando= true;
+            return true;
+        } else {
+            //Si llega hasta aca significa que pulsaron 2 veces el boton submit
+            alert("Solo se Hace un click en el boton Subir"+","+"Porfavor espere a que se suba el Examen en linea que acaba de Subir.");
+            return false;
+        }
+    }
+</script>
+<script type="text/javascript">
+
+function desactivaBoton(id) {
+   document.getElementById(id).disabled=true;
+}
+
+</script>
 <script type="text/javascript">
     // Variable global que nos dirá si hemos dado un click al botón
 var clicando= false;

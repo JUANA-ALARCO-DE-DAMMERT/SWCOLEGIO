@@ -7,16 +7,19 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-        <form action="{{url('upload')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('upload')}}" method="POST" enctype="multipart/form-data" onsubmit="return checkSubmit();">
             <div class="modal-body">
                 {{csrf_field()}}
                 <input type="file" name="rec_archivo" required>
                 <input type="hidden" name="rec_curso" value="{{$idcurso}}">
-                <input type="hidden" name="rec_bimestre" value="{{$nbim}}">
+                <input type="hidden" name="rec_bimestre" value="{{$nbim}}"><br>
+                <b>Nota1: Se recomienda subir archivos comprimidos</b><br>
+                <b>Nota2: Subir como maximo archivos de 3Mb</b>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <button class="btn btn-primary" id="btn-only1click" type="submit">Enviar</button>
+                <button class="btn btn-primary" type="submit">Enviar</button>
+
             </div>
         </form>
     </div>
@@ -26,6 +29,28 @@
 </div>
 
 @section('scripts')
+<script type="text/javascript">
+        enviando = false; //Obligaremos a entrar el if en el primer submit
+    
+    function checkSubmit() {
+        if (!enviando) {
+            enviando= true;
+            return true;
+        } else {
+            //Si llega hasta aca significa que pulsaron 2 veces el boton submit
+            alert("Solo se Hace un click en el boton Enviar"+" "+"Porfavor espere a que se suba el recurso que acaba de cargar.");
+            return false;
+        }
+    }
+</script>
+<script type="text/javascript">
+
+function desactivaBoton(id) {
+   document.getElementById(id).disabled=true;
+}
+
+</script>
+
 <script type="text/javascript">
     // Variable global que nos dirá si hemos dado un click al botón
 var clicando= false;
