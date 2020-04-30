@@ -99,28 +99,10 @@
               <a class="nav-link" href="{{url('curso')}}">
                 <i class="nav-icon icon-notebook"></i> Cursos</a>
             </li>
-            <li class="nav-item nav-dropdown">
-              <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-chart"></i> Reportes</a>
-              <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <a class="nav-link" href="buttons/buttons.html">
-                    <i class="nav-icon icon-cursor"></i> Buttons</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="buttons/button-group.html">
-                    <i class="nav-icon icon-cursor"></i> Buttons Group</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="buttons/dropdowns.html">
-                    <i class="nav-icon icon-cursor"></i> Dropdowns</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="buttons/brand-buttons.html">
-                    <i class="nav-icon icon-cursor"></i> Brand Buttons</a>
-                </li>
-              </ul>
-            </li>            
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('pago')}}">
+                <i class="nav-icon fa fa-dollar"></i> Pagos</a>
+            </li>          
             @endif
             @if(Auth::user()->hasrole('docen'))
             <li class="nav-item">
