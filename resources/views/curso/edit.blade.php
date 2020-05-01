@@ -46,7 +46,23 @@
                         <label class="col-md-2 col-form-label">Grado</label>
                         <div class="col-md-2">
                             <select name="curs_grado" class="form-control" required readonly>
-                                <option value="{{$curso->curs_grado}}" >{{$curso->curs_grado}}° de secundaria</option>
+                                <option value="{{$curso->curs_grado}}" >
+                                    @if ($curso->curs_grado <= 6)
+                                        {{$curso->curs_grado . '° de primaria'}}
+                                    @elseif($curso->curs_grado == 7)
+                                        {{'1° de secundaria'}}
+                                    @elseif($curso->curs_grado == 8)
+                                        {{'2° de secundaria'}}          
+                                    @elseif($curso->curs_grado == 9)
+                                        {{'3° de secundaria'}}  
+                                    @elseif($curso->curs_grado == 10)
+                                        {{'4° de secundaria'}}  
+                                    @elseif($curso->curs_grado == 11)
+                                        {{'5° de secundaria'}}  
+                                    @else
+                                        {{'Egresado'}}  
+                                    @endif
+                                </option>
                             </select>
                         </div>
                         <label class="col-md-2 col-form-label">Año</label>

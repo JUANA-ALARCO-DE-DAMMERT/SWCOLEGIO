@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pago;
 use DB;
+use PDF;
 use Illuminate\Http\Request;
 
 class PagoController extends Controller
@@ -139,4 +140,22 @@ class PagoController extends Controller
     {
         //
     }
+
+    public function descargarPDF()
+    {
+        $data = DB::table('pagos')
+                    ->join('alumno','alumno.alum_id','pagos.idalumno')
+                    ->where('pagos.año','=','2020')
+                    ->orderBy('alumno.alum_ape','asc')     
+                    ->get();
+        $pdf = PDF::loadView('pdf.pagos',['data'=>$data]);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('Pagos - JuanaAlarcoDeDammert.pdf');
+    }
+
+    public function descargarEXCEL()
+    {
+        echo "excel";
+    }
+
 }

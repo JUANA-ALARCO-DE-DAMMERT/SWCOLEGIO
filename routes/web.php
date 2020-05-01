@@ -53,5 +53,7 @@ Route::get('newexamen/{idcurso}','ExamenLineaController@crear');
 Route::get('exavirtual/{idcurso}','ExamenLineaController@listarExamenesPorCurso');
 
 // Rutas de reportes
+Route::get('reportepagopdf/','PagoController@descargarPDF');
+Route::get('reportepagoexcel/','PagoController@descargarEXCEL');
 Route::get('reportes/{idcurso}','ReportesController@listarReportes');
 Route::get('reportes/{idcurso}/lastconection','ReportesController@ultimaConexion');

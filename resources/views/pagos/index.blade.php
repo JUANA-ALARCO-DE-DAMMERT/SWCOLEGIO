@@ -3,6 +3,8 @@
 <div class="row mt-4">
     <div class="col-md-6">
         <a href="{{url('pago/create')}}" class="btn btn-primary">Agregar alumnos</a>
+        <a href="{{url('reportepagopdf/')}}" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i></a>
+        <a href="{{url('reportepagoexcel/')}}" class="btn btn-success"><i class="fa fa-file-excel-o"></i></a>
     </div>
     <div class="col-md-6">
         @if (session('status'))
