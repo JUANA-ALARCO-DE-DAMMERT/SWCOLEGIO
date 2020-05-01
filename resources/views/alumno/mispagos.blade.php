@@ -26,6 +26,7 @@
                         </tr>
                     </thead>
                     <tbody> 
+                            <?php $deuda = 0; ?>
                             @foreach($data as $d)
                                 <td>{{'s/'.$d->montoanual}}</td>
                     			<td>{{'s/'.$d->descuento}}</td>
@@ -100,9 +101,25 @@
                                         <span class="badge badge-danger">{{'s/'.$d->diciembre}}</span>
                                     @endif          
                                 </td>
+
+                                <?php 
+                                    $deuda =  $d->marzo + 
+                                              $d->abril +
+                                              $d->mayo +
+                                              $d->junio +
+                                              $d->julio +
+                                              $d->agosto +
+                                              $d->setiembre +
+                                              $d->noviembre +
+                                              $d->diciembre;   
+                                ?>
+
                             @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="card-footer">
+                <p> <strong>Deuda total: S/. {{$deuda}}</strong></p>
             </div>
         </div>
     </div>
