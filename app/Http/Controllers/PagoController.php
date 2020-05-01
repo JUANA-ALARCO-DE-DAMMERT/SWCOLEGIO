@@ -30,7 +30,15 @@ class PagoController extends Controller
      */
     public function create()
     {
-        //
+        $alumnos = DB::table('alumno')
+                    ->where('alumno.alum_est','=','1')
+                    ->whereNotIn('alumno.alum_id',DB::table('pagos')
+                                                        ->select('idalumno')
+                                                        ->where('pagos.año','=','2020') )
+                    ->orderBy('alumno.alum_ape','asc')                                    
+                    ->get();
+        
+        return view ('pagos.create',['alumnos'=>$alumnos]);
     }
 
     /**
@@ -41,7 +49,43 @@ class PagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        foreach ($data['data'] as $key => $value) {
+            if(!empty($value['check'])){
+                /*echo "" . $value['idalumno'] . "---------";
+                echo "" . $value['anual'] . "---------";
+                echo "" . $value['dscto'] . "---------";
+                echo "" . $value['inicial'] . "/////////";
+                $x = ($value['anual'] - $value['dscto'] - $value['inicial']);
+                $y = ($x/10) * (-1);
+                echo $y;
+                echo "<br>"; */
+
+                $x = ($value['anual'] - $value['dscto'] - $value['inicial']);
+                $y = ($x/10) * (-1);
+
+                Pago::create([
+                    'año' => 2020,
+                    'idalumno' => $value['idalumno'],
+                    'montoanual' => $value['anual'],
+                    'descuento' => $value['dscto'],
+                    'inicial' => $value['inicial'],
+                    'marzo' => $y,
+                    'abril' => $y,
+                    'mayo' => $y,
+                    'junio' => $y,
+                    'julio' => $y,
+                    'agosto' => $y,
+                    'setiembre' => $y,
+                    'octubre' => $y,
+                    'noviembre' => $y,
+                    'diciembre' => $y
+                ]);
+            }
+        }
+
+        return redirect()->route('pago.index')->with('status', 'Pago(s) agregado(s) correctamente!');
+
     }
 
     /**

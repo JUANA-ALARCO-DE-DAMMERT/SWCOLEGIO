@@ -2,6 +2,7 @@
 @section('contenido')
 <div class="row mt-4">
     <div class="col-md-6">
+        <a href="{{url('pago/create')}}" class="btn btn-primary">Agregar alumnos</a>
     </div>
     <div class="col-md-6">
         @if (session('status'))
