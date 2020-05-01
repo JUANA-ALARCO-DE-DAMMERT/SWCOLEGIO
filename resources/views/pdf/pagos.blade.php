@@ -1,3 +1,4 @@
+<img src="{{asset('img/logo-jad.jpeg')}}" width="40" height="40">
 <p align="center"><strong>PAGOS 2020</strong></p> <br>
 <table border="1">
 	<thead>

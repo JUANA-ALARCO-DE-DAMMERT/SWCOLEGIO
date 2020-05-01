@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Pago;
 use DB;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+
+use App\Exports\PagosExport;
 
 class PagoController extends Controller
 {
@@ -155,7 +158,7 @@ class PagoController extends Controller
 
     public function descargarEXCEL()
     {
-        echo "excel";
+        return Excel::download(new PagosExport, 'pagos-jad.xlsx');
     }
 
 }
