@@ -25,6 +25,7 @@ Route::get('cursos/{id}','DocenteController@misCursos');
 
 // Rutas del alumno
 Route::get('miscursos/{id}','AlumnoController@misCursos');
+Route::get('mispagos/{id}','AlumnoController@misPagos');
 
 // Rutas del curso
 Route::get('matricula/{id}','CursoController@matricula');

@@ -169,6 +169,17 @@ class AlumnoController extends Controller
         return view ('alumno.miscursos',['cursos'=>$data]);
     }
 
+    public function misPagos($id)
+    {
+        $data = DB::table('alumno')
+                    ->join('pagos','pagos.idalumno','alumno.alum_id')
+                    ->where('pagos.año','=','2020')
+                    ->where('alumno.alum_dni','=',$id)
+                    ->get();
+        return view ('alumno.mispagos',['data'=>$data]);
+    }
+
+
     public function descargarAlumnos(){
         $data = DB::table('alumno')
                     ->join('apoderado','apoderado.apod_id','alumno.alum_apod')

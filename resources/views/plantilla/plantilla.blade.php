@@ -114,6 +114,10 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('miscursos/'.Auth::user()->usuario)}}">
                 <i class="nav-icon icon-notebook"></i> Mis asignaturas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('mispagos/'.Auth::user()->usuario)}}">
+                <i class="nav-icon fa fa-dollar"></i> Mis pagos</a>
             </li>         
             @endif
           </ul>
