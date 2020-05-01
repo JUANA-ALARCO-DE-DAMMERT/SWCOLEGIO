@@ -110,6 +110,7 @@
                                               $d->julio +
                                               $d->agosto +
                                               $d->setiembre +
+                                              $d->octubre +
                                               $d->noviembre +
                                               $d->diciembre;   
                                 ?>
