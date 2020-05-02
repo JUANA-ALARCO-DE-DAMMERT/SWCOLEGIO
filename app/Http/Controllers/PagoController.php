@@ -158,7 +158,7 @@ class PagoController extends Controller
 
     public function descargarEXCEL()
     {
-        return Excel::download(new PagosExport, 'pagos-jad.xlsx');
+        return Excel::download(new PagosExport, 'pagos-jad.csv');
     }
 
 }
