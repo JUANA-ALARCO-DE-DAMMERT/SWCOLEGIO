@@ -1,5 +1,13 @@
+<?php 
+$trab_data = DB::table('trabajador')
+                  ->join('role_user','role_user.user_id','trabajador.trab_dni')
+                  ->join('roles','roles.id','role_user.role_id')
+                  ->where('trabajador.trab_dni','=',Auth::user()->usuario)->first();
+ ?>
 @extends('plantilla.plantilla')
 @section('contenido')
+@if(Auth::user()->hasrole('docen'))
+  @if($trab_data->trab_est == 1)
 <div class="container-fluid my-3">
     <div class="animated fadeIn">
         <div class="card">
@@ -52,5 +60,10 @@
         </div>
     </div>
 </div>
-
+@else
+    <div class="d-sm-flex align-items-center justify-content-between my-4">
+      <h1 class="h4 mb-0 text-gray-800">No tienes acceso </h1>
+    </div>
+  @endif
+@endif
 @endsection

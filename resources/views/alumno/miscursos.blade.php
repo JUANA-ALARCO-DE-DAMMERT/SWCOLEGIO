@@ -1,5 +1,12 @@
+<?php 
+  $alumnodatos = DB::table('alumno')
+                  ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
+                  ->where('alumno.alum_dni','=',Auth::user()->usuario)->first();                          
+?>
 @extends('plantilla.plantilla')
 @section('contenido')
+@if(Auth::user()->hasrole('alum'))
+  @if($alumnodatos->alum_est == 1)
 <div class="container-fluid my-3">
     <div class="animated fadeIn">
         <div class="card">
@@ -52,4 +59,10 @@
         </div>
     </div>
 </div>
+@else
+  <div class="d-sm-flex align-items-center justify-content-between my-4">
+    <h1 class="h4 mb-0 text-gray-800">No tienes acceso</h1> 
+  </div>
+  @endif
+@endif
 @endsection
