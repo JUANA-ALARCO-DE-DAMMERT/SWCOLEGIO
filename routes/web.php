@@ -58,3 +58,4 @@ Route::get('reportepagopdf/','PagoController@descargarPDF');
 Route::get('reportepagoexcel/','PagoController@descargarEXCEL');
 Route::get('reportes/{idcurso}','ReportesController@listarReportes');
 Route::get('reportes/{idcurso}/lastconection','ReportesController@ultimaConexion');
+Route::get('reportes/{idcurso}/asistenciadocen','ReportesController@asistenciadocen');

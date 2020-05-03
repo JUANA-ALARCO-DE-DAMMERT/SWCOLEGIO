@@ -18,7 +18,8 @@
             </div>
             <div class="card-body">
                 @if(Auth::user()->hasRole('docen'))
-                    <a href="{{url('reportes/'.$idcurso.'/lastconection')}}" id="btn-only1click" class="btn btn-danger"><i class="fa fa-print"></i> Última Conexión de Alumnos</a>
+                    <a href="{{url('reportes/'.$idcurso.'/lastconection')}}" id="btn-only1click" class="btn btn-danger"><i class="fa fa-print"></i> Última Conexión de Alumnos</a><br><br>
+                    <a href="{{url('reportes/'.$idcurso.'/asistenciadocen')}}" id="btn-only1click" class="btn btn-danger"><i class="fa fa-print"></i> Asistencias de los alumnos</a>
                 @endif
             </div>
         </div>
