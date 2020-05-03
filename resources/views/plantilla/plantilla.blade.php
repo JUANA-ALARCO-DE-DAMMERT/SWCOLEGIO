@@ -102,6 +102,10 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('pago')}}">
                 <i class="nav-icon fa fa-dollar"></i> Pagos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('administrador')}}">
+                <i class="nav-icon fa fa-dollar"></i> administradores</a>
             </li>          
             @endif
             @if(Auth::user()->hasrole('docen'))

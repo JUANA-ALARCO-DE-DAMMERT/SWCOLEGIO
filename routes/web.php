@@ -9,6 +9,7 @@ Auth::routes(['reset'=>false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Rutas de los controladores
+Route::resource('administrador','AdministradorController');
 Route::resource('apoderado','ApoderadoController');
 Route::resource('alumno','AlumnoController');
 Route::resource('docente','DocenteController');
