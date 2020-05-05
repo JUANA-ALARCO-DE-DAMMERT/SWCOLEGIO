@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Notas extends Model
 {
     protected $table = 'notas';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'not_id';
     public $timestamps = false;
     protected $fillable = [
         'not_idcurso',

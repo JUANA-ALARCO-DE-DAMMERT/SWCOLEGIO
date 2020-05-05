@@ -43,6 +43,7 @@ Route::post('/download','RecursoController@download'); //Download files
 // Rutas para notas
 Route::get('{idcurso}/notas','NotasController@listarBimestres');
 Route::get('notas/{idcurso}/{nbim}','NotasController@consultaNotas')->name('notas.show');
+Route::get('notas/{idcurso}/{nbim}/edit','NotasController@editarNotas');
 Route::get('registronotas/{idcurso}/{nbim}','NotasController@formNotas');
 
 // Rutas PDF's

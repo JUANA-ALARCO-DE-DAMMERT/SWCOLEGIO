@@ -76,6 +76,27 @@ class NotasController extends Controller
         }
         return redirect()->route('notas.show', ['idcurso' => $req->not_idcurso, 'nbim' => $req->not_bimestre])->with('status', 'Notas registradas correctamente!');
     }
+
+    public function edit($id)
+    {
+        $data = DB::table('notas')
+                    ->join('alumno','alumno.alum_id','notas.not_idalumno')
+                    ->where('notas.not_id','=',$id)
+                    ->first();
+        return view('notas.edit',['a'=>$data]);
+    }
+
+    public function update($id, Request $req)
+    {
+        $nota = Notas::find($id);
+        $nota->not_n1 = $req['not_n1'];
+        $nota->not_n2 = $req['not_n2'];
+        $nota->not_n3 = $req['not_n3'];
+        $nota->not_promedio = $req['not_promedio'];
+        $nota->save();
+        return redirect()->route('notas.show', ['idcurso' => $nota->not_idcurso, 'nbim' => $nota->not_bimestre])->with('status', 'Notas registradas correctamente!');
+    }
+    
     
     
 }

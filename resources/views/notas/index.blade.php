@@ -38,6 +38,7 @@
                             <th class="text-center">N2</th>
                             <th class="text-center">N3</th>
                             <th class="text-center">Promedio</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +49,9 @@
                                 <td class="text-center">{{$a->not_n2}}</td>
                                 <td class="text-center">{{$a->not_n3}}</td>
                                 <td class="text-center">{{$a->not_promedio}}</td>
+                                <td>
+                                    <a href="{{url('notas/'.$a->not_id.'/edit')}}" class="btn btn-sm btn-warning" ><i class="fa fa-pencil"></i></a>
+                                </td>
                             </tr>
                             @endforeach
                     </tbody>
