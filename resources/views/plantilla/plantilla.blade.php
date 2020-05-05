@@ -80,21 +80,25 @@
             </li>
             @if(Auth::user()->hasAnyRole(['admin']))
             <li class="nav-item">
-              <a class="nav-link" href="{{url('alumno')}}">
-                <i class="nav-icon icon-user"></i> Alumnos</a>
+              <a class="nav-link" href="{{url('administrador')}}">
+                <i class="nav-icon fa fa-user-circle-o"></i> Administradores</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('apoderado')}}">
-                <i class="nav-icon cui-people"></i> Apoderados</a>
+              <a class="nav-link" href="{{url('secretaria')}}">
+                <i class="nav-icon fa fa-fax"></i> Secretarias</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('docente')}}">
                 <i class="nav-icon cui-monitor"></i> Docentes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('secretaria')}}">
-                <i class="nav-icon fa fa-fax"></i> Secretarias</a>
+              <a class="nav-link" href="{{url('alumno')}}">
+                <i class="nav-icon icon-user"></i> Alumnos</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('apoderado')}}">
+                <i class="nav-icon cui-people"></i> Apoderados</a>
+            </li>            
             <li class="nav-item">
               <a class="nav-link" href="{{url('curso')}}">
                 <i class="nav-icon icon-notebook"></i> Cursos</a>
@@ -102,10 +106,6 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('pago')}}">
                 <i class="nav-icon fa fa-dollar"></i> Pagos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('administrador')}}">
-                <i class="nav-icon fa fa-user-circle-o"></i> administradores</a>
             </li>          
             @endif
             @if(Auth::user()->hasAnyRole(['secre']))
@@ -132,11 +132,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('pago')}}">
                 <i class="nav-icon fa fa-dollar"></i> Pagos</a>
-            </li>
-<!--             <li class="nav-item">
-              <a class="nav-link" href="{{url('administrador')}}">
-                <i class="nav-icon fa fa-user-circle-o"></i> administradores</a>
-            </li>  -->         
+            </li>    
             @endif
             @if(Auth::user()->hasrole('docen'))
             <li class="nav-item">

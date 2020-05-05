@@ -1,10 +1,16 @@
 @extends('plantilla.plantilla')
 @section('contenido')
 <?php 
+    $query = DB::table('notas')
+                ->where('not_idcurso','=', $idcurso)
+                ->where('not_bimestre','=', $nbim)
+                ->get();
 ?>
 <div class="row mt-4">
     <div class="col-md-6">
-        <a href="{{url('registronotas/'.$idcurso.'/'.$nbim)}}" class="btn btn-primary">Registrar notas</a>
+        @if(count($query)==0)
+            <a href="{{url('registronotas/'.$idcurso.'/'.$nbim)}}" class="btn btn-primary">Registrar notas</a>
+        @endif
     </div>
     <div class="col-md-6">
         @if (session('status'))
