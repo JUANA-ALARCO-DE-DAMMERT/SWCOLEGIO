@@ -58,7 +58,11 @@
   $nro_alumnotercerop = DB::table('alumno')->where('alum_grad','=','3')->count();
   $nro_alumnocuartop = DB::table('alumno')->where('alum_grad','=','4')->count(); 
   $nro_alumnoquintop = DB::table('alumno')->where('alum_grad','=','5')->count();
-  $nro_alumnosextop = DB::table('alumno')->where('alum_grad','=','6')->count();  
+  $nro_alumnosextop = DB::table('alumno')->where('alum_grad','=','6')->count();
+
+  $total_alumnos_nivel_primaria=DB::table('alumno')->whereIn('alum_grad', [1,2,3,4,5,6])->count();
+  $total_alumnos_nivel_secundaria=DB::table('alumno')->whereIn('alum_grad', [7,8,9,10,11])->count();
+
   // alumno sexo por año
   // 1er Año  Secundaria
   $nro_alumnoprimeropsexoH = DB::table('alumno')
@@ -120,6 +124,20 @@
                   ->join('role_user','role_user.user_id','trabajador.trab_dni')
                   ->join('roles','roles.id','role_user.role_id')
                   ->where('trabajador.trab_dni','=',Auth::user()->usuario)->first();
+
+  //total de asistencias mensual
+
+  $total_asis_marzo = DB::table('asistencia')->whereBetween('asis_fecha', ['2020-03-01','2020-03-31'])->count();
+  $total_asis_abril = DB::table('asistencia')->whereBetween('asis_fecha', ['2020-04-01','2020-04-31'])->count();
+  $total_asis_mayo = DB::table('asistencia')->whereBetween('asis_fecha', ['2020-05-01','2020-05-31'])->count();
+  $total_asis_junio = DB::table('asistencia')->whereBetween('asis_fecha', ['2020-06-01','2020-06-31'])->count();
+  $total_asis_julio = DB::table('asistencia')->whereBetween('asis_fecha', ['2020-07-01','2020-07-31'])->count();
+  $total_asis_agosto = DB::table('asistencia')->whereBetween('asis_fecha', ['2020-08-01','2020-08-31'])->count();
+  $total_asis_setiembre = DB::table('asistencia')->whereBetween('asis_fecha', ['2020-09-01','2020-09-31'])->count();
+  $total_asis_octubre = DB::table('asistencia')->whereBetween('asis_fecha', ['2020-10-01','2020-10-31'])->count();
+  $total_asis_noviembre = DB::table('asistencia')->whereBetween('asis_fecha', ['2020-11-01','2020-11-31'])->count();
+  $total_asis_diciembre = DB::table('asistencia')->whereBetween('asis_fecha', ['2020-12-01','2020-12-31'])->count();
+
 ?>
 @extends('plantilla.plantilla')
 @section('contenido')
@@ -300,12 +318,113 @@
           <small class="text-muted text-uppercase font-weight-bold">Mujeres : {{$nro_alumnoquintosexoM}}</small>  
         </div>
       </div>      
-    </div>
-            </div>
-                
-    </div>
+    </div> 
+
+
+      
+
+
+
+    </div>   
+  </div>
 </div>
 
+<div>
+  <div><br>
+    <div class="container-fluid">
+          <div class="animated fadeIn">
+            <div class="card-columns cols-2">
+
+<!--               <div class="card">
+                <div class="card-header">Grafico de Asistencias de alumnos
+                  <div class="card-header-actions">
+                    <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
+                      <small class="text-muted">docs</small>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="graficoasistenciatotal"></canvas>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="card" >
+                <div class="card-header">Alumnos de Primaria
+                  <div class="card-header-actions">
+                    <a class="card-header-action"  target="_blank">
+                      <small class="text-muted">PRIMARIA</small>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="graficoprimaria"></canvas>
+                  </div>
+                <b>Total de Alumnos: {{$total_alumnos_nivel_primaria}}</b>  
+                </div>
+              </div>
+
+              
+
+              <div class="card">
+                <div class="card-header">Nivel Primaria
+                  <div class="card-header-actions">
+                    <a class="card-header-action" target="_blank">
+                      <small class="text-muted">PRIMARIA</small>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="graficosexoprimaria"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card" >
+                <div class="card-header">Alumnos de Secundaria
+                  <div class="card-header-actions">
+                    <a class="card-header-action"  target="_blank">
+                      <small class="text-muted">SECUNDARIA</small>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="graficosecundaria"></canvas>
+                  </div>
+                <b>Total de Alumnos: {{$total_alumnos_nivel_secundaria}}</b>  
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">Nivel Secundaria
+                  <div class="card-header-actions">
+                    <a class="card-header-action" target="_blank">
+                      <small class="text-muted">SECUNDARIA</small>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="graficosexosecundaria"></canvas>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+
+        
 
     
 
@@ -560,5 +679,123 @@
       document.form_reloj.reloj.value = horaImprimible
       setTimeout("mueveReloj()",1000)
   }
+</script>
+    <script src="{{asset('plantilla/node_modules/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('plantilla/node_modules/popper.js/dist/umd/popper.min.js')}}"></script>
+    <script src="{{asset('plantilla/node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('plantilla/node_modules/pace-progress/pace.min.js')}}"></script>
+    <script src="{{asset('plantilla/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('plantilla/node_modules/@coreui/coreui/dist/js/coreui.min.js')}}"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="{{asset('plantilla/node_modules/chart.js/dist/Chart.min.js')}}"></script>
+    <script src="{{asset('plantilla/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')}}"></script>
+    <script src="{{asset('plantilla/js/charts.js')}}"></script>
+
+<script type="text/javascript">
+  var pieChart = new Chart($('#graficoprimaria'), {
+  type: 'pie',
+  data: {
+    labels: ['1°de primaria','2°de primaria','3°de primaria','4°de primaria','5°de primaria','6°de primaria','Total de Alumnos'],
+    datasets: [{
+      data: [({{$nro_alumnoprimerop}}),({{$nro_alumnosegundop}}),({{$nro_alumnotercerop}}),({{$nro_alumnocuartop}}),({{$nro_alumnoquintop}}),({{$nro_alumnosextop}}),({{$total_alumnos_nivel_primaria}})],
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56','#77DD77','#6C4675','#E3E4E5','#00A6D6'],
+      hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56','#77DD77','#6C4675','#E3E4E5','#00A6D6']
+    }]
+  },
+  options: {
+    responsive: true
+  }
+}); // eslint-disable-next-line no-unused-vars
+
+</script>
+<script type="text/javascript">
+  var pieChart = new Chart($('#graficosecundaria'), {
+  type: 'pie',
+  data: {
+    labels: ['1°de secundaria','2°de secundaria','3°de secundaria','4°de secundaria','5°de secundaria','Total de Alumnos'],
+    datasets: [{
+      data: [({{$nro_alumnoprimero}}),({{$nro_alumnosegundo}}),({{$nro_alumnotercero}}),({{$nro_alumnocuarto}}),({{$nro_alumnoquinto}}),({{$total_alumnos_nivel_secundaria}})],
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56','#77DD77','#E3E4E5','#00A6D6'],
+      hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56','#77DD77','#E3E4E5','#00A6D6']
+    }]
+  },
+  options: {
+    responsive: true
+  }
+}); // eslint-disable-next-line no-unused-vars
+
+</script>
+<script type="text/javascript">
+    var barChart = new Chart($('#graficosexoprimaria'), {
+  type: 'bar',
+  data: {
+    labels: ['1°de Primaria','2°de Primaria','3°de Primaria','4°de Primaria','5°de Primaria','6°de Primaria'],
+    datasets: [{
+      label: 'Hombres',
+      backgroundColor: 'rgba(220, 220, 220, 0.5)',
+      borderColor: 'rgba(220, 220, 220, 0.8)',
+      highlightFill: 'rgba(220, 220, 220, 0.75)',
+      highlightStroke: 'rgba(220, 220, 220, 1)',
+      data: [({{$nro_alumnoprimeropsexoH}}),({{$nro_alumnosegundopsexoH}}),({{$nro_alumnoterceropsexoH}}),({{$nro_alumnocuartopsexoH}}),({{$nro_alumnoquintopsexoH}}),({{$nro_alumnosextopsexoH}})]
+    }, {
+      label: 'Mujeres',
+      backgroundColor: 'rgba(151, 187, 205, 0.5)',
+      borderColor: 'rgba(151, 187, 205, 0.8)',
+      highlightFill: 'rgba(151, 187, 205, 0.75)',
+      highlightStroke: 'rgba(151, 187, 205, 1)',
+      data: [({{$nro_alumnoprimeropsexoM}}),({{$nro_alumnosegundopsexoM}}),({{$nro_alumnoterceropsexoM}}),({{$nro_alumnocuartopsexoM}}),({{$nro_alumnoquintopsexoM}}),({{$nro_alumnosextopsexoM}})]
+    }]
+  },
+  options: {
+    responsive: true
+  }
+}); // eslint-disable-next-line no-unused-vars
+</script>
+<script type="text/javascript">
+    var barChart = new Chart($('#graficosexosecundaria'), {
+  type: 'bar',
+  data: {
+    labels: ['1°de Secun','2°de Secun','3°de Secun','4°de Secun','5°de Secun'],
+    datasets: [{
+      label: 'Hombres',
+      backgroundColor: 'rgba(220, 220, 220, 0.5)',
+      borderColor: 'rgba(220, 220, 220, 0.8)',
+      highlightFill: 'rgba(220, 220, 220, 0.75)',
+      highlightStroke: 'rgba(220, 220, 220, 1)',
+      data: [({{$nro_alumnoprimerosexoH}}),({{$nro_alumnosegundosexoH}}),({{$nro_alumnotercerosexoH}}),({{$nro_alumnocuartosexoH}}),({{$nro_alumnoquintosexoH}})]
+    }, {
+      label: 'Mujeres',
+      backgroundColor: 'rgba(151, 187, 205, 0.5)',
+      borderColor: 'rgba(151, 187, 205, 0.8)',
+      highlightFill: 'rgba(151, 187, 205, 0.75)',
+      highlightStroke: 'rgba(151, 187, 205, 1)',
+      data: [({{$nro_alumnoprimerosexoM}}),({{$nro_alumnosegundosexoM}}),({{$nro_alumnotercerosexoM}}),({{$nro_alumnocuartosexoM}}),({{$nro_alumnoquintosexoM}})]
+    }]
+  },
+  options: {
+    responsive: true
+  }
+}); // eslint-disable-next-line no-unused-vars
+</script>
+
+<script type="text/javascript">
+  var lineChart = new Chart($('#graficoasistenciatotal'), {
+  type: 'line',
+  data: {
+    labels: ['Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+    datasets: [{
+      label: 'Asistencias',
+      backgroundColor: 'rgba(220, 220, 220, 0.2)',
+      borderColor: 'rgba(220, 220, 220, 1)',
+      pointBackgroundColor: 'rgba(220, 220, 220, 1)',
+      pointBorderColor: '#fff',
+      data: [({{$total_asis_marzo}}),({{$total_asis_abril}}),({{$total_asis_mayo}}),({{$total_asis_junio}}),({{$total_asis_julio}}),({{$total_asis_agosto}}),({{$total_asis_setiembre}}),({{$total_asis_octubre}}),({{$total_asis_noviembre}}),({{$total_asis_diciembre}})]
+    }, 
+    ]
+  },
+  options: {
+    responsive: true
+  }
+}); // eslint-disable-next-line no-unused-vars
 </script>
 @endsection
