@@ -685,8 +685,8 @@
     <script src="{{asset('plantilla/node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/pace-progress/pace.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')}}"></script>
-    <script src="{{asset('plantilla/node_modules/@coreui/coreui/dist/js/coreui.min.js')}}"></script>
-    <!-- Plugins and scripts required by this view-->
+<!--     <script src="{{asset('plantilla/node_modules/@coreui/coreui/dist/js/coreui.min.js')}}"></script>
+ -->    <!-- Plugins and scripts required by this view-->
     <script src="{{asset('plantilla/node_modules/chart.js/dist/Chart.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')}}"></script>
     <script src="{{asset('plantilla/js/charts.js')}}"></script>
@@ -729,7 +729,7 @@
     var barChart = new Chart($('#graficosexoprimaria'), {
   type: 'bar',
   data: {
-    labels: ['1°de Primaria','2°de Primaria','3°de Primaria','4°de Primaria','5°de Primaria','6°de Primaria'],
+    labels: ['1°de Prim','2°de Prim','3°de Prim','4°de Prim','5°de Prim','6°de Prim'],
     datasets: [{
       label: 'Hombres',
       backgroundColor: 'rgba(220, 220, 220, 0.5)',
