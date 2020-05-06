@@ -4,10 +4,10 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <strong>Examen Virtual</strong>
+                <strong>Encuesta virtual</strong>
             </div>
             <div class="card-body">
-                <form action="{{url('examen')}}" method="POST" class="form-horizontal" onsubmit="return checkSubmit();"> 
+                <form action="{{url('encuesta')}}" method="POST" class="form-horizontal" onsubmit="return checkSubmit();"> 
                 @method('POST')
                 {{ csrf_field() }}
                     @if (count($errors)>0)
@@ -23,19 +23,18 @@
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Título</label>
                         <div class="col-md-5">
-                            <input class="form-control" required type="text" name="exa_titulo" >
+                            <input class="form-control" required type="text" name="enc_titulo" >
                         </div>
                     </div>                    
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Link</label>
                         <div class="col-md-11">
-                            <input type="hidden" name="exa_idcurso" value="{{$idcurso}}">
-                            <textarea name="exa_link" required class="form-control"></textarea>
+                            <textarea name="enc_link" required class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="form-actions">
                         <input type="submit" value="Subir" class="btn btn-primary">
-                        <a href="{{url('curso/'.$idcurso)}}" class="btn btn-danger">Cancelar</a>
+                        <a href="{{url('encuesta')}}" class="btn btn-danger">Cancelar</a>
                     </div> 
                 </form>
             </div>
@@ -54,7 +53,7 @@
             return true;
         } else {
             //Si llega hasta aca significa que pulsaron 2 veces el boton submit
-            alert("Solo se Hace un click en el boton Subir"+","+" porfavor espere a que se suba el Examen en linea.");
+            alert("Solo se Hace un click en el boton Subir"+","+" porfavor espere a que se suba la encuesta.");
             return false;
         }
     }
@@ -87,7 +86,7 @@ $("#btn-only1click").click(function() {
     // Le decimos que ha sido clicado
     clicando= true;
     // Mostramos el mensaje de que ha sido clicado
-    alert( "Acaba de Subir un Examen en Linea de Google Formularios, porfavor espere un momento" );
+    alert( "Acaba de subir una encuesta, porfavor espere un momento" );
   }
 });
 </script>

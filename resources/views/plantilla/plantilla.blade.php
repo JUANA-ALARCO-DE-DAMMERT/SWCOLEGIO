@@ -73,24 +73,32 @@
       <div class="sidebar">
         <nav class="sidebar-nav">
           <ul class="nav">
-            <li class="nav-title">Components</li>
+            <li class="nav-title">Opciones</li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('home')}}">
                 <i class="nav-icon icon-home"></i> Inicio</a>
             </li>
-            @if(Auth::user()->hasAnyRole(['admin']))
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('administrador')}}">
-                <i class="nav-icon fa fa-user-circle-o"></i> Administradores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('secretaria')}}">
-                <i class="nav-icon fa fa-fax"></i> Secretarias</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('docente')}}">
-                <i class="nav-icon cui-monitor"></i> Docentes</a>
-            </li>
+            @if(Auth::user()->hasAnyRole(['admin','secre']))
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon fa fa-users"></i> Personal</a>
+              <ul class="nav-dropdown-items">
+                @if(Auth::user()->hasrole('admin'))
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url('administrador')}}">
+                    <i class="nav-icon fa fa-user-circle-o"></i> Administradores</a>
+                </li>
+                @endif
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url('secretaria')}}">
+                    <i class="nav-icon fa fa-fax"></i> Secretarias</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url('docente')}}">
+                    <i class="nav-icon cui-monitor"></i> Docentes</a>
+                </li>
+              </ul>
+            </li>   
             <li class="nav-item">
               <a class="nav-link" href="{{url('alumno')}}">
                 <i class="nav-icon icon-user"></i> Alumnos</a>
@@ -106,33 +114,11 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('pago')}}">
                 <i class="nav-icon fa fa-dollar"></i> Pagos</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('encuesta')}}">
+                <i class="nav-icon fa fa-file-text-o"></i> Encuestas</a>
             </li>          
-            @endif
-            @if(Auth::user()->hasAnyRole(['secre']))
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('alumno')}}">
-                <i class="nav-icon icon-user"></i> Alumnos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('apoderado')}}">
-                <i class="nav-icon cui-people"></i> Apoderados</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('docente')}}">
-                <i class="nav-icon cui-monitor"></i> Docentes</a>
-            </li>
-<!--             <li class="nav-item">
-              <a class="nav-link" href="{{url('secretaria')}}">
-                <i class="nav-icon fa fa-fax"></i> Secretarias</a>
-            </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('curso')}}">
-                <i class="nav-icon icon-notebook"></i> Cursos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('pago')}}">
-                <i class="nav-icon fa fa-dollar"></i> Pagos</a>
-            </li>    
             @endif
             @if(Auth::user()->hasrole('docen'))
             <li class="nav-item">
@@ -148,7 +134,11 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('mispagos/'.Auth::user()->usuario)}}">
                 <i class="nav-icon fa fa-dollar"></i> Mis pagos</a>
-            </li>         
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('encuesta')}}">
+                <i class="nav-icon fa fa-file-text-o"></i> Encuestas</a>
+            </li>          
             @endif
           </ul>
         </nav>

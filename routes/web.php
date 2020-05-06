@@ -20,6 +20,7 @@ Route::resource('asistencia','AsistenciaController');
 Route::resource('notas','NotasController');
 Route::resource('examen','ExamenLineaController');
 Route::resource('pago','PagoController');
+Route::resource('encuesta','EncuestaController');
 
 // Rutas del docente
 Route::get('cursos/{id}','DocenteController@misCursos');
