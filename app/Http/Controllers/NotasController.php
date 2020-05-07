@@ -109,7 +109,7 @@ class NotasController extends Controller
                         ->orderby('asignatura.asig_id','asc')
                         ->get();
         $pdf = PDF::loadView('reportes.misnotas',['alumno'=>$alumno,'cursos'=>$matricula]);
-        return $pdf->download('misnotas.pdf');
+        return $pdf->download('Reporte de Notas.pdf');
     }
     
     

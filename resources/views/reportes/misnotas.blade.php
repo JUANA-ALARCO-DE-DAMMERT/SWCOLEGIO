@@ -23,7 +23,13 @@
       </p>
       <h5>
       	<center>
-      		INFORME ANUAL DE LOGROS DEL EDUCANDO <br> Valor Institucional: LA RESPONSABILIDAD <br> AÑO ESCOLAR - 2020 <br><a style="text-decoration: underline;"> NIVEL: PRIMARIA</a> 
+      		INFORME ANUAL DE LOGROS DEL EDUCANDO <br> Valor Institucional: LA RESPONSABILIDAD <br> AÑO ESCOLAR - 2020 <br><a style="text-decoration: underline;"> 
+                        NIVEL: @if($alumno->alum_grad == 1 || $alumno->alum_grad == 2 || $alumno->alum_grad == 3 || $alumno->alum_grad == 4 || $alumno->alum_grad == 5 || $alumno->alum_grad == 6)
+                                    PRIMARIA
+                               @else
+                                    SECUNDARIA
+                               @endif
+                  </a> 
       	</center>
       </h5>
       </div>
