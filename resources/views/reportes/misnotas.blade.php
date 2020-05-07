@@ -35,7 +35,27 @@
       </div>
 
       <div>
-      	Sr. Padre de Familia: <br> <b>ALUMNO(A): {{$alumno->alum_ape . ', ' . $alumno->alum_nom}} Gdo: {{$alumno->alum_grad.' Grado '}}                      Nivel:________ </b>
+      	Sr. Padre de Familia: <br> <b>ALUMNO(A): {{$alumno->alum_ape . ', ' . $alumno->alum_nom}} Gdo: 
+                  @if($alumno->alum_grad == 7)
+                        1
+                  @elseif($alumno->alum_grad == 8)
+                        2
+                  @elseif($alumno->alum_grad == 9)
+                        3
+                  @elseif($alumno->alum_grad == 10)
+                        4
+                  @elseif($alumno->alum_grad == 11)
+                        5      
+                  @else
+                        {{$alumno->alum_grad}}
+                  @endif
+
+                                  ° Grado Nivel:
+                  @if($alumno->alum_grad == 1 || $alumno->alum_grad == 2 || $alumno->alum_grad == 3 || $alumno->alum_grad == 4 || $alumno->alum_grad == 5 || $alumno->alum_grad == 6)
+                                    Primaria
+                               @else
+                                    Secundaria
+                               @endif </b>
       </div>
       <table class="table table-hover table-bordered table-sm" id="dataTable" width="60%" cellspacing="0">
       	<thead>
