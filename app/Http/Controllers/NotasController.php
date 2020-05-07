@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Notas;
 use DB;
 use Auth;
+use PDF;
 
 use Illuminate\Http\Request;
 
@@ -105,9 +106,10 @@ class NotasController extends Controller
                         ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
                         ->where('alumno_curso.alumno_id','=',$alumno->alum_id)
                         ->where('curso.curs_año','=','2020')
-                        ->orderby('asignatura.asig_nom','asc')
+                        ->orderby('asignatura.asig_id','asc')
                         ->get();
-        return view('reportes.misnotas',['cursos'=>$matricula, 'alumno'=>$alumno]);
+        $pdf = PDF::loadView('reportes.misnotas',['alumno'=>$alumno,'cursos'=>$matricula]);
+        return $pdf->download('misnotas.pdf');
     }
     
     
