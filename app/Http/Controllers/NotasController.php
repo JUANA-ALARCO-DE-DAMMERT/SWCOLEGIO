@@ -96,6 +96,19 @@ class NotasController extends Controller
         $nota->save();
         return redirect()->route('notas.show', ['idcurso' => $nota->not_idcurso, 'nbim' => $nota->not_bimestre])->with('status', 'Notas registradas correctamente!');
     }
+
+    public function misNotas($id)
+    {
+        $alumno = DB::table('alumno')->where('alum_dni','=',$id)->first();
+        $matricula = DB::table('alumno_curso')
+                        ->join('curso','curso.curs_id','alumno_curso.curso_id')
+                        ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
+                        ->where('alumno_curso.alumno_id','=',$alumno->alum_id)
+                        ->where('curso.curs_año','=','2020')
+                        ->orderby('asignatura.asig_nom','asc')
+                        ->get();
+        return view('reportes.misnotas',['cursos'=>$matricula, 'alumno'=>$alumno]);
+    }
     
     
     

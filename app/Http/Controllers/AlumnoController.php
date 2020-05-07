@@ -179,6 +179,11 @@ class AlumnoController extends Controller
         return view ('alumno.mispagos',['data'=>$data]);
     }
 
+    public function misReportes($id)
+    {
+        return view ('alumno.misreportes',['idalumno'=>$id]);
+    }
+
 
     public function descargarAlumnos(){
         $data = DB::table('alumno')

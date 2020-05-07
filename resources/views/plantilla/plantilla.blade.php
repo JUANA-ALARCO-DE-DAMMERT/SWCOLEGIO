@@ -136,6 +136,10 @@
                 <i class="nav-icon fa fa-dollar"></i> Mis pagos</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{url('misreportes/'.Auth::user()->usuario)}}">
+                <i class="nav-icon fa fa-database"></i> Mis reportes</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{{url('encuesta')}}">
                 <i class="nav-icon fa fa-file-text-o"></i> Encuestas</a>
             </li>          

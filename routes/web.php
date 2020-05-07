@@ -28,6 +28,7 @@ Route::get('cursos/{id}','DocenteController@misCursos');
 // Rutas del alumno
 Route::get('miscursos/{id}','AlumnoController@misCursos');
 Route::get('mispagos/{id}','AlumnoController@misPagos');
+Route::get('misreportes/{id}','AlumnoController@misReportes');
 
 // Rutas del curso
 Route::get('matricula/{id}','CursoController@matricula');
@@ -61,3 +62,8 @@ Route::get('reportepagoexcel/','PagoController@descargarEXCEL');
 Route::get('reportes/{idcurso}','ReportesController@listarReportes');
 Route::get('reportes/{idcurso}/lastconection','ReportesController@ultimaConexion');
 Route::get('reportes/{idcurso}/asistenciadocen','ReportesController@asistenciadocen');
+
+
+
+
+Route::get('misnotas/{id}','NotasController@misnotas');
