@@ -569,19 +569,257 @@
                       @if ($alumnoventana->alum_grad <= 4)
                                     <iframe width="900" height="600" src="https://www.youtube.com/embed/bIVIEZNsa_I?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 @elseif($alumnoventana->alum_grad == 5)
-                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">
+                                    <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/diadelamadre.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
                                 @elseif($alumnoventana->alum_grad == 6)
-                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">
+                                    <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/diadelamadre.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
                                 @elseif($alumnoventana->alum_grad == 7)
-                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">  
+                                    <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/diadelamadre.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
                                 @elseif($alumnoventana->alum_grad == 8)
-                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">         
+                                    <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/diadelamadre.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>         
                                 @elseif($alumnoventana->alum_grad == 9)
-                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">   
+                                    <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/diadelamadre.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>   
                                 @elseif($alumnoventana->alum_grad == 10)
-                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">  
+                                    <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/diadelamadre.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>  
                                 @elseif($alumnoventana->alum_grad == 11)
-                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">  
+                                    <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/diadelamadre.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>  
                                 @else
                                     {{''}}  
                               @endif
