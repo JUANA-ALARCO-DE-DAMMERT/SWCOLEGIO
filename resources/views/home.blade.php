@@ -555,9 +555,43 @@
                   ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
                   ->where('alumno.alum_dni','=',Auth::user()->usuario)->first();                          
 ?>
+<?php 
+  $alumnoventana = DB::table('alumno')
+                  ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
+                  ->where('alumno.alum_dni','=',Auth::user()->usuario)->first();                          
+?>
 <!-- Home - Alumno -->
 @if(Auth::user()->hasrole('alum'))
   @if($alumnodatos->alum_est == 1)
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="myModal">
+       <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+                      @if ($alumnoventana->alum_grad <= 4)
+                                    <iframe width="900" height="600" src="https://www.youtube.com/embed/bIVIEZNsa_I?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                @elseif($alumnoventana->alum_grad == 5)
+                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">
+                                @elseif($alumnoventana->alum_grad == 6)
+                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">
+                                @elseif($alumnoventana->alum_grad == 7)
+                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">  
+                                @elseif($alumnoventana->alum_grad == 8)
+                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">         
+                                @elseif($alumnoventana->alum_grad == 9)
+                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">   
+                                @elseif($alumnoventana->alum_grad == 10)
+                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">  
+                                @elseif($alumnoventana->alum_grad == 11)
+                                    <img  src="{{asset('img/diadelamadre.png')}}" height="600px">  
+                                @else
+                                    {{''}}  
+                              @endif
+
+                     
+            </div>
+        </div>
+    </div>                              
+
+
     <div class="card my-2">
       <div class="card-header py-2">
         <div class="d-sm-flex align-items-center justify-content-between my-1">
@@ -646,7 +680,7 @@
       <tr>
         <td>Apoderado(a)</td>
         <td>{{$alumnodatos->apod_nom.' '.$alumnodatos->apod_ape}}</td>
-      </tr>
+      </tr> 
     </table>
     <!-- fin tabla detalle alumno -->
 
@@ -798,4 +832,34 @@
   }
 }); // eslint-disable-next-line no-unused-vars
 </script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#myModal').modal("show");
+  });
+</script>
+<!-- <script type="text/javascript">
+$(function () 
+{
+    $("#modal").iziModal({
+        title: "Componentes de la Intranet",
+        subtitle: "Tiempos S.A.S",
+        transitionIn: 'fadeInDown',
+        headerColor: '#006979',
+        transitionOut: 'comingOut',
+        width: 800,
+        height: 1000
+    });
+});
+</script>
+
+<script>
+      $(document).ready(function()
+      {
+         $("#mostrarmodal").modal("show");
+
+      });
+    </script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 @endsection
