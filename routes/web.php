@@ -47,6 +47,7 @@ Route::get('{idcurso}/notas','NotasController@listarBimestres');
 Route::get('notas/{idcurso}/{nbim}','NotasController@consultaNotas')->name('notas.show');
 Route::get('notas/{idcurso}/{nbim}/edit','NotasController@editarNotas');
 Route::get('registronotas/{idcurso}/{nbim}','NotasController@formNotas');
+Route::get('misnotas/{id}','NotasController@misnotas');
 
 // Rutas PDF's
 Route::get('pdfalumnos','AlumnoController@descargarAlumnos');
@@ -63,7 +64,8 @@ Route::get('reportes/{idcurso}','ReportesController@listarReportes');
 Route::get('reportes/{idcurso}/lastconection','ReportesController@ultimaConexion');
 Route::get('reportes/{idcurso}/asistenciadocen','ReportesController@asistenciadocen');
 
+// Rutas de pagos
+Route::get('pagos/{id}','PagoController@resetPago');
+Route::post('pagosupdate/','PagoController@actualizar');
 
 
-
-Route::get('misnotas/{id}','NotasController@misnotas');

@@ -161,4 +161,38 @@ class PagoController extends Controller
         return Excel::download(new PagosExport, 'pagos-jad.csv');
     }
 
+    public function resetPago($id)
+    {
+        $pago = DB::table('pagos')
+                    ->join('alumno','alumno.alum_id','pagos.idalumno')
+                    ->where('pagos.id','=',$id)
+                    ->first();
+        return view ('pagos.reset',['p'=>$pago]);
+    }
+
+    public function actualizar(Request $request)
+    {
+        $data = $request->all();
+        $pago = Pago::find($data['id']);
+        $x = $data['montoanual'] - $data['descuento'] - $data['inicial'];
+        $y = ($x/10) * (-1);
+
+        $pago->montoanual = $data['montoanual'];
+        $pago->descuento = $data['descuento'];
+        $pago->inicial = $data['inicial'];
+        $pago->marzo = $y;
+        $pago->abril = $y;
+        $pago->mayo = $y;
+        $pago->junio = $y;
+        $pago->julio = $y;
+        $pago->agosto = $y;
+        $pago->setiembre = $y;
+        $pago->octubre = $y;
+        $pago->noviembre = $y;
+        $pago->diciembre = $y;
+        
+        $pago->save();
+        return redirect()->route('pago.index')->with('status', 'Pago editado correctamente!');
+    } 
+
 }

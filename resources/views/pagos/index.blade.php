@@ -132,6 +132,7 @@ $trab_data = DB::table('trabajador')
                                 </td>
                     			<td>
                     				<a href="{{url('pago/'.$d->id.'/edit')}}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{url('pagos/'.$d->id)}}" class="btn btn-sm btn-secondary"><i class="fa fa-repeat"></i></a>
                     			</td>
                     		</tr>
                     	@endforeach
