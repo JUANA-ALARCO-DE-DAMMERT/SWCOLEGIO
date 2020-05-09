@@ -955,7 +955,6 @@
       setTimeout("mueveReloj()",1000)
   }
 </script>
-    <script src="{{asset('plantilla/node_modules/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/popper.js/dist/umd/popper.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/pace-progress/pace.min.js')}}"></script>
@@ -1078,29 +1077,4 @@
     $('#myModal').modal("show");
   });
 </script>
-<!-- <script type="text/javascript">
-$(function () 
-{
-    $("#modal").iziModal({
-        title: "Componentes de la Intranet",
-        subtitle: "Tiempos S.A.S",
-        transitionIn: 'fadeInDown',
-        headerColor: '#006979',
-        transitionOut: 'comingOut',
-        width: 800,
-        height: 1000
-    });
-});
-</script>
-
-<script>
-      $(document).ready(function()
-      {
-         $("#mostrarmodal").modal("show");
-
-      });
-    </script>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 @endsection
