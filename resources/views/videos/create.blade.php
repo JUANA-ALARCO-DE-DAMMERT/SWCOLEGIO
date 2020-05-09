@@ -15,7 +15,7 @@
                 <label class="">Link:</label>
                 <input type="text" class="form-control" name="link" required>
                 <label>Alumno:</label>
-                <select class="form-control" name="idalumno" required>
+                <select class="form-control selectpicker" name="idalumno" required data-live-search="true">
                   <option hidden>--- Seleccione ---</option>
                   @foreach($alumnos as $a)
                     <option value="{{$a->alum_dni}}">{{$a->alum_ape. ', ' . $a->alum_nom}}</option>
