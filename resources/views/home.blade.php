@@ -567,7 +567,10 @@
        <div class="modal-dialog modal-lg">
            <div class="modal-content">
                       @if ($alumnoventana->alum_grad <= 4)
-                                    <iframe width="900" height="600" src="https://www.youtube.com/embed/bIVIEZNsa_I?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                   
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bIVIEZNsa_I?controls=0"></iframe>
+                             </div> 
                                 @elseif($alumnoventana->alum_grad == 5)
                                     <div class="card">
                   <div class="card-header">
