@@ -17,7 +17,7 @@ class VideoController extends Controller
     public function index()
     {
         $rol;
-        if(Auth::user()->hasrole('secre'))
+        if(Auth::user()->hasAnyRole(['secre','admin']))
         {
             $rol = 2;
             $videos = DB::table('video')
