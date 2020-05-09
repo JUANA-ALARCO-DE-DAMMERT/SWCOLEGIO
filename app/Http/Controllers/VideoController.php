@@ -16,10 +16,22 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $videos = DB::table('video')
+        $rol;
+        if(Auth::user()->hasrole('secre'))
+        {
+            $rol = 2;
+            $videos = DB::table('video')
                     ->join('alumno','alumno.alum_dni','video.idalumno')
                     ->join('trabajador','trabajador.trab_dni','video.idsecre')
                     ->get();
+        } elseif(Auth::user()->hasrole('alum')){
+            $rol = 4;
+            $videos = DB::table('video')
+                    ->join('alumno','alumno.alum_dni','video.idalumno')
+                    ->join('trabajador','trabajador.trab_dni','video.idsecre')
+                    ->where('video.idalumno','=',Auth::user()->usuario)
+                    ->get();
+        }
         $alumnos = DB::table('alumno')->where('alum_est','=',1)->orderBy('alum_ape','asc')->get();
         return view('videos.index',['alumnos'=>$alumnos, 'videos'=>$videos]);
     }
@@ -60,7 +72,8 @@ class VideoController extends Controller
      */
     public function show($id)
     {
-        return view('videos.show');
+        $video = Video::find($id);
+        return view('videos.show',['video'=>$video]);
     }
 
     /**

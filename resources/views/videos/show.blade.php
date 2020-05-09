@@ -11,7 +11,9 @@
             </div>
             <div class="card-body">
                 <div class="text-center">
-                    <iframe src="" width="640" height="806" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>     
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="{{$video->link}}"></iframe>
+                    </div>   
                 </div>    
             </div>
         </div>
