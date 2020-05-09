@@ -21,6 +21,7 @@ Route::resource('notas','NotasController');
 Route::resource('examen','ExamenLineaController');
 Route::resource('pago','PagoController');
 Route::resource('encuesta','EncuestaController');
+Route::resource('video','VideoController');
 
 // Rutas del docente
 Route::get('cursos/{id}','DocenteController@misCursos');

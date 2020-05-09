@@ -120,6 +120,12 @@
                 <i class="nav-icon fa fa-file-text-o"></i> Encuestas</a>
             </li>          
             @endif
+            @if(Auth::user()->hasrole('secre'))
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('video')}}">
+                <i class="nav-icon fa fa-video-camera"></i> Videos</a>
+            </li>
+            @endif
             @if(Auth::user()->hasrole('docen'))
             <li class="nav-item">
               <a class="nav-link" href="{{url('cursos/'.Auth::user()->usuario)}}">
@@ -142,6 +148,10 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('encuesta')}}">
                 <i class="nav-icon fa fa-file-text-o"></i> Encuestas</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('video')}}">
+                <i class="nav-icon fa fa-video-camera"></i> Videos</a>
             </li>          
             @endif
           </ul>
