@@ -28,7 +28,7 @@
                         <tr>
                             <th>Titulo</th>
                             <th>Alumno</th>
-                            <th>Secretaria</th>
+                            <th>Usuario</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>

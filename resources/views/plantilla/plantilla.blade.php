@@ -130,6 +130,10 @@
               <a class="nav-link" href="{{url('cursos/'.Auth::user()->usuario)}}">
                 <i class="nav-icon icon-notebook"></i> Mis cursos</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('video')}}">
+                <i class="nav-icon fa fa-video-camera"></i> Videos</a>
+            </li>   
             @endif
             @if(Auth::user()->hasrole('alum'))
             <li class="nav-item">
