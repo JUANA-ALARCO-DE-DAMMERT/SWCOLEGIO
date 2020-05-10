@@ -141,6 +141,17 @@
 ?>
 @extends('plantilla.plantilla')
 @section('contenido')
+<div class="row mt-4">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif
+    </div>
+</div>
 @if(Auth::user()->hasrole('admin'))
   @if($trab_data->trab_est == 1)
     <div class="card my-2">

@@ -2,10 +2,10 @@
 @section('contenido')
 <div class="row mt-4">
     <div class="col-md-6">
-        @if(Auth::user()->hasAnyRole(['docen','secre','admin']))
+        @if(Auth::user()->hasRole('docen'))
             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#uploadVideo"><i class="fa fa-upload"></i> Subir video</button>
+             @include('recvideos.create')
         @endif
-        @include('videos.create')
     </div>
     <div class="col-md-6">
         @if (session('status'))
@@ -19,9 +19,9 @@
     <div class="col-sm-12">
         <div class="card my-3">
             <div class="card-header">
-                <i class="fa fa-align-justify"></i> 
+                <i class="fa fa-align-justify"></i> Código del curso: {{$idcurso}} 
                 <div class="card-header-actions">
-                    <a href="{{url('home')}}" class="btn btn-block btn-outline-dark btn-sm"><i class="fa fa-mail-reply"></i></a>
+                    <a href="{{url('curso/'.$idcurso)}}" class="btn btn-block btn-outline-dark btn-sm"><i class="fa fa-mail-reply"></i></a>
                 </div>
             </div>
             <div class="card-body">
@@ -29,19 +29,19 @@
                     <thead>
                         <tr>
                             <th>Titulo</th>
-                            <th>Alumno</th>
-                            <th>Usuario</th>
+                            <th>Propietario</th>
+                            <th>Fecha</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($videos as $v)
                             <tr>
-                                <td>{{$v->titulo}}</td>
-                                <td>{{$v->alum_ape . ', ' . $v->alum_nom}}</td>
+                                <td>{{$v->vid_titulo}}</td>
                                 <td>{{$v->trab_ape . ', ' . $v->trab_nom}}</td>
+                                <td>{{$v->vid_fecha}}</td>
                                 <td>
-                                    <a href="{{url('video/'.$v->id)}}" class="btn btn-sm btn-secondary"><i class="fa fa-video-camera"></i></a>
+                                    <a href="{{url('recvideo/'.$v->vid_id)}}" class="btn btn-secondary btn-sm"><i class="fa fa-video-camera"></i></a>
                                 </td>
                             </tr>
                         @endforeach

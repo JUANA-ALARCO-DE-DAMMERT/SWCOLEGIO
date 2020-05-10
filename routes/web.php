@@ -22,6 +22,7 @@ Route::resource('examen','ExamenLineaController');
 Route::resource('pago','PagoController');
 Route::resource('encuesta','EncuestaController');
 Route::resource('video','VideoController');
+Route::resource('recvideo','RecVideoController');
 
 // Rutas del docente
 Route::get('cursos/{id}','DocenteController@misCursos');
@@ -68,5 +69,13 @@ Route::get('reportes/{idcurso}/asistenciadocen','ReportesController@asistenciado
 // Rutas de pagos
 Route::get('pagos/{id}','PagoController@resetPago');
 Route::post('pagosupdate/','PagoController@actualizar');
+
+// Route para password
+Route::get('pwrd','PwrdController@mostrar')->name('newpass');
+Route::post('changepass','PwrdController@procesar');
+
+// Rutas para recursos videos
+Route::get('{idcurso}/videos','RecVideoController@listar')->name('recvideos');
+Route::get('{idcurso}/videos/create','RecVideoController@subir');
 
 

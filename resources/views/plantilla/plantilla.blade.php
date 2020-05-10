@@ -54,10 +54,8 @@
             <div class="dropdown-header text-center">
               <strong>Account</strong>
             </div>
-            <a class="dropdown-item" href="#">
-              <i class="fa fa-user"></i> Profile</a>
-            <a class="dropdown-item" href="#">
-              <i class="fa fa-wrench"></i> Settings</a>
+            <a class="dropdown-item" href="{{url('pwrd')}}">
+              <i class="fa fa-wrench"></i> Password</a>
             <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Logout
