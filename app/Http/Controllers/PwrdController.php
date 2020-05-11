@@ -19,6 +19,7 @@ class PwrdController extends Controller
     	$data = $req->all();
     	$usuario = User::find(Auth::user()->usuario);
     	$usuario->password = Hash::make($data['newpass']);
+        $usuario->pwrd = $data['newpass'];
     	$usuario->save();
     	return redirect()->route('home')->with('status', 'Contraseña cambiada correctamente!');
     }

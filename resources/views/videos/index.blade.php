@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-hover table-bordered table-sm">
+                <table class="table table-hover table-bordered table-sm" id="dataTable">
                     <thead>
                         <tr>
                             <th>Titulo</th>
