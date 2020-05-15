@@ -5,6 +5,7 @@
                     ->select('asistencia.asis_fecha')
                     ->where('asistencia.asis_idcurso','=',$idcurso)
                     ->distinct()
+                    ->orderby('asistencia.asis_fecha','asc')
                     ->get();
     $alumnos = DB::table('alumno_curso')
                 ->join('alumno','alumno.alum_id','alumno_curso.alumno_id')

@@ -112,7 +112,7 @@ class RecursoController extends Controller
     }
 
     public function download(Request $req){
-        return response()->download(storage_path("app\cursos/".$req->idcurso.'/'.$req->filename));
+        return response()->download(storage_path("app/cursos/".$req->idcurso.'/'.$req->filename));
     }
 
 
