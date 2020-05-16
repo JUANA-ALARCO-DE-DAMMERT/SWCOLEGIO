@@ -47,9 +47,26 @@ class SecretariaController extends Controller
             'trab_nom' => $data['trab_nom'],
             'trab_sexo' => $data['trab_sexo'],
             'trab_fnac' => $data['trab_fnac'],
+            'trab_tel' => $data['trab_tel'],
+            'trab_email' => $data['trab_email'],
             'trab_user' => $data['trab_dni']
         ]); 
         return redirect()->route('secretaria.index')->with('status', 'Secretaria agregada correctamente!');
+    }
+
+    public function edit($id){
+
+        $trab = Trabajador::find($id);
+        return view ('secretaria.edit',['trab'=>$trab]);
+
+    }
+
+    public function update(Request $request, $id){
+
+        $trab = trabajador::find($id);
+        $request->all();
+        $trab->update($request->all());
+        return redirect()->route('secretaria.index')->with('status', 'Secretaria editada correctamente!');
     }
 
     public function destroy($id)

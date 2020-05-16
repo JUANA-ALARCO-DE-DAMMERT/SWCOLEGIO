@@ -59,6 +59,16 @@
                         <div class="col-md-3">
                             <input class="form-control" type="date" name="trab_fnac" value="{{old('trab_fnac')}}">
                         </div>
+                        <label class="col-md-1 col-form-label">E-mail</label>
+                        <div class="col-md-3">
+                            <input class="form-control" id="" type="email" name="trab_email" placeholder="ejemplo@correo.com">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-1 col-form-label">Telefono</label>
+                        <div class="col-md-3">
+                            <input class="form-control" type="text"  name="trab_tel" required>
+                        </div>
                     </div>
                     <div class="form-actions">
                         <input type="submit" value="Registrar" class="btn btn-primary">

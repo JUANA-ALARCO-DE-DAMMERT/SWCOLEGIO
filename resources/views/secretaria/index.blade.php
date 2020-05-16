@@ -67,6 +67,7 @@ $trab_data = DB::table('trabajador')
                                     <a data-toggle="modal" data-target="#modal-est-{{$trab->trab_id}}" title="Activar usuario" class="btn btn-sm btn-success"><i class="fa fa-toggle-on"></i></a> 
                                 @endif     
                                 @include('secretaria.estado')
+                                <a href="{{url('secretaria/'.$trab->trab_id.'/edit')}}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
                             </td>
                         </tr>
                         @endforeach
