@@ -154,6 +154,52 @@
 </div>
 @if(Auth::user()->hasrole('admin'))
   @if($trab_data->trab_est == 1)
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="myModal">
+       <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+
+                  <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/ti.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+<!--                         <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div> -->
+<!--                         <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div> -->
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                                
+
+                     
+            </div>
+        </div>
+    </div> 
+
     <div class="card my-2">
       <div class="card-header py-2">
         <div class="d-sm-flex align-items-center justify-content-between my-1">
@@ -450,6 +496,52 @@
 
 @if(Auth::user()->hasrole('secre'))
   @if($trab_data->trab_est == 1)
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="myModal">
+       <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+
+                  <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/ti.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+<!--                         <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div> -->
+<!--                         <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div> -->
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                                
+
+                     
+            </div>
+        </div>
+    </div> 
+
     <div class="card my-2">
         <div class="card-header py-2">
           <div class="d-sm-flex align-items-center justify-content-between my-1">
@@ -506,6 +598,52 @@
 
 @if(Auth::user()->hasrole('docen'))
   @if($trab_data->trab_est == 1)
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="myModal">
+       <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+
+                  <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/ti.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+<!--                         <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div> -->
+<!--                         <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div> -->
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                                
+
+                     
+            </div>
+        </div>
+    </div>        
+
     <div class="card my-2">
         <div class="card-header py-2">
           <div class="d-sm-flex align-items-center justify-content-between my-1">
@@ -574,7 +712,54 @@
 <!-- Home - Alumno -->
 @if(Auth::user()->hasrole('alum'))
   @if($alumnodatos->alum_est == 1)
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="myModal">
+  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="myModal">
+       <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+
+                  <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> 
+                    <small></small>
+                  </div>
+                  <div class="card-body">
+                    <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
+                          src="{{asset('img/ti.png')}}" 
+                            data-holder-rendered="true">
+                        </div>
+<!--                         <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/diadelamadre2.png')}}"
+                            data-holder-rendered="true">
+                        </div> -->
+<!--                         <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
+                           src="{{asset('img/diadelamadre3.png')}}"
+                            data-holder-rendered="true">
+                        </div> -->
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                                
+
+                     
+            </div>
+        </div>
+    </div> 
+
+
+    <!-- <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="myModal">
        <div class="modal-dialog modal-lg">
            <div class="modal-content">
                       @if ($alumnoventana->alum_grad <= 4)
@@ -841,7 +1026,7 @@
                      
             </div>
         </div>
-    </div>                              
+    </div>      -->                         
 
 
     <div class="card my-2">
