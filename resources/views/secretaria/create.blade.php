@@ -9,7 +9,7 @@
             <div class="card-body">
                 <div class="form-group row">
                     <div class="col-md-2">
-                        <input class="form-control" id="dni" onKeyPress="return soloNumeros(event)"  name="dnis" type="text" placeholder="Escriba el DNI" maxlength="8" minlength="8" autofocus>
+                        <input class="form-control" id="dni" onKeyPress="return soloNumeros(event)" type="text" placeholder="Escriba el DNI" maxlength="8" minlength="8" autofocus>
                     </div>
                     <div class="col-md-2">
                         <button id="btnbuscar" class="btn btn-success form-control"><i class="fa fa-search"></i> Buscar</button>

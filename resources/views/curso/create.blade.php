@@ -60,7 +60,7 @@
                         </div>
                         <label class="col-md-2 col-form-label">Año</label>
                         <div class="col-md-2">
-                            <select class="form-control"  name="curs_año" size="1">
+                            <select class="form-control"  name="curs_año" size="1" required>
                                 <option value="2020" selected>2020</option>
                                 <option value="2021">2021</option>
                                 <option value="2022">2022</option>
