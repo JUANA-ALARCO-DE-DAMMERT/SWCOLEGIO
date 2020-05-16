@@ -46,15 +46,20 @@
                                         @endif
                                 </select >                       
                             </div>
+                        <label class="col-md-1 col-form-label">F. Nac.</label>
+                        <div class="col-md-3">
+                            <input class="form-control" id="" type="date" name="trab_fnac" value="{{$trab->trab_fnac}}" placeholder="">
+                        </div>
                         <label class="col-md-1 col-form-label">E-mail</label>
                         <div class="col-md-3">
                             <input class="form-control" id="" type="email" name="trab_email" value="{{$trab->trab_email}}" placeholder="">
                         </div>
-                        <label class="col-md-1 col-form-label">Teléfono</label>
+                    </div>  
+                    <div class="form-group row">
                         <div class="col-md-2">
                             <input class="form-control" id="" type="text" name="trab_tel" value="{{$trab->trab_tel}}" placeholder="">
                         </div>
-                    </div>  
+                    </div>
                     <div class="form-actions">
                         <input type="submit" value="Editar" class="btn btn-warning">
                         <a href="{{url('secretaria')}}" class="btn btn-danger">Cancelar</a>
