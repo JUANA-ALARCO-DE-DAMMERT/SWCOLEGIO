@@ -57,7 +57,7 @@
                         </div>
                         <label class="col-md-2 col-form-label">F. Nacimiento</label>
                         <div class="col-md-3">
-                            <input class="form-control" type="date" name="trab_fnac" min="1900-01-01" max="2010-12-31" value="{{old('trab_fnac')}}" required>
+                            <input class="form-control" type="date" name="trab_fnac" min="1900-01-01" max="2002-12-31" value="{{old('trab_fnac')}}" required>
                         </div>
                         <label class="col-md-1 col-form-label">E-mail</label>
                         <div class="col-md-3">

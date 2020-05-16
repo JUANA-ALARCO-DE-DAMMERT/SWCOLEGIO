@@ -9,7 +9,7 @@
             <div class="card-body">
                 <div class="form-group row">
                     <div class="col-md-2">
-                        <input class="form-control" id="dni" type="text" placeholder="Escriba el DNI" maxlength="8" minlength="8" autofocus>
+                        <input class="form-control" id="dni" type="text" onKeyPress="return soloNumeros(event)"  name="dnis" placeholder="Escriba el DNI" maxlength="8" minlength="8" autofocus>
                     </div>
                     <div class="col-md-2">
                         <button id="btnbuscar" class="btn btn-success form-control"><i class="fa fa-search"></i> Buscar</button>
@@ -18,7 +18,7 @@
                         <label id="mensaje" style="color: red;display: none;font-size: 12pt;">El número de DNI no es válido</label>
                     </div>
                 </div>
-                <form action="{{url('docente')}}" method="POST" class="form-horizontal"> 
+                <form action="{{url('docente')}}" method="POST" class="form-horizontal" onsubmit="return Comprobar();"> 
                 @method('POST')
                 {{ csrf_field() }}
                     @if (count($errors)>0)
@@ -57,17 +57,17 @@
                         </div>
                         <label class="col-md-2 col-form-label">F. Nacimiento</label>
                         <div class="col-md-3">
-                            <input class="form-control" type="date" name="trab_fnac" value="{{old('trab_fnac')}}">
+                            <input class="form-control" type="date" name="trab_fnac" min="1900-01-01" max="2002-12-31" value="{{old('trab_fnac')}}" required>
                         </div>
                         <label class="col-md-1 col-form-label">E-mail</label>
                         <div class="col-md-3">
-                            <input class="form-control" type="email" name="trab_email" value="{{old('trab_email')}}">
+                            <input class="form-control" value="{{old('trab_email')}}" id="validemail" type="email" name="trab_email" placeholder="ejemplo@correo.com" required><span id="emailOK"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Teléfono</label>
                         <div class="col-md-2">
-                            <input class="form-control" type="text" name="trab_tel" value="{{old('trab_tel')}}">
+                            <input class="form-control" id="telef" type="text" name="trab_tel" value="{{old('trab_tel')}}" onKeyPress="return soloNumeros(event)" onKeyUp="pierdeFoco(this)" maxlength="9"  required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -75,14 +75,14 @@
                         <div class="col-md-9 col-form-label">
                             @foreach($asignaturas as $asig)
                             <div class="form-check form-check-inline mr-1">
-                                <input class="form-check-input" type="checkbox" name="asignaturas[]" value="{{$asig->asig_id}}">
+                                <input class="miOpcion"  type="checkbox" name="asignaturas[]" value="{{$asig->asig_id}}" onclick="tengoQueMostrarBoton()" >
                                 <label class="form-check-label" for="inline-checkbox1">{{$asig->asig_nom}}</label>
                             </div>
                             @endforeach
                         </div>
                     </div>
                     <div class="form-actions">
-                        <input type="submit" value="Registrar" class="btn btn-primary">
+                        <input type="submit" id="miBoton" value="Registrar" class="btn btn-primary" style="display: none;">
                         <a href="{{url('docente')}}" class="btn btn-danger">Cancelar</a>
                     </div> 
                 </form>
@@ -93,6 +93,27 @@
 @endsection
 
 @section('scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+function tengoQueMostrarBoton() {
+  var elementos = $('input.miOpcion');
+  var algunoMarcado = elementos.toArray().find(function(elemento) {
+     return $(elemento).prop('checked');
+  });
+  
+  if(algunoMarcado) {
+    $('#miBoton').show();
+  } else {
+    $('#miBoton').hide();
+  }
+} 
+
+</script>
+<script >
+    #miBoton {
+  display: none;
+}
+</script>
 <script>
     $(document).ready(function(){
         $('#btnbuscar').click(function(){
@@ -119,5 +140,177 @@
             }
         })
     });
+</script>
+
+<script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+</script>
+
+<script>
+function soloNumeros(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = "1234567890";
+    especiales = [8, 37, 39, 46];
+
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if(letras.indexOf(tecla) == -1 && !tecla_especial)
+        return false;
+}
+
+function limpia() {
+    var val = document.getElementById("miInput").value;
+    var tam = val.length;
+    for(i = 0; i < tam; i++) {
+        if(!isNaN(val[i]))
+            document.getElementById("miInput").value = '';
+    }
+}
+</script>
+
+
+<script >
+    function el(el) {
+  return document.getElementById(el);
+}
+el('precio').addEventListener('input',function() {
+  var val = this.value;
+  this.value = val.replace(/\-/,'');
+}); 
+///////////////////////////////////////////////////////
+    function el(el) {
+  return document.getElementById(el);
+}
+el('stock').addEventListener('input',function() {
+  var val = this.value;
+  this.value = val.replace(/\D|\-/,'');
+}); 
+//////////////////////////////////////////////////////
+function el(el) {
+  return document.getElementById(el);
+}
+//////////////////////////////////////////////////////
+    function solonumeros(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = "0123456789.";
+       especiales = "8-37-39-46";
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+//////////////////////////////////////////////////////
+    function letrasynumeros(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz0123456789";
+       especiales = "8-37-39-46";
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+/////////////////////////////////////////////////////
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+//////////////////////////////////////////////////////
+function limpia() {
+    var val = document.getElementById("borrado").value;
+    var tam = val.length;
+    for(i = 0; i < tam; i++) {
+        if(!isNaN(val[i]))
+            document.getElementById("borrado").value = '';
+    }
+}
+//////////////////////////////////////////////////////
+function soloNumeros(e) {
+   var key = window.Event ? e.which : e.keyCode;
+   return ((key >= 48 && key <= 57) ||(key==8))
+ }
+ 
+ function pierdeFoco(e){
+    var valor = e.value.replace(/^0*/, '');
+    e.value = valor;
+ }
+
+</script>
+
+<script type="text/javascript">
+    document.getElementById('validemail').addEventListener('input', function() {
+    campo = event.target;
+    valido = document.getElementById('emailOK');
+        
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+    if (emailRegex.test(campo.value)) {
+      valido.innerText = "válido";
+    } else {
+      valido.innerText = "incorrecto";
+    }
+});
+</script>
+<script>
+function Comprobar() {
+  if (document.getElementById("telef").value=="") {
+    alert("Debes rellenar el numero de Telefono"); 
+    return false;
+  }
+  if (document.getElementById("telef").value.length<9) {
+    alert("El Telefono debe tener al menos 9 caracteres númericos"); 
+    return false;
+  }
+  return true;
+}
 </script>
 @endsection
