@@ -73,8 +73,16 @@ class DocenteController extends Controller
     public function edit($id)
     {
         $trab = Trabajador::find($id);
-        return view ('docente.edit',['doc'=>$trab]);
+        return view ('docente.edit',['trab'=>$trab]);
     }    
+
+    public function update(Request $request, $id){
+
+        $trab = trabajador::find($id);
+        $request->all();
+        $trab->update($request->all());
+        return redirect()->route('docente.index')->with('status', 'Docente editado correctamente!');
+    }
 
     public function destroy($id)
     {

@@ -67,6 +67,7 @@ $trab_data = DB::table('trabajador')
                                     <a data-toggle="modal" data-target="#modal-est-{{$doc->trab_id}}" title="Activar docente" class="btn btn-sm btn-success"><i class="fa fa-toggle-on"></i></a> 
                                 @endif     
                                 @include('docente.estado')
+                                <a href="{{url('docente/'.$doc->trab_id.'/edit')}}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
                             </td>
                         </tr>
                         @endforeach
