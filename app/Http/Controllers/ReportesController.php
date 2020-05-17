@@ -64,8 +64,7 @@ class ReportesController extends Controller
         }    
         $indicador_tasa_asis = ($contador/50)*100;
         //echo $indicador_tasa_asis."%";
-        $pdf = PDF::loadView('pdf.repasisdiaro',['data'=>$query]);
-        $pdf->setPaper('A4', 'landscape');
+        $pdf = PDF::loadView('pdf.repasisdiaro',['data'=>$query, 'ind'=>$indicador_tasa_asis]);
         return $pdf->download('Reporte:asistencia - Diario.pdf');     
 
     }
