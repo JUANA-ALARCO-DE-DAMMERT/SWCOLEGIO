@@ -121,7 +121,29 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('video')}}">
                 <i class="nav-icon fa fa-video-camera"></i> Videos</a>
-            </li>     
+            </li>
+              @if(Auth::user()->hasrole('admin'))
+              <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                  <i class="nav-icon fa fa-users"></i> Reportes</a>
+                <ul class="nav-dropdown-items">
+                  <li class="nav-title">Tasa de Asistencia</li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('reporteasistencia')}}">
+                      <small>R. de Asistencia - Diario</small></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('')}}">
+                      <small>R. de Asistencia - Mensual</small></a>
+                  </li>
+                  <li class="nav-title">Tasa de Aprobación</li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('')}}">
+                      <small>R. de Aprobación - Bimestral</small></a>
+                  </li>
+                </ul>
+              </li> 
+              @endif       
             @endif
             @if(Auth::user()->hasrole('docen'))
             <li class="nav-item">

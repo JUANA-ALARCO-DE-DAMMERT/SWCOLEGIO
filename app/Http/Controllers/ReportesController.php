@@ -38,4 +38,37 @@ class ReportesController extends Controller
         return $pdf->download('prueba.pdf');
     }
 
+
+
+    //ADMIN----------------------
+    public function showVentanaReporte()
+    {
+        return view ('reportes.administrador.asistencia');
+    } 
+
+    public function recibirReporteAsis(Request $req)
+    {
+       $data = $req->all();
+        $query = DB::table('asistencia')
+                ->join('curso','curso.curs_id','asistencia.asis_idcurso')
+                ->join('alumno','alumno.alum_id','asistencia.asis_idalumno')
+                ->where('curso.curs_idasig','=',$data['curs_idasig'])
+                ->where('asistencia.asis_fecha','=',$data['asis_fecha'])
+                ->get();
+        $contador = 0;
+        foreach ($query as $q) {
+            //echo $q->asis_id . " " . $q->alum_ape. " " . $q->alum_nom. " ". $q->asis_est . "<br>"; 
+            if($q->asis_est == 0){
+                $contador++;
+            }
+        }    
+        $indicador_tasa_asis = ($contador/50)*100;
+        //echo $indicador_tasa_asis."%";
+        $pdf = PDF::loadView('pdf.repasisdiaro',['data'=>$query]);
+        return $pdf->download('Reporte:asistencia - Diario.pdf');     
+
+    }
+
+
+
 }
