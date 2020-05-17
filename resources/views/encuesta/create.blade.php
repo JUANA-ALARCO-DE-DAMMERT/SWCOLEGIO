@@ -23,13 +23,13 @@
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Título</label>
                         <div class="col-md-5">
-                            <input class="form-control" required type="text" name="enc_titulo" >
+                            <input class="form-control" required type="text" onKeyPress="return soloLetras(event)" name="enc_titulo" required>
                         </div>
                     </div>                    
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Link</label>
                         <div class="col-md-11">
-                            <textarea name="enc_link" required class="form-control"></textarea>
+                            <textarea name="enc_link"  class="form-control" required></textarea>
                         </div>
                     </div>
                     <div class="form-actions">
@@ -89,5 +89,26 @@ $("#btn-only1click").click(function() {
     alert( "Acaba de subir una encuesta, porfavor espere un momento" );
   }
 });
+</script>
+
+<script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = [8,37,39,46];
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
 </script>
 @endsection

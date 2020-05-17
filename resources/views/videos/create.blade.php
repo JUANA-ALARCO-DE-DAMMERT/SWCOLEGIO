@@ -11,11 +11,11 @@
             <div class="modal-body">
                 {{csrf_field()}}
                 <label class="">Titulo:</label>
-                <input type="text" class="form-control" name="titulo" required>
+                <input type="text" class="form-control" name="titulo" onKeyPress="return soloLetras(event)" required>
                 <label class="">Link:</label>
                 <input type="text" class="form-control" name="link" required>
                 <label>Alumno:</label>
-                <select class="form-control selectpicker" name="idalumno" required data-live-search="true">
+                <select class="form-control selectpicker" name="idalumno"  data-live-search="true" required>
                   <option hidden>--- Seleccione ---</option>
                   @foreach($alumnos as $a)
                     <option value="{{$a->alum_dni}}">{{$a->alum_ape. ', ' . $a->alum_nom}}</option>
@@ -81,5 +81,26 @@ $("#btn-only1click").click(function() {
     alert( "Acaba de Subir un video al Sistema Web, porfavor espere a que termine de cargar el video correctamente y le aparesca el mensaje de confirmacion" );
   }
 });
+</script>
+
+<script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = [8,37,39,46];
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
 </script>
 @endsection
