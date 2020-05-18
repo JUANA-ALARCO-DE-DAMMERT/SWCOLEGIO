@@ -392,7 +392,7 @@
           <div class="animated fadeIn">
             <div class="card-columns cols-2">
 
-<!--               <div class="card">
+              <!-- <div class="card">
                 <div class="card-header">Grafico de Asistencias de alumnos
                   <div class="card-header-actions">
                     <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
@@ -405,7 +405,7 @@
                     <canvas id="graficoasistenciatotal"></canvas>
                   </div>
                 </div>
-              </div> -->
+              </div>  -->
 
               <div class="card" >
                 <div class="card-header">Alumnos de Primaria
