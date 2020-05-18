@@ -133,7 +133,7 @@
                       <small>R. de Asistencia - Diario</small></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{url('')}}">
+                    <a class="nav-link" href="{{url('reporteasistenciamensual')}}">
                       <small>R. de Asistencia - Mensual</small></a>
                   </li>
                   <li class="nav-title">Tasa de Aprobación</li>

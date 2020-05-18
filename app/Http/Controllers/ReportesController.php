@@ -41,6 +41,7 @@ class ReportesController extends Controller
 
 
     //ADMIN----------------------
+    //-- Asistencia diaria ----
     public function showVentanaReporte()
     {
         return view ('reportes.administrador.asistencia');
@@ -69,6 +70,37 @@ class ReportesController extends Controller
 
     }
 
+    //-- Asistencia mensual ---------
+    public function showVentanaReporteAsisMensual()
+    {
+        return view ('reportes.administrador.asismensual');
+    } 
+
+    public function recibirReporteAsisMensual(Request $req)
+    {
+        $data = $req->all();
+        //print_r($data);
+
+       $query = DB::table('asistencia')
+                ->select(DB::raw('count(asis_id) AS aa'),'asis_fecha')
+                ->join('curso','curso.curs_id','asistencia.asis_idcurso')
+                ->where('asis_est','=','0')
+                ->where('curso.curs_idasig','=',[$data['idasig']])
+                ->whereBetween('asis_fecha',[$data['finicio'],$data['ffin']])
+                ->groupBy('asis_fecha')
+                ->orderBy('asis_fecha','asc')
+                ->get();
+
+        $contador = DB::table('asistencia')
+                    ->distinct('asis_fecha')
+                    ->whereBetween('asis_fecha',[$data['finicio'],$data['ffin']])
+                    ->count();
+
+        $pdf = PDF::loadView('pdf.repasismensual',['data'=>$query,'contador'=>$contador]);
+        return $pdf->download('Reporte:asistencia - Mensual.pdf');   
+
+
+    }
 
 
 }

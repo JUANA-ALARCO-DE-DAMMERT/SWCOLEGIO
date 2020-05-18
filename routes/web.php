@@ -67,8 +67,11 @@ Route::get('reportes/{idcurso}/lastconection','ReportesController@ultimaConexion
 Route::get('reportes/{idcurso}/asistenciadocen','ReportesController@asistenciadocen');
 
 // Rutas de reportes - Admin
+// Tasa de asistencia
 Route::get('reporteasistencia/','ReportesController@showVentanaReporte');
 Route::post('recebirreporteasis/','ReportesController@recibirReporteAsis');
+Route::get('reporteasistenciamensual/','ReportesController@showVentanaReporteAsisMensual');
+Route::post('recebirreporteasismensual/','ReportesController@recibirReporteAsisMensual');
 
 // Rutas de pagos
 Route::get('pagos/{id}','PagoController@resetPago');
