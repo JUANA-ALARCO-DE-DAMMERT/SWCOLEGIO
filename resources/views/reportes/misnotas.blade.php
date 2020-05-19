@@ -3,13 +3,14 @@
 <head>
 	<title></title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-<body>
-	<div class="header-wrapper">
+      <div class="header-wrapper">
       <div >
         <img src="{{asset('img/logo-jad.jpeg')}}" width="40" height="40"> 
       </div>
       </div>
+</head>
+<body>
+	
 
       <div>
       	<h5>
@@ -82,7 +83,18 @@
 								->get();
 					?>
 					@foreach($query as $q)
-						<td>{{$q->not_promedio}}</td>
+						<td>
+                                          @if ($q->not_promedio <= 10)
+                                            C
+                                          @elseif ($q->not_promedio <= 13)
+                                            B
+                                          @elseif ($q->not_promedio <= 16)
+                                            A
+                                          @else ($q->not_promedio <= 20)
+                                            AD    
+                                          @endif
+                                          
+                                    </td>
 					@endforeach
 					<td></td>
 					<td></td>
@@ -135,13 +147,92 @@
                   <p>**Felicitamos a los Padres de Familia por su dedicacion en la Educacion a sus menores hijos.</p>
                   <p>*La mayor herencia que puede dejar un Padre a sus hijos, es el ejemplo de sus virtudes y de sus bellas acciones.</p>
                   <p><center>Sr. Padre de F. Si tiene alguna inquietud, no dude en acercarse a ala Direccion.</center></p><br>
-      <table border="0">
-            <tr>
-                  <th><center>__________________________ <br> Prof.Tutor(a)</center></th>
-                  <th><center>__________________________ <br> Padre de Familia</center></th>
-                  <th><center>__________________________ <br> Vº.Bº Direccion</center></th>
-            </tr>
-      </table>
+
+            <div class="header-wrapper">
+                  <div >
+                    <img src="{{asset('img/logo-jad.jpeg')}}" width="40" height="40"> 
+                  </div>
+            </div>
+
+
+
+            <div>
+                  <h5>
+                        <center>
+                              I.E.P. “JUANA ALARCO DE DAMMERT”
+                        </center>
+                        </h5>
+                        <p><center>
+                                    .- Un buen colegio al alcance de usted -. <br> 
+                                    <h1><p style="text-decoration: underline;"><span style="text-decoration: underline;"><strong>
+                                       CUADRO DE REFERENCIAS - ANUAL - 2020   
+                                    </strong></span></p></h1> 
+                        </center>
+                  </p>
+            </div>
+                  <p style="text-align: justify;">
+                     Las referencias tenerlas en cuenta si el alumno tiene buenas notas,felicitaciones sigamos adelante. De lo contrario Padres de Familia, apoyemos a nuestros hijos para alcanzar mejores APRENDIZAJES. Gracias   
+                  </p>
+                  <p style="text-align: center;"><strong><em><u>
+                  Aprueban los alumnos que cumplen con estas REFERENCIAS.
+                  </u></em></strong></p>
+
+                  <table class="table table-hover table-bordered table-sm" id="dataTable" width="60%" cellspacing="0">
+
+                        <tbody>
+                              <tr>
+                                    <td>
+                                          1
+                                    </td>
+                              </tr>
+                              <tr>
+                                    <td>
+                                          2
+                                    </td>
+                              </tr>
+                              <tr>
+                                    <td>
+                                          3
+                                    </td>
+                              </tr>
+                              <tr>
+                                    <td>
+                                          4
+                                    </td>
+                              </tr>
+                              <tr>
+                                    <td>
+                                          5
+                                    </td>
+                              </tr>
+                              <tr>
+                                    <td>
+                                          6
+                                    </td>
+                              </tr>
+                              <tr>
+                                    <td>
+                                          7
+                                    </td>
+                              </tr>
+                              <tr>
+                                    <td>
+                                          8- TUTORIA: Profesor(a) Nombre:__________________
+                                          <br>
+                                          Recomendacion <br>
+                                          ............................................................................................................................................
+                                          ............................................................................................................................................
+                                          ............................................................................................................................................
+                                          ............................................................................................................................................
+                                          <br>
+                                          El alumno al regresar a casa debe de repasar (estudiar) lo aprendido en el colegio
+                                    </td>
+                              </tr>
+                        </tbody>
+                  </table>
+
+      </body>
+</html>
 
 
 

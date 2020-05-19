@@ -34,9 +34,9 @@
                     <thead>
                         <tr>
                             <th>Alumnos</th>
-                            <th class="text-center">N1</th>
-                            <th class="text-center">N2</th>
-                            <th class="text-center">N3</th>
+                            <th class="text-center">Promedio de separatas <br>( hojas de trabajo) <br> N1</th>
+                            <th class="text-center">Promedio de <br>prácticas <br> N2</th>
+                            <th class="text-center">Promedio de <br>participación <br> N3</th>
                             <th class="text-center">Promedio</th>
                             <th></th>
                         </tr>

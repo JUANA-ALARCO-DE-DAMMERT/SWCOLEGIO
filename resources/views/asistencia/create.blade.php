@@ -10,13 +10,13 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card my-3">
-            <form action="{{url('asistencia')}}" method="POST" onsubmit="return checkSubmit();">
+            <form action="{{url('asistencia')}}" method="POST" onsubmit="return checkSubmit();" id="elForm">
             @method('POST')
             {{ csrf_field() }}
             <div class="card-header">
                 <div class="col-md-3">
                     <b>Elija La fecha de Asistencia :</b>
-                    <input type="date" class="form-control" name="asis_fecha" min="2020-03-01" max="2020-12-31" required>
+                    <input type="date" class="form-control" name="asis_fecha" min="2020-03-01" max="2020-12-31" id="infechaini" onChange="sinDomingos();" onblur="obtenerfechafinf1();" required>
                     <input type="hidden" class="form-control" name="asis_idcurso" value="{{$idcurso}}">
                 </div>
             </div>
@@ -44,7 +44,7 @@
                             @endforeach
                     </tbody>
                 </table>
-                <input type="submit" class="btn btn-primary" value="Registrar">
+                <input type="submit" class="btn btn-primary" id="elSubmit" value="Registrar">
                 </form>
             </div>
         </div>
@@ -71,5 +71,28 @@
 function desactivaBoton(id) {
    document.getElementById(id).disabled=true;
 }
+</script>
+<script type="text/javascript">
+    
+var elDate = document.getElementById('infechaini');
+var elForm = document.getElementById('elForm');
+var elSubmit = document.getElementById('elSubmit');
+
+function sinDomingos(){
+    var day = new Date(elDate.value ).getUTCDay();
+    // Días 0-6, 0 es Domingo 6 es Sábado
+    elDate.setCustomValidity(''); // limpiarlo para evitar pisar el fecha inválida
+    if( day == 0 || day == 6 ){
+       elDate.setCustomValidity('por favor seleccione otro día de Lunes a Viernes');
+    } else {
+       elDate.setCustomValidity('');
+    }
+    if(!elForm.checkValidity()) {elSubmit.click()};
+}
+
+function obtenerfechafinf1(){
+    sinDomingos();
+}
+
 </script>
 @endsection

@@ -28,10 +28,11 @@
                     <thead>
                         <tr>
                             <th>Alumnos</th>
-                            <th>N1</th>
-                            <th>N2</th>
-                            <th>N3</th>
-                            <th>Promedio</th>
+                            <th class="text-center">Promedio de separatas <br>( hojas de trabajo) <br> N1</th>
+                            <th class="text-center">Promedio de <br>prácticas <br> N2</th>
+                            <th class="text-center">Promedio de <br>participación <br> N3</th>
+                            <th class="text-center">Promedio</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
