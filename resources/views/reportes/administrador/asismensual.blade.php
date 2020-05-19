@@ -39,23 +39,7 @@
         </div>
     </div>
 </div>
-
-
-<div class="card">
- <div class="card-header">Grafico de Asistencias de alumnos
-   <div class="card-header-actions">
-     <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
-       <small class="text-muted">docs</small>
-      </a>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="chart-wrapper">
-      <canvas id="graficoasistenciatotal"></canvas>
-    </div>
-  </div>
-</div> 
-
+             
 
 
 @endsection
@@ -94,47 +78,5 @@ function obtenerfechafinf1(){
     <script src="{{asset('plantilla/node_modules/chart.js/dist/Chart.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')}}"></script>
     <script src="{{asset('plantilla/js/charts.js')}}"></script>
-
-<?php $query1 = DB::table('asistencia')
-                ->join('curso','curso.curs_id','asistencia.asis_idcurso')
-                ->where('asistencia.asis_fecha','=','2020-05-04')
-                ->where('asistencia.asis_est','=','0')
-                ->where('curso.curs_idasig','=','1')
-                ->count(); 
-$query2 = DB::table('asistencia')
-                ->join('curso','curso.curs_id','asistencia.asis_idcurso')
-                ->where('asistencia.asis_fecha','=','2020-05-05')
-                ->where('asistencia.asis_est','=','0')
-                ->where('curso.curs_idasig','=','1')
-                ->count(); 
-$query3 = DB::table('asistencia')
-                ->join('curso','curso.curs_id','asistencia.asis_idcurso')
-                ->where('asistencia.asis_fecha','=','2020-05-06')
-                ->where('asistencia.asis_est','=','0')
-                ->where('curso.curs_idasig','=','1')
-                ->count(); 
-                ?>
-
-<script type="text/javascript">
-  var lineChart = new Chart($('#graficoasistenciatotal'), {
-  type: 'line',
-  data: {
-    labels: ['04/05/2020','05/05/2020','06/05/2020'],
-    datasets: [{
-      label: 'Asistencias',
-      backgroundColor: 'rgba(220, 220, 220, 0.2)',
-      borderColor: 'rgba(220, 220, 220, 1)',
-      pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-      pointBorderColor: '#fff',
-      data: [({{$query1}}),({{$query2}}),({{$query3}})]
-    }, 
-    ]
-  },
-  options: {
-    responsive: true
-  }
-}); // eslint-disable-next-line no-unused-vars
-</script>
-
 
 @endsection

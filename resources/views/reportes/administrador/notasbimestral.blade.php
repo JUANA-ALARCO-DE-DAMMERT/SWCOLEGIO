@@ -34,5 +34,117 @@
 </div>
 
 
+<div class="row">
+  <div class="col-md-9">
+    <div class="card text-center">
+        <div class="card-header">Grafico de Notas Bimestrales
+          <div class="card-header-actions">
+            <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-wrapper">
+            <canvas id="graficoasistenciatotal"></canvas>
+          </div>
+        </div>
+    </div>  
+  </div>
+</div>
+
+
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+    
+var elDate = document.getElementById('infechaini');
+var elForm = document.getElementById('elForm');
+var elSubmit = document.getElementById('elSubmit');
+
+function sinDomingos(){
+    var day = new Date(elDate.value ).getUTCDay();
+    // Días 0-6, 0 es Domingo 6 es Sábado
+    elDate.setCustomValidity(''); // limpiarlo para evitar pisar el fecha inválida
+    if( day == 0 || day == 6 ){
+       elDate.setCustomValidity('por favor seleccione otro día de Lunes a Viernes');
+    } else {
+       elDate.setCustomValidity('');
+    }
+    if(!elForm.checkValidity()) {elSubmit.click()};
+}
+
+function obtenerfechafinf1(){
+    sinDomingos();
+}
+
+</script>
+
+<script src="{{asset('plantilla/node_modules/popper.js/dist/umd/popper.min.js')}}"></script>
+    <script src="{{asset('plantilla/node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('plantilla/node_modules/pace-progress/pace.min.js')}}"></script>
+    <script src="{{asset('plantilla/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')}}"></script>
+<!--     <script src="{{asset('plantilla/node_modules/@coreui/coreui/dist/js/coreui.min.js')}}"></script>
+ -->    <!-- Plugins and scripts required by this view-->
+    <script src="{{asset('plantilla/node_modules/chart.js/dist/Chart.min.js')}}"></script>
+    <script src="{{asset('plantilla/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')}}"></script>
+    <script src="{{asset('plantilla/js/charts.js')}}"></script>
+
+<?php 
+
+$nbim = "1";
+
+$aa_arte = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','5')->count(); 
+$aa_cyt = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','4')->count(); 
+$aa_cc = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','3')->count();
+$aa_com = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','2')->count();
+$aa_ef = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','6')->count();
+$aa_in = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','7')->count();
+$aa_mat = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','1')->count();
+$fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8')->get();
+
+?>
+
+<script type="text/javascript">
+  var lineChart = new Chart($('#graficoasistenciatotal'), {
+    type: 'bar',
+    data: {
+      labels: [
+        <?php 
+          foreach ($fechas as  $fecha) { ?>
+            '<?php echo $fecha->asig_nom; ?>',
+            <?php } ?> ,''    
+      ],
+      datasets: [{
+        label: 'Notas',
+        backgroundColor: 'rgba(220, 220, 220)',
+        borderColor: 'rgba(220, 220, 220)',
+        pointBackgroundColor: 'rgba(220, 220, 220)',
+        pointBorderColor: '#fff',
+        data: [
+                <?php echo $aa_arte/50*100; ?>,
+                <?php echo $aa_cyt/50*100; ?>,
+                <?php echo $aa_cc/50*100; ?>,
+                <?php echo $aa_com/50*100; ?>,
+                <?php echo $aa_ef/50*100; ?>,
+                <?php echo $aa_in/50*100; ?>,
+                <?php echo $aa_mat/50*100; ?>,0
+          ]
+      }, 
+      ]
+    },
+    options: {
+      responsive: true
+    }
+  }); // eslint-disable-next-line no-unused-vars
+</script>
+
 
 @endsection
