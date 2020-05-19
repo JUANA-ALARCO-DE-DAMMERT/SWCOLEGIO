@@ -14,7 +14,7 @@
 					<div class="form-group row">
                         <label class="col-md-2 col-form-label">N° Bimestre</label>
                         <div class="col-md-3">
-                            <select name="nbim" class="form-control" required>
+                            <select name="nbim" class="form-control" onchange="val()" id="nbim" required>
                             	<option hidden>--- Seleccione ---</option>	
 								<option value="1">1° Bimestre</option>
 								<option value="2">2° Bimestre</option>
@@ -56,44 +56,30 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript">
-    
-var elDate = document.getElementById('infechaini');
-var elForm = document.getElementById('elForm');
-var elSubmit = document.getElementById('elSubmit');
-
-function sinDomingos(){
-    var day = new Date(elDate.value ).getUTCDay();
-    // Días 0-6, 0 es Domingo 6 es Sábado
-    elDate.setCustomValidity(''); // limpiarlo para evitar pisar el fecha inválida
-    if( day == 0 || day == 6 ){
-       elDate.setCustomValidity('por favor seleccione otro día de Lunes a Viernes');
-    } else {
-       elDate.setCustomValidity('');
-    }
-    if(!elForm.checkValidity()) {elSubmit.click()};
-}
-
-function obtenerfechafinf1(){
-    sinDomingos();
-}
-
-</script>
 
 <script src="{{asset('plantilla/node_modules/popper.js/dist/umd/popper.min.js')}}"></script>
-    <script src="{{asset('plantilla/node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('plantilla/node_modules/pace-progress/pace.min.js')}}"></script>
-    <script src="{{asset('plantilla/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')}}"></script>
-<!--     <script src="{{asset('plantilla/node_modules/@coreui/coreui/dist/js/coreui.min.js')}}"></script>
- -->    <!-- Plugins and scripts required by this view-->
-    <script src="{{asset('plantilla/node_modules/chart.js/dist/Chart.min.js')}}"></script>
-    <script src="{{asset('plantilla/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')}}"></script>
-    <script src="{{asset('plantilla/js/charts.js')}}"></script>
+<script src="{{asset('plantilla/node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('plantilla/node_modules/pace-progress/pace.min.js')}}"></script>
+<script src="{{asset('plantilla/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')}}"></script>
+<script src="{{asset('plantilla/node_modules/chart.js/dist/Chart.min.js')}}"></script>
+<script src="{{asset('plantilla/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')}}"></script>
+<script src="{{asset('plantilla/js/charts.js')}}"></script>
+
+
+<script type="text/javascript">
+    function val() {
+        d = document.getElementById("nbim").value;
+        alert(d);
+    }  
+
+
+
+<?php $nbim = "1";
+
+?>
+
 
 <?php 
-
-$nbim = "1";
-
 $aa_arte = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
                 ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','5')->count(); 
 $aa_cyt = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
@@ -112,7 +98,7 @@ $fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8'
 
 ?>
 
-<script type="text/javascript">
+
   var lineChart = new Chart($('#graficoasistenciatotal'), {
     type: 'bar',
     data: {
