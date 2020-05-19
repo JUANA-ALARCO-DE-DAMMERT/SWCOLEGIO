@@ -72,6 +72,9 @@ Route::get('reporteasistencia/','ReportesController@showVentanaReporte');
 Route::post('recebirreporteasis/','ReportesController@recibirReporteAsis');
 Route::get('reporteasistenciamensual/','ReportesController@showVentanaReporteAsisMensual');
 Route::post('recebirreporteasismensual/','ReportesController@recibirReporteAsisMensual');
+// Tasa de aprobados
+Route::get('reportebimestres/','ReportesController@showVentanaReporteAprob');
+Route::post('recibirbimestres/','ReportesController@recibirReporteNotasBimestral');
 
 // Rutas de pagos
 Route::get('pagos/{id}','PagoController@resetPago');

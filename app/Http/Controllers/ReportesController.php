@@ -102,5 +102,31 @@ class ReportesController extends Controller
 
     }
 
+    public function showVentanaReporteAprob()
+    {
+        return view ('reportes.administrador.notasbimestral');
+    }
+
+    public function recibirReporteNotasBimestral(Request $req)
+    {
+        $data = $req->all();
+        //print_r($data);
+
+        $query = DB::table('notas')
+                ->select(DB::raw('count(not_id) AS aa'),'asig_nom')
+                ->join('curso','curso.curs_id','notas.not_idcurso')
+                ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
+                ->where('notas.not_bimestre','=',[$data['nbim']])
+                ->where('notas.not_promedio','>=','12')
+                ->groupBy('asignatura.asig_nom')
+                ->get();
+
+        $pdf = PDF::loadView('pdf.repnotasbimestral',['data'=>$query]);
+        return $pdf->download('Reporte:notas - Bimestral.pdf');    
+
+
+    }
+
+
 
 }

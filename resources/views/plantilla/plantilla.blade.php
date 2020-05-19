@@ -138,7 +138,7 @@
                   </li>
                   <li class="nav-title">Tasa de Aprobación</li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{url('')}}">
+                    <a class="nav-link" href="{{url('reportebimestres')}}">
                       <small>R. de Aprobación - Bimestral</small></a>
                   </li>
                 </ul>
