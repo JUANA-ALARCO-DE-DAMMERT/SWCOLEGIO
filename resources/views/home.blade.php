@@ -1,4 +1,28 @@
+<?php $nbim = "1";
+
+?>
 <?php
+
+$aa_arte = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','5')->count(); 
+$aa_cyt = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','4')->count(); 
+$aa_cc = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','3')->count();
+$aa_com = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','2')->count();
+$aa_ef = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','6')->count();
+$aa_in = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','7')->count();
+$aa_mat = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','1')->count();
+$fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8')->get();
+
+
+
+
+
   $nro_alumnoprimero = DB::table('alumno')->where('alum_grad','=','7')->count();
   $nro_alumnosegundo = DB::table('alumno')->where('alum_grad','=','8')->count();
   $nro_alumnotercero = DB::table('alumno')->where('alum_grad','=','9')->count();
@@ -392,7 +416,7 @@
           <div class="animated fadeIn">
             <div class="card-columns cols-2">
 
-              <!-- <div class="card">
+<!--               <div class="card">
                 <div class="card-header">Grafico de Asistencias de alumnos
                   <div class="card-header-actions">
                     <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
@@ -1252,20 +1276,64 @@
   var lineChart = new Chart($('#graficoasistenciatotal'), {
   type: 'line',
   data: {
-    labels: ['Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+    labels: [
+    <?php 
+          foreach ($fechas as  $fecha) { ?>
+            '<?php echo $fecha->asig_nom; ?>',
+          <?php } ?>
+            ],
     datasets: [{
       label: 'Asistencias',
-      backgroundColor: 'rgba(220, 220, 220, 0.2)',
+      backgroundColor: '#FF6384',
       borderColor: 'rgba(220, 220, 220, 1)',
       pointBackgroundColor: 'rgba(220, 220, 220, 1)',
       pointBorderColor: '#fff',
-      data: [({{$total_asis_marzo}}),({{$total_asis_abril}}),({{$total_asis_mayo}}),({{$total_asis_junio}}),({{$total_asis_julio}}),({{$total_asis_agosto}}),({{$total_asis_setiembre}}),({{$total_asis_octubre}}),({{$total_asis_noviembre}}),({{$total_asis_diciembre}})]
+      data: [({{$aa_arte}}),({{$aa_cyt}}),({{$aa_cc}}),({{$aa_com}}),({{$aa_ef}}),({{$aa_in}}),({{$aa_mat}})]
     }, 
     ]
   },
+
   options: {
-    responsive: true
+    scales: {
+      xAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 10,
+                   maxRotation: 90,
+                   minRotation: 90
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 11
+        }
+      }],
+    }
   }
+
+
+  // options: {
+  //   scales: {
+  //          xAxes: [{
+  //              ticks: {
+  //                  beginAtZero: true,
+  //                  max: 100,
+  //                  stepSize: 0,
+  //                  fontSize: 8,
+  //                  maxRotation: 90,
+  //                  minRotation: 90
+  //              }
+  //          }],
+
+  //      }
+    
+  // },
+
 }); // eslint-disable-next-line no-unused-vars
 </script>
 <script type="text/javascript">

@@ -40,7 +40,35 @@
     </div>
 </div>
              
+<div>
+  <div><br>
+    <div class="container-fluid">
+          <div class="animated fadeIn">
+            <div class="card-columns cols-2">
 
+              <div class="card">
+                <div class="card-header">Grafico de Asistencias de alumnos
+                  <div class="card-header-actions">
+                    <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
+                      <small class="text-muted">docs</small>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="graficoasistenciatotal"></canvas>
+                  </div>
+                </div>
+              </div> 
+
+
+
+
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
 
 @endsection
 
@@ -79,4 +107,76 @@ function obtenerfechafinf1(){
     <script src="{{asset('plantilla/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')}}"></script>
     <script src="{{asset('plantilla/js/charts.js')}}"></script>
 
+
+
+<script type="text/javascript">
+    function val() {
+        d = document.getElementById("nbim").value;
+        alert(d);
+    }  
+
+
+
+<?php $nbim = "1";
+
+?>
+
+
+<?php 
+
+$fechas = DB::table('asistencia')
+            ->select(DB::raw('count(asis_id) AS aa'),'asis_fecha')
+            ->where('asis_est','=','0')
+            ->groupBy('asis_fecha')
+            ->get();
+
+?>
+
+
+  var lineChart = new Chart($('#graficoasistenciatotal'), {
+    type: 'line',
+    data: {
+      labels: [
+        <?php 
+          foreach ($fechas as  $fecha) { ?>
+            '<?php echo $fecha->asis_fecha; ?>',
+            <?php } ?> ,''    
+      ],
+      datasets: [{
+        label: 'Notas',
+        backgroundColor: 'rgba(220, 220, 220)',
+        borderColor: 'rgba(220, 220, 220)',
+        pointBackgroundColor: 'rgba(220, 220, 220)',
+        pointBorderColor: '#fff',
+        data: []
+      }, 
+      ]
+    },
+    options: {
+    scales: {
+      xAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 10,
+                   maxRotation: 90,
+                   minRotation: 90
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 11
+        }
+      }],
+    }
+  }
+
+
+
+  }); // eslint-disable-next-line no-unused-vars
+</script>
 @endsection

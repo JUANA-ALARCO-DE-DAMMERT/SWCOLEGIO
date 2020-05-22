@@ -98,38 +98,68 @@ $fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8'
 
 ?>
 
-
-  var lineChart = new Chart($('#graficoasistenciatotal'), {
-    type: 'bar',
-    data: {
-      labels: [
-        <?php 
+var lineChart = new Chart($('#graficoasistenciatotal'), {
+  type: 'line',
+  data: {
+    labels: [
+    <?php 
           foreach ($fechas as  $fecha) { ?>
             '<?php echo $fecha->asig_nom; ?>',
-            <?php } ?> ,''    
-      ],
-      datasets: [{
-        label: 'Notas',
-        backgroundColor: 'rgba(220, 220, 220)',
-        borderColor: 'rgba(220, 220, 220)',
-        pointBackgroundColor: 'rgba(220, 220, 220)',
-        pointBorderColor: '#fff',
-        data: [
-                <?php echo $aa_arte/50*100; ?>,
-                <?php echo $aa_cyt/50*100; ?>,
-                <?php echo $aa_cc/50*100; ?>,
-                <?php echo $aa_com/50*100; ?>,
-                <?php echo $aa_ef/50*100; ?>,
-                <?php echo $aa_in/50*100; ?>,
-                <?php echo $aa_mat/50*100; ?>,0
-          ]
-      }, 
-      ]
-    },
-    options: {
-      responsive: true
+          <?php } ?>
+            ],
+    datasets: [{
+      label: 'Asistencias',
+      backgroundColor: '#FF6384',
+      borderColor: 'rgba(220, 220, 220, 1)',
+      pointBackgroundColor: 'rgba(220, 220, 220, 1)',
+      pointBorderColor: '#fff',
+      data: [({{$aa_arte}}),({{$aa_cyt}}),({{$aa_cc}}),({{$aa_com}}),({{$aa_ef}}),({{$aa_in}}),({{$aa_mat}})]
+    }, 
+    ]
+  },
+
+  options: {
+    scales: {
+      xAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 10,
+                   maxRotation: 90,
+                   minRotation: 90
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 11
+        }
+      }],
     }
-  }); // eslint-disable-next-line no-unused-vars
+  }
+
+
+  // options: {
+  //   scales: {
+  //          xAxes: [{
+  //              ticks: {
+  //                  beginAtZero: true,
+  //                  max: 100,
+  //                  stepSize: 0,
+  //                  fontSize: 8,
+  //                  maxRotation: 90,
+  //                  minRotation: 90
+  //              }
+  //          }],
+
+  //      }
+    
+  // },
+
+}); // eslint-disable-next-line no-unused-vars
 </script>
 
 
