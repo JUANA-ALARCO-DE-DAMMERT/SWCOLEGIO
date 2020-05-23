@@ -54,11 +54,18 @@ class ExamenLineaController extends Controller
                         ->join('alumno','alumno.alum_id','alumno_curso.alumno_id')
                         ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
                         ->where('alumno_curso.curso_id','=', $obj['exa_idcurso'])->get();
+
+        $datoscurso = DB::table('curso')
+                        ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
+                        ->where('curso.curs_id','=',$obj['exa_idcurso'])
+                        ->first();
+
             foreach($query as $datos){
                 $alumno = $datos->alum_ape . ', ' . $datos->alum_nom;
                 $apoderado = $datos->apod_ape . ', ' . $datos->apod_nom;
+                $curso = ''.$datoscurso->asig_nom;
                 $asunto = "". $datos->alum_ape . ' ' . $datos->alum_nom . ': EXAMEN VIRTUAL ';
-                $msg = "Se comunica que se subió un exámen virtual a la plataforma del estudiante: " . $alumno;
+                $msg = "Se comunica que se subió un exámen virtual a la plataforma del estudiante: " . $alumno .  ", correspondiente al curso de: " . $curso;
 
                 $to_name="jad";
                 $to_mail= $datos->apod_email;

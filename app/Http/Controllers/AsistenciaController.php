@@ -35,13 +35,19 @@ class AsistenciaController extends Controller
                     ->join('apoderado','apoderado.apod_id','alumno.alum_apod')
                     ->where('alumno.alum_id','=',$value['asis_idalumno'])->first();
             
+            $datoscurso = DB::table('curso')
+                        ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
+                        ->where('curso.curs_id','=',$arreglo['asis_idcurso'])
+                        ->first();
+
             if($value['asis_est'] == 1){
 
                 $alumno = $datos->alum_ape . ', ' . $datos->alum_nom;
                 $apoderado = $datos->apod_ape . ', ' . $datos->apod_nom;
+                $curso = $datoscurso->asig_nom;
                 $fecha = date("d/m/Y", strtotime($arreglo['asis_fecha']));
                 $asunto = "". $datos->alum_ape . ' ' . $datos->alum_nom . ': TARDANZA ' . $fecha;
-                $msg = "Se comunica que el estudiante: " . $alumno .  " tiene tardanza el día " . $fecha;
+                $msg = "Sr(a). padre de familia, se comunica que el estudiante: " . $alumno .  " tiene tardanza el día " . $fecha . " del curso: " . $curso;
 
                 $to_name="jad";
                 $to_mail= $datos->apod_email;
@@ -55,9 +61,10 @@ class AsistenciaController extends Controller
 
                 $alumno = $datos->alum_ape . ', ' . $datos->alum_nom;
                 $apoderado = $datos->apod_ape . ', ' . $datos->apod_nom;
+                $curso = $datoscurso->asig_nom;
                 $fecha = date("d/m/Y", strtotime($arreglo['asis_fecha']));
                 $asunto = "". $datos->alum_ape . ' ' . $datos->alum_nom . ': FALTA ' . $fecha;
-                $msg = "Se comunica que el estudiante: " . $alumno .  " tiene falta el día " . $fecha;
+                $msg = "Sr(a). padre de familia, se comunica que el estudiante: " . $alumno .  " tiene falta el día " . $fecha. " del curso: " . $curso;
 
                 $to_name="jad";
                 $to_mail= $datos->apod_email;

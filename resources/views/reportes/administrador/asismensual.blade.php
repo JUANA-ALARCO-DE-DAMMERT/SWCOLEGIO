@@ -145,7 +145,7 @@ $fechas = DB::table('asistencia')
         <?php 
           foreach ($fechas as  $fecha) { ?>
             '<?php echo $fecha->asis_fecha; ?>',
-            <?php } ?> ,''    
+            <?php } ?>    
       ],
       datasets: [{
         label: 'Notas',
