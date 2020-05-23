@@ -117,12 +117,17 @@ function obtenerfechafinf1(){
 
 
 
-<?php $nbim = "1";
-
-?>
 
 
 <?php 
+
+$fechas = DB::table('asistencia')
+            ->select(DB::raw('count(asis_id) AS aa'),'asis_fecha')
+            ->where('asis_est','=','0')
+            ->whereBetween('asis_fecha',['2020-05-04','2020-05-29'])
+            ->groupBy('asis_fecha')
+            ->get();
+
 
 $fechas = DB::table('asistencia')
             ->select(DB::raw('count(asis_id) AS aa'),'asis_fecha')

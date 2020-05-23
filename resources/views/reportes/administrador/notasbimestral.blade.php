@@ -66,6 +66,8 @@
 <script src="{{asset('plantilla/js/charts.js')}}"></script>
 
 
+
+
 <script type="text/javascript">
     function val() {
         d = document.getElementById("nbim").value;
@@ -74,27 +76,82 @@
 
 
 
-<?php $nbim = "1";
 
-?>
 
 
 <?php 
-$aa_arte = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
-                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','5')->count(); 
-$aa_cyt = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
-                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','4')->count(); 
-$aa_cc = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
-                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','3')->count();
-$aa_com = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
-                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','2')->count();
-$aa_ef = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
-                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','6')->count();
-$aa_in = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
-                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','7')->count();
-$aa_mat = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
-                ->where('not_bimestre','=',$nbim)->where('curso.curs_idasig','=','1')->count();
+$aa_arte1 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','1')->where('curso.curs_idasig','=','5')->count(); 
+$aa_cyt1 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','1')->where('curso.curs_idasig','=','4')->count(); 
+$aa_cc1 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','1')->where('curso.curs_idasig','=','3')->count();
+$aa_com1 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','1')->where('curso.curs_idasig','=','2')->count();
+$aa_ef1 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','1')->where('curso.curs_idasig','=','6')->count();
+$aa_in1 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','1')->where('curso.curs_idasig','=','7')->count();
+$aa_mat1 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','1')->where('curso.curs_idasig','=','1')->count();
 $fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8')->get();
+
+?>
+
+<?php 
+$aa_arte2 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','2')->where('curso.curs_idasig','=','5')->count(); 
+$aa_cyt2 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','2')->where('curso.curs_idasig','=','4')->count(); 
+$aa_cc2 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','2')->where('curso.curs_idasig','=','3')->count();
+$aa_com2 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','2')->where('curso.curs_idasig','=','2')->count();
+$aa_ef2 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','2')->where('curso.curs_idasig','=','6')->count();
+$aa_in2 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','2')->where('curso.curs_idasig','=','7')->count();
+$aa_mat2 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','2')->where('curso.curs_idasig','=','1')->count();
+
+
+?>
+
+<?php 
+$aa_arte3 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','3')->where('curso.curs_idasig','=','5')->count(); 
+$aa_cyt3 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','3')->where('curso.curs_idasig','=','4')->count(); 
+$aa_cc3 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','3')->where('curso.curs_idasig','=','3')->count();
+$aa_com3 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','3')->where('curso.curs_idasig','=','2')->count();
+$aa_ef3 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','3')->where('curso.curs_idasig','=','6')->count();
+$aa_in3 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','3')->where('curso.curs_idasig','=','7')->count();
+$aa_mat3 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','3')->where('curso.curs_idasig','=','1')->count();
+
+
+?>
+
+<?php 
+$aa_arte4 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','4')->where('curso.curs_idasig','=','5')->count(); 
+$aa_cyt4 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','4')->where('curso.curs_idasig','=','4')->count(); 
+$aa_cc4 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','4')->where('curso.curs_idasig','=','3')->count();
+$aa_com4 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','4')->where('curso.curs_idasig','=','2')->count();
+$aa_ef4 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','4')->where('curso.curs_idasig','=','6')->count();
+$aa_in4 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','4')->where('curso.curs_idasig','=','7')->count();
+$aa_mat4 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->where('not_promedio','>=','12')
+                ->where('not_bimestre','=','4')->where('curso.curs_idasig','=','1')->count();
+
 
 ?>
 
@@ -108,14 +165,34 @@ var lineChart = new Chart($('#graficoasistenciatotal'), {
           <?php } ?>
             ],
     datasets: [{
-      label: 'Asistencias',
-      backgroundColor: '#FF6384',
-      borderColor: 'rgba(220, 220, 220, 1)',
-      pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-      pointBorderColor: '#fff',
-      data: [({{$aa_arte}}),({{$aa_cyt}}),({{$aa_cc}}),({{$aa_com}}),({{$aa_ef}}),({{$aa_in}}),({{$aa_mat}})]
-    }, 
-    ]
+      label: 'Bimestre I',
+
+      borderColor: '#FF6384',
+      pointBackgroundColor: '#FF6384',
+      pointBorderColor: '#FF6384',
+      data: [({{$aa_arte1}}),({{$aa_cyt1}}),({{$aa_cc1}}),({{$aa_com1}}),({{$aa_ef1}}),({{$aa_in1}}),({{$aa_mat1}})]
+    }, {
+      label: 'Bimestre II',
+
+      borderColor: '#77DD77',
+      pointBackgroundColor: '#77DD77',
+      pointBorderColor: '#77DD77',
+      data: [({{$aa_arte2}}),({{$aa_cyt2}}),({{$aa_cc2}}),({{$aa_com2}}),({{$aa_ef2}}),({{$aa_in2}}),({{$aa_mat2}})]
+    },{
+      label: 'Bimestre III',
+
+      borderColor: '#FFCE56',
+      pointBackgroundColor: '#FFCE56',
+      pointBorderColor: '#FFCE56',
+      data: [({{$aa_arte3}}),({{$aa_cyt3}}),({{$aa_cc3}}),({{$aa_com3}}),({{$aa_ef3}}),({{$aa_in3}}),({{$aa_mat3}})]
+    },{
+      label: 'Bimestre IV',
+
+      borderColor: '#36A2EB',
+      pointBackgroundColor: '#36A2EB',
+      pointBorderColor: '#36A2EB',
+      data: [({{$aa_arte3}}),({{$aa_cyt3}}),({{$aa_cc3}}),({{$aa_com3}}),({{$aa_ef3}}),({{$aa_in3}}),({{$aa_mat3}})]
+    }]
   },
 
   options: {
@@ -125,9 +202,7 @@ var lineChart = new Chart($('#graficoasistenciatotal'), {
           beginAtZero: true,
                    max: 100,
                    stepSize: 0,
-                   fontSize: 10,
-                   maxRotation: 90,
-                   minRotation: 90
+                   fontSize: 10
         }
       }],
       yAxes: [{
