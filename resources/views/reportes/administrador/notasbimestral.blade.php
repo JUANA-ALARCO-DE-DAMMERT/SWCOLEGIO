@@ -166,31 +166,31 @@ var lineChart = new Chart($('#graficoasistenciatotal'), {
             ],
     datasets: [{
       label: 'Bimestre I',
-
-      borderColor: '#FF6384',
-      pointBackgroundColor: '#FF6384',
-      pointBorderColor: '#FF6384',
+      backgroundColor: 'rgba(163, 255, 114 , 0.2)',
+      borderColor: 'rgba(163, 255, 114 , 1)',
+      pointBackgroundColor: 'rgba(163, 255, 114 , 1)',
+      pointBorderColor: 'rgba(163, 255, 114 , 1)',
       data: [({{$aa_arte1}}),({{$aa_cyt1}}),({{$aa_cc1}}),({{$aa_com1}}),({{$aa_ef1}}),({{$aa_in1}}),({{$aa_mat1}})]
     }, {
       label: 'Bimestre II',
-
-      borderColor: '#77DD77',
-      pointBackgroundColor: '#77DD77',
-      pointBorderColor: '#77DD77',
+      backgroundColor: 'rgba(255, 123, 123, 0.2)',
+      borderColor: 'rgba(255, 123, 123, 1)',
+      pointBackgroundColor: 'rgba(255, 123, 123, 1)',
+      pointBorderColor: 'rgba(255, 123, 123, 1)',
       data: [({{$aa_arte2}}),({{$aa_cyt2}}),({{$aa_cc2}}),({{$aa_com2}}),({{$aa_ef2}}),({{$aa_in2}}),({{$aa_mat2}})]
     },{
       label: 'Bimestre III',
-
-      borderColor: '#FFCE56',
-      pointBackgroundColor: '#FFCE56',
-      pointBorderColor: '#FFCE56',
+      backgroundColor: 'rgba(98, 255, 212, 0.2)',
+      borderColor: 'rgba(98, 255, 212, 1)',
+      pointBackgroundColor: 'rgba(98, 255, 212, 1)',
+      pointBorderColor: 'rgba(98, 255, 212, 1)',
       data: [({{$aa_arte3}}),({{$aa_cyt3}}),({{$aa_cc3}}),({{$aa_com3}}),({{$aa_ef3}}),({{$aa_in3}}),({{$aa_mat3}})]
     },{
       label: 'Bimestre IV',
-
-      borderColor: '#36A2EB',
-      pointBackgroundColor: '#36A2EB',
-      pointBorderColor: '#36A2EB',
+      backgroundColor: 'rgba(255, 230, 92, 0.2)',
+      borderColor: 'rgba(255, 230, 92, 1)',
+      pointBackgroundColor: 'rgba(255, 230, 92, 1)',
+      pointBorderColor: 'rgba(255, 230, 92, 1)',
       data: [({{$aa_arte3}}),({{$aa_cyt3}}),({{$aa_cc3}}),({{$aa_com3}}),({{$aa_ef3}}),({{$aa_in3}}),({{$aa_mat3}})]
     }]
   },
