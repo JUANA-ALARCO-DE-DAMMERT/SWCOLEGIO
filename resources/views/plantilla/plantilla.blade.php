@@ -124,12 +124,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('grafico')}}">
-                <i class="nav-icon fa fa-video-camera"></i> Grafico</a>
+                <i class="nav-icon fa fa-line-chart"></i> Grafico</a>
             </li>
               @if(Auth::user()->hasrole('admin'))
               <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#">
-                  <i class="nav-icon fa fa-users"></i> Reportes</a>
+                  <i class="nav-icon fa icon-chart"></i> Reportes</a>
                 <ul class="nav-dropdown-items">
                   <li class="nav-title">Tasa de Asistencia</li>
                   <li class="nav-item">
