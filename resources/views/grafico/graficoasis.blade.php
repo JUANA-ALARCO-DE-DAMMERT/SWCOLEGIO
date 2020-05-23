@@ -1,45 +1,6 @@
 @extends('plantilla.plantilla')
 @section('contenido')
-<div class="row mt-4">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-header">
-                <strong>Reporte mensual de asistencias</strong>
-            </div>
-            <div class="card-body">
-            	<form method="post" action="{{url('recebirreporteasismensual')}}" id="elForm">
-					@method('POST')
-					{{ csrf_field() }}
-					<div class="form-group row">
-                        <label class="col-md-1 col-form-label">F. Inicio</label>
-                        <div class="col-md-3">
-                            <input class="form-control" type="date" name="finicio" id="infechaini" onChange="sinDomingos();" onblur="obtenerfechafinf1();" required >
-                        </div>
-                        <label class="col-md-1 col-form-label">F. Fin</label>
-                        <div class="col-md-3">
-                            <input class="form-control" type="date" name="ffin"  >
-                        </div>
-                    </div> 
-                    <div class="form-group row">
-                    	<label class="col-md-1 col-form-label">Curso</label>
-                        <div class="col-md-3" >
-                            <select name="idasig" class="form-control">
-								<option hidden>---Seleccione---</option>
-								<option value="1">Matemáticas</option>
-								<option value="2">Comunicación</option>
-							</select>
-                        </div>
-                    </div>
-					<div class="form-actions">
-                        <input type="submit" value="Generar Reporte" id="elSubmit" class="btn btn-primary">
-                        <a href="{{url('home')}}" class="btn btn-danger">Cancelar</a>
-                    </div> 
-				</form>
-            </div>
-        </div>
-    </div>
-</div>
-             
+           
 <div>
   <div><br>
     <div class="container-fluid">
@@ -60,15 +21,6 @@
                   </div>
                 </div>
               </div> 
-
-
-
-
-            </div>
-          </div>
-        </div>
-  </div>
-</div>
 
 @endsection
 
@@ -123,9 +75,20 @@ function obtenerfechafinf1(){
 
 $fechas = DB::table('asistencia')
             ->select(DB::raw('count(asis_id) AS aa'),'asis_fecha')
-            ->where('asis_est','=','0')
-            ->whereBetween('asis_fecha',['2020-05-04','2020-05-29'])
+            ->whereBetween('asis_fecha',[$finicio,$ffin])
             ->groupBy('asis_fecha')
+            ->orderBy('asis_fecha','asc')
+            ->get();
+
+$data = DB::table('asistencia')
+            ->select(DB::raw('count(asistencia.asis_id) AS aa'),'asis_fecha')
+            ->join('curso','curso.curs_id','asistencia.asis_idcurso')
+            ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
+            ->where('asistencia.asis_est','=','0')
+            ->where('asignatura.asig_id','=',$asig)
+            ->whereBetween('asis_fecha',[$finicio,$ffin])
+            ->groupBy('asis_fecha')
+            ->orderBy('asis_fecha','asc')
             ->get();
 
 ?>
@@ -146,7 +109,12 @@ $fechas = DB::table('asistencia')
         borderColor: 'rgba(220, 220, 220)',
         pointBackgroundColor: 'rgba(220, 220, 220)',
         pointBorderColor: '#fff',
-        data: []
+        data: [
+          <?php 
+          foreach ($data as  $d) { ?>
+            '<?php echo $d->aa/50*100; ?>',
+            <?php } ?> 
+        ]
       }, 
       ]
     },
@@ -167,7 +135,9 @@ $fechas = DB::table('asistencia')
           beginAtZero: true,
                    max: 100,
                    stepSize: 0,
-                   fontSize: 11
+                   fontSize: 11,
+                   callback: function(value){return value+ "%"}
+
         }
       }],
     }

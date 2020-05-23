@@ -79,7 +79,6 @@ class ReportesController extends Controller
     public function recibirReporteAsisMensual(Request $req)
     {
         $data = $req->all();
-        //print_r($data);
 
        $query = DB::table('asistencia')
                 ->select(DB::raw('count(asis_id) AS aa'),'asis_fecha')
@@ -98,7 +97,6 @@ class ReportesController extends Controller
 
         $pdf = PDF::loadView('pdf.repasismensual',['data'=>$query,'contador'=>$contador]);
         return $pdf->download('Reporte:asistencia - Mensual.pdf');   
-
 
     }
 

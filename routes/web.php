@@ -89,3 +89,8 @@ Route::get('{idcurso}/videos','RecVideoController@listar')->name('recvideos');
 Route::get('{idcurso}/videos/create','RecVideoController@subir');
 
 
+// Rutas gráficas
+Route::get('grafico','GraficoController@showFormGraficoAsisMensual');
+Route::post('datagrafico','GraficoController@recibirFormGraficoAsisMensual');
+Route::get('showgrafico','GraficoController@mostrarGraficoAsistencia');
+

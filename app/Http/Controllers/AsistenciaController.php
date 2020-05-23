@@ -99,6 +99,12 @@ class AsistenciaController extends Controller
         }
     }
 
+    public function mostrargrafico()
+    {
+        echo "sexo";
+    }
+
+
     public function edit(Asistencia $asistencia)
     {
         //
