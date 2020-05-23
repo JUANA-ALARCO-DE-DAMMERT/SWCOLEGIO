@@ -105,10 +105,10 @@ $data = DB::table('asistencia')
       ],
       datasets: [{
         label: 'Notas',
-        backgroundColor: 'rgba(220, 220, 220)',
-        borderColor: 'rgba(220, 220, 220)',
-        pointBackgroundColor: 'rgba(220, 220, 220)',
-        pointBorderColor: '#fff',
+        backgroundColor: 'rgba(123, 159, 255 , 0.2)',
+        borderColor: 'rgba(123, 159, 255 , 1)',
+        pointBackgroundColor: 'rgba(123, 159, 255  , 1)',
+        pointBorderColor: 'rgba(123, 159, 255 , 1)',
         data: [
           <?php 
           foreach ($data as  $d) { ?>
@@ -134,7 +134,7 @@ $data = DB::table('asistencia')
         ticks: {
           beginAtZero: true,
                    max: 100,
-                   stepSize: 0,
+                   stepSize: 25,
                    fontSize: 11,
                    callback: function(value){return value+ "%"}
 

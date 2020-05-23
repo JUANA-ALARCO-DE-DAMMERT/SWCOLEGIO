@@ -187,13 +187,19 @@ var lineChart = new Chart($('#graficoasistenciatotal'), {
   },
 
   options: {
+
+
+
     scales: {
+
       xAxes: [{
         ticks: {
+
           beginAtZero: true,
                    max: 100,
                    stepSize: 0,
                    fontSize: 10
+
         }
       }],
       yAxes: [{
@@ -201,29 +207,12 @@ var lineChart = new Chart($('#graficoasistenciatotal'), {
           beginAtZero: true,
                    max: 100,
                    stepSize: 0,
-                   fontSize: 11
+                   fontSize: 11,
+                   callback: function(value){return value+ "%"}
         }
       }],
     }
   }
-
-
-  // options: {
-  //   scales: {
-  //          xAxes: [{
-  //              ticks: {
-  //                  beginAtZero: true,
-  //                  max: 100,
-  //                  stepSize: 0,
-  //                  fontSize: 8,
-  //                  maxRotation: 90,
-  //                  minRotation: 90
-  //              }
-  //          }],
-
-  //      }
-    
-  // },
 
 }); // eslint-disable-next-line no-unused-vars
 </script>
