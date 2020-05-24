@@ -40,7 +40,7 @@
     </div>
 </div>
              
-<div>
+<!-- <div>
   <div><br>
     <div class="container-fluid">
           <div class="animated fadeIn">
@@ -68,7 +68,7 @@
           </div>
         </div>
   </div>
-</div>
+</div> -->
 
 @endsection
 

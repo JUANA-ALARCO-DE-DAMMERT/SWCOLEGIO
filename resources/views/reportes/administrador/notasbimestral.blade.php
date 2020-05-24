@@ -34,21 +34,62 @@
 </div>
 
 
-<div class="row">
-  <div class="col-md-9">
-    <div class="card text-center">
-        <div class="card-header">Grafico de Notas Bimestrales
-          <div class="card-header-actions">
-            <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
-            </a>
+
+
+<div>
+  <div><br>
+    <div class="container-fluid">
+          <div class="animated fadeIn">
+            <div class="card-columns cols-2">
+
+        <div class="card">
+                <div class="card-header">Graficode de Alumnos Aprobados del IV Bimestre del 2019
+                  <div class="card-header-actions">
+                    <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
+                      <small class="text-muted">docs</small>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="grafico2019IV"></canvas>
+                  </div>
+                </div>
+              </div>             
+
+                <div class="card">
+                <div class="card-header">Comparativa de Alumnos Aprobados del año 2019 IV Bimestre/ con el de alumnos aprobados del 2020 I Bimestre
+                  <div class="card-header-actions">
+                    <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
+                      <small class="text-muted">docs</small>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="grafico2019vs2020"></canvas>
+                  </div>
+                </div>
+              </div>  
+
+              <div class="card">
+                <div class="card-header">Grafico de Alumnos Aprobados del Año 2020
+                  <div class="card-header-actions">
+                    <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
+                      <small class="text-muted">docs</small>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="grafico2020"></canvas>
+                  </div>
+                </div>
+              </div> 
+
+            </div>
           </div>
         </div>
-        <div class="card-body">
-          <div class="chart-wrapper">
-            <canvas id="graficoasistenciatotal"></canvas>
-          </div>
-        </div>
-    </div>  
   </div>
 </div>
 
@@ -146,7 +187,142 @@ $aa_mat4 = DB::table('notas')->join('curso','curso.curs_id','not_idcurso')->wher
 
 ?>
 
-var lineChart = new Chart($('#graficoasistenciatotal'), {
+var lineChart = new Chart($('#grafico2019IV'), {
+  type: 'line',
+  data: {
+    labels: [
+    <?php 
+          foreach ($fechas as  $fecha) { ?>
+            '<?php echo $fecha->asig_nom; ?>',
+          <?php } ?>
+            ],
+    datasets: [{
+      label: 'Bimestre I',
+      backgroundColor: 'rgba(123, 159, 255 , 0.2)',
+      borderColor: 'rgba(123, 159, 255 , 1)',
+      pointBackgroundColor: 'rgba(123, 159, 255  , 1)',
+      pointBorderColor: 'rgba(123, 159, 255 , 1)',
+      data: []
+    }, {
+      label: 'Bimestre II',
+      backgroundColor: 'rgba(255, 123, 123, 0.2)',
+      borderColor: 'rgba(255, 123, 123, 1)',
+      pointBackgroundColor: 'rgba(255, 123, 123, 1)',
+      pointBorderColor: 'rgba(255, 123, 123, 1)',
+      data: []
+    },{
+      label: 'Bimestre III',
+      backgroundColor: 'rgba(98, 255, 212, 0.2)',
+      borderColor: 'rgba(98, 255, 212, 1)',
+      pointBackgroundColor: 'rgba(98, 255, 212, 1)',
+      pointBorderColor: 'rgba(98, 255, 212, 1)',
+      data: []
+    },{
+      label: 'Bimestre IV',
+      backgroundColor: 'rgba(255, 230, 92, 0.2)',
+      borderColor: 'rgba(255, 230, 92, 1)',
+      pointBackgroundColor: 'rgba(255, 230, 92, 1)',
+      pointBorderColor: 'rgba(255, 230, 92, 1)',
+      data: [30/50*100,29/50*100,31/50*100,27/50*100,31/50*100,32/50*100,30/50*100]
+    }]
+  },
+
+  options: {
+
+
+
+    scales: {
+
+      xAxes: [{
+        ticks: {
+
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 8,
+                   maxRotation: 90,
+                   minRotation: 10
+
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 11,
+                   callback: function(value){return value+ "%"}
+        }
+      }],
+    }
+  }
+
+}); // eslint-disable-next-line no-unused-vars
+</script>
+
+<script type="text/javascript">
+  var lineChart = new Chart($('#grafico2019vs2020'), {
+  type: 'line',
+  data: {
+    labels: [
+    <?php 
+          foreach ($fechas as  $fecha) { ?>
+            '<?php echo $fecha->asig_nom; ?>',
+          <?php } ?>
+            ],
+    datasets: [{
+      label: 'I Bimestre 2020',
+      backgroundColor: 'rgba(255, 123, 123, 0.2)',
+      borderColor: 'rgba(255, 123, 123, 1)',
+      pointBackgroundColor: 'rgba(255, 123, 123, 1)',
+      pointBorderColor: 'rgba(255, 123, 123, 1)',
+      data: [({{$aa_arte1}}/50*100),({{$aa_cyt1}}/50*100),({{$aa_cc1}}/50*100),({{$aa_com1}}/50*100),({{$aa_ef1}}/50*100),({{$aa_in1}}/50*100),({{$aa_mat1}}/50*100)]
+    },{
+      label: 'IV Bimestre 2019',
+      backgroundColor: 'rgba(98, 255, 212, 0.2)',
+      borderColor: 'rgba(98, 255, 212, 1)',
+      pointBackgroundColor: 'rgba(98, 255, 212, 1)',
+      pointBorderColor: 'rgba(98, 255, 212, 1)',
+      data: [30/50*100,29/50*100,31/50*100,27/50*100,31/50*100,32/50*100,30/50*100]
+    }]
+  },
+
+  options: {
+
+
+
+    scales: {
+
+      xAxes: [{
+        ticks: {
+
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 8,
+                   maxRotation: 90,
+                   minRotation: 15
+
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 11,
+                   callback: function(value){return value+ "%"}
+        }
+      }],
+    }
+  }
+
+}); // eslint-disable-next-line no-unused-vars
+</script>
+
+
+<script type="text/javascript">
+  var lineChart = new Chart($('#grafico2020'), {
   type: 'line',
   data: {
     labels: [
@@ -198,7 +374,9 @@ var lineChart = new Chart($('#graficoasistenciatotal'), {
           beginAtZero: true,
                    max: 100,
                    stepSize: 0,
-                   fontSize: 10
+                   fontSize: 8,
+                   maxRotation: 90,
+                   minRotation: 15
 
         }
       }],
@@ -216,6 +394,4 @@ var lineChart = new Chart($('#graficoasistenciatotal'), {
 
 }); // eslint-disable-next-line no-unused-vars
 </script>
-
-
 @endsection
