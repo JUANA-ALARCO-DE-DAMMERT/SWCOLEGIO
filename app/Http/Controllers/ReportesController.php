@@ -119,7 +119,7 @@ class ReportesController extends Controller
                 ->groupBy('asignatura.asig_nom')
                 ->get();
 
-        $pdf = PDF::loadView('pdf.repnotasbimestral',['data'=>$query]);
+        $pdf = PDF::loadView('pdf.repnotasbimestral',['data'=>$query, 'nbim'=>$data['nbim']]);
         return $pdf->download('Reporte:notas - Bimestral.pdf');    
 
 

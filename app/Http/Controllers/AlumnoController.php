@@ -218,7 +218,7 @@ class AlumnoController extends Controller
                                     'n11alumnos'=>$nro_alumnoquintos,
                                     'totalalum'=>$totalalum
                                 ]);
-        $pdf->setPaper('A4', 'landscape');
+        // $pdf->setPaper('A4', 'landscape');
         return $pdf->download('Alumnos - JuanaAlarcoDeDammert.pdf');
     }
 
