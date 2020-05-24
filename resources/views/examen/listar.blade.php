@@ -6,6 +6,9 @@
                 ->first(); ?>
 <div class="row mt-4">
     <div class="col-md-6">
+        @if(Auth::user()->hasRole('docen'))
+            <a href="{{url('newexamen/'.$idcurso)}}" class="btn btn-primary">Subir Exámen en línea</a>
+        @endif
     </div>
     <div class="col-md-6">
         @if (session('status'))
@@ -25,7 +28,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-hover table-bordered table-sm">
+                <table class="table table-hover table-bordered table-sm" id="dataTable">
                     <thead>
                         <tr>
                             <th>Título</th>

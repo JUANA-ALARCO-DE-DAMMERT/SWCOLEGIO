@@ -76,7 +76,7 @@ class ExamenLineaController extends Controller
                 });
             }
 
-        return redirect()->route('curso.show',array('curso' => $obj['exa_idcurso']))->with('status', 'Exámen agregado correctamente!');
+        return redirect()->route('exa.show',array('idcurso' => $obj['exa_idcurso']))->with('status', 'Exámen agregado correctamente!');
     }
 
     /**

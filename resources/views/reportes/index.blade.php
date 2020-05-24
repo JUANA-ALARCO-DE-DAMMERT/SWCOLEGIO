@@ -10,11 +10,15 @@
         @endif
     </div>
 </div>
+<?php  $q = DB::table('curso')
+                ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
+                ->where('curso.curs_id','=',$idcurso)
+                ->first(); ?>
 <div class="row">
     <div class="col-sm-12">
         <div class="card my-3">
             <div class="card-header">
-                <i class="fa fa-align-justify"></i> Código del curso: {{$idcurso}}
+                <i class="fa fa-align-justify"></i> Curso: {{$q->asig_nom}}
             </div>
             <div class="card-body">
                 @if(Auth::user()->hasRole('docen'))
