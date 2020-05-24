@@ -29,6 +29,11 @@
     <div class="col-md-12">
         <div class="card my-3">
             <div class="card-header">
+                @if(Auth::user()->hasRole('docen'))
+                    <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#rf"> Rango de fechas</button>
+                    @include('asistencia.modal')
+                @endif
+                
                 <div class="card-header-actions">
                     <a href="{{url('curso/'.$idcurso)}}" class="btn btn-block btn-outline-dark btn-sm"><i class="fa fa-mail-reply"></i></a>
                 </div>

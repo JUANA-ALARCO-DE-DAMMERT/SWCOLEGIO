@@ -99,9 +99,22 @@ class AsistenciaController extends Controller
         }
     }
 
-    public function mostrargrafico()
+    public function recibirFiltros(Request $req)
     {
-        echo "sexo";
+        $data =$req->all();
+        $alumnos = DB::table('alumno_curso')
+                ->join('alumno','alumno.alum_id','alumno_curso.alumno_id')
+                ->where('alumno_curso.curso_id','=',$data['idcurso'])
+                ->orderby('alumno.alum_ape','asc')
+                ->get();
+        $fechas = DB::table('asistencia')
+                    ->select('asistencia.asis_fecha')
+                    ->whereBetween('asis_fecha', [$data['finicio'],$data['ffin']])
+                    ->where('asistencia.asis_idcurso','=',$data['idcurso'])
+                    ->distinct()
+                    ->orderby('asistencia.asis_fecha','asc')
+                    ->get();     
+        return view('asistencia.rango',['idcurso'=>$data['idcurso'],'finicio' => $data['finicio'], 'ffin' => $data['ffin'] , 'alumnos'=>$alumnos,'fechas'=>$fechas]);
     }
 
 
