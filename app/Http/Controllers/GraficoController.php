@@ -22,6 +22,16 @@ class GraficoController extends Controller
     									]);
     }
 
+    public function showFormGraficoNotasMensual()
+    {
+        return view ('grafico.formnotas');
+    }
 
+    public function recibirFormGraficoNotasMensual(Request $req)
+    {
+        $data = $req->all();
+        
+        return view('grafico.graficonotas',['nbim'=>$data['nbim']]);
+    }
 
 }

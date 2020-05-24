@@ -47,5 +47,11 @@
  	   2° de primaria: {{$n2alumnos}}<br>
  	   3° de primaria: {{$n3alumnos}}<br>
  	   4° de primaria: {{$n4alumnos}}<br>
- 	   5° de primaria: {{$n5alumnos}}</p>
+ 	   5° de primaria: {{$n5alumnos}}<br>
+ 	   6° de primaria: {{$n6alumnos}}<br>
+ 	   1° de secundaria: {{$n7alumnos}}<br>
+ 	   2° de secundaria: {{$n8alumnos}}<br>
+ 	   3° de secundaria: {{$n9alumnos}}<br>
+ 	   4° de secundaria: {{$n10alumnos}}<br>
+ 	   5° de secundaria: {{$n11alumnos}}<br>
 <p>Total: {{$totalalum}}</p>

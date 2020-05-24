@@ -10,8 +10,8 @@
               <div class="card">
                 <div class="card-header">Grafico de Asistencias de alumnos
                   <div class="card-header-actions">
-                    <a class="card-header-action" href="http://www.chartjs.org" target="_blank">
-                      <small class="text-muted">docs</small>
+                    <a class="card-header-action" href="{{url('grafico')}}">
+                      <i class="fa fa-mail-reply"></i>
                     </a>
                   </div>
                 </div>

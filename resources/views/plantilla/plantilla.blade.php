@@ -122,10 +122,6 @@
               <a class="nav-link" href="{{url('video')}}">
                 <i class="nav-icon fa fa-video-camera"></i> Videos</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('grafico')}}">
-                <i class="nav-icon fa fa-line-chart"></i> Grafico</a>
-            </li>
               @if(Auth::user()->hasrole('admin'))
               <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#">
@@ -147,6 +143,22 @@
                   </li>
                 </ul>
               </li> 
+              <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                  <i class="nav-icon fa fa-line-chart"></i> Gráficos</a>
+                <ul class="nav-dropdown-items">
+                  <li class="nav-title">Tasa de Asistencia</li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('grafico')}}">
+                      <small>G. de Asistencia - Mensual</small></a>
+                  </li>
+                  <li class="nav-title">Tasa de Aprobación</li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('graficonotas')}}">
+                      <small>G. de Aprobación - Bimestral</small></a>
+                  </li>
+                </ul>
+              </li>
               @endif       
             @endif
             @if(Auth::user()->hasrole('docen'))

@@ -197,6 +197,12 @@ class AlumnoController extends Controller
         $nro_alumnotercero = DB::table('alumno')->where([['alum_grad','=','3'],['alum_est','=','1']])->count();
         $nro_alumnocuarto = DB::table('alumno')->where([['alum_grad','=','4'],['alum_est','=','1']])->count(); 
         $nro_alumnoquinto = DB::table('alumno')->where([['alum_grad','=','5'],['alum_est','=','1']])->count();
+        $nro_alumnosexto = DB::table('alumno')->where([['alum_grad','=','6'],['alum_est','=','1']])->count();
+        $nro_alumnoprimeros = DB::table('alumno')->where([['alum_grad','=','7'],['alum_est','=','1']])->count();
+        $nro_alumnosegundos = DB::table('alumno')->where([['alum_grad','=','8'],['alum_est','=','1']])->count();
+        $nro_alumnoterceros = DB::table('alumno')->where([['alum_grad','=','9'],['alum_est','=','1']])->count();
+        $nro_alumnocuartos = DB::table('alumno')->where([['alum_grad','=','10'],['alum_est','=','1']])->count(); 
+        $nro_alumnoquintos = DB::table('alumno')->where([['alum_grad','=','11'],['alum_est','=','1']])->count();
         $pdf = PDF::loadView('pdf.alumnos',[
                                     'data'=>$data,
                                     'n1alumnos'=>$nro_alumnoprimero,
@@ -204,6 +210,12 @@ class AlumnoController extends Controller
                                     'n3alumnos'=>$nro_alumnotercero,
                                     'n4alumnos'=>$nro_alumnocuarto,
                                     'n5alumnos'=>$nro_alumnoquinto,
+                                    'n6alumnos'=>$nro_alumnosexto,
+                                    'n7alumnos'=>$nro_alumnoprimeros,
+                                    'n8alumnos'=>$nro_alumnosegundos,
+                                    'n9alumnos'=>$nro_alumnoterceros,
+                                    'n10alumnos'=>$nro_alumnocuartos,
+                                    'n11alumnos'=>$nro_alumnoquintos,
                                     'totalalum'=>$totalalum
                                 ]);
         $pdf->setPaper('A4', 'landscape');

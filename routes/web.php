@@ -92,5 +92,5 @@ Route::get('{idcurso}/videos/create','RecVideoController@subir');
 // Rutas gráficas
 Route::get('grafico','GraficoController@showFormGraficoAsisMensual');
 Route::post('datagrafico','GraficoController@recibirFormGraficoAsisMensual');
-Route::get('showgrafico','GraficoController@mostrarGraficoAsistencia');
-
+Route::get('graficonotas','GraficoController@showFormGraficoNotasMensual');
+Route::post('datagraficonotas','GraficoController@recibirFormGraficoNotasMensual');
