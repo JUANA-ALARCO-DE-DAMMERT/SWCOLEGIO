@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-responsive" id="">
+                <table class="table table-responsive">
                     <thead>
                         <tr>
                             <th>Alumnos</th>

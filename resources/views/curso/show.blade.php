@@ -10,11 +10,17 @@
         @endif
     </div>
 </div>
+
+<?php  $q = DB::table('curso')
+                ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
+                ->where('curso.curs_id','=',$curso->curs_id)
+                ->first(); ?>
+
 <div class="row">
     <div class="col-sm-12">
         <div class="card my-3">
             <div class="card-header">
-                <i class="fa fa-align-justify"></i> Código del curso: {{$curso->curs_id}}
+                <i class="fa fa-align-justify"></i> Curso: {{$q->asig_nom}}
             </div>
             <div class="card-body">
                 
@@ -23,10 +29,12 @@
                 <a href="{{url($curso->curs_id.'/recursos')}}" class="btn btn-light">Recursos</a>
                 <a href="{{url($curso->curs_id.'/videos')}}" class="btn btn-light">Videos</a>
                 @if(Auth::user()->hasRole('docen'))
-                    <a href="{{url('newexamen',['idcurso'=>$curso->curs_id])}}" class="btn btn-light">Subir Exámen en línea</a>
+                    <!-- <a href="{{url('newexamen',['idcurso'=>$curso->curs_id])}}" class="btn btn-light">Subir Exámen en línea</a>-->
+                    <a href="{{url('exavirtual',['idcurso'=>$curso->curs_id])}}" class="btn btn-light">Exámen en línea</a>
                     <a href="{{url('reportes/'.$curso->curs_id)}}" class="btn btn-light">Reportes</a>
                 @endif
                 @if(Auth::user()->hasRole('alum'))
+                    <!-- <a href="{{url('exavirtual',['idcurso'=>$curso->curs_id])}}" class="btn btn-light">Ver exámen en línea</a> -->
                     <a href="{{url('exavirtual',['idcurso'=>$curso->curs_id])}}" class="btn btn-light">Ver exámen en línea</a>
                 @endif
             </div>

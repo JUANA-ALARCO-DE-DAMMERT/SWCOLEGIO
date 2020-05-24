@@ -13,17 +13,21 @@
         @endif
     </div>
 </div>
+<?php  $q = DB::table('curso')
+                ->join('asignatura','asignatura.asig_id','curso.curs_idasig')
+                ->where('curso.curs_id','=',$idcurso)
+                ->first(); ?>
 <div class="row">
     <div class="col-sm-12">
         <div class="card my-3">
             <div class="card-header">
-                <i class="fa fa-align-justify"></i> Código del curso: {{$idcurso}} / {{$nbim}}° Bimestre / Recursos
+                <i class="fa fa-align-justify"></i> Curso: {{$q->asig_nom}} / {{$nbim}}° Bimestre / Recursos
                 <div class="card-header-actions">
                     <a href="{{url($idcurso.'/recursos')}}" class="btn btn-block btn-outline-dark btn-sm"><i class="fa fa-mail-reply"></i></a>
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-hover table-bordered table-sm">
+                <table class="table table-hover table-bordered table-sm" id="dataTable">
                     <thead>
                         <tr>
                             <th>Archivo</th>
