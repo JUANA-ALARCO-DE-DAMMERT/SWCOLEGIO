@@ -50,7 +50,6 @@
                 </div>
               </div> 
 
-
 @endsection
 
 @section('scripts')
@@ -88,6 +87,29 @@ $data = DB::table('asistencia')
             ->groupBy('asis_fecha')
             ->orderBy('asis_fecha','asc')
             ->get();
+
+$query = DB::table('asistencia')
+                ->select(DB::raw('count(asis_id) AS aa'),'asis_fecha')
+                ->join('curso','curso.curs_id','asistencia.asis_idcurso')
+                ->where('asis_est','=','0')
+                ->where('curso.curs_idasig','=',$asig)
+                ->whereBetween('asis_fecha',[$finicio,$ffin])
+                ->groupBy('asis_fecha')
+                ->orderBy('asis_fecha','asc')
+                ->get();
+
+$contador = DB::table('asistencia')
+                    ->distinct('asis_fecha')
+                    ->whereBetween('asis_fecha',[$finicio,$ffin])
+                    ->count();
+
+$acumulador =0;
+foreach($data as $q){
+
+    $acumulador = $acumulador + ($q->aa / 50 * 100);
+}
+
+$prom = ($acumulador / $contador); 
 
 ?>
 
@@ -232,7 +254,7 @@ $data = DB::table('asistencia')
   data: {
     labels: ['Septiembre 2019', 'Mayo 2020'],
     datasets: [{
-      data: [59, 89],
+      data: [55, <?php echo $prom; ?>],
       backgroundColor: ['#FF6384', '#36A2EB'],
       hoverBackgroundColor: ['#FF6384', '#36A2EB']
     }]
