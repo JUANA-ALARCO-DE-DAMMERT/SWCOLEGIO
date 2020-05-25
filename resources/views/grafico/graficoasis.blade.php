@@ -8,7 +8,7 @@
             <div class="card-columns cols-2">
 
               <div class="card">
-                <div class="card-header">Grafico de Asistencias de alumnos
+                <div class="card-header">Asistencias de alumnos del {{date("d/m/Y", strtotime($finicio))}} al {{date("d/m/Y", strtotime($ffin))}}
                   <div class="card-header-actions">
                     <a class="card-header-action" href="{{url('grafico')}}">
                       <i class="fa fa-mail-reply"></i>
@@ -21,33 +21,39 @@
                   </div>
                 </div>
               </div> 
+              <div class="card">
+                <div class="card-header">RE-TEST vs POST-TEST
+                  <div class="card-header-actions">
+                    <a class="card-header-action" href="{{url('grafico')}}">
+                      <i class="fa fa-mail-reply"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="graficoretestvsposttest"></canvas>
+                  </div>
+                </div>
+              </div> 
+              <div class="card">
+                <div class="card-header">RE-TEST (%Asistencia - Septiembre 2019)
+                  <div class="card-header-actions">
+                    <a class="card-header-action" href="{{url('grafico')}}">
+                      <i class="fa fa-mail-reply"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas id="graficoretest"></canvas>
+                  </div>
+                </div>
+              </div> 
+
 
 @endsection
 
 @section('scripts')
-<script type="text/javascript">
-    
-var elDate = document.getElementById('infechaini');
-var elForm = document.getElementById('elForm');
-var elSubmit = document.getElementById('elSubmit');
-
-function sinDomingos(){
-    var day = new Date(elDate.value ).getUTCDay();
-    // Días 0-6, 0 es Domingo 6 es Sábado
-    elDate.setCustomValidity(''); // limpiarlo para evitar pisar el fecha inválida
-    if( day == 0 || day == 6 ){
-       elDate.setCustomValidity('por favor seleccione otro día de Lunes a Viernes');
-    } else {
-       elDate.setCustomValidity('');
-    }
-    if(!elForm.checkValidity()) {elSubmit.click()};
-}
-
-function obtenerfechafinf1(){
-    sinDomingos();
-}
-
-</script>
 
 <script src="{{asset('plantilla/node_modules/popper.js/dist/umd/popper.min.js')}}"></script>
     <script src="{{asset('plantilla/node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
@@ -62,14 +68,6 @@ function obtenerfechafinf1(){
 
 
 <script type="text/javascript">
-    function val() {
-        d = document.getElementById("nbim").value;
-        alert(d);
-    }  
-
-
-
-
 
 <?php 
 
@@ -104,7 +102,7 @@ $data = DB::table('asistencia')
             <?php } ?>  
       ],
       datasets: [{
-        label: 'Notas',
+        label: '%Asistencias',
         backgroundColor: 'rgba(123, 159, 255 , 0.2)',
         borderColor: 'rgba(123, 159, 255 , 1)',
         pointBackgroundColor: 'rgba(123, 159, 255  , 1)',
@@ -127,7 +125,7 @@ $data = DB::table('asistencia')
                    stepSize: 0,
                    fontSize: 10,
                    maxRotation: 90,
-                   minRotation: 90
+                   minRotation: 15
         }
       }],
       yAxes: [{
@@ -142,9 +140,147 @@ $data = DB::table('asistencia')
       }],
     }
   }
-
-
-
   }); // eslint-disable-next-line no-unused-vars
 </script>
+<script type="text/javascript">
+    var lineChart = new Chart($('#graficoretest'), {
+    type: 'line',
+    data: {
+      labels: [
+        '02/09/2019',
+        '03/09/2019',
+        '04/09/2019',
+        '05/09/2019',
+        '06/09/2019',
+        '09/09/2019',
+        '10/09/2019',
+        '11/09/2019',
+        '12/09/2019',
+        '13/09/2019',
+        '16/09/2019',
+        '17/09/2019',
+        '18/09/2019',
+        '19/09/2019',
+        '20/09/2019',
+        '23/09/2019',
+        '24/09/2019',
+        '25/09/2019',
+        '26/09/2019',
+        '27/09/2019'
+      ],
+      datasets: [{
+        label: '%Asistencias',
+        backgroundColor: 'rgba(123, 159, 255 , 0.2)',
+        borderColor: 'rgba(123, 159, 255 , 1)',
+        pointBackgroundColor: 'rgba(123, 159, 255  , 1)',
+        pointBorderColor: 'rgba(123, 159, 255 , 1)',
+        data: [
+          56,
+          56,
+          58,
+          60,
+          52,
+          54,
+          58,
+          56,
+          54,
+          58,
+          50,
+          54,
+          58,
+          54,
+          54,
+          58,
+          54,
+          54,
+          56,
+          54
+        ]
+      }, 
+      ]
+    },
+    options: {
+    scales: {
+      xAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 10,
+                   maxRotation: 90,
+                   minRotation: 15
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   min: 44,
+                   max: 62,
+                   stepSize: 2,
+                   fontSize: 11,
+                   callback: function(value){return value+ "%"}
+
+        }
+      }],
+    }
+  }
+  }); // eslint-disable-next-line no-unused-vars
+</script>
+<script type="text/javascript">
+  var radarChart = new Chart($('#graficoretestvsposttest'), {
+  type: 'bar',
+  data: {
+    labels: [
+        
+          ],
+    datasets: [{
+      label: 'I Bimestre',
+      backgroundColor: 'rgba(123, 159, 255 , 0.2)',
+      borderColor: 'rgba(123, 159, 255 , 1)',
+      pointBackgroundColor: 'rgba(123, 159, 255  , 1)',
+      pointBorderColor: 'rgba(123, 159, 255 , 1)',
+      data: [
+          70
+      ]
+    }, {
+      label: 'II Bimestre',
+      backgroundColor: 'rgba(255, 123, 123, 0.2)',
+      borderColor: 'rgba(255, 123, 123, 1)',
+      pointBackgroundColor: 'rgba(255, 123, 123, 1)',
+      pointBorderColor: 'rgba(255, 123, 123, 1)',
+      data: [
+        20
+    }]
+  },
+  options: {
+
+
+
+    scales: {
+
+      xAxes: [{
+        ticks: {
+
+          beginAtZero: true,
+                   max: 100,
+                   stepSize: 0,
+                   fontSize: 8,
+                   maxRotation: 90,
+                   minRotation: 10
+
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+                   max: 20,
+                   stepSize: 0,
+                   fontSize: 11
+        }
+      }],
+    }
+  }
+}); // eslint-disable-next-line no-unused-vars
+</script>
+
 @endsection

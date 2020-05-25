@@ -50,7 +50,7 @@
         <div class="row">
         	<div class="col-md-6">
         		<div class="card">
-	                <div class="card-header">PRE-TEST (Alumnos Aprobados del IV Bimestre - 2019)
+	                <div class="card-header">RE-TEST (Alumnos Aprobados del IV Bimestre - 2019)
 	                  <div class="card-header-actions">
 	                    <a class="card-header-action" href="{{url('graficonotas')}}" >
 	                      <i class="fa fa-mail-reply"></i>
@@ -66,7 +66,7 @@
         	</div>
         	<div class="col-md-6">
         		<div class="card">
-	                <div class="card-header">PRE-TEST vs POST-TEST
+	                <div class="card-header">RE-TEST vs POST-TEST
 	                  <div class="card-header-actions">
 	                    <a class="card-header-action" href="{{url('graficonotas')}}" >
 	                      <i class="fa fa-mail-reply"></i>
