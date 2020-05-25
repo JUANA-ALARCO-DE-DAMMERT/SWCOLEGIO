@@ -227,58 +227,18 @@ $data = DB::table('asistencia')
   }); // eslint-disable-next-line no-unused-vars
 </script>
 <script type="text/javascript">
-  var radarChart = new Chart($('#graficoretestvsposttest'), {
-  type: 'bar',
+  var doughnutChart = new Chart($('#graficoretestvsposttest'), {
+  type: 'doughnut',
   data: {
-    labels: [
-        
-          ],
+    labels: ['Septiembre 2019', 'Mayo 2020'],
     datasets: [{
-      label: 'I Bimestre',
-      backgroundColor: 'rgba(123, 159, 255 , 0.2)',
-      borderColor: 'rgba(123, 159, 255 , 1)',
-      pointBackgroundColor: 'rgba(123, 159, 255  , 1)',
-      pointBorderColor: 'rgba(123, 159, 255 , 1)',
-      data: [
-          70
-      ]
-    }, {
-      label: 'II Bimestre',
-      backgroundColor: 'rgba(255, 123, 123, 0.2)',
-      borderColor: 'rgba(255, 123, 123, 1)',
-      pointBackgroundColor: 'rgba(255, 123, 123, 1)',
-      pointBorderColor: 'rgba(255, 123, 123, 1)',
-      data: [
-        20
+      data: [59, 89],
+      backgroundColor: ['#FF6384', '#36A2EB'],
+      hoverBackgroundColor: ['#FF6384', '#36A2EB']
     }]
   },
   options: {
-
-
-
-    scales: {
-
-      xAxes: [{
-        ticks: {
-
-          beginAtZero: true,
-                   max: 100,
-                   stepSize: 0,
-                   fontSize: 8,
-                   maxRotation: 90,
-                   minRotation: 10
-
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          beginAtZero: true,
-                   max: 20,
-                   stepSize: 0,
-                   fontSize: 11
-        }
-      }],
-    }
+    responsive: true
   }
 }); // eslint-disable-next-line no-unused-vars
 </script>
