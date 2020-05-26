@@ -44,7 +44,11 @@
                             <td>{{$examen->exa_fecha}}</td>
                             <td>{{$examen->trab_ape . ', ' . $examen->trab_nom}}</td>
                             <td>
-                                <a href="{{url('examen/'.$examen->exa_id)}}" class="btn btn-secondary btn-sm"><i class="fa fa-file-text"></i></a>                 
+                                <a href="{{url('examen/'.$examen->exa_id)}}" class="btn btn-secondary btn-sm"><i class="fa fa-file-text"></i></a>
+                                @if(Auth::user()->hasrole('docen'))
+                                <a href="{{url('examen/'.$examen->exa_id.'/edit')}}" title="Editar examen" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
+                                <a href="{{url('')}}" title="eliminar examen" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                @endif              
                             </td>
                         </tr>
                         @endforeach

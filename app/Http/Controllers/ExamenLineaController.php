@@ -97,29 +97,26 @@ class ExamenLineaController extends Controller
      * @param  \App\ExamenLinea  $examenLinea
      * @return \Illuminate\Http\Response
      */
-    public function edit(ExamenLinea $examenLinea)
+    public function edit($id,$idcurso)
     {
-        //
+        
+        $exa = ExamenLinea::find($id);
+        $examen = DB::table('examen')
+                    ->where('exa_idcurso','=',$idcurso)
+                    ->get();
+        return view ('examen.edit',['exa'=>$exa,'idcurso'=>$idcurso, 'examen'=>$examen]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ExamenLinea  $examenLinea
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ExamenLinea $examenLinea)
+
+    public function update(Request $request, $idcurso)
     {
-        //
+        // $exa = ExamenLinea::find($id);
+        // $request->all();
+        // $exa->update($request->all());
+        // return redirect()->route('exa.show',array('idcurso' => $obj['exa_idcurso']))->with('status', 'Exámen agregado correctamente!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ExamenLinea  $examenLinea
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(ExamenLinea $examenLinea)
     {
         //
