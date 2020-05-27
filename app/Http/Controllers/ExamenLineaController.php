@@ -97,28 +97,26 @@ class ExamenLineaController extends Controller
      * @param  \App\ExamenLinea  $examenLinea
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,$idcurso)
+    public function edit($id)
     {
-        
         $exa = ExamenLinea::find($id);
-        $examen = DB::table('examen')
-                    ->where('exa_idcurso','=',$idcurso)
-                    ->get();
-        return view ('examen.edit',['exa'=>$exa,'idcurso'=>$idcurso, 'examen'=>$examen]);
+        return view ('examen.edit',['examen'=>$exa]);
     }
 
 
-    public function update(Request $request, $idcurso)
+    public function update(Request $request)
     {
-        // $exa = ExamenLinea::find($id);
-        // $request->all();
-        // $exa->update($request->all());
-        // return redirect()->route('exa.show',array('idcurso' => $obj['exa_idcurso']))->with('status', 'Exámen agregado correctamente!');
+        $data = $request->all();
+        $exa = ExamenLinea::find($data['exa_id']);
+        $exa->update($request->all());
+        return redirect()->route('exa.show',array('idcurso' => $exa->exa_idcurso))->with('status', 'Exámen editado correctamente!');
     }
 
-
-    public function destroy(ExamenLinea $examenLinea)
+    public function destroy($id)
     {
-        //
+        $exa = ExamenLinea::find($id);
+        ExamenLinea::destroy($id);
+        return redirect()->route('exa.show',array('idcurso' => $exa->exa_idcurso))->with('status', 'Exámen eliminado correctamente!');
+
     }
 }

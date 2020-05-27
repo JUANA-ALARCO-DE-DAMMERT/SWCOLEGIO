@@ -29,13 +29,13 @@
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Link</label>
                         <div class="col-md-11">
-                            <input type="hidden" name="exa_idcurso" value="{{$idcurso}}">
-                            <textarea name="exa_link" value="{{exa_link}}" required class="form-control"></textarea>
+                            <input type="hidden" name="exa_id" value="{{$examen->exa_id}}">
+                            <textarea name="exa_link" required class="form-control">{{$examen->exa_link}}</textarea>
                         </div>
                     </div>
                     <div class="form-actions">
-                        <input type="submit" value="editar" class="btn btn-primary">
-                        <a href="" class="btn btn-danger">Cancelar</a>
+                        <input type="submit" value="Modificar" class="btn btn-warning">
+                        <a href="{{url('exavirtual/'.$examen->exa_idcurso)}}" class="btn btn-danger">Cancelar</a>
                     </div> 
                 </form>
             </div>
