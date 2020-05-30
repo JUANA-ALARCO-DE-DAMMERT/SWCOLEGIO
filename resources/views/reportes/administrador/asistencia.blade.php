@@ -21,6 +21,11 @@
 								<option hidden>---Seleccione---</option>
 								<option value="1">Matemáticas</option>
 								<option value="2">Comunicación</option>
+                                <option value="3">Ciencias Sociales</option>
+                                <option value="4">Ciencia y Tecnologia</option>
+                                <option value="5">Arte y Cultura</option>
+                                <option value="6">Educacion Fisica</option>
+                                <option value="7">Ingles</option>
 							</select>
                         </div>
                     </div> 
