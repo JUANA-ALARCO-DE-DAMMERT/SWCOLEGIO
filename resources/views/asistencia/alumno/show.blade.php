@@ -6,10 +6,10 @@
             <div class="card-header">
             </div>
             <div class="card-body">
-                <table class="table">
+                <table class="table table-responsive-sm table-hover table-sm" id="dataTable">
                     <thead>
                         <tr>
-                            <th>Fecha</th>
+                            <th>Fechas</th>
                             <th>Estado</th>
                         </tr>
                     </thead>

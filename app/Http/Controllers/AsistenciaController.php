@@ -93,6 +93,7 @@ class AsistenciaController extends Controller
                             ->where('alumno.alum_user','=',Auth::user()->usuario)->first();
             $asis = DB::table('asistencia')
                     ->where([['asistencia.asis_idcurso','=',$id],['asistencia.asis_idalumno','=',$trab_data->alum_id]])
+                    ->orderby('asistencia.asis_fecha','asc')
                     ->get();
             return view('asistencia.alumno.show',['asis'=>$asis]);
 
