@@ -61,7 +61,9 @@
                                 <input type="hidden" value="{{$file->rec_archivo}}" name="filename">
                                 <input type="hidden" value="{{$idcurso}}" name="idcurso">
                                 <td><button type="submit" class="btn btn-success btn-sm"><i class="fa fa-download"></i></button>
+                                    @if(Auth::user()->hasrole('docen'))
                                 <a data-target="#modal-delete-{{$file->rec_id}}" title="eliminar file" data-toggle="modal" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>    
+                                 @endif 
                                 </td>
                                 
                                 @include('recursos.delete')
