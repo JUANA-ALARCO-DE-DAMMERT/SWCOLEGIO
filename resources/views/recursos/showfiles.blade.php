@@ -33,7 +33,7 @@
                             <th>Archivo</th>
                             <th>Propietario</th>
                             <th>Fecha</th>
-                            <th>Opciones</th>
+                            <th>Opcionesss</th>
                         </tr>
                     </thead>
                     <tbody>
