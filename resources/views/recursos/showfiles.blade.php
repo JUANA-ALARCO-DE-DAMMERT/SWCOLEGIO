@@ -61,9 +61,10 @@
                                 <input type="hidden" value="{{$file->rec_archivo}}" name="filename">
                                 <input type="hidden" value="{{$idcurso}}" name="idcurso">
                                 <td><button type="submit" class="btn btn-success btn-sm"><i class="fa fa-download"></i></button>
+                                <a data-target="#modal-delete-{{$file->rec_id}}" title="eliminar file" data-toggle="modal" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>    
                                 </td>
-                                <a data-target="#modal-delete-{{$file->rec_id}}" title="eliminar file" data-toggle="modal" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                                @include('files.delete')
+                                
+                                @include('recursos.delete')
                             </form>
                         </tr>
                         @endforeach

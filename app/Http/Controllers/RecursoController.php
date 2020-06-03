@@ -122,6 +122,13 @@ class RecursoController extends Controller
         return response()->download(storage_path("app/cursos/".$req->idcurso.'/'.$req->filename));
     }
 
+    public function destroy($id, $idcurso, $nbim)
+    {
+        $rec = Recurso::find($id);
+        Recurso::destroy($id);
+        return redirect()->route('recursos.show', ['idcurso' => $idcurso, 'nbim' => $nbim])->with('status', 'Recurso eliminado correctamente!');
+    }
+
 
 
 }

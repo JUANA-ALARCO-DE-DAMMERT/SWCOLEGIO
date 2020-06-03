@@ -42,6 +42,7 @@ Route::post('recibirfiltroasis','AsistenciaController@recibirFiltros');
 // Rutas de recursos
 Route::get('{idcurso}/recursos','RecursoController@listarBimestres');
 Route::get('recursos/{idcurso}/{nbim}','RecursoController@showBimestre')->name('recursos.show');
+Route::get('file/{id}/{idcurso}/{nbim}','RecursoController@destroy');
 Route::post('/upload', 'RecursoController@upload'); //Upload files
 Route::post('/download','RecursoController@download'); //Download files
 
