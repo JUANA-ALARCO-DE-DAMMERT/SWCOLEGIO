@@ -46,7 +46,14 @@
                                 <td>{{$v->vid_fecha}}</td>
                                 <td>
                                     <a href="{{url('recvideo/'.$v->vid_id)}}" class="btn btn-secondary btn-sm"><i class="fa fa-video-camera"></i></a>
+                                    @if(Auth::user()->hasrole('docen'))
+                                    <a href="{{url('recvideo/'.$v->vid_id.'/edit')}}" title="Editar video" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
+                                    
+                                    <a data-target="#modal-delete-{{}}" title="eliminar video" data-toggle="modal" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                    @include('recvideos.delete')
+                                    @endif 
                                 </td>
+                                    
                             </tr>
                         @endforeach
                     </tbody>
