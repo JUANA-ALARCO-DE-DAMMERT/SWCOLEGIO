@@ -80,9 +80,7 @@ class RecVideoController extends Controller
     {
         $video = Recvideo::find($id);
         $idcurso = $video["vid_curso"];
-        // print_r($video);
-        // echo $video["vid_curso"];
         Recvideo::destroy($id);
-        return redirect()->route('recvideo.show',['recvideo'=>$idcurso])->with('status', 'video eliminado correctamente!');
+        return redirect()->route('recvideos',['idcurso'=>$idcurso])->with('status', 'video eliminado correctamente!');
     }
 }
