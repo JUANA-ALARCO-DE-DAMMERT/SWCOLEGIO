@@ -45,6 +45,12 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item d-md-down-none">
+          <a class="nav-link" href="">
+            <i class="icon-bell"></i>
+            <span class="badge badge-pill badge-danger">15</span>
+          </a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <img class="img-avatar" src="{{asset('plantilla/img/avatars/6.jpg')}}" alt="admin@bootstrapmaster.com">

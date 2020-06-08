@@ -190,16 +190,19 @@ $fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8'
                   <div class="card-body">
                     <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
                       <div class="carousel-inner">
+                        <!-- primera imagen -->
                         <div class="carousel-item active">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
                           src="{{asset('img/ti.png')}}" 
                             data-holder-rendered="true">
                         </div>
+                        <!-- Segunda imagen -->   
 <!--                         <div class="carousel-item">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
                           src="{{asset('img/diadelamadre2.png')}}"
                             data-holder-rendered="true">
                         </div> -->
+                        <!-- tercera imagen -->   
 <!--                         <div class="carousel-item">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
                            src="{{asset('img/diadelamadre3.png')}}"
@@ -748,17 +751,21 @@ $fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8'
                   <div class="card-body">
                     <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
                       <div class="carousel-inner">
+                        <!-- primera imagen -->
                         <div class="carousel-item active">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
-                          src="{{asset('img/ti.png')}}" 
+                          src="{{asset('img/entregradenotas.png')}}" 
+                            data-holder-rendered="true" ><center><a  href="{{url('misreportes/'.Auth::user()->usuario)}}" class="btn btn-primary">Haga click Aqui</a></center> 
+                        </div>
+                        
+                        <!-- Segunda imagen -->   
+                        <div class="carousel-item">
+                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
+                          src="{{asset('img/ti.png')}}"
                             data-holder-rendered="true">
                         </div>
-<!--                         <div class="carousel-item">
-                          <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
-                          src="{{asset('img/diadelamadre2.png')}}"
-                            data-holder-rendered="true">
-                        </div> -->
-<!--                         <div class="carousel-item">
+                        <!-- tercera imagen -->   
+                        <!-- <div class="carousel-item">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]"
                            src="{{asset('img/diadelamadre3.png')}}"
                             data-holder-rendered="true">
