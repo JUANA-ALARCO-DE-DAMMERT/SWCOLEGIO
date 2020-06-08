@@ -49,7 +49,7 @@
                                     @if(Auth::user()->hasrole('docen'))
                                     <a href="{{url('recvideo/'.$v->vid_id.'/edit')}}" title="Editar video" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
                                     
-                                    <a data-target="#modal-delete-{{}}" title="eliminar video" data-toggle="modal" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a data-target="#modal-delete-{{$v->vid_id}}" title="eliminar video" data-toggle="modal" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     @include('recvideos.delete')
                                     @endif 
                                 </td>
