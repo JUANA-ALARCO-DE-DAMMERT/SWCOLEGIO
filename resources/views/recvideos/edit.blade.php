@@ -18,7 +18,7 @@
                             <input type="text" class="form-control" name="vid_link" value="{{$video->vid_link}}" required>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                        <a href="{{url($video->vid_curso.'/videos')}}" class="btn btn-danger">Cancelar</a>
                         <input type="submit" value="Editar" class="btn btn-warning">
                     </div>
                 </form>

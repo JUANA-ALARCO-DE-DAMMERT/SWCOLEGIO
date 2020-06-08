@@ -76,7 +76,7 @@ class RecVideoController extends Controller
         // return redirect()->route('exa.show',array('idcurso' => $exa->exa_idcurso))->with('status', 'Exámen editado correctamente!');
 
         $data = $request->all();
-        $video = Recvideo::find($data['vid_curso']);
+        $video = Recvideo::find($id);
         $video->update($request->all());
         return redirect()->route('recvideos',array('idcurso' => $video->vid_curso))->with('status', 'Exámen editado correctamente!');
     }
