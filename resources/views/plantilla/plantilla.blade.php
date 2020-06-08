@@ -58,7 +58,7 @@
           <div class="dropdown-menu dropdown-menu-right">
             
             <div class="dropdown-header text-center">
-              <strong>Account</strong>
+              <strong>Cuenta</strong>
             </div>
             <a class="dropdown-item" href="{{url('pwrd')}}">
               <i class="fa fa-wrench"></i> Password</a>

@@ -194,7 +194,7 @@ $fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8'
                         <div class="carousel-item active">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
                           src="{{asset('img/ti.png')}}" 
-                            data-holder-rendered="true">
+                            data-holder-rendered="true"><center><a  href="{{url('pwrd')}}" class="btn btn-primary">Haga click Aqui</a></center>
                         </div>
                         <!-- Segunda imagen -->   
 <!--                         <div class="carousel-item">
@@ -538,7 +538,7 @@ $fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8'
                         <div class="carousel-item active">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
                           src="{{asset('img/ti.png')}}" 
-                            data-holder-rendered="true">
+                            data-holder-rendered="true"><center><a  href="{{url('pwrd')}}" class="btn btn-primary">Haga click Aqui</a></center>
                         </div>
 <!--                         <div class="carousel-item">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
@@ -640,7 +640,7 @@ $fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8'
                         <div class="carousel-item active">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" 
                           src="{{asset('img/ti.png')}}" 
-                            data-holder-rendered="true">
+                            data-holder-rendered="true"><center><a  href="{{url('pwrd')}}" class="btn btn-primary">Haga click Aqui</a></center>
                         </div>
 <!--                         <div class="carousel-item">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
@@ -762,7 +762,7 @@ $fechas = DB::table('asignatura')->orderBy('asig_nom')->where('asig_id','!=','8'
                         <div class="carousel-item">
                           <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" 
                           src="{{asset('img/ti.png')}}"
-                            data-holder-rendered="true">
+                            data-holder-rendered="true"><center><a  href="{{url('pwrd')}}" class="btn btn-primary">Haga click Aqui</a></center>
                         </div>
                         <!-- tercera imagen -->   
                         <!-- <div class="carousel-item">
