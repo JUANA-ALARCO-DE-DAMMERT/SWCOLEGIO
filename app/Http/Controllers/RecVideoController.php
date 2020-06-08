@@ -55,7 +55,10 @@ class RecVideoController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $exa = ExamenLinea::find($id);
+        // return view ('examen.edit',['examen'=>$exa]);
+        $video = Recvideo::find($id);
+        return view ('recvideos.edit',['video'=>$video]);
     }
 
     /**
@@ -67,7 +70,15 @@ class RecVideoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $data = $request->all();
+        // $exa = ExamenLinea::find($data['exa_id']);
+        // $exa->update($request->all());
+        // return redirect()->route('exa.show',array('idcurso' => $exa->exa_idcurso))->with('status', 'Exámen editado correctamente!');
+
+        $data = $request->all();
+        $video = Recvideo::find($data['vid_curso']);
+        $video->update($request->all());
+        return redirect()->route('recvideos',array('idcurso' => $video->vid_curso))->with('status', 'Exámen editado correctamente!');
     }
 
     /**
