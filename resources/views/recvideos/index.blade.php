@@ -45,7 +45,7 @@
                                 <td>{{$v->trab_ape . ', ' . $v->trab_nom}}</td>
                                 <td>{{$v->vid_fecha}}</td>
                                 <td>
-                                    <a href="{{url('recvideo/'.$v->vid_id)}}" class="btn btn-secondary btn-sm"><i class="fa fa-video-camera"></i></a>
+                                    <a href="{{url('recvideo/'.$v->vid_id)}}" class="btn btn-secondary btn-sm" title="ver video"><i class="fa fa-video-camera"></i></a>
                                     @if(Auth::user()->hasrole('docen'))
                                     <a href="{{url('recvideo/'.$v->vid_id.'/edit')}}" title="Editar video" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
                                     

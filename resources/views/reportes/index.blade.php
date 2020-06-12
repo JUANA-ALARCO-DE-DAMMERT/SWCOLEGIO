@@ -19,7 +19,11 @@
         <div class="card my-3">
             <div class="card-header">
                 <i class="fa fa-align-justify"></i> Curso: {{$q->asig_nom}}
+                <div class="card-header-actions">
+                    <a href="{{url('curso/'.$idcurso)}}" class="btn btn-block btn-outline-dark btn-sm"><i class="fa fa-mail-reply"></i></a>
+                </div>
             </div>
+
             <div class="card-body">
                 @if(Auth::user()->hasRole('docen'))
                     <a href="{{url('reportes/'.$idcurso.'/lastconection')}}" id="btn-only1click" class="btn btn-danger"><i class="fa fa-print"></i> Última Conexión de Alumnos</a><br><br>

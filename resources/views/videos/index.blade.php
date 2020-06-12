@@ -41,7 +41,7 @@
                                 <td>{{$v->alum_ape . ', ' . $v->alum_nom}}</td>
                                 <td>{{$v->trab_ape . ', ' . $v->trab_nom}}</td>
                                 <td>
-                                    <a href="{{url('video/'.$v->id)}}" class="btn btn-sm btn-secondary"><i class="fa fa-video-camera"></i></a>
+                                    <a href="{{url('video/'.$v->id)}}" class="btn btn-sm btn-secondary" title="ver video"><i class="fa fa-video-camera"></i></a>
                                 </td>
                             </tr>
                         @endforeach

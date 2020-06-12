@@ -44,7 +44,11 @@
                             </tr>
                     </tbody>
                 </table>
-                <input type="submit" value="Modificar" class="btn btn-warning">
+                <button class="btn btn-warning" type="submit">
+                  <span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true">                                                                            </span>
+                  Modificar
+                </button>
+                <!-- <input type="submit" value="Modificar" class="btn btn-warning"> -->
             </div>
             </form>
         </div>
@@ -53,6 +57,16 @@
 @endsection
 
 @section('scripts')
+<script type="text/javascript">
+  $(() => {
+  $('button').on('click', e => {
+    let spinner = $(e.currentTarget).find('span')
+    spinner.removeClass('d-none')
+    setTimeout(_ => spinner.addClass('d-none'), 20000)
+  })
+})
+</script>
+
 <script>
     items = document.getElementsByClassName("itemTotalNeto<?php echo $a->alum_id ?>")
     for (var i = 0; i < items.length; i++) {

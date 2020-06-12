@@ -49,7 +49,11 @@
                             @endforeach
                     </tbody>
                 </table>
-                <input type="submit" value="Registrar" class="btn btn-primary">
+                <button class="btn btn-primary" type="submit">
+                  <span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true">                                                                            </span>
+                  Registrar
+                </button>
+                <!-- <input type="submit" value="Registrars" class="btn btn-primary"> -->
             </div>
             </form>
         </div>
@@ -58,6 +62,16 @@
 @endsection
 
 @section('scripts')
+<script type="text/javascript">
+  $(() => {
+  $('button').on('click', e => {
+    let spinner = $(e.currentTarget).find('span')
+    spinner.removeClass('d-none')
+    setTimeout(_ => spinner.addClass('d-none'), 20000)
+  })
+})
+</script>
+
 <script>
     <?php foreach($alumnos as $a) { ?>
     items = document.getElementsByClassName("itemTotalNeto<?php echo $a->alum_id ?>")

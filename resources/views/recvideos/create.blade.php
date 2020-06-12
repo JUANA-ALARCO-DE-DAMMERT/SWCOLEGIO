@@ -18,7 +18,11 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <button class="btn btn-primary" type="submit">Enviar</button>
+                <button class="btn btn-primary" type="submit">
+                  <span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true">                                                                            </span>
+                  Subir
+                </button>
+                <!-- <button class="btn btn-primary" type="submit">Enviar</button> -->
             </div>
         </form>
     </div>
@@ -28,6 +32,17 @@
 </div>
 
 @section('scripts')
+
+<script type="text/javascript">
+  $(() => {
+  $('button').on('click', e => {
+    let spinner = $(e.currentTarget).find('span')
+    spinner.removeClass('d-none')
+    setTimeout(_ => spinner.addClass('d-none'), 2000)
+  })
+})
+</script>
+
 <script type="text/javascript">
         enviando = false; //Obligaremos a entrar el if en el primer submit
     

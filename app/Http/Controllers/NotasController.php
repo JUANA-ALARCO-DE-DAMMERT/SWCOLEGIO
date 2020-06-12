@@ -95,7 +95,7 @@ class NotasController extends Controller
         $nota->not_n3 = $req['not_n3'];
         $nota->not_promedio = $req['not_promedio'];
         $nota->save();
-        return redirect()->route('notas.show', ['idcurso' => $nota->not_idcurso, 'nbim' => $nota->not_bimestre])->with('status', 'Notas registradas correctamente!');
+        return redirect()->route('notas.show', ['idcurso' => $nota->not_idcurso, 'nbim' => $nota->not_bimestre])->with('status', 'Notas editadas correctamente!');
     }
 
     public function misNotas($id)

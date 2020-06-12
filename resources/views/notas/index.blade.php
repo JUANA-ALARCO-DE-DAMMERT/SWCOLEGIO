@@ -54,7 +54,7 @@
                                 <td class="text-center">{{$a->not_n3}}</td>
                                 <td class="text-center">{{$a->not_promedio}}</td>
                                 <td>
-                                    <a href="{{url('notas/'.$a->not_id.'/edit')}}" class="btn btn-sm btn-warning" ><i class="fa fa-pencil"></i></a>
+                                    <a href="{{url('notas/'.$a->not_id.'/edit')}}" class="btn btn-sm btn-warning" title="editar notas"><i class="fa fa-pencil"></i></a>
                                 </td>
                             </tr>
                             @endforeach

@@ -19,7 +19,11 @@
                     </div>
                     <div class="modal-footer">
                         <a href="{{url($video->vid_curso.'/videos')}}" class="btn btn-danger">Cancelar</a>
-                        <input type="submit" value="Editar" class="btn btn-warning">
+                        <button class="btn btn-warning" type="submit">
+                  <span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Editar
+                </button>
+                        <!-- <input type="submit" value="Editarss" class="btn btn-warning"> -->
                     </div>
                 </form>
             </div>
@@ -28,6 +32,16 @@
 </div>
 @endsection
 @section('scripts')
+<script type="text/javascript">
+  $(() => {
+  $('button').on('click', e => {
+    let spinner = $(e.currentTarget).find('span')
+    spinner.removeClass('d-none')
+    setTimeout(_ => spinner.addClass('d-none'), 20000)
+  })
+})
+</script>
+
 <script type="text/javascript">
         enviando = false; //Obligaremos a entrar el if en el primer submit
     

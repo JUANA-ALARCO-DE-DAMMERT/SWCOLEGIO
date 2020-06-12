@@ -34,7 +34,11 @@
                         </div>
                     </div>
                     <div class="form-actions">
-                        <input type="submit" value="Subir" class="btn btn-primary">
+                        <button class="btn btn-primary" type="submit">
+                          <span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                          Subir
+                        </button>
+                        <!-- <input type="submit" value="Subir" class="btn btn-primary"> -->
                         <a href="{{url('curso/'.$idcurso)}}" class="btn btn-danger">Cancelar</a>
                     </div> 
                 </form>
@@ -45,6 +49,16 @@
 @endsection
 
 @section('scripts')
+<script type="text/javascript">
+  $(() => {
+  $('button').on('click', e => {
+    let spinner = $(e.currentTarget).find('span')
+    spinner.removeClass('d-none')
+    setTimeout(_ => spinner.addClass('d-none'), 20000)
+  })
+})
+</script>
+
 <script type="text/javascript">
         enviando = false; //Obligaremos a entrar el if en el primer submit
     

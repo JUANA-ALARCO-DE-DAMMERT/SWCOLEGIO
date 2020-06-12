@@ -44,7 +44,11 @@
                             @endforeach
                     </tbody>
                 </table>
-                <input type="submit" class="btn btn-primary" id="elSubmit" value="Registrar">
+                <button class="btn btn-primary" id="elSubmit" type="submit">
+                  <span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Registrar
+                </button>
+                <!-- <input type="submit" class="btn btn-primary" id="elSubmit" value="Registrar"> -->
                 </form>
             </div>
         </div>
@@ -52,6 +56,16 @@
 </div>
 @endsection
 @section('scripts')
+<script type="text/javascript">
+  $(() => {
+  $('button').on('click', e => {
+    let spinner = $(e.currentTarget).find('span')
+    spinner.removeClass('d-none')
+    setTimeout(_ => spinner.addClass('d-none'), 20000)
+  })
+})
+</script>
+
 <script type="text/javascript">
         enviando = false; //Obligaremos a entrar el if en el primer submit
     
