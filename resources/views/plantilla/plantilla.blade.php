@@ -31,6 +31,10 @@
       // Bootstrap ID
       gtag('config', 'UA-118965717-5');
     </script>
+
+          <!-- Start of  Zendesk Widget script -->
+      <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=9ed003b9-84db-47b9-97ac-f1ccb41d66c9"> </script>
+      <!-- End of  Zendesk Widget script -->
   </head>
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show" onload="mueveReloj()">
     <header class="app-header navbar">
