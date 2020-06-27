@@ -124,13 +124,46 @@ class AsistenciaController extends Controller
         //
     }
 
-    public function update(Request $request, Asistencia $asistencia)
+    public function update(Request $request)
     {
-        //
+        // $trab = trabajador::find($id);
+        // $request->all();
+        // $trab->update($request->all());
+        // return redirect()->route('administrador.index')->with('status', 'Administrador editado correctamente!');
+
+        $data=$request->all();
+        $asis = asistencia::find($data['asis_id']);
+        print_r($data);
+        $asis->update($request->all());
+        return redirect()->route('asistencia.show',[$asis['asis_idcurso']])->with('status', 'Asistencia Editada correctamente!');
+
+        // return redirect()->route('administrador.index')->with('status', 'Administrador editado correctamente!');
     }
 
     public function destroy(Asistencia $asistencia)
     {
         //
     }
+
+    public function editarAsistencia($idcurso){
+        $alumnos = DB::table('alumno_curso')
+                    ->join('alumno','alumno_curso.alumno_id','alumno.alum_id')
+                    ->where('alumno_curso.curso_id','=',$idcurso)
+                    ->get();
+        
+        return view ('asistencia.editform',['idcurso'=>$idcurso, 'alumnos'=>$alumnos]);
+    }
+    public function recibirEditarAsis(Request $request)
+    {
+        $data =$request->all();
+        $mostrarfecha = DB::table('asistencia')
+                    ->join('alumno','alumno.alum_id','asistencia.asis_idalumno')
+                    ->where('asistencia.asis_fecha','=',$data['fecha'])
+                    ->where('asistencia.asis_idcurso','=',$data['idcurso'])
+                    ->where('asistencia.asis_idalumno','=',$data['alumno'])
+                    ->first();
+        return view ('asistencia.mostrareditasis',['mostrarfecha'=>$mostrarfecha]);
+
+    }
+    
 }

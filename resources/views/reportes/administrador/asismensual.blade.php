@@ -24,7 +24,7 @@
                     	<label class="col-md-1 col-form-label">Curso</label>
                         <div class="col-md-3" >
                             <select name="idasig" class="form-control">
-								<option hidden>---Seleccione---</option>
+								                <option hidden>---Seleccione---</option>
                 								<option value="1">Matemáticas</option>
                                 <option value="2">Comunicación</option>
                                 <option value="3">Ciencias Sociales</option>
@@ -32,7 +32,7 @@
                                 <option value="5">Arte y Cultura</option>
                                 <option value="6">Educacion Fisica</option>
                                 <option value="7">Ingles</option>
-							</select>
+							               </select>
                         </div>
                     </div>
 					<div class="form-actions">

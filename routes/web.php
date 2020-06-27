@@ -38,6 +38,8 @@ Route::get('matricula/{id}','CursoController@matricula');
 // Rutas de asistencias
 Route::get('asistencia/registrar/{id}','AsistenciaController@registrar');
 Route::post('recibirfiltroasis','AsistenciaController@recibirFiltros');
+Route::get('asistencia/editar/{idcurso}','AsistenciaController@editarAsistencia');
+Route::post('recibireditarasis','AsistenciaController@recibirEditarAsis');
 
 // Rutas de recursos
 Route::get('{idcurso}/recursos','RecursoController@listarBimestres');

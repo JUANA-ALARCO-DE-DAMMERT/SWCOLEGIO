@@ -31,6 +31,7 @@
             <div class="card-header">
                 @if(Auth::user()->hasRole('docen'))
                     <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#rf"> Rango de fechas</button>
+                    <a href="{{url('asistencia/editar/'.$idcurso)}}" type="button" class="btn btn-warning">Editar Asistencia</a>
                     @include('asistencia.modal')
                 @endif
                 

@@ -8,7 +8,7 @@
                 <strong>Reporte bimestral de notas</strong>
             </div>
             <div class="card-body">
-            	<form method="post" action="{{url('recibirbimestres')}}" method="post">
+            	<form action="{{url('recibirbimestres')}}" method="post">
 					@method('POST')
 					{{ csrf_field() }}
 					<div class="form-group row">
